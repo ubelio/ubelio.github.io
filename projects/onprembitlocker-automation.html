@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BitLocker Automation in Hybrid AD - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header section -->
+  <header>
+    <h1>BitLocker Automation in Hybrid AD</h1>
+    <p>On-Premises Deployment with GPO and PowerShell</p>
+  </header>
+
+  <!-- Navigation bar -->
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../scripts.html">Scripts</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <!-- Main content area -->
+  <main>
+
+    <!-- Project Overview -->
+    <section>
+      <h2>Challenge</h2>
+      <p>Encrypt over 1,000 existing Windows devices automatically in a hybrid Active Directory environment, without user interaction, interruption, or downtime.</p>
+    </section>
+
+    <!-- Tools & Technologies -->
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>Active Directory Domain Services (AD DS)</li>
+        <li>Group Policy Objects (GPO)</li>
+        <li>PowerShell scripting</li>
+        <li>MBAM (Microsoft BitLocker Administration and Monitoring)</li>
+      </ul>
+    </section>
+
+    <!-- Implementation Details -->
+    <section>
+      <h2>Implementation</h2>
+      <p>
+        A startup PowerShell script was deployed via GPO to check encryption status and silently enable BitLocker on eligible devices. Recovery keys were stored in AD DS and made accessible to IT support through the Helpdesk console. MBAM was used for compliance reporting and key recovery.
+      </p>
+    </section>
+
+    <!-- Results & Impact -->
+    <section>
+      <h2>Impact</h2>
+      <p>
+        Hundreds of legacy devices were encrypted without manual intervention. The solution ensured compliance with internal security policies, improved key recovery workflows, and reduced support overhead.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer with contact info -->
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
+
+</body>
+</html>
 
