@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scripts - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    pre {
+      background-color: #E0DFD6;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header section -->
+  <header>
+    <h1>Automation Scripts</h1>
+    <p>PowerShell Scripts for IT Operations and Security</p>
+  </header>
+
+  <!-- Navigation bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="scripts.html">Scripts</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Main content area -->
+  <main>
+
+    <!-- BitLocker System Drive Script -->
+    <section>
+      <h2>EnableBitlockerSystemDriveC.ps1</h2>
+      <p>This script checks BitLocker status on the system drive (C:), enables encryption if needed, detects TPM availability, and backs up the recovery key to Active Directory.</p>
+      <pre>
+# Check BitLocker status
+$bitlockerStatus = Get-BitLockerVolume -MountPoint "C:"
+if ($bitlockerStatus.ProtectionStatus -eq 'Off') {
+    # Enable BitLocker with TPM and AD key backup
+    Enable-BitLocker -MountPoint "C:" -EncryptionMethod XtsAes256 -TpmProtector
+    Backup-BitLockerKeyProtector -MountPoint "C:"
+}
+      </pre>
+    </section>
+
+    <!-- BitLocker Data Drive Script -->
+    <section>
+      <h2>EnableBitlockerDataDriveD.ps1</h2>
+      <p>This script detects and encrypts data drives (D:, E:, F:) and removable drives using the same logic as the system drive.</p>
+      <pre>
+# Encrypt data and removable drives
+$drives = Get-BitLockerVolume | Where-Object { $_.MountPoint -match "D:|E:|F:" }
+foreach ($drive in $drives) {
+    if ($drive.ProtectionStatus -eq 'Off') {
+        Enable-BitLocker -MountPoint $drive.MountPoint -EncryptionMethod XtsAes256 -PasswordProtector
+        Backup-BitLockerKeyProtector -MountPoint $drive.MountPoint
+    }
+}
+      </pre>
+    </section>
+
+  </main>
+
+  <!-- Footer with contact info -->
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/ubelio/footer>
+
+</body>
+</html>
