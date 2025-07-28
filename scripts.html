@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Scripts - Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Shared styling for consistency across site -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -91,9 +92,9 @@
   <!-- Main content area -->
   <main>
 
-    <!-- Script 1 -->
+    <!-- Script 1 section with anchor ID for linking -->
     <section>
-      <h2>EnableBitlockerSystemDriveC.ps1</h2>
+      <h2 id="EnableBitlockerSystemDriveC">EnableBitlockerSystemDriveC.ps1</h2>
       <p>This script checks BitLocker status on the system drive, enables encryption using TPM if available, and backs up the recovery key to Active Directory.</p>
       <pre>
 #Check TPM version 
@@ -115,9 +116,9 @@ if ($TPMver -match '2.0') {
       <a class="download-link" href="scripts/EnableBitlockerSystemDriveC.ps1" download>📥 Download Full Script</a>
     </section>
 
-    <!-- Script 2 -->
+    <!-- Script 2 section with anchor ID for linking -->
     <section>
-      <h2>EnableBitlockerDataDriveD.ps1</h2>
+      <h2 id="EnableBitlockerDataDriveD">EnableBitlockerDataDriveD.ps1</h2>
       <p>This script detects and encrypts data drives (D:, E:, F:) and enables auto-unlock if the system drive is already encrypted.</p>
       <pre>
 $DRIVEd = Get-BitLockerVolume -MountPoint 'd:'
