@@ -45,6 +45,18 @@
       border-radius: 5px;
       overflow-x: auto;
     }
+    .download-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #141413;
+      color: #C9C8BF;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .download-link:hover {
+      background-color: #333;
+    }
     footer {
       background-color: #BDBBB2;
       text-align: center;
@@ -79,35 +91,48 @@
   <!-- Main content area -->
   <main>
 
-    <!-- BitLocker System Drive Script -->
+    <!-- Script 1 -->
     <section>
       <h2>EnableBitlockerSystemDriveC.ps1</h2>
-      <p>This script checks BitLocker status on the system drive (C:), enables encryption if needed, detects TPM availability, and backs up the recovery key to Active Directory.</p>
+      <p>This script checks BitLocker status on the system drive, enables encryption using TPM if available, and backs up the recovery key to Active Directory.</p>
       <pre>
-# Check BitLocker status
-$bitlockerStatus = Get-BitLockerVolume -MountPoint "C:"
-if ($bitlockerStatus.ProtectionStatus -eq 'Off') {
-    # Enable BitLocker with TPM and AD key backup
-    Enable-BitLocker -MountPoint "C:" -EncryptionMethod XtsAes256 -TpmProtector
-    Backup-BitLockerKeyProtector -MountPoint "C:"
+#Check TPM version 
+$TPMver = Get-CIMInstance -class Win32_Tpm -namespace root\CIMV2\Security\MicrosoftTpm | Select SpecVersion
+if ($TPMver -match '2.0') {
+  $DRIVE = Get-BitLockerVolume -MountPoint 'c:'
+  if ($DRIVE.VolumeStatus -eq 'FullyDecrypted') {
+    Add-BitLockerKeyProtector -MountPoint 'c:' -RecoveryPasswordProtector
+    Enable-Bitlocker -MountPoint 'c:' -TpmProtector
+  }
+} else {
+  $DRIVE = Get-BitLockerVolume -MountPoint 'c:'
+  if ($DRIVE.VolumeStatus -eq 'FullyDecrypted') {
+    Add-BitLockerKeyProtector -MountPoint 'c:' -RecoveryPasswordProtector
+    Enable-Bitlocker -MountPoint 'c:' -RecoveryPasswordProtector
+  }
 }
       </pre>
+      <a class="download-link" href="scripts/EnableBitlockerSystemDriveC.ps1" download>📥 Download Full Script</a>
     </section>
 
-    <!-- BitLocker Data Drive Script -->
+    <!-- Script 2 -->
     <section>
       <h2>EnableBitlockerDataDriveD.ps1</h2>
-      <p>This script detects and encrypts data drives (D:, E:, F:) and removable drives using the same logic as the system drive.</p>
+      <p>This script detects and encrypts data drives (D:, E:, F:) and enables auto-unlock if the system drive is already encrypted.</p>
       <pre>
-# Encrypt data and removable drives
-$drives = Get-BitLockerVolume | Where-Object { $_.MountPoint -match "D:|E:|F:" }
-foreach ($drive in $drives) {
-    if ($drive.ProtectionStatus -eq 'Off') {
-        Enable-BitLocker -MountPoint $drive.MountPoint -EncryptionMethod XtsAes256 -PasswordProtector
-        Backup-BitLockerKeyProtector -MountPoint $drive.MountPoint
-    }
+$DRIVEd = Get-BitLockerVolume -MountPoint 'd:'
+$DRIVEe = Get-BitLockerVolume -MountPoint 'e:'
+$DRIVEf = Get-BitLockerVolume -MountPoint 'f:'
+$DRIVE = Get-BitLockerVolume -MountPoint 'c:'
+
+if ($DRIVEd.volumeStatus -eq 'FullyDecrypted' -and $DRIVE.volumestatus -eq 'FullyEncrypted') {
+  Add-BitLockerKeyProtector -MountPoint 'd:' -RecoveryPasswordProtector
+  Enable-Bitlocker -MountPoint 'd:' -RecoveryPasswordProtector
+  Enable-BitLockerAutoUnlock -MountPoint 'd:'
 }
+# Repeat for E: and F:
       </pre>
+      <a class="download-link" href="scripts/EnableBitlockerDataDriveD.ps1" download>📥 Download Full Script</a>
     </section>
 
   </main>
@@ -115,7 +140,8 @@ foreach ($drive in $drives) {
   <!-- Footer with contact info -->
   <footer>
     <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
-    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/ubelio/footer>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
 
 </body>
 </html>
