@@ -91,30 +91,30 @@ Removable drives (e.g., USB flash drives) were handled dynamically, encrypted ba
       </ul>
     </section>
 
-    <!-- Implementation Details -->
-    <section>
-      <h2>Implementation</h2>
-      <p>
-The rollout was executed in three stages:
+<!-- Implementation Details -->
+<section>
+  <h2>Implementation</h2>
+  <p>The rollout was executed in three stages:</p>
+  <ol>
+    <li><strong>Policy Preparation:</strong> A GPO was deployed to configure BitLocker settings for system, data, and removable drives before any encryption began.</li>
+    <li><strong>System Drive Encryption:</strong> A second GPO triggered a PowerShell script (<code>EnableBitlockerSystemDriveC.ps1</code>) that:
+      <ul>
+        <li>Checked BitLocker status</li>
+        <li>Enabled encryption on the system drive</li>
+        <li>Detected TPM availability</li>
+        <li>Backed up recovery keys to Active Directory for Helpdesk access</li>
+      </ul>
+    </li>
+    <li><strong>Data & Removable Drive Encryption:</strong> A third GPO deployed <code>EnableBitlockerDataDriveD.ps1</code>, which:
+      <ul>
+        <li>Detected and encrypted data drives (D:, E:, F:)</li>
+        <li>Included removable drives like USBs</li>
+        <li>Applied the same encryption logic as the system drive</li>
+      </ul>
+    </li>
+  </ol>
+</section>
 
-Policy Preparation
-A GPO was deployed to configure BitLocker settings for system, data, and removable drives before any encryption began.
-
-System Drive Encryption
-A second GPO triggered a PowerShell script (EnableBitlockerSystemDriveC.ps1) that:
-
-Checked BitLocker status
-Enabled encryption on the system drive
-Detected TPM availability
-Backed up recovery keys to Active Directory for Helpdesk access
-Data & Removable Drive Encryption
-A third GPO deployed EnableBitlockerDataDriveD.ps1, which:
-
-Detected and encrypted data drives (D:, E:, F:)
-Included removable drives like USBs
-Applied the same encryption logic as the system drive        
-      </p>
-    </section>
 
     <!-- Results & Impact -->
     <section>
