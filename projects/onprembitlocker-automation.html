@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>BitLocker Automation in Hybrid AD - Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Shared styling for consistency across site -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -81,7 +82,7 @@ Devices included both single-drive systems and those with additional data volume
 Removable drives (e.g., USB flash drives) were handled dynamically, encrypted based on the behavior of the system drive to ensure consistent security.</p>
     </section>
 
-    <!-- Tools & Technologies -->
+    <!-- Tools and Technologies used -->
     <section>
       <h2>Tools & Technologies</h2>
       <ul>
@@ -91,32 +92,33 @@ Removable drives (e.g., USB flash drives) were handled dynamically, encrypted ba
       </ul>
     </section>
 
-<!-- Implementation Details -->
-<section>
-  <h2>Implementation</h2>
-  <p>The rollout was executed in three stages:</p>
-  <ol>
-    <li><strong>Policy Preparation:</strong> A GPO was deployed to configure BitLocker settings for system, data, and removable drives before any encryption began.</li>
-    <li><strong>System Drive Encryption:</strong> A second GPO triggered a PowerShell script (<code>EnableBitlockerSystemDriveC.ps1</code>) that:
-      <ul>
-        <li>Checked BitLocker status</li>
-        <li>Enabled encryption on the system drive</li>
-        <li>Detected TPM availability</li>
-        <li>Backed up recovery keys to Active Directory for Helpdesk access</li>
-      </ul>
-    </li>
-    <li><strong>Data & Removable Drive Encryption:</strong> A third GPO deployed <code>EnableBitlockerDataDriveD.ps1</code>, which:
-      <ul>
-        <li>Detected and encrypted data drives (D:, E:, F:)</li>
-        <li>Included removable drives like USBs</li>
-        <li>Applied the same encryption logic as the system drive</li>
-      </ul>
-    </li>
-  </ol>
-</section>
+    <!-- Implementation details with linked scripts -->
+    <section>
+      <h2>Implementation</h2>
+      <p>The rollout was executed in three stages:</p>
+      <ol>
+        <li><strong>Policy Preparation:</strong> A GPO was deployed to configure BitLocker settings for system, data, and removable drives before any encryption began.</li>
+        <li><strong>System Drive Encryption:</strong> A second GPO triggered a PowerShell script 
+          <a href="../scripts.html#EnableBitlockerSystemDriveC" target="_blank"><code>EnableBitlockerSystemDriveC.ps1</code></a> that:
+          <ul>
+            <li>Checked BitLocker status</li>
+            <li>Enabled encryption on the system drive</li>
+            <li>Detected TPM availability</li>
+            <li>Backed up recovery keys to Active Directory for Helpdesk access</li>
+          </ul>
+        </li>
+        <li><strong>Data & Removable Drive Encryption:</strong> A third GPO deployed 
+          <a href="../scripts.html#EnableBitlockerDataDriveD" target="_blank"><code>EnableBitlockerDataDriveD.ps1</code></a>, which:
+          <ul>
+            <li>Detected and encrypted data drives (D:, E:, F:)</li>
+            <li>Included removable drives like USBs</li>
+            <li>Applied the same encryption logic as the system drive</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
 
-
-    <!-- Results & Impact -->
+    <!-- Results and impact -->
     <section>
       <h2>Impact</h2>
       <p>
@@ -134,4 +136,3 @@ Removable drives (e.g., USB flash drives) were handled dynamically, encrypted ba
 
 </body>
 </html>
-
