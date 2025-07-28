@@ -95,7 +95,24 @@ Removable drives (e.g., USB flash drives) were handled dynamically, encrypted ba
     <section>
       <h2>Implementation</h2>
       <p>
-        A startup PowerShell script was deployed via GPO to check encryption status and silently enable BitLocker on eligible devices. Recovery keys were stored in AD DS and made accessible to IT support through the Helpdesk console. MBAM was used for compliance reporting and key recovery.
+The rollout was executed in three stages:
+
+Policy Preparation
+A GPO was deployed to configure BitLocker settings for system, data, and removable drives before any encryption began.
+
+System Drive Encryption
+A second GPO triggered a PowerShell script (EnableBitlockerSystemDriveC.ps1) that:
+
+Checked BitLocker status
+Enabled encryption on the system drive
+Detected TPM availability
+Backed up recovery keys to Active Directory for Helpdesk access
+Data & Removable Drive Encryption
+A third GPO deployed EnableBitlockerDataDriveD.ps1, which:
+
+Detected and encrypted data drives (D:, E:, F:)
+Included removable drives like USBs
+Applied the same encryption logic as the system drive        
       </p>
     </section>
 
