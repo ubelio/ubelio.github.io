@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BitLocker Automation via Intune - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="BitLocker Automation via Intune - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Automated BitLocker deployment for cloud and co-managed devices using Microsoft Intune and Entra.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/intune-bitlocker-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/intunebitlocker-automation.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram, img.screenshot {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+    img.diagram:hover, img.screenshot:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BitLocker Automation via Intune</h1>
+    <p>Cloud and Co-Managed Device Encryption with Microsoft Intune</p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../scripts.html">Scripts</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Challenge</h2>
+      <p>Encrypt cloud-native and co-managed Windows devices using Microsoft Intune, ensuring compliance and recovery key protection without user disruption. The solution needed to support both Entra-joined and hybrid-joined devices enrolled via Intune or SCCM co-management.</p>
+    </section>
+
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>Microsoft Intune (Endpoint Security)</li>
+        <li>Microsoft Entra Security Groups</li>
+        <li>Co-management with Configuration Manager (SCCM)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Implementation & Environment</h2>
+      <p>Depending on the device type, we used a <strong>Disk Encryption policy</strong> from Intune’s Endpoint Security tab. This policy functions similarly to an ADMX-backed GPO, defining encryption methods and enforcement for OS, fixed, and removable drives.</p>
+      <p>Steps:</p>
+      <ol>
+        <li>Create a Disk Encryption policy in Intune.</li>
+        <li>Assign the policy to a Microsoft Entra device group.</li>
+        <li>Cloud-only devices receive and apply the policy automatically.</li>
+        <li>For hybrid-joined or co-managed devices:
+          <ul>
+            <li>Ensure the device is enrolled in Intune or co-managed via SCCM.</li>
+            <li>Switch the <strong>Endpoint Protection workload</strong> to Intune in SCCM to allow BitLocker settings to apply.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Intune Policy Configuration</h2>
+      <p>Click the image below to view the full-resolution policy settings:</p>
+      <a href="intune-bitlocker-settings.png" target="_blank">
+        <img src="intune-bitlocker-settings.png" alt="Intune BitLocker Policy Settings Screenshot" class="screenshot">
+      </a>
+    </section>
+
+    <section>
+      <h2>Automation Flow Diagram</h2>
+      <p>This diagram illustrates the BitLocker deployment process via Intune:</p>
+      <a href="intune-bitlocker-diagram.png" target="_blank">
+        <img src="intune-bitlocker-diagram.png" alt="BitLocker Automation via Intune Diagram" class="diagram">
+      </a>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Unified BitLocker deployment across cloud and hybrid devices</li>
+          <li>Recovery keys stored securely in Entra ID / Azure AD</li>
+          <li>No user interaction required</li>
+          <li>Improved compliance and simplified key recovery</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
+
+</body>
+</html>
 
