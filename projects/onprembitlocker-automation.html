@@ -63,6 +63,13 @@
       border: 1px solid #888;
       margin-top: 10px;
     }
+    .zoomable {
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+    .zoomable:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -125,7 +132,9 @@
     <section>
       <h2>BitLocker GPO Configuration</h2>
       <p>Below is a screenshot of the GPO settings used to enforce encryption and recovery key storage:</p>
-      <img src="bitlocker-gpo-settings.png" alt="BitLocker GPO Settings Screenshot" class="screenshot">
+      <a href="bitlocker-gpo-settings.png" target="_blank">
+        <img src="bitlocker-gpo-settings.png" alt="BitLocker GPO Settings Screenshot" class="screenshot zoomable">
+      </a>
     </section>
 
     <section>
