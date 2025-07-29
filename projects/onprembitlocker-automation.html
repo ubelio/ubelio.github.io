@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>BitLocker Automation in Hybrid AD - Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Shared styling for consistency across site -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -53,17 +52,26 @@
     footer a:hover {
       text-decoration: underline;
     }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram, img.screenshot {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header section -->
   <header>
     <h1>BitLocker Automation in Hybrid AD</h1>
     <p>On-Premises Deployment with GPO and PowerShell</p>
   </header>
 
-  <!-- Navigation bar -->
   <nav>
     <a href="../index.html">Home</a>
     <a href="../projects.html">Projects</a>
@@ -71,18 +79,15 @@
     <a href="../contact.html">Contact</a>
   </nav>
 
-  <!-- Main content area -->
   <main>
 
-    <!-- Project Overview -->
     <section>
       <h2>Challenge</h2>
       <p>Automatically encrypt over 1,000 existing Windows devices in a hybrid Active Directory environment using GPOs — with zero user interaction, no downtime, and no disruption.
-Devices included both single-drive systems and those with additional data volumes.
-Removable drives (e.g., USB flash drives) were handled dynamically, encrypted based on the behavior of the system drive to ensure consistent security.</p>
+      Devices included both single-drive systems and those with additional data volumes.
+      Removable drives (e.g., USB flash drives) were handled dynamically, encrypted based on the behavior of the system drive to ensure consistent security.</p>
     </section>
 
-    <!-- Tools and Technologies used -->
     <section>
       <h2>Tools & Technologies</h2>
       <ul>
@@ -92,7 +97,6 @@ Removable drives (e.g., USB flash drives) were handled dynamically, encrypted ba
       </ul>
     </section>
 
-    <!-- Implementation details with linked scripts -->
     <section>
       <h2>Implementation</h2>
       <p>The rollout was executed in three stages:</p>
@@ -118,17 +122,32 @@ Removable drives (e.g., USB flash drives) were handled dynamically, encrypted ba
       </ol>
     </section>
 
-    <!-- Results and impact -->
+    <section>
+      <h2>BitLocker GPO Configuration</h2>
+      <p>Below is a screenshot of the GPO settings used to enforce encryption and recovery key storage:</p>
+      <img src="bitlocker-gpo-settings.png" alt="BitLocker GPO Settings Screenshot" class="screenshot">
+    </section>
+
+    <section>
+      <h2>Automation Flow Diagram</h2>
+      <p>This diagram illustrates the end-to-end automation process:</p>
+      <img src="bitlocker-automation-diagram.png" alt="BitLocker Automation Flow Diagram" class="diagram">
+    </section>
+
     <section>
       <h2>Impact</h2>
-      <p>
-        Hundreds of legacy devices were encrypted without manual intervention. The solution ensured compliance with internal security policies, improved key recovery workflows, and reduced support overhead.
-      </p>
+      <div class="impact-box">
+        <ul>
+          <li>Encrypted over 1,000 devices without user interaction</li>
+          <li>Zero downtime during deployment</li>
+          <li>Fully automated recovery key storage in Active Directory</li>
+          <li>Improved compliance and reduced support overhead</li>
+        </ul>
+      </div>
     </section>
 
   </main>
 
-  <!-- Footer with contact info -->
   <footer>
     <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
     <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
