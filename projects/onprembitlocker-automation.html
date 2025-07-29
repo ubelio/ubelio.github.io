@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BitLocker Automation for an On Premises/Hybrid AD - Ubelio Fernandez-Tabet</title>
+  <title>BitLocker Automation in Hybrid AD - Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="BitLocker Automation in Hybrid AD - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Automated BitLocker deployment for 1,000+ devices using GPO and PowerShell in a hybrid AD environment. Zero user interaction, full compliance.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/bitlocker-automation-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/onprembitlocker-automation.html">
+  <meta property="og:type" content="website">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -62,12 +70,10 @@
       height: auto;
       border: 1px solid #888;
       margin-top: 10px;
-    }
-    .zoomable {
       transition: transform 0.3s ease;
       cursor: zoom-in;
     }
-    .zoomable:hover {
+    img.diagram:hover, img.screenshot:hover {
       transform: scale(1.05);
     }
   </style>
@@ -75,7 +81,7 @@
 <body>
 
   <header>
-    <h1>BitLocker Automation for an On Premises/Hybrid AD</h1>
+    <h1>BitLocker Automation in Hybrid AD</h1>
     <p>On-Premises Deployment with GPO and PowerShell</p>
   </header>
 
@@ -131,16 +137,18 @@
 
     <section>
       <h2>BitLocker GPO Configuration</h2>
-      <p>Below is a screenshot of the GPO settings used to enforce encryption and recovery key storage:</p>
+      <p>Click the image below to view the full-resolution GPO settings:</p>
       <a href="bitlocker-gpo-settings.png" target="_blank">
-        <img src="bitlocker-gpo-settings.png" alt="BitLocker GPO Settings Screenshot" class="screenshot zoomable">
+        <img src="bitlocker-gpo-settings.png" alt="BitLocker GPO Settings Screenshot" class="screenshot">
       </a>
     </section>
 
     <section>
       <h2>Automation Flow Diagram</h2>
       <p>This diagram illustrates the end-to-end automation process:</p>
-      <img src="bitlocker-automation-diagram.png" alt="BitLocker Automation Flow Diagram" class="diagram">
+      <a href="bitlocker-automation-diagram.png" target="_blank">
+        <img src="bitlocker-automation-diagram.png" alt="BitLocker Automation Flow Diagram" class="diagram">
+      </a>
     </section>
 
     <section>
