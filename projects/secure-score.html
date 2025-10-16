@@ -1,45 +1,159 @@
-<section id="secure-score" style="margin: 2em 0; font-family: Arial, sans-serif;">
-  <h2 style="color: #2c3e50;">🔐 Microsoft Secure Score Optimization: 40% → 87%</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Score Optimization - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <p><strong>Overview:</strong><br>
-    Led a comprehensive security hardening initiative that elevated Microsoft Secure Score from <strong>40%</strong> to <strong>87%</strong>, aligning with industry best practices and compliance goals. This project involved strategic deployment of identity protection, access governance, and password hygiene across hybrid environments.
-  </p>
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Secure Score Optimization - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Raised Microsoft Secure Score from 40% to 87% through identity protection, access governance, and hybrid security hardening.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/secure-score-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/secure-score-optimization.html">
+  <meta property="og:type" content="website">
 
-  <h3 style="color: #34495e;">Key Actions Taken:</h3>
-  <ul>
-    <li>✅ Enforced <strong>Multi-Factor Authentication (MFA)</strong> for all users</li>
-    <li>🔐 Created <strong>Conditional Access Policies</strong> for risky sign-ins and risky users</li>
-    <li>🔄 Enabled <strong>Self-Service Password Reset (SSPR)</strong> for secure password remediation</li>
-    <li>🛡️ Deployed <strong>Microsoft Defender for Identity</strong> across domain controllers</li>
-    <li>🧠 Implemented <strong>Entra Password Protection</strong> for cloud and on-prem environments via AD agents</li>
-    <li>👥 Activated <strong>Privileged Identity Management (PIM)</strong> for just-in-time role access</li>
-    <li>🔍 Scheduled <strong>Access Reviews</strong> to enforce least privilege and role hygiene</li>
-  </ul>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
 
-  <h3 style="color: #34495e;">Impact:</h3>
-  <ul>
-    <li>📈 Secure Score increased by <strong>47 percentage points</strong></li>
-    <li>🔄 Reduced exposure to identity-based threats</li>
-    <li>🧩 Strengthened hybrid identity posture across Microsoft 365 and on-prem AD</li>
-    <li>🧭 Improved audit readiness and governance transparency</li>
-  </ul>
+  <header>
+    <h1>Secure Score Optimization</h1>
+    <p>Identity Hardening and Governance from 40% to 87%</p>
+  </header>
 
-  <h3 style="color: #34495e;">Technologies Used:</h3>
-  <ul>
-    <li>Microsoft Entra ID (formerly Azure AD)</li>
-    <li>Microsoft Defender for Identity</li>
-    <li>Microsoft 365 Security & Compliance Center</li>
-    <li>PowerShell (for policy auditing and reporting)</li>
-  </ul>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../scripts.html">Scripts</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
 
-  <p><strong>Relevant Certification:</strong><br>
-    <a href="https://learn.microsoft.com/en-us/certifications/exams/sc-300/" target="_blank">
-      SC-300: Microsoft Identity and Access Administrator
-    </a>
-  </p>
+  <main>
 
-  <div id="diagram-placeholder" style="margin-top: 2em;">
-    <!-- Diagram will be inserted here later -->
-  </div>
-</section>
+    <section>
+      <h2>Challenge</h2>
+      <p>Our Microsoft Secure Score was sitting at 40%, leaving the organization vulnerable to identity-based threats and lacking governance controls. We needed a strategic rollout of modern identity protection, access policies, and hybrid security tools to meet compliance and reduce risk.</p>
+    </section>
 
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>Microsoft Entra ID (formerly Azure AD)</li>
+        <li>Microsoft Defender for Identity</li>
+        <li>Microsoft Entra Password Protection (Cloud + On-Prem)</li>
+        <li>Privileged Identity Management (PIM)</li>
+        <li>Access Reviews</li>
+        <li>Conditional Access Policies</li>
+        <li>Self-Service Password Reset (SSPR)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Implementation</h2>
+      <ol>
+        <li>Enforced Multi-Factor Authentication (MFA) for all users</li>
+        <li>Created Conditional Access policies for:
+          <ul>
+            <li>Risky sign-ins</li>
+            <li>Risky user behavior</li>
+          </ul>
+        </li>
+        <li>Enabled SSPR for secure password remediation</li>
+        <li>Deployed Microsoft Defender for Identity across domain controllers</li>
+        <li>Installed Entra Password Protection agents on-prem and configured banned password lists</li>
+        <li>Activated PIM for just-in-time access to sensitive roles</li>
+        <li>Scheduled Access Reviews for role hygiene and least privilege enforcement</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Secure Score Architecture Diagram</h2>
+      <p>This placeholder diagram will be replaced with the final version:</p>
+      <img src="secure-score-diagram.png" alt="Secure Score Architecture Diagram Placeholder" class="diagram">
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Raised Microsoft Secure Score from 40% to 87%</li>
+          <li>Reduced exposure to identity-based threats</li>
+          <li>Strengthened hybrid identity posture across Microsoft 365 and on-prem AD</li>
+          <li>Improved audit readiness and governance transparency</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Relevant Certification</h2>
+      <p>This project aligns directly with the <a href="https://learn.microsoft.com/en-us/certifications/exams/sc-300/" target="_blank">SC-300: Microsoft Identity and Access Administrator</a> certification, demonstrating real-world application of its core objectives.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
+
+</body>
+</html>
