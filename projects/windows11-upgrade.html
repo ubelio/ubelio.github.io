@@ -118,6 +118,61 @@
     </section>
 
     <section>
+  <h2>Readiness Script</h2>
+  <p>To automate upgrade eligibility checks, I developed a PowerShell script that evaluates TPM, Secure Boot, CPU architecture, RAM, disk space, and OS version. This script was used to flag incompatible devices and streamline SCCM targeting:</p>
+
+  <pre style="background-color: #E0DFD6; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 0.9em;">
+<code>
+function Test-Windows11Readiness {
+    Write-Host "Checking Windows 11 upgrade readiness..." -ForegroundColor Cyan
+
+    $results = @{}
+
+    $osVersion = (Get-CimInstance Win32_OperatingSystem).Version
+    $results.OSVersion = $osVersion
+    $results.OSCompatible = ($osVersion -ge "10.0.19041")
+
+    $cpu = Get-CimInstance Win32_Processor
+    $results.CPUArchitecture = $cpu.AddressWidth
+    $results.CPUCompatible = ($cpu.AddressWidth -eq 64)
+
+    $ramGB = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
+    $results.RAM = "$ramGB GB"
+    $results.RAMCompatible = ($ramGB -ge 4)
+
+    try {
+        $tpm = Get-WmiObject -Namespace "Root\CIMv2\Security\MicrosoftTpm" -Class Win32_Tpm
+        $results.TPMPresent = $tpm.IsActivated_InitialValue
+        $results.TPMCompatible = $tpm.SpecVersion -like "*2.0*"
+    } catch {
+        $results.TPMPresent = $false
+        $results.TPMCompatible = $false
+    }
+
+    try {
+        $secureBoot = Confirm-SecureBootUEFI
+        $results.SecureBootEnabled = $secureBoot
+    } catch {
+        $results.SecureBootEnabled = $false
+    }
+
+    $disk = Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'"
+    $freeSpaceGB = [math]::Round($disk.FreeSpace / 1GB, 2)
+    $results.FreeSpace = "$freeSpaceGB GB"
+    $results.DiskCompatible = ($freeSpaceGB -ge 64)
+
+    $results.ReadyForUpgrade = ($results.OSCompatible -and $results.CPUCompatible -and $results.RAMCompatible -and $results.TPMCompatible -and $results.SecureBootEnabled -and $results.DiskCompatible)
+
+    return $results
+}
+
+$readiness = Test-Windows11Readiness
+$readiness | Format-List
+</code>
+  </pre>
+</section>
+
+    <section>
       <h2>Upgrade Flow Diagram</h2>
       <p>This placeholder diagram will be replaced with the final version:</p>
       <img src="windows11-upgrade-diagram.png" alt="Windows 11 Upgrade Flow Diagram Placeholder" class="diagram">
