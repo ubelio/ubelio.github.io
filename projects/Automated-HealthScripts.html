@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Check Automation - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Health Check Automation - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Automated health check scripts for AD, Entra Connect, and SCCM with daily email alerts and log-based warnings.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/healthcheck-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/healthcheck.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Health Check Automation</h1>
+    <p>Daily System Monitoring with Email Alerts and Log Analysis</p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../scripts.html">Scripts</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Challenge</h2>
+      <p>To ensure early detection of infrastructure issues, I developed a suite of health check scripts that automatically monitor Active Directory, Entra Connect, and SCCM. These scripts send daily email reports and log alerts to proactively surface replication failures, sync delays, and site status anomalies.</p>
+    </section>
+
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>PowerShell (AD & Entra Connect Health Checks)</li>
+        <li>SQL Server Management Studio (SCCM Site Status Job)</li>
+        <li>Task Scheduler & SQL Agent</li>
+        <li>SMTP Email Integration</li>
+        <li>HTML-formatted Reporting</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Implementation</h2>
+      <ol>
+        <li>Created PowerShell script to query AD health: replication, FSMO roles, GPO shares, DNS, DHCP</li>
+        <li>Logged warnings and sent daily email reports before shift start</li>
+        <li>Alerted on any detected issues with elevated visibility</li>
+        <li>Built PowerShell script for Entra Connect sync health: user sync, password sync, last sync time, duration</li>
+        <li>Created SQL script inside SSMS to query SCCM site status and send HTML-formatted summary</li>
+        <li>Scheduled all scripts via Task Scheduler and SQL Agent for automated delivery</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Architecture Diagram</h2>
+      <p>This placeholder diagram will be replaced with the final version:</p>
+      <img src="healthcheck-diagram.png" alt="Health Check Automation Diagram Placeholder" class="diagram">
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Enabled proactive detection of infrastructure issues before user impact</li>
+          <li>Reduced troubleshooting time through daily visibility and alerting</li>
+          <li>Improved operational confidence across AD, Entra Connect, and SCCM</li>
+          <li>Delivered polished HTML reports for executive and technical review</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
+
+</body>
+</html>
 
