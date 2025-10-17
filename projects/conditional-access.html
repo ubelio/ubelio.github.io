@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conditional Access Infrastructure - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Conditional Access Infrastructure - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Deployed a layered Conditional Access strategy with over 10 policies for identity protection, geo-blocking, and phishing-resistant MFA.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/conditional-access-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/conditional-access.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Conditional Access Infrastructure</h1>
+    <p>Layered Identity Protection Across Cloud and Hybrid Environments</p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../scripts.html">Scripts</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Challenge</h2>
+      <p>To protect cloud resources and sensitive identities, our organization needed a robust Conditional Access framework that could adapt to risk signals, geographic threats, and application sensitivity. The solution had to balance security with flexibility for executive travel and critical operations.</p>
+    </section>
+
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>Microsoft Entra Conditional Access</li>
+        <li>Named Locations & IP Ranges</li>
+        <li>Risk-Based Policies (Identity Protection)</li>
+        <li>Phishing-Resistant MFA (FIDO2, Certificate-based)</li>
+        <li>Travel Exception Groups</li>
+        <li>Session Controls & Token Lifetime Policies</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Policy Highlights</h2>
+      <ol>
+        <li>Disabled legacy authentication (Microsoft recommendation)</li>
+        <li>Enforced MFA for access to all cloud resources</li>
+        <li>Blocked access from countries with known threat actors using named locations</li>
+        <li>Blocked access from non-business countries with travel exception group</li>
+        <li>Triggered secure authentication flow for users flagged as risky</li>
+        <li>Triggered secure authentication flow for logins from unfamiliar locations</li>
+        <li>Applied custom authentication flow for HR application access</li>
+        <li>Blocked external authentication for critical accounts (e.g., break-glass)</li>
+        <li>Required phishing-resistant MFA for all admin center access</li>
+        <li>Disabled persistent browser sessions and enforced reauthentication every 19 days</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Architecture Diagram</h2>
+      <p>This placeholder diagram will be replaced with the final version:</p>
+      <img src="conditional-access-diagram.png" alt="Conditional Access Architecture Diagram Placeholder" class="diagram">
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Mitigated identity-based attacks and geographic threats</li>
+          <li>Improved MFA posture with phishing-resistant methods</li>
+          <li>Enabled secure access for executives and critical roles</li>
+          <li>Reduced risk exposure from legacy protocols and token persistence</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
+
+</body>
+</html>
 
