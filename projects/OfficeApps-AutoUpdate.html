@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Office 365 Apps Auto-Update Modernization - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Office 365 Apps Auto-Update Modernization - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Replaced manual SCCM-based Office updates with automated cloud and GPO-driven patching using the Semi-Annual Enterprise Channel.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/office365-update-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/office365-update.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Office 365 Apps Auto-Update Modernization</h1>
+    <p>Cloud-Driven Patching with Semi-Annual Enterprise Channel</p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../scripts.html">Scripts</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Challenge</h2>
+      <p>Previously, Office 365 apps were updated manually via SCCM deployments, leading to delays in patching and increased risk exposure. The goal was to automate updates using Microsoft’s cloud update infrastructure while maintaining control over update cadence and minimizing disruption.</p>
+    </section>
+
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>Active Directory Group Policy Objects (GPOs)</li>
+        <li>Office 365 Cloud Update Service</li>
+        <li>Office Deployment Tool (ODT)</li>
+        <li>Semi-Annual Enterprise Channel</li>
+        <li>Microsoft 365 Apps Admin Center</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Implementation</h2>
+      <ol>
+        <li>Retired SCCM-based Office update deployments</li>
+        <li>Configured GPOs to enable automatic updates via Office CDN</li>
+        <li>Set update channel to Semi-Annual Enterprise for stability</li>
+        <li>Enabled background updates and reduced user impact</li>
+        <li>Validated update compliance via Microsoft 365 Apps Admin Center</li>
+        <li>Ensured security patches were applied promptly across all endpoints</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Architecture Diagram</h2>
+      <p>This placeholder diagram will be replaced with the final version:</p>
+      <img src="office365-update-diagram.png" alt="Office 365 Auto-Update Architecture Diagram Placeholder" class="diagram">
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Eliminated manual SCCM update overhead</li>
+          <li>Reduced exposure to vulnerable Office versions</li>
+          <li>Improved patch compliance and reporting</li>
+          <li>Aligned update strategy with Microsoft’s cloud-first model</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
+
+</body>
+</html>
 
