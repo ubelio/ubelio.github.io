@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Windows Updates via Co-Management - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Windows Updates via Co-Management - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Automated Windows patching using Intune update rings and SCCM co-management for monthly compliance.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/windows-updates-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/windows-updates-comanagement.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Windows Updates via Co-Management</h1>
+    <p>Automated Patch Compliance with Intune & SCCM</p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../scripts.html">Scripts</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Challenge</h2>
+      <p>Our organization needed a unified patching strategy that ensured monthly compliance with security updates while avoiding untested feature upgrades. The solution had to support hybrid environments and leverage existing SCCM infrastructure while transitioning to modern Intune-based policy management.</p>
+    </section>
+
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>Microsoft Intune (Update Rings)</li>
+        <li>System Center Configuration Manager (SCCM)</li>
+        <li>Co-Management (Windows Update workload slider)</li>
+        <li>Windows Update for Business</li>
+        <li>Group Policy & Intune Reporting</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Implementation</h2>
+      <ol>
+        <li>Created Intune Update Ring with monthly cadence and 14-day grace period</li>
+        <li>Excluded feature updates to prevent untested OS upgrades</li>
+        <li>Enabled co-management and moved Windows Update workload to Intune</li>
+        <li>Validated SCCM client health and Intune enrollment across endpoints</li>
+        <li>Scheduled update deployment for the third Thursday of each month</li>
+        <li>Deprecated WSUS servers and removed WSUS role from SCCM</li>
+        <li>Monitored compliance via Intune and SCCM reporting dashboards</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Update Flow Diagram</h2>
+      <p>This placeholder diagram will be replaced with the final version:</p>
+      <img src="windows-updates-diagram.png" alt="Windows Updates Co-Management Diagram Placeholder" class="diagram">
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Achieved consistent monthly patch compliance across hybrid endpoints</li>
+          <li>Reduced risk exposure by excluding untested feature updates</li>
+          <li>Streamlined update management by centralizing policy in Intune</li>
+          <li>Retired legacy WSUS infrastructure and simplified patching architecture</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+    <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+  </footer>
+
+</body>
+</html>
 
