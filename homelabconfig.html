@@ -76,14 +76,32 @@
     <p>Senior IT Systems Administrator | Automation | Security | Infrastructure</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="scripts.html">Scripts</a>
-    <a href="homelabconfig.html" class="active">Home-Lab Config</a>
-    <a href="labs.html">Labs</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<nav id="main-nav">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="scripts.html">Scripts</a>
+  <a href="homelabconfig.html">Home-Lab Config</a>
+  <a href="labs.html">Labs</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href") === current) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<style>
+  nav a.active {
+    text-decoration: underline;
+    color: #0073e6;
+  }
+</style>
+
 
   <main>
 
