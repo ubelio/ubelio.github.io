@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,34 +83,42 @@
   <main>
 
     <section>
-      <h2 style="text-align: center;">🔧 Lab Hardware & Purpose</h2>
+      <h2 style="text-align: center;">🏗️ Home Lab Configuration</h2>
       <p style="font-size: 1.1em;">
-        This lab is engineered to simulate enterprise-grade identity, security, and automation workflows. Below is a breakdown of the physical infrastructure powering it, including each device’s role and how they connect to form a resilient, scalable environment.
+        This lab is engineered to simulate enterprise-grade identity, security, and automation workflows. Every component is selected for performance, resilience, and real-world fidelity—supporting certification prep, documentation, and advanced experimentation.
       </p>
+    </section>
+
+    <section>
+      <h2>🎯 Lab Goals</h2>
+      <ul style="font-size: 1em; line-height: 1.6;">
+        <li>Build enterprise-grade lab projects for:</li>
+        <ul>
+          <li>Cybersecurity (Defender, SIEM, Security Onion)</li>
+          <li>Endpoint protection and response</li>
+          <li>Systems administration (AD, DNS, DHCP, automation)</li>
+          <li>Network segmentation and Zero Trust architecture</li>
+        </ul>
+      </ul>
     </section>
 
     <section>
       <h2>🧰 Equipment Breakdown</h2>
       <ul style="font-size: 1em; line-height: 1.6;">
-        <li><strong>Mini PC (Intel NUC or equivalent):</strong> Hosts Hyper-V lab environment with nested virtualization.</li>
-        <li><strong>Managed Gigabit Switch:</strong> VLAN segmentation and traffic shaping for simulated enterprise zones.</li>
-        <li><strong>Dedicated PXE/MDT/WDS Server:</strong> OS deployment, imaging, and recovery testing.</li>
-        <li><strong>Firewall Appliance (e.g., pfSense):</strong> Network isolation, NAT, and rule-based access control.</li>
-        <li><strong>UPS Battery Backup:</strong> Power resilience and graceful shutdown during outages.</li>
-        <li><strong>External SSDs:</strong> Fast storage for VM snapshots and lab backups.</li>
+        <li><strong>🔐 Firewall Appliance:</strong> Intel N150 (4-core, 6W TDP), 6× Intel i226-V 2.5GbE NICs, 32GB DDR5 RAM, 1TB NVMe SSD. Runs pfSense/OPNsense for perimeter control, VLAN routing, and Zero Trust simulation.</li>
+
+        <li><strong>🧩 Core Switching – Managed Cisco Switch:</strong> Serves as the VLAN backbone and SPAN port provider for Security Onion, Defender, and SIEM traffic capture.</li>
+
+        <li><strong>📡 Wireless Infrastructure – 2× TP-Link EAP670 V2:</strong> Wi-Fi 6 APs with Omada controller support. VLAN-tagged SSIDs for lab, guest, IoT, and admin segmentation.</li>
+
+        <li><strong>🧠 Virtualization Host – Beelink SER5 Pro:</strong> AMD Ryzen 7 5800H (8C/16T), 64GB DDR4 RAM, 1TB NVMe SSD. Runs Proxmox hypervisor hosting AD, DNS, DHCP, Defender for Endpoint, Security Onion, SIEM, and automation testing.</li>
+
+        <li><strong>💻 Endpoint & Admin Devices:</strong> MacBook (admin console, remote access, scripting, documentation), iMac (secondary admin, endpoint simulation, monitoring), monitors (BIOS access, VM setup, troubleshooting), external SSDs (VM snapshots, log storage, backup targets).</li>
+
+        <li><strong>🔌 USB NIC – Plugable USB 3.0 to Ethernet Adapter:</strong> Intel-compatible (ASIX AX88179). Adds second NIC for VLAN trunking, SPAN mirroring, and multi-interface firewalling.</li>
+
+        <li><strong>🍓 Raspberry Pi 4:</strong> Quad-core ARM Cortex-A72, 4GB or 8GB LPDDR4 RAM. Used as a lightweight DNS sinkhole, honeypot, automation node, or remote sensor.</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>🔗 Connection Topology</h2>
-      <img src="images/lab-hardware-topology.png" alt="Lab Hardware Topology Diagram" style="width:100%; max-width:800px; display:block; margin:auto;">
-      <p class="caption">Topology showing how each device connects to support identity, security, and automation workflows.</p>
-    </section>
-
-    <section style="text-align: center; max-width: 800px; margin: 40px auto;">
-      <p style="font-size: 1.1em;">
-        Every component is selected for performance, resilience, and real-world simulation fidelity—supporting certification prep, documentation, and enterprise-grade experimentation.
-      </p>
     </section>
 
   </main>
