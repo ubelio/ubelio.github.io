@@ -43,6 +43,11 @@
     h2 {
       color: #141413;
     }
+    hr {
+      border: none;
+      border-top: 1px solid #141413;
+      margin: 20px 0;
+    }
     .caption {
       font-size: 0.9em;
       color: #333;
@@ -104,21 +109,34 @@
 
     <section>
       <h2>🧰 Equipment Breakdown</h2>
-      <ul style="font-size: 1em; line-height: 1.6;">
-        <li><strong>🔐 Firewall Appliance:</strong> Intel N150 (4-core, 6W TDP), 6× Intel i226-V 2.5GbE NICs, 32GB DDR5 RAM, 1TB NVMe SSD. Runs pfSense/OPNsense for perimeter control, VLAN routing, and Zero Trust simulation.</li>
 
-        <li><strong>🧩 Core Switching – Managed Cisco Switch:</strong> Serves as the VLAN backbone and SPAN port provider for Security Onion, Defender, and SIEM traffic capture.</li>
+      <p><strong>🔐 Firewall Appliance:</strong> Intel N150 (4-core, 6W TDP), 6× Intel i226-V 2.5GbE NICs, 32GB DDR5 RAM, 1TB NVMe SSD. Runs pfSense/OPNsense for perimeter control, VLAN routing, and Zero Trust simulation.</p>
+      <hr>
 
-        <li><strong>📡 Wireless Infrastructure – 2× TP-Link EAP670 V2:</strong> Wi-Fi 6 APs with Omada controller support. VLAN-tagged SSIDs for lab, guest, IoT, and admin segmentation.</li>
+      <p><strong>🧩 Core Switching – Managed Cisco Switch:</strong> Serves as the VLAN backbone and SPAN port provider for Security Onion, Defender, and SIEM traffic capture.</p>
+      <hr>
 
-        <li><strong>🧠 Virtualization Host – Beelink SER5 Pro:</strong> AMD Ryzen 7 5800H (8C/16T), 64GB DDR4 RAM, 1TB NVMe SSD. Runs Proxmox hypervisor hosting AD, DNS, DHCP, Defender for Endpoint, Security Onion, SIEM, and automation testing.</li>
+      <p><strong>📡 Wireless Infrastructure – 2× TP-Link EAP670 V2:</strong> Wi-Fi 6 APs with Omada controller support. VLAN-tagged SSIDs for lab, guest, IoT, and admin segmentation.</p>
+      <hr>
 
-        <li><strong>💻 Endpoint & Admin Devices:</strong> MacBook (admin console, remote access, scripting, documentation), iMac (secondary admin, endpoint simulation, monitoring), monitors (BIOS access, VM setup, troubleshooting), external SSDs (VM snapshots, log storage, backup targets).</li>
+      <p><strong>🧠 Virtualization Host – Beelink SER5 Pro:</strong> AMD Ryzen 7 5800H (8C/16T), 64GB DDR4 RAM, 1TB NVMe SSD. Runs Proxmox hypervisor hosting AD, DNS, DHCP, Defender for Endpoint, Security Onion, SIEM, and automation testing.</p>
+      <hr>
 
-        <li><strong>🔌 USB NIC – Plugable USB 3.0 to Ethernet Adapter:</strong> Intel-compatible (ASIX AX88179). Adds second NIC for VLAN trunking, SPAN mirroring, and multi-interface firewalling.</li>
+      <p><strong>💻 Endpoint & Admin Devices:</strong> MacBook (admin console, remote access, scripting, documentation), iMac (secondary admin, endpoint simulation, monitoring), monitors (BIOS access, VM setup, troubleshooting), external SSDs (VM snapshots, log storage, backup targets).</p>
+      <hr>
 
-        <li><strong>🍓 Raspberry Pi 4:</strong> Quad-core ARM Cortex-A72, 4GB or 8GB LPDDR4 RAM. Used as a lightweight DNS sinkhole, honeypot, automation node, or remote sensor.</li>
-      </ul>
+      <p><strong>🔌 USB NIC – Plugable USB 3.0 to Ethernet Adapter:</strong> Intel-compatible (ASIX AX88179). Adds second NIC for VLAN trunking, SPAN mirroring, and multi-interface firewalling.</p>
+      <hr>
+
+      <p><strong>🍓 Raspberry Pi 4:</strong> Quad-core ARM Cortex-A72, 4GB or 8GB LPDDR4 RAM. Used as a lightweight DNS sinkhole, honeypot, automation node, or remote sensor.</p>
+    </section>
+
+    <section>
+      <h2>🗺️ Topology Diagram</h2>
+      <p style="font-size: 1em;">
+        A visual diagram showing how all components connect—firewall, switch, hypervisor, endpoints, wireless, and sensors—is currently being rendered. Once available, it will appear here to illustrate traffic flow, VLAN segmentation, and lab architecture.
+      </p>
+      <p class="caption">Diagram placeholder: Home Lab Topology (coming soon)</p>
     </section>
 
   </main>
