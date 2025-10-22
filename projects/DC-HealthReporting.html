@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Entra Connect Health for AD DS - Ubelio Fernandez-Tabet</title>
+  <title>Defender for Identity Deployment - Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Open Graph Metadata for LinkedIn -->
-  <meta property="og:title" content="Entra Connect Health for AD DS - Ubelio Fernandez-Tabet">
-  <meta property="og:description" content="Implemented Microsoft Entra Connect Health for AD DS to monitor domain controller health, replication, and performance trends.">
+  <meta property="og:title" content="Defender for Identity Deployment - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Deployed Microsoft Defender for Identity with sensor-based threat detection, password protection, smart lockout, and AD DS health monitoring.">
   <meta property="og:image" content="https://ubelio.github.io/projects/entra-health-diagram.png">
-  <meta property="og:url" content="https://ubelio.github.io/projects/entra-health.html">
+  <meta property="og:url" content="https://ubelio.github.io/projects/DC-HealthReporting.html">
   <meta property="og:type" content="website">
 
   <style>
@@ -38,6 +38,10 @@
     }
     nav a:hover {
       text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
     }
     main {
       padding: 20px;
@@ -76,71 +80,58 @@
 <body>
 
   <header>
-    <h1>Entra Connect Health for AD DS</h1>
-    <p>Real-Time Monitoring of Domain Controller Health and Replication</p>
+    <h1>Defender for Identity Deployment</h1>
+    <p>Sensor-Based Threat Detection, Password Protection, and AD DS Health Monitoring</p>
   </header>
 
-<nav id="main-nav">
-  <a href="/index.html">Home</a>
-  <a href="/projects.html">Projects</a>
-  <a href="/scripts.html">Scripts</a>
-  <a href="/homelabconfig.html">Home-Lab Config</a>
-  <a href="/labs.html">Labs</a>
-  <a href="/contact.html">Contact</a>
-</nav>
+  <nav id="main-nav">
+    <a href="/index.html">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/scripts.html">Scripts</a>
+    <a href="/homelabconfig.html">Home-Lab Config</a>
+    <a href="/labs.html">Labs</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
 
-<script>
-  // Highlight the active page in the nav
-  const current = window.location.pathname.split("/").pop();
-  document.querySelectorAll("#main-nav a").forEach(link => {
-    if (link.getAttribute("href").endsWith(current)) {
-      link.classList.add("active");
-    }
-  });
-</script>
-
-<style>
-  nav a.active {
-    text-decoration: underline;
-    color: #0073e6;
-  }
-</style>
-
-
-<style>
-  nav a.active {
-    text-decoration: underline;
-    color: #0073e6;
-  }
-</style>
-
+  <script>
+    const current = window.location.pathname.split("/").pop();
+    document.querySelectorAll("#main-nav a").forEach(link => {
+      if (link.getAttribute("href").endsWith(current)) {
+        link.classList.add("active");
+      }
+    });
+  </script>
 
   <main>
 
     <section>
       <h2>Challenge</h2>
-      <p>To gain centralized visibility into domain controller health, replication status, and performance trends, I implemented Microsoft Entra Connect Health for AD DS. This solution provides dashboards, alerts, and graphical insights directly within the Entra Admin Center.</p>
+      <p>To strengthen hybrid identity security and gain centralized visibility into domain controller health, I deployed Microsoft Defender for Identity across the enterprise. This included sensor-based threat detection, password protection enforcement, smart lockout configuration, and Entra Connect Health for AD DS replication monitoring.</p>
     </section>
 
     <section>
       <h2>Tools & Technologies</h2>
       <ul>
-        <li>Microsoft Entra Connect Health Agent</li>
+        <li>Microsoft Defender for Identity Sensors</li>
+        <li>Microsoft Password Protection Agent</li>
+        <li>Custom Banned Password List</li>
+        <li>Smart Lockout Policy</li>
+        <li>Entra Connect Health Agent</li>
         <li>Entra Admin Center</li>
         <li>AD DS (Windows Server 2012 R2 and above)</li>
         <li>Performance Counters & Alerting Blades</li>
-        <li>Domain Controller Grouping by Site/Domain</li>
       </ul>
     </section>
 
     <section>
       <h2>Implementation</h2>
       <ol>
+        <li>Installed Defender for Identity sensors on all domain controllers</li>
+        <li>Verified sensor registration and alert flow to Microsoft 365 Defender portal</li>
+        <li>Deployed Password Protection agent and configured banned password list</li>
+        <li>Enabled Smart Lockout to mitigate brute-force lockouts and tuned thresholds</li>
         <li>Installed Entra Connect Health Agent on all domain controllers</li>
-        <li>Verified agent registration and data flow to Entra Admin Center</li>
-        <li>Enabled alert notifications for replication failures, service outages, and performance degradation</li>
-        <li>Configured dashboards for Domain Controller Health and Replication Status</li>
-        <li>Customized performance counter views for CPU, memory, and replication latency</li>
+        <li>Enabled dashboards and alerts for replication, performance, and service status</li>
         <li>Grouped domain controllers by site for topological clarity</li>
       </ol>
     </section>
@@ -148,17 +139,18 @@
     <section>
       <h2>Architecture Diagram</h2>
       <p>This placeholder diagram will be replaced with the final version:</p>
-      <img src="entra-health-diagram.png" alt="Entra Connect Health for AD DS Diagram Placeholder" class="diagram">
+      <img src="entra-health-diagram.png" alt="Defender for Identity Architecture Diagram Placeholder" class="diagram">
     </section>
 
     <section>
       <h2>Impact</h2>
       <div class="impact-box">
         <ul>
+          <li>Proactive detection of identity-based threats across hybrid infrastructure</li>
+          <li>Hardened password hygiene with banned password enforcement</li>
+          <li>Reduced account lockouts via Smart Lockout intelligence</li>
           <li>Centralized visibility into AD DS health and replication</li>
-          <li>Proactive alerting for domain controller issues</li>
-          <li>Graphical performance trends for troubleshooting and optimization</li>
-          <li>Improved operational awareness across hybrid identity infrastructure</li>
+          <li>Delivered executive-ready HTML reports for daily operational awareness</li>
         </ul>
       </div>
     </section>
@@ -172,4 +164,3 @@
 
 </body>
 </html>
-
