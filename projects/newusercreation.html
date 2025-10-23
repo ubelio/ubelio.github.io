@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New User Creation Automation - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="New User Creation Automation - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Automated AD user creation, group assignment, and mailbox provisioning with PowerShell. Saved 30 minutes per user.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/new-user-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/new-user-creation.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>New User Creation Automation</h1>
+    <p>PowerShell-Driven Onboarding Workflow</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<style>
+  nav a.active {
+    text-decoration: underline;
+    color: #0073e6;
+  }
+</style>
+
+<main>
+
+  <section>
+    <h2>Challenge</h2>
+    <p>Helpdesk technicians were spending 30+ minutes manually creating new users, assigning groups, and provisioning mailboxes. The process was error-prone and inconsistent across departments.</p>
+  </section>
+
+  <section>
+    <h2>Tools & Technologies</h2>
+    <ul>
+      <li>PowerShell</li>
+      <li>Active Directory (on-prem)</li>
+      <li>Exchange (on-prem + cloud)</li>
+      <li>Group-based licensing</li>
+      <li>OU and attribute-based provisioning</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Implementation</h2>
+    <ol>
+      <li>Script prompts helpdesk tech for:
+        <ul>
+          <li>First name, last name</li>
+          <li>Department and supervisor</li>
+          <li>Licensing group</li>
+        </ul>
+      </li>
+      <li>Creates AD user with proper OU placement and attributes</li>
+      <li>Adds user to department and licensing groups</li>
+      <li>Triggers mailbox creation (on-prem and cloud)</li>
+      <li>Logs all actions for audit and rollback</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Script Preview</h2>
+    <p><a href="/scripts/new-user-creation.ps1" target="_blank">View Full PowerShell Script</a></p>
+    <pre><code>
+# Prompt for user details
+$FirstName = Read-Host "Enter First Name"
+$LastName = Read-Host "Enter Last Name"
+$Department = Read-Host "Enter Department"
+$Manager = Read-Host "Enter Manager's Username"
+$LicenseGroup = Read-Host "Enter Licensing Group"
+
+# Construct username and email
+$Username = "$FirstName.$LastName"
+$Email = "$Username@yourdomain.com"
+
+# Create AD user
+New-ADUser -Name "$FirstName $LastName" -SamAccountName $Username `
+  -UserPrincipalName $Email -Department $Department `
+  -Manager $Manager -Path "OU=$Department,DC=yourdomain,DC=com" `
+  -AccountPassword (ConvertTo-SecureString "TempP@ss123" -AsPlainText -Force) `
+  -Enabled $true
+
+# Add to groups
+Add-ADGroupMember -Identity $LicenseGroup -Members $Username
+Add-ADGroupMember -Identity "Dept-$Department" -Members $Username
+
+# Mailbox provisioning
+Enable-Mailbox -Identity $Username
+Enable-RemoteMailbox -Identity $Username -RemoteRoutingAddress "$Username@tenant.mail.onmicrosoft.com"
+
+Write-Host "User $Username created and provisioned successfully."
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Impact</h2>
+    <div class="impact-box">
+      <ul>
+        <li>Saved ~30 minutes per user onboarding</li>
+        <li>Eliminated manual errors and skipped steps</li>
+        <li>Improved consistency across departments</li>
+        <li>Enabled scalable, role-based provisioning</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Relevant Certification</h2>
+    <p>This project aligns with <a href="https://learn.microsoft.com/en-us/certifications/exams/sc-200/" target="_blank">SC-200: Microsoft Security Operations Analyst</a> and <a href="https://learn.microsoft.com/en-us/certifications/exams/sc-300/" target="_blank">SC-300: Identity and Access Administrator</a>, demonstrating automation and governance in hybrid environments.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+  <p>🔗 LinkedIn: https://www.linkedin.com/in/ubelio/</p>
+</footer>
+
+</body>
+</html>
 
