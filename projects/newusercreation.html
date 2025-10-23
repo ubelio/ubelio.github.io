@@ -71,6 +71,17 @@
       border: 1px solid #888;
       margin-top: 10px;
     }
+    pre {
+      background-color: #eee;
+      padding: 15px;
+      overflow-x: auto;
+      border: 1px solid #888;
+    }
+    code {
+      font-family: Consolas, monospace;
+      font-size: 0.9em;
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 <body>
@@ -125,52 +136,55 @@
 
   <section>
     <h2>Implementation</h2>
-    <ol>
-      <li>Script prompts helpdesk tech for:
-        <ul>
-          <li>First name, last name</li>
-          <li>Department and supervisor</li>
-          <li>Licensing group</li>
-        </ul>
-      </li>
-      <li>Creates AD user with proper OU placement and attributes</li>
-      <li>Adds user to department and licensing groups</li>
-      <li>Triggers mailbox creation (on-prem and cloud)</li>
-      <li>Logs all actions for audit and rollback</li>
-    </ol>
+    <p>This script prompts helpdesk techs for basic user details, copies group memberships from a reference user, assigns attributes, provisions mailboxes, and applies licensing—all in one run.</p>
   </section>
 
   <section>
     <h2>Script Preview</h2>
-    <p><a href="/scripts/new-user-creation.ps1" target="_blank">View Full PowerShell Script</a></p>
+    <p><strong>* All company-specific data has been stripped from this script. Some logic may not run properly due to missing domain, OU, and group definitions.</strong></p>
     <pre><code>
-# Prompt for user details
-$FirstName = Read-Host "Enter First Name"
-$LastName = Read-Host "Enter Last Name"
-$Department = Read-Host "Enter Department"
-$Manager = Read-Host "Enter Manager's Username"
-$LicenseGroup = Read-Host "Enter Licensing Group"
+Write-Host "Welcome to the user creation Script"
 
-# Construct username and email
-$Username = "$FirstName.$LastName"
-$Email = "$Username@yourdomain.com"
+$username = Read-Host "Please enter User Name"
+$firstname = Read-Host "Please enter First Name"
+$lastname = Read-Host "Please enter Last Name"
+$refuser = Read-Host "Please enter the username to copy group membership from"
+$domain = Read-Host "Please enter primary user Domain name for email"
 
-# Create AD user
-New-ADUser -Name "$FirstName $LastName" -SamAccountName $Username `
-  -UserPrincipalName $Email -Department $Department `
-  -Manager $Manager -Path "OU=$Department,DC=yourdomain,DC=com" `
-  -AccountPassword (ConvertTo-SecureString "TempP@ss123" -AsPlainText -Force) `
-  -Enabled $true
+# Domain validation logic
+if ($domain -eq "") {
+  Write-Host "You Entered: $domain"
+} elseif ($domain -eq "") {
+  Write-Host "You Entered: $domain"
+} elseif ($domain -eq "") {
+  Write-Host "You Entered: $domain"
+} else {
+  Write-Host "Invalid domain. Relaunch to try again"
+  exit
+}
 
-# Add to groups
-Add-ADGroupMember -Identity $LicenseGroup -Members $Username
-Add-ADGroupMember -Identity "Dept-$Department" -Members $Username
+$emailname = $firstname + "." + $lastname
+$upn = $username + ""
+$displayname = $firstname + " " + $lastname
 
-# Mailbox provisioning
-Enable-Mailbox -Identity $Username
-Enable-RemoteMailbox -Identity $Username -RemoteRoutingAddress "$Username@tenant.mail.onmicrosoft.com"
+# User creation logic
+New-ADUser -Name $displayname -SamAccountName $username -UserPrincipalName $upn -Enabled $true
+Start-Sleep -Seconds 30
 
-Write-Host "User $Username created and provisioned successfully."
+# Group copy and description
+Get-ADUser -Identity $refuser -Properties memberof | Select-Object -ExpandProperty memberof | Where-Object { $_ -notmatch '^M\d' } | Add-ADGroupMember -Members $username
+$userdesC = Get-ADUser -Identity $refuser -Properties Description | Select-Object -ExpandProperty Description
+Set-ADUser -Identity $username -Description $userdesC
+
+# Proxy addresses
+set-aduser -identity $username -add @{proxyAddresses="smtp:$emailname@"}
+set-aduser -identity $username -add @{proxyAddresses="SMTP:$emailname@"}
+
+# Mailbox and licensing
+Add-PSSnapin *RecipientManagement
+enable-remotemailbox -identity $username -remoteroutingaddress "$username@.mail.onmicrosoft.com"
+Add-ADGroupMember -Identity "M365 - E3 Full License" -Members $username
+Add-ADGroupMember -Identity "M365-EnableMFA" -Members $username
     </code></pre>
   </section>
 
@@ -200,4 +214,3 @@ Write-Host "User $Username created and provisioned successfully."
 
 </body>
 </html>
-
