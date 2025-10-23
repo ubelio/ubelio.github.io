@@ -1,1 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shared Mailbox Creation Automation - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Shared Mailbox Creation Automation - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Automated hybrid shared mailbox creation using PowerShell, Entra app auth, and remote Exchange Online conversion.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/shared-mailbox-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/shared-mailbox-automation.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 15px;
+      overflow-x: auto;
+      border: 1px solid #888;
+    }
+    code {
+      font-family: Consolas, monospace;
+      font-size: 0.9em;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Shared Mailbox Creation Automation</h1>
+    <p>Hybrid Provisioning with Entra App Authentication</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<style>
+  nav a.active {
+    text-decoration: underline;
+    color: #0073e6;
+  }
+</style>
+
+<main>
+
+  <section>
+    <h2>Challenge</h2>
+    <p>Creating shared mailboxes in a hybrid environment was a 45-minute manual process involving AD provisioning, sync delays, and remote Exchange Online conversion. This script reduced the task to a 1-minute launch followed by passive sync monitoring.</p>
+  </section>
+
+  <section>
+    <h2>Tools & Technologies</h2>
+    <ul>
+      <li>PowerShell</li>
+      <li>Active Directory (on-prem)</li>
+      <li>Exchange Online (remote PowerShell)</li>
+      <li>Microsoft Entra App Registration</li>
+      <li>Certificate-based authentication</li>
+      <li>Hybrid mailbox provisioning</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Implementation</h2>
+    <ol>
+      <li>Creates on-prem AD identity with required attributes</li>
+      <li>Waits for sync to Microsoft 365</li>
+      <li>Connects securely to Exchange Online via Entra app and certificate thumbprint</li>
+      <li>Checks for mailbox presence every 2 minutes (up to 40 minutes)</li>
+      <li>Converts mailbox to shared once detected</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Script Preview</h2>
+    <p><strong>* All company-specific data has been stripped from this script. Some logic may not run properly due to missing domain, OU, and group definitions.</strong></p>
+    <pre><code>
+Import-Module ActiveDirectory
+
+Write-Host "Welcome to the shared mailbox creation Script"
+
+$username = Read-Host "Please enter Shared Mailbox Name"
+Start-Sleep -Seconds 5
+Write-Host "Please wait for AD User Creation and 365 Sync"
+
+$upn = $username + "@.local"
+$email = $username + "@"
+$displayname = $username
+
+New-ADUser -Name $displayname -SamAccountName $username -UserPrincipalName $upn `
+  -Path 'OU=Email Accounts,OU=Managed Accounts,OU=,DC=,DC=local' `
+  -AccountPassword (ConvertTo-SecureString '' -AsPlainText -Force) `
+  -Enabled $true -PasswordNeverExpires $true -CannotChangePassword $true
+
+Start-Sleep -Seconds 30
+
+Set-ADUser -Identity $username -Description "Userid used only for e-mailing"
+
+Set-ADUser -Identity $username -Add @{proxyAddresses="smtp:$username@"}
+Set-ADUser -Identity $username -Add @{proxyAddresses="SMTP:$username@"}
+
+Add-PSSnapin *RecipientManagement
+Enable-RemoteMailbox -Identity $username -RemoteRoutingAddress "$username@0.mail.onmicrosoft.com"
+
+Add-ADGroupMember -Identity "M365 - E3 Full License" -Members $username
+
+$AppId = "96ed1293-d19f-42a9-b274-d00850b29c21"
+$Tenant = ".onmicrosoft.com"
+$Thumbprint = "3598e2f7ca50ccb77f917929bc8f613730b0daa3"
+
+Connect-ExchangeOnline -AppId $AppId -Organization $Tenant -CertificateThumbprint $Thumbprint
+
+$maxAttempts = 20
+$attempt = 1
+$mailboxFound = $false
+
+while ($attempt -le $maxAttempts -and -not $mailboxFound) {
+    Write-Host "Attempt $attempt of ${maxAttempts}: Checking for mailbox $email..."
+    $mailbox = Get-Mailbox -Identity $email -ErrorAction SilentlyContinue
+
+    if ($mailbox) {
+        Write-Host "Mailbox found. Proceeding with conversion to shared mailbox..."
+        Set-Mailbox -Identity $email -Type Shared
+        Write-Host "Mailbox converted to shared successfully."
+        $mailboxFound = $true
+    } else {
+        Write-Host "Mailbox not found. Waiting 2 minutes before retrying..."
+        Start-Sleep -Seconds 120
+        $attempt++
+    }
+}
+
+if (-not $mailboxFound) {
+    Write-Host "Mailbox was not found after 40 minutes. Please verify sync and licensing."
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Impact</h2>
+    <div class="impact-box">
+      <ul>
+        <li>Reduced mailbox creation time from 45 minutes to 1 minute</li>
+        <li>Eliminated manual cloud login and mailbox conversion steps</li>
+        <li>Improved consistency and auditability across hybrid environments</li>
+        <li>Enabled secure, certificate-based automation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Relevant Certification</h2>
+    <p>This project aligns with <a href="https://learn.microsoft.com/en-us/certifications/exams/sc-200/" target="_blank">SC-200: Microsoft Security Operations Analyst</a> and <a href="https://learn.microsoft.com/en-us/certifications/exams/sc-300/" target="_blank">SC-300: Identity and Access Administrator</a>, demonstrating hybrid automation and secure cloud integration.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>📧 Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+  <p>🔗 Linked
