@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Labs | Ubelio Fernandez-Tabet</title>
+  <title>Labs - Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.png" type="image/png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -32,17 +31,35 @@
     nav a:hover {
       text-decoration: underline;
     }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
     main {
       padding: 20px;
       max-width: 900px;
       margin: auto;
-      text-align: center;
     }
     section {
       margin-bottom: 40px;
     }
-    h2 {
-      color: #141413;
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 20px;
+      background-color: #E0DFD6;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    li a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    li a:hover {
+      text-decoration: underline;
     }
     footer {
       background-color: #BDBBB2;
@@ -61,10 +78,10 @@
 </head>
 <body>
 
-  <header>
-    <h1>Ubelio Fernandez-Tabet</h1>
-    <p>Senior IT Systems Administrator | Automation | Security | Infrastructure</p>
-  </header>
+<header>
+  <h1>Labs</h1>
+  <p>Hands-on walkthroughs aligned with Microsoft certifications, built in sandbox environments and documented for recruiter clarity.</p>
+</header>
 
 <nav id="main-nav">
   <a href="/index.html">Home</a>
@@ -76,7 +93,6 @@
 </nav>
 
 <script>
-  // Highlight the active page in the nav
   const current = window.location.pathname.split("/").pop();
   document.querySelectorAll("#main-nav a").forEach(link => {
     if (link.getAttribute("href").endsWith(current)) {
@@ -85,50 +101,17 @@
   });
 </script>
 
-<style>
-  nav a.active {
-    text-decoration: underline;
-    color: #0073e6;
-  }
-</style>
+<main>
+  <section>
+    <ul>
+      <li>
+        <strong>SC-401 Lab 0 – Environment Setup</strong><br>
+        Prepare your Microsoft 365 environment by enabling auditing, device onboarding, insider risk analytics, Defender XDR, and MFA.<br>
+        <a href="labs/sc401-lab0-environment-setup.html">View Lab →</a>
+      </li>
+    </ul>
+  </section>
+</main>
 
-
-<style>
-  nav a.active {
-    text-decoration: underline;
-    color: #0073e6;
-  }
-</style>
-
-
-  <main>
-    <section>
-      <h2>🧪 Labs Section Coming Soon</h2>
-      <p style="font-size: 1.1em;">
-        This section will showcase hands-on labs, technical walkthroughs, and certification prep environments built in my home lab. From identity governance and endpoint protection to automation and Zero Trust architecture—stay tuned for detailed lab breakdowns and real-world simulations.
-      </p>
-      <p style="font-size: 1.2em; font-weight: bold; margin-top: 30px;">
-        🚧 Labs in progress. Check back soon!
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>📧 Email: 
-      <a href="mailto:ubeoficial@gmail.com" style="color: #0073e6; text-decoration: none;">
-        ubeoficial@gmail.com
-      </a>
-    </p>
-    <p>🔗 LinkedIn: 
-      <a href="https://www.linkedin.com/in/ubelio/" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         style="color: #0073e6; text-decoration: none;">
-        linkedin.com/in/ubelio
-      </a>
-    </p>
-  </footer>
-
-</body>
-</html>
-
+<footer>
+  <p>Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail
