@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Labs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
 
+<header>
+  <h1>Labs</h1>
+  <p>Explore hands-on labs organized by certification and technical focus.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Lab Sections</h2>
+  <ul>
+    <li><a href="/SC-401labs.html">SC-401 Labs</a></li>
+    <!-- Future sections can be added here -->
+    <!-- <li><a href="/SC-200labs.html">SC-200 Labs</a></li> -->
+    <!-- <li><a href="/AZ-500labs.html">AZ-500 Labs</a></li> -->
+    <!-- <li><a href="/customlabs.html">Custom Labs</a></li> -->
+  </ul>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
