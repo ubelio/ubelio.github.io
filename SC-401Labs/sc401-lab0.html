@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 0 – Environment Setup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    .screenshot-note {
+      color: #555;
+      font-style: italic;
+      margin-top: 5px;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SC-401 Lab 0 – Environment Setup</h1>
+  <p>Prepare your Microsoft 365 environment for SC-401 labs by enabling auditing, device onboarding, insider risk analytics, Defender XDR, and MFA.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Microsoft Learn Sandbox</li>
+    <li>Microsoft Purview Portal</li>
+    <li>Microsoft Defender Portal</li>
+    <li>Microsoft Entra Admin Center</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>
+      Launch Microsoft Learn sandbox environment.
+    </li>
+    <li>
+      Navigate to Microsoft Purview → Enable Audit.
+    </li>
+    <li>
+      Navigate to Microsoft Defender → Enable Device Onboarding.
+    </li>
+    <li>
+      Go to Insider Risk Management → Enable Analytics and Data Sharing.
+    </li>
+    <li>
+      Open Microsoft Defender XDR → Confirm access and initialization.
+    </li>
+    <li>
+      Navigate to Microsoft Entra Admin Center → Enable Multi-Factor Authentication.
+    </li>
+  </ol>
+
+  <h2>Outcome</h2>
+  <p>Environment successfully prepared for SC-401 labs. All core services activated and ready for policy configuration and compliance testing.</p>
+
+  <h2>Certification Alignment</h2>
+  <p>SC-401 Domain 1.1 – Plan and implement Microsoft Purview solutions</p>
+
+  <h2>Sandbox Link</h2>
+  <p><a href="https://microsoftlearning.github.io/SC-401T00-Information-Security-Administrator/Instructions/Labs/Lab0_Ex0_Lab_Setup.html" target="_blank">Lab 0 – Environment Setup</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
 
