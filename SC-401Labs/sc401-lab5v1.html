@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 10 – Configure Retention Policies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    .screenshot-note {
+      color: #555;
+      font-style: italic;
+      margin-top: 5px;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SC-401 Lab 10 – Configure Retention Policies</h1>
+  <p>Implement retention policies to manage data lifecycle and ensure regulatory compliance across Microsoft 365 services.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Microsoft Learn Sandbox</li>
+    <li>Microsoft Purview Portal</li>
+    <li>Microsoft 365 Compliance Center</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Signed into Microsoft Purview portal as MOD Administrator.</li>
+    <li>Navigated to <strong>Information Governance → Retention Policies</strong>.</li>
+    <li>Created a new retention policy targeting Exchange, SharePoint, and OneDrive.</li>
+    <li>Configured retention duration and actions (retain, delete, or both).</li>
+    <li>Applied policy to all users and verified deployment status.</li>
+    <li>Tested policy by creating and deleting sample content.</li>
+    <li>Reviewed audit logs and policy impact in Compliance Center.</li>
+  </ol>
+
+  <h2>Outcome</h2>
+  <p>Retention policy successfully configured and validated. Microsoft 365 now enforces data lifecycle rules to support compliance, reduce risk, and manage storage efficiently.</p>
+
+  <h2>Certification Alignment</h2>
+  <p>SC-401 Domain 2.1 – Implement Information Governance Solutions</p>
+
+  <h2>Sandbox Link</h2>
+  <p><a href="https://microsoftlearning.github.io/SC-401T00-Information-Security-Administrator/Instructions/Labs/Lab5_Ex1_retention.html" target="_blank">Lab 10 – Configure Retention Policies</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubeoficial@gmail.com">ubeoficial@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
