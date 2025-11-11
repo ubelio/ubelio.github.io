@@ -89,7 +89,7 @@
 <body>
 
 <header>
-  <h1>SC-401 Lab 1 – Communication Compliance</h1>
+  <h1>Communication Compliance</h1>
   <p>Detect and remediate inappropriate text messages using Microsoft Purview Communication Compliance policies scoped to E5-licensed users.</p>
 </header>
 
@@ -117,14 +117,15 @@
     <li>Microsoft Purview Communication Compliance</li>
     <li>Microsoft 365 E5</li>
     <li>Microsoft Teams & Exchange Online</li>
-    <li>Built-in Classifiers: Inappropriate Text</li>
+    <li>Built-in Classifiers: Inappropriate Text, Content that Matches: Sexual, Hate, Violence, Self Harm</li>
+    <li>Trainable Classifiers: Targeted Harassment, Threat, Discrimination, Adult images, Racy images</li>
   </ul>
 
   <h2>Steps Taken</h2>
   <ol>
     <li>Created Communication Compliance policy using built-in "Inappropriate Text" classifier.</li>
     <li>Scoped policy to E5-licensed users only.</li>
-    <li>Sent simulated inappropriate messages via Teams and Exchange Online.</li>
+    <li>Sent simulated inappropriate messages via Teams.</li>
     <li>Monitored Communication Compliance dashboard for alert generation.</li>
     <li>Validated detection latency and classifier accuracy.</li>
   </ol>
@@ -138,24 +139,8 @@
   <h2>Screenshot: Alert in Dashboard</h2>
   <p class="screenshot-note">Insert screenshot of alert appearing in Communication Compliance dashboard with classifier match.</p>
 
-  <h2>Detection Timeline</h2>
-  <table>
-    <tr><th>Event</th><th>Timestamp (CST)</th></tr>
-    <tr><td>Policy Created</td><td>Nov 10, 3:05 PM</td></tr>
-    <tr><td>Message Sent</td><td>Nov 10, 3:15 PM</td></tr>
-    <tr><td>Alert Appeared</td><td>Nov 10, ~5:45 PM</td></tr>
-    <tr><td>Policy Status</td><td>Confirmed Active Nov 11 AM</td></tr>
-  </table>
-
   <h2>Outcome</h2>
-  <p>Policy successfully detected inappropriate text. Alert surfaced in Communication Compliance dashboard with classifier match and remediation options. Lab validated detection latency, licensing scope, and classifier sensitivity.</p>
-
-  <h2>Certification Alignment</h2>
-  <p>SC-401 Domain 1.2 – Implement communication compliance policies to detect and remediate risky behavior.</p>
-
-  <h2>Sandbox Link</h2>
-  <p><a href="#">Lab 1 – Communication Compliance</a></p>
-</div>
+  <p>Policy successfully detected inappropriate text. Alert surfaced in Communication Compliance dashboard with classifier match and remediation options.</p>
 
 <footer>
   <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
