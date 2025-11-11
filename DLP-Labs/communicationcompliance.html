@@ -71,6 +71,13 @@
     a:hover {
       text-decoration: underline;
     }
+    .screenshot {
+  display: block;
+  max-width: 100%;
+  margin: 15px auto;
+  border: 2px solid #141413;
+  border-radius: 5px;
+}
     footer {
       background-color: #BDBBB2;
       text-align: center;
@@ -130,14 +137,17 @@
     <li>Validated detection latency and classifier accuracy.</li>
   </ol>
 
-  <h2>Screenshot: Policy Configuration</h2>
-  <p class="screenshot-note">Insert screenshot of Communication Compliance policy setup showing classifier selection and user scoping.</p>
+<h2>Screenshot: Policy Configuration</h2>
+<img src="DLP-Labs/policy.png" alt="Communication Compliance policy setup" class="screenshot">
+<p class="screenshot-note">Policy setup showing inappropriate text classifier and user scope.</p>
 
-  <h2>Screenshot: Simulated Violation</h2>
-  <p class="screenshot-note">Insert screenshot of Teams or Email message containing inappropriate text (e.g., harassment or threats).</p>
+<h2>Screenshot: Simulated Violation</h2>
+<img src="DLP-Labs/teamsmessagesample.png" alt="Teams message with inappropriate text" class="screenshot">
+<p class="screenshot-note">Teams message containing simulated inappropriate text violation.</p>
 
-  <h2>Screenshot: Alert in Dashboard</h2>
-  <p class="screenshot-note">Insert screenshot of alert appearing in Communication Compliance dashboard with classifier match.</p>
+<h2>Screenshot: Alert in Dashboard</h2>
+<img src="DLP-Labs/policyalert.png" alt="Communication Compliance alert dashboard" class="screenshot">
+<p class="screenshot-note">Alert surfaced in Communication Compliance dashboard with classifier match.</p>
 
   <h2>Outcome</h2>
   <p>Policy successfully detected inappropriate text. Alert surfaced in Communication Compliance dashboard with classifier match and remediation options.</p>
