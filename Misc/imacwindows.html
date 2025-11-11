@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab – Repurposing Unsupported Intel iMacs into Windows 11</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #141413;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    .screenshot-note {
+      font-style: italic;
+      color: #555;
+      margin-top: 5px;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Repurposing Unsupported Intel iMacs into Windows 11 Workstations</h1>
+  <p>Convert Intel Macs that can no longer update macOS into modern Windows 11 machines with full driver support.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Ventoy USB Boot Utility</li>
+    <li>Windows 11 ISO (Microsoft)</li>
+    <li>Brigadier (GitHub)</li>
+    <li>7-Zip</li>
+    <li>Windows PowerShell (Administrator)</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Prepared a Ventoy USB drive and copied the Windows 11 ISO.</li>
+    <li>Booted the Intel iMac from USB using the Option (⌥) key.</li>
+    <li>Deleted all macOS partitions and installed Windows 11 onto unallocated space.</li>
+    <li>Downloaded Brigadier from GitHub and installed 7-Zip for extraction.</li>
+    <li>Ran Brigadier in PowerShell with execution policy bypass to fetch Boot Camp drivers.</li>
+    <li>Installed drivers by double-clicking <code>Setup.exe</code> from the Boot Camp folder.</li>
+  </ol>
+
+  <h2>Screenshot: Ventoy USB Preparation</h2>
+  <img src="ventoyusb.png" alt="Ventoy USB preparation" class="screenshot">
+  <p class="screenshot-note">Ventoy USB drive prepared with Windows 11 ISO copied.</p>
+
+  <h2>Screenshot: Windows Installation</h2>
+  <img src="windowsinstall.png" alt="Windows installer partition screen" class="screenshot">
+  <p class="screenshot-note">Windows installer showing partition deletion and installation on unallocated space.</p>
+
+  <h2>Screenshot: Brigadier in PowerShell</h2>
+  <img src="brigadierdownload.png" alt="Brigadier running in PowerShell" class="screenshot">
+  <p class="screenshot-note">Brigadier automatically detecting iMac model and downloading Boot Camp drivers.</p>
+
+  <h2>Screenshot: Boot Camp Driver Setup</h2>
+  <img src="driversetup.png" alt="Boot Camp driver installation" class="screenshot">
+  <p class="screenshot-note">Boot Camp drivers installed via Setup.exe for full hardware support.</p>
+
+  <h2>Outcome</h2>
+  <p>The unsupported Intel iMac now runs Windows 11 smoothly with full driver support (Wi-Fi, Bluetooth, audio, graphics, keyboard/media keys). Boot Camp Control Panel is available, extending the hardware’s life for labs, virtualization, and productivity.</p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
 
