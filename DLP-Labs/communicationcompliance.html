@@ -59,11 +59,6 @@
       padding: 8px;
       text-align: left;
     }
-    .screenshot-note {
-      font-style: italic;
-      color: #555;
-      margin-top: 5px;
-    }
     a {
       color: #0073e6;
       text-decoration: none;
@@ -71,6 +66,31 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Professional screenshot presentation */
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE; /* subtle contrast against page background */
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+
     footer {
       background-color: #BDBBB2;
       text-align: center;
@@ -83,6 +103,13 @@
     }
     footer a:hover {
       text-decoration: underline;
+    }
+
+    /* Optional divider for section clarity */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
     }
   </style>
 </head>
@@ -130,20 +157,31 @@
     <li>Validated detection latency and classifier accuracy.</li>
   </ol>
 
-<h2>Screenshot: Policy Configuration</h2>
-<img src="policy.png" alt="Communication Compliance policy setup" class="screenshot">
-<p class="screenshot-note">Policy setup showing inappropriate text classifier and user scope.</p>
+  <hr class="section-divider">
 
-<h2>Screenshot: Simulated Violation</h2>
-<img src="teamsmessagesample.png" alt="Teams message with inappropriate text" class="screenshot">
-<p class="screenshot-note">Teams message containing simulated inappropriate text violation.</p>
+  <h2>Screenshot: Policy Configuration</h2>
+  <figure>
+    <img src="policy.png" alt="Communication Compliance policy setup with inappropriate text classifier and scoped users" class="screenshot">
+    <figcaption class="screenshot-note">Policy setup showing inappropriate text classifier and user scope.</figcaption>
+  </figure>
 
-<h2>Screenshot: Alert in Dashboard</h2>
-<img src="policyalert.png" alt="Communication Compliance alert dashboard" class="screenshot">
-<p class="screenshot-note">Alert surfaced in Communication Compliance dashboard with classifier match.</p>
+  <h2>Screenshot: Simulated Violation</h2>
+  <figure>
+    <img src="teamsmessagesample.png" alt="Teams message containing simulated inappropriate text violation" class="screenshot">
+    <figcaption class="screenshot-note">Teams message containing simulated inappropriate text violation.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Alert in Dashboard</h2>
+  <figure>
+    <img src="policyalert.png" alt="Communication Compliance dashboard showing alert and classifier match" class="screenshot">
+    <figcaption class="screenshot-note">Alert surfaced in Communication Compliance dashboard with classifier match.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
 
   <h2>Outcome</h2>
   <p>Policy successfully detected inappropriate text. Alert surfaced in Communication Compliance dashboard with classifier match and remediation options.</p>
+</div>
 
 <footer>
   <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
@@ -152,4 +190,3 @@
 
 </body>
 </html>
-
