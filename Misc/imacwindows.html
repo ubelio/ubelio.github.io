@@ -47,18 +47,6 @@
     ul, ol {
       padding-left: 20px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    table, th, td {
-      border: 1px solid #141413;
-    }
-    th, td {
-      padding: 8px;
-      text-align: left;
-    }
     .screenshot-note {
       font-style: italic;
       color: #555;
@@ -123,12 +111,18 @@
 
   <h2>Steps Taken</h2>
   <ol>
-    <li>Prepared a Ventoy USB drive and copied the Windows 11 ISO.</li>
-    <li>Booted the Intel iMac from USB using the Option (⌥) key.</li>
-    <li>Deleted all macOS partitions and installed Windows 11 onto unallocated space.</li>
+    <li>Prepared a Ventoy USB drive with GPT partition style and enabled Secure Boot support, then copied the Windows 11 ISO onto the USB. If you leave it on MBR or skip Secure Boot support, the iMac may not boot properly.</li>
+    <li>Booted the Intel iMac from USB using the Option (⌥) key, selected the Ventoy EFI entry, and chose the Windows 11 ISO. Always pick the EFI entry because legacy boot can cause installer errors.</li>
+    <li>Deleted all macOS partitions in the Windows installer and installed Windows 11 onto unallocated space. Leaving macOS partitions can cause setup failures or dual‑boot confusion.</li>
+    <li>Completed Windows setup and reached the desktop.</li>
     <li>Downloaded Brigadier from GitHub and installed 7-Zip for extraction.</li>
-    <li>Ran Brigadier in PowerShell with execution policy bypass to fetch Boot Camp drivers.</li>
-    <li>Installed drivers by double-clicking <code>Setup.exe</code> from the Boot Camp folder.</li>
+    <li>Ran Brigadier in PowerShell with execution policy bypass to fetch Boot Camp drivers:
+      <pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force
+cd C:\brigadier
+.\brigadier.ps1</code></pre>
+      If the BootCamp folder is empty after running, rerun Brigadier because sometimes the first attempt doesn’t fetch drivers.</li>
+    <li>Installed drivers by double-clicking <code>Setup.exe</code> from the Boot Camp folder. Skipping this step leaves Wi‑Fi, audio, and brightness keys non‑functional.</li>
+    <li>Rebooted and validated Wi‑Fi, Bluetooth, audio, graphics, brightness keys, and Boot Camp Control Panel.</li>
   </ol>
 
   <h2>Screenshot: Ventoy USB Preparation</h2>
@@ -158,4 +152,3 @@
 
 </body>
 </html>
-
