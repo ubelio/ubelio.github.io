@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SC-401 Lab 2 – HIPAA Compliance Across M365 Workloads</title>
+  <title>SC-401 Lab 1 – Communication Compliance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
   <style>
@@ -41,7 +41,7 @@
       margin: auto;
       padding: 20px;
     }
-    h1, h2, h3 {
+    h1, h2 {
       color: #141413;
     }
     ul, ol {
@@ -115,8 +115,8 @@
 <body>
 
 <header>
-  <h1>HIPAA Compliance Across Microsoft 365 Workloads</h1>
-  <p>Enforce HIPAA minimum necessary restrictions and prevent external sharing of PHI using Microsoft Purview DLP policies.</p>
+  <h1>Communication Compliance</h1>
+  <p>Detect and remediate inappropriate text messages using Microsoft Purview Communication Compliance policies scoped to E5-licensed users.</p>
 </header>
 
 <nav id="main-nav">
@@ -140,33 +140,58 @@
 <div class="container">
   <h2>Tools Used</h2>
   <ul>
-    <li>Microsoft Purview Data Loss Prevention (DLP)</li>
+    <li>Microsoft Purview Communication Compliance</li>
     <li>Microsoft 365 E5</li>
-    <li>Exchange Online, SharePoint Online, OneDrive, Microsoft Teams</li>
-    <li>Sensitive Info Types: SSN, DEA Number, ICD-9/10 Codes, Medical Terms</li>
-    <li>Trainable Classifiers: Healthcare, Insurance Files, Medical Forms</li>
+    <li>Microsoft Teams & Exchange Online</li>
+    <li>Built-in Classifiers: Inappropriate Text, Content that Matches: Sexual, Hate, Violence, Self Harm</li>
+    <li>Trainable Classifiers: Targeted Harassment, Threat, Discrimination, Adult images, Racy images</li>
   </ul>
 
-  <h2>Approach</h2>
+  <h2>Steps Taken</h2>
   <ol>
-    <li>Created three external blocking policies (SharePoint, Teams, Exchange).</li>
-    <li>Created one internal minimum necessary policy excluding Care Team group.</li>
-    <li>Validated blocked attempts for non-Care Team users.</li>
-    <li>Validated allowed attempts for Care Team users.</li>
-    <li>Captured notifications, policy tips, and Purview alerts.</li>
+    <li>Created Communication Compliance policy using built-in "Inappropriate Text" classifier.</li>
+    <li>Scoped policy to E5-licensed users only.</li>
+    <li>Sent simulated inappropriate messages via Teams.</li>
+    <li>Monitored Communication Compliance dashboard for alert generation.</li>
+    <li>Validated detection latency and classifier accuracy.</li>
   </ol>
 
   <hr class="section-divider">
 
-  <h2>Policy 1: HIPAA External Block – SharePoint</h2>
+  <h2>Screenshot: Policy Configuration</h2>
   <figure>
-    <a href="sharepoint_policy.png" target="_blank">
-      <img src="sharepoint_policy.png" alt="SharePoint HIPAA DLP policy setup" class="screenshot">
+    <a href="policy.png" target="_blank">
+      <img src="policy.png" alt="Communication Compliance policy setup" class="screenshot">
     </a>
-    <figcaption class="screenshot-note">Policy configuration for SharePoint external blocking.</figcaption>
+    <figcaption class="screenshot-note">Click to view full-size: Policy setup showing inappropriate text classifier and user scope.</figcaption>
   </figure>
+
+  <h2>Screenshot: Simulated Violation</h2>
   <figure>
-    <a href="sharepoint_tip.png" target="_blank">
-      <img src="sharepoint_tip.png" alt="SharePoint policy tip" class="screenshot">
+    <a href="teamsmessagesample.png" target="_blank">
+      <img src="teamsmessagesample.png" alt="Teams message with inappropriate text" class="screenshot">
     </a>
-    <figcaption class="screenshot-note">Policy tip shown when attempting
+    <figcaption class="screenshot-note">Click to view full-size: Teams message containing simulated inappropriate text violation.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Alert in Dashboard</h2>
+  <figure>
+    <a href="policyalert.png" target="_blank">
+      <img src="policyalert.png" alt="Communication Compliance alert dashboard" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Alert surfaced in Communication Compliance dashboard with classifier match.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>Policy successfully detected inappropriate text. Alert surfaced in Communication Compliance dashboard with classifier match and remediation options.</p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
