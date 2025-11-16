@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 2 – HIPAA Compliance Across M365 Workloads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <h1>HIPAA Compliance Across Microsoft 365 Workloads</h1>
+  <p>Enforce HIPAA minimum necessary restrictions and prevent external sharing of PHI using Microsoft Purview DLP policies.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Microsoft Purview Data Loss Prevention (DLP)</li>
+    <li>Microsoft 365 E5</li>
+    <li>Exchange Online, SharePoint Online, OneDrive, Microsoft Teams</li>
+    <li>Sensitive Info Types: SSN, DEA Number, ICD-9/10 Codes, Medical Terms</li>
+    <li>Trainable Classifiers: Healthcare, Insurance Files, Medical Forms</li>
+  </ul>
+
+  <h2>Approach</h2>
+  <ol>
+    <li>Created three external blocking policies (SharePoint, Teams, Exchange).</li>
+    <li>Created one internal minimum necessary policy excluding Care Team group.</li>
+    <li>Validated blocked attempts for non-Care Team users.</li>
+    <li>Validated allowed attempts for Care Team users.</li>
+    <li>Captured notifications, policy tips, and Purview alerts.</li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <h2>Policy 1: HIPAA External Block – SharePoint</h2>
+  <figure>
+    <a href="sharepoint_policy.png" target="_blank">
+      <img src="sharepoint_policy.png" alt="SharePoint HIPAA DLP policy setup" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy configuration for SharePoint external blocking.</figcaption>
+  </figure>
+  <figure>
+    <a href="sharepoint_tip.png" target="_blank">
+      <img src="sharepoint_tip.png" alt="SharePoint policy tip" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy tip shown when attempting to share PHI externally.</figcaption>
+  </figure>
+  <figure>
+    <a href="sharepoint_alert.png" target="_blank">
+      <img src="sharepoint_alert.png" alt="Purview alert for SharePoint" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Purview alert generated for blocked SharePoint external share.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Policy 2: HIPAA External Block – Teams</h2>
+  <figure>
+    <a href="teams_policy.png" target="_blank">
+      <img src="teams_policy.png" alt="Teams HIPAA DLP policy setup" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy configuration for Teams external blocking.</figcaption>
+  </figure>
+  <figure>
+    <a href="teams_tip.png" target="_blank">
+      <img src="teams_tip.png" alt="Teams policy tip" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy tip shown in Teams composer when PHI is detected.</figcaption>
+  </figure>
+  <figure>
+    <a href="teams_alert.png" target="_blank">
+      <img src="teams_alert.png" alt="Purview alert for Teams" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Purview alert generated for blocked Teams external share.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Policy 3: HIPAA External Block – Exchange</h2>
+  <figure>
+    <a href="exchange_policy.png" target="_blank">
+      <img src="exchange_policy.png" alt="Exchange HIPAA DLP policy setup" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy configuration for Exchange external blocking.</figcaption>
+  </figure>
+  <figure>
+    <a href="exchange_tip.png" target="_blank">
+      <img src="exchange_tip.png" alt="Exchange policy tip" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy tip shown in Outlook compose window when PHI is detected.</figcaption>
+  </figure>
+  <figure>
+    <a href="exchange_alert.png" target="_blank">
+      <img src="exchange_alert.png" alt="Purview alert for Exchange" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Purview alert generated for blocked Exchange external email.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Policy 4: HIPAA Internal Minimum Necessary</h2>
+  <h3>Phase 1 – Users Not in Care Team</h3>
+  <figure>
+    <a href="internal_block_policy.png" target="_blank">
+      <img src="internal_block_policy.png" alt="Internal HIPAA DLP policy setup" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy configuration showing Care Team excluded from scope.</figcaption>
+  </figure>
+  <figure>
+    <a href="internal_block_tip.png" target="_blank">
+      <img src="internal_block_tip.png" alt="Internal block policy tip" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy tip shown when non-Care Team user attempts to share PHI internally.</figcaption>
+  </figure>
+  <figure>
+    <a href="internal_block_alert.png" target="_blank">
+      <img src="internal_block_alert.png" alt="Purview alert for internal block" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Purview alert generated for blocked internal share.</figcaption>
+  </figure>
+
+  <h3>Phase 2 – Users Added to Care Team</h3>
+  <figure>
+    <a href="internal_allow_share.png" target="_blank">
+      <img src="internal_allow_share.png" alt="Care Team allowed share" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Care Team user successfully shares PHI internally.</figcaption>
+  </figure>
+  <figure>
+    <a href="internal_allow_success.png" target="_blank">
+      <img src="internal_allow_success.png" alt="Successful Care Team share" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">No incident generated for Care Team activity, confirming group exception works.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>Three external blocking policies successfully prevented PHI from leaving the tenant across SharePoint, Teams, and Exchange. The internal minimum necessary policy enforced HIPAA restrictions by blocking all internal PHI sharing except for Care Team group members. Validation confirmed both blocked and allowed scenarios, with clear user notifications and Purview alerts providing compliance visibility.</p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
