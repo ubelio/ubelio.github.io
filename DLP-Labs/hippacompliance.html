@@ -5,6 +5,112 @@
   <title>SC-401 Lab 2 – HIPAA Compliance Across M365 Workloads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #141413;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -128,41 +234,4 @@
   </figure>
   <figure>
     <a href="internal_block_tip.png" target="_blank">
-      <img src="internal_block_tip.png" alt="Internal block policy tip" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Policy tip shown when non-Care Team user attempts to share PHI internally.</figcaption>
-  </figure>
-  <figure>
-    <a href="internal_block_alert.png" target="_blank">
-      <img src="internal_block_alert.png" alt="Purview alert for internal block" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Purview alert generated for blocked internal share.</figcaption>
-  </figure>
-
-  <h3>Phase 2 – Users Added to Care Team</h3>
-  <figure>
-    <a href="internal_allow_share.png" target="_blank">
-      <img src="internal_allow_share.png" alt="Care Team allowed share" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Care Team user successfully shares PHI internally.</figcaption>
-  </figure>
-  <figure>
-    <a href="internal_allow_success.png" target="_blank">
-      <img src="internal_allow_success.png" alt="Successful Care Team share" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">No incident generated for Care Team activity, confirming group exception works.</figcaption>
-  </figure>
-
-  <hr class="section-divider">
-
-  <h2>Outcome</h2>
-  <p>Three external blocking policies successfully prevented PHI from leaving the tenant across SharePoint, Teams, and Exchange. The internal minimum necessary policy enforced HIPAA restrictions by blocking all internal PHI sharing except for Care Team group members. Validation confirmed both blocked and allowed scenarios, with clear user notifications and Purview alerts providing compliance visibility.</p>
-</div>
-
-<footer>
-  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
-</footer>
-
-</body>
-</html>
+      <img src="internal_block_tip
