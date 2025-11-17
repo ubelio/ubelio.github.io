@@ -151,12 +151,12 @@
   </ul>
 
   <h2>📌 Summary</h2>
-  <p>This lab demonstrates a single-policy design that blocks any external sharing of PHI across Exchange, SharePoint, OneDrive and Teams. The objective is a simple, deterministic enforcement point that avoids cross-policy precedence and group-resolution edge cases.</p>
+  <p>This lab demonstrates a single-policy design that blocks any external sharing of PHI across Exchange, SharePoint, OneDrive and Teams.</p>
 
   <h2>⚙️ Approach</h2>
   <ol>
-    <li>Create one DLP policy named <strong>HIPAA External Block — Global</strong>.</li>
-    <li>Scope the policy explicitly to the four workloads (Exchange, SharePoint, OneDrive, Teams) using the location picker — do not use “All locations”.</li>
+    <li>Create one DLP policy named <strong>HIPAA External Block</strong>.</li>
+    <li>Scope the policy explicitly to the four workloads (Exchange, SharePoint, OneDrive, Teams) using the location picker.</li>
     <li>Include all users and groups in scope (default), no exclusions required for this lab.</li>
     <li>Rule condition: content contains configured HIPAA sensitive info types or matching classifiers.</li>
     <li>Action: Block external sharing/delivery; show inline policy tip; send end‑user notification; create Purview incident and alert to admins.</li>
@@ -249,60 +249,9 @@
 
   <hr class="section-divider">
 
-  <h2>Validation & Test Plan</h2>
-  <ol>
-    <li>Publish policy and wait 30–60 minutes for initial propagation.</li>
-    <li>From a non-privileged user account, attempt to share a PHI-containing file externally from SharePoint/OneDrive (capture tip screenshot).</li>
-    <li>From Teams, send same PHI to an external guest account (capture tip screenshot).</li>
-    <li>From Outlook, send the PHI to an external recipient and capture the NDR or compose-tip.</li>
-    <li>Confirm incidents and alerts appear in Purview for each blocked action (capture admin screenshots).</li>
-    <li>Record timestamps and correlation IDs from incidents for audit evidence.</li>
-  </ol>
-
-  <h2>📊 Validation Matrix</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Workload</th>
-        <th>External Send/Share</th>
-        <th>Expected Result</th>
-        <th>Artifacts to Capture</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>SharePoint / OneDrive</td>
-        <td>Share file to external user</td>
-        <td>Blocked; policy tip; incident recorded</td>
-        <td>Share dialog tip; user notification; Purview incident</td>
-      </tr>
-      <tr>
-        <td>Teams</td>
-        <td>Send message/file to guest</td>
-        <td>Blocked; policy tip; incident recorded</td>
-        <td>Teams composer tip; user notification; Purview incident</td>
-      </tr>
-      <tr>
-        <td>Exchange</td>
-        <td>Send email to external recipient</td>
-        <td>Blocked; NDR or compose block; incident recorded</td>
-        <td>Outlook tip/NDR; user notification; Purview incident</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <hr class="section-divider">
-
   <h2>Outcome</h2>
-  <p>Single global external-block policy prevents PHI from leaving the tenant across all major M365 workloads. This simplified design reduces scoping complexity and avoids group-resolution exceptions. Admins receive incidents and alerts for auditing and response.</p>
+  <p>Single global external-block policy prevents PHI from leaving the tenant across all major M365 workloads. This simplified design reduces scoping complexity. Admins receive incidents and alerts for auditing and response.</p>
 
-  <h2>Notes & next steps</h2>
-  <ul>
-    <li>Keep this policy separate from other DLP policies that may also act on PHI to avoid conflict; the strictest action will apply.</li>
-    <li>If you later need an internal exception (Care Team), consider either a separate internal allow/monitor policy or per-workload internal policies with validated group membership.</li>
-    <li>Collect and archive screenshots, incident IDs, and timestamps for your recruiter-facing lab evidence.</li>
-  </ul>
-</div>
 
 <footer>
   <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
