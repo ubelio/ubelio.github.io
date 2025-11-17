@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SC-401 Lab 2 – HIPAA Compliance Across M365 Workloads</title>
+  <title>SC-401 Lab – HIPAA External Block (Single Policy)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
   <style>
@@ -107,13 +107,20 @@
       border-top: 1px solid #BDBBB2;
       margin: 32px 0;
     }
+    .note {
+      background: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>HIPAA Compliance Across Microsoft 365 Workloads</h1>
-  <p>Enforce HIPAA minimum necessary restrictions and prevent external sharing of PHI using Microsoft Purview DLP policies.</p>
+  <h1>HIPAA External Block — Single Policy</h1>
+  <p>Block all external sharing of Protected Health Information (PHI) across Microsoft 365 workloads using one reliable Microsoft Purview DLP policy.</p>
 </header>
 
 <nav id="main-nav">
@@ -135,201 +142,165 @@
 </script>
 
 <div class="container">
-  <h2>📌 Summary</h2>
-  <p>This lab demonstrates how to achieve HIPAA compliance across Microsoft 365 workloads by enforcing both external blocking and internal minimum necessary restrictions.</p>
-  <p>The solution uses four policies:</p>
+  <h2>Tools Used</h2>
   <ul>
-    <li>HIPAA External Block – SharePoint</li>
-    <li>HIPAA External Block – Teams</li>
-    <li>HIPAA External Block – Exchange</li>
-    <li>HIPAA Internal Minimum Necessary (tested in two phases: users outside Care Team vs. inside Care Team)</li>
+    <li>Microsoft Purview Data Loss Prevention (DLP)</li>
+    <li>Microsoft 365 E5</li>
+    <li>Exchange Online, SharePoint Online, OneDrive, Microsoft Teams</li>
+    <li>Sensitive Info Types: SSN, Medical Identifiers, ICD codes, custom HIPAA classifiers</li>
   </ul>
+
+  <h2>📌 Summary</h2>
+  <p>This lab demonstrates a single-policy design that blocks any external sharing of PHI across Exchange, SharePoint, OneDrive and Teams. The objective is a simple, deterministic enforcement point that avoids cross-policy precedence and group-resolution edge cases.</p>
 
   <h2>⚙️ Approach</h2>
-  <ul>
-    <li><strong>External Protection:</strong> Three workload‑specific policies block PHI from leaving the tenant.</li>
-    <li><strong>Internal Minimum Necessary:</strong> One policy blocks PHI sharing internally for all users except Care Team group.</li>
-    <li><strong>Actions for all policies:</strong>
-      <ul>
-        <li>Notify users with email + policy tips</li>
-        <li>Restrict access to content for external users</li>
-        <li>Send incident reports to Administrator</li>
-        <li>Send alerts to Administrator</li>
-      </ul>
-    </li>
-  </ul>
+  <ol>
+    <li>Create one DLP policy named <strong>HIPAA External Block — Global</strong>.</li>
+    <li>Scope the policy explicitly to the four workloads (Exchange, SharePoint, OneDrive, Teams) using the location picker — do not use “All locations”.</li>
+    <li>Include all users and groups in scope (default), no exclusions required for this lab.</li>
+    <li>Rule condition: content contains configured HIPAA sensitive info types or matching classifiers.</li>
+    <li>Action: Block external sharing/delivery; show inline policy tip; send end‑user notification; create Purview incident and alert to admins.</li>
+    <li>Validate externally-targeted sharing attempts from each workload are blocked and generate alerts.</li>
+  </ol>
 
   <hr class="section-divider">
 
-  <h2>🔒 Policies</h2>
+  <h2>Policy Configuration (high-level)</h2>
+  <div class="note">
+    <strong>Name:</strong> HIPAA External Block — Global<br>
+    <strong>Locations:</strong> Select specific locations → Exchange mailboxes; SharePoint sites; OneDrive accounts; Teams chat and channel messages<br>
+    <strong>Users in scope:</strong> All users and groups (no exclusions in this lab)<br>
+    <strong>Condition:</strong> Contains HIPAA sensitive info types / classifiers<br>
+    <strong>Actions:</strong> Block external sharing/delivery; Show policy tip; Send user notification; Create incident/alert.
+  </div>
 
-  <h3>1. HIPAA External Block – SharePoint</h3>
-  <p><strong>Scope:</strong> All SharePoint sites<br>
-     <strong>Rule:</strong> If HIPAA content shared externally → block<br>
-     <strong>Actions:</strong> Restrict access, notify, incident report, alert</p>
-  <ul>
-  <h2>Screenshot: Policy Configuration</h2>
-  <figure>
-    <a href="sharepointpolicyblock.png" target="_blank">
-      <img src="sharepointpolicyblock.png" alt="Policy Configuration to Block Sharepoint for external sharing" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Policy setup.</figcaption>
-  </figure>
-  <h2>Screenshot: Email Notification of External Sharing Block</h2>
-  <figure>
-    <a href="emailnotificationsharepointblock.png" target="_blank">
-      <img src="emailnotificationsharepointblock.png" alt="Notification received by user after attempt of sharing HIPPA content through sharepoint" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: User Email Notification.</figcaption>
-  </figure>
-    <h2>Screenshot: Email Notification of policy tip</h2>
-  <figure>
-    <a href="policytipblocksharepoint.png" target="_blank">
-      <img src="policytipblocksharepoint.png" alt="Notification received by user with policy tip" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Policy Tip.</figcaption>
-  </figure>  
-    <h2>Screenshot: Notification when attempting share from sharepoint site.</h2>
-  <figure>
-    <a href="sharepointblocksharing.png" target="_blank">
-      <img src="sharepointblocksharing.png" alt="Notification received by user when attempting to share file from sharepoint site" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Site Sharing Notification.</figcaption>
-  </figure> 
-      <h2>Screenshot: Alert in Microsoft Purview.</h2>
-  <figure>
-    <a href="alertsharepointpolicymatch.png" target="_blank">
-      <img src="alertsharepointpolicymatch.png" alt="Alert for a policy match in Microsoft Purview" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Policy Alert.</figcaption>
-  </figure>  
-      <h2>Screenshot: Email notification to Administrator.</h2>
-  <figure>
-    <a href="emailtoadminblocksharepoint.png" target="_blank">
-      <img src="emailtoadminblocksharepoint.png" alt="Email notification to Administrator" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Administrator Email.</figcaption>
-  </figure>  
-  </ul>
-
-  <h3>2. HIPAA External Block – Teams</h3>
-  <p><strong>Scope:</strong> Teams chat + channel messages<br>
-     <strong>Rule:</strong> If HIPAA content shared externally → block<br>
-     <strong>Actions:</strong> Restrict access, notify, incident report, alert</p>
-  <ul>
-  <h2>Screenshot: Policy Rule.</h2>
-  <figure>
-    <a href="policyruleteams.png" target="_blank">
-      <img src="policyruleteams.png" alt="Policy Rule Configuration" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Policy Rule Configuration.</figcaption>
-  </figure>
-  <h2>Screenshot: Message Blocked Notification.</h2>
-  <figure>
-    <a href="teamsblocknotification.png" target="_blank">
-      <img src="teamsblocknotification.png" alt="Message Bcloed Notification" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Message Block Notification.</figcaption>
-  </figure>  
-      <h2>Screenshot: Policy Tip for Message Block.</h2>
-  <figure>
-    <a href="teamsblockpolicytip.png" target="_blank">
-      <img src="teamsblockpolicytip.png" alt="Policy Tip" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Policy Tip.</figcaption>
-  </figure>  
-  </ul>
-
-  <h3>3. HIPAA External Block – Exchange</h3>
-  <p><strong>Scope:</strong> All Exchange mailboxes<br>
-     <strong>Rule:</strong> If HIPAA content sent externally → block<br>
-     <strong>Actions:</strong> Restrict email delivery, notify, incident report, alert</p>
-  <ul>
-  <h2>Screenshot: Policy Rule Echange.</h2>
-  <figure>
-    <a href="policyruleexchange.png" target="_blank">
-      <img src="policyruleexchange.png" alt="Policy Rule for Exchange" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Policy Rule Definition for Exchange.</figcaption>
-  </figure>  
-  <h2>Screenshots: Sample Email Messages shared outside the organization, body and attachment samples.</h2>
-  <figure>
-    <a href="emailattachmentsamplehippa.png" target="_blank">
-      <img src="emailattachmentsamplehippa.png" alt="Email Sample Hippa Attachment" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Email Sample Hippa Attachment.</figcaption>
-  </figure>
-  <figure>
-    <a href="emailbodysamplehippa.png" target="_blank">
-      <img src="emailbodysamplehippa.png" alt="Email Sample, Hippa in Email Body" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Email Sample, Hippa in Email Body.</figcaption>
-  </figure> 
-    <h2>Screenshot: Email Notification Tip of Blocked Email.</h2>
-  <figure>
-    <a href="policytiphippaexchange.png" target="_blank">
-      <img src="policytiphippaexchange.png" alt="Policy Tip" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Policy Tip.</figcaption>
-  </figure>
-    <h2>Screenshots: Email Notifications for Administrator, Attachment and Body.</h2>
-  <figure>
-    <a href="adminemailhippaexchangeattachment.png" target="_blank">
-      <img src="adminemailhippaexchangeattachment.png" alt="Admin Notification Attachment Sample" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Admin Notification Attachment Sample.</figcaption>
-  </figure>  
-  <figure>
-    <a href="adminemailhippaexchangebody.png" target="_blank">
-      <img src="adminemailhippaexchangebody.png" alt="Admin Notification Body Sample" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Admin Notification Body Sample</figcaption>
-  </figure>
-   <h2>Screenshot: Policy Alert in Purview.</h2>
-  <figure>
-    <a href="alertexchangehippa" target="_blank">
-      <img src="alertexchangehippa.png" alt="Echange Purview Alert" class="screenshot">
-    </a>
-    <figcaption class="screenshot-note">Click to view full-size: Exchange Purview Alert.</figcaption>
-  </figure>
-  </ul>
-
-  <h3>4. HIPAA Internal Minimum Necessary</h3>
-  <p><strong>Scope:</strong> All workloads (Exchange, SharePoint, OneDrive, Teams)<br>
-     <strong>Exclusion:</strong> Care Team group<br>
-     <strong>Rule:</strong> If HIPAA content shared internally → block (except Care Team)<br>
-     <strong>Actions:</strong> Restrict access, notify, incident report, alert</p>
-
-  <h4>Phase 1 – Users Not in Care Team</h4>
-  <p><strong>Action:</strong> Attempted to share HIPAA‑classified file internally.<br>
-     <strong>Outcome:</strong> Sharing blocked, policy tip displayed, notification email sent, incident report generated in Purview.</p>
-  <ul>
-    <li>📸 Policy configuration (rule + actions)</li>
-    <li>📸 Locations picker (Care Team excluded)</li>
-    <li>📸 Share dialog with policy tip (blocked attempt)</li>
-    <li>📸 User notification email (blocked attempt)</li>
-    <li>📸 Purview incident report (admin view)</li>
-    <li>📸 Purview alert dashboard (admin view)</li>
-  </ul>
-
-  <h4>Phase 2 – Users Added to Care Team</h4>
-  <p><strong>Action:</strong> Same users attempted to share HIPAA‑classified file internally after being added to Care Team group.<br>
-     <strong>Outcome:</strong> Sharing allowed, no block applied, message/file/email delivered successfully, no incident generated.</p>
-  <ul>
-    <li>📸 Successful SharePoint share dialog (Care Team user)</li>
-    <li>📸 Delivered Teams message/email with PHI (Care Team user)</li>
-    <li>📸 Purview compliance portal (no incident generated for Care Team activity)</li>
-  </ul>
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Create custom DLP policy using the Purview portal and name it per above.</li>
+    <li>Choose specific locations and enable Exchange, SharePoint, OneDrive and Teams.</li>
+    <li>Select sensitive info types and any trainable classifiers that represent PHI.</li>
+    <li>Set action to block external sharing/delivery; configure policy tip and notify options.</li>
+    <li>Publish policy and allow propagation (test after 30–60 minutes; final confirmation next day).</li>
+    <li>Perform external sharing tests from each workload and capture results (blocked tip, NDR, Purview incident/alert).</li>
+  </ol>
 
   <hr class="section-divider">
 
-  <h2>🧠 Business Impact</h2>
+  <h2>Screenshot: Policy Overview</h2>
+  <figure>
+    <a href="policy_overview.png" target="_blank">
+      <img src="policy_overview.png" alt="Policy overview configuration for HIPAA External Block Global" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: DLP policy overview showing name, location selections and actions</figcaption>
+  </figure>
+
+  <h2>Screenshot: Locations Picker (selected workloads)</h2>
+  <figure>
+    <a href="locations_picker.png" target="_blank">
+      <img src="locations_picker.png" alt="Locations picker showing Exchange, SharePoint, OneDrive, Teams selected" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Locations panel with Exchange, SharePoint, OneDrive and Teams selected (avoid All locations)</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Per-workload test placeholders & expected artifacts</h2>
+
+  <h3>SharePoint / OneDrive</h3>
+  <figure>
+    <a href="sp_block_tip.png" target="_blank">
+      <img src="sp_block_tip.png" alt="Share dialog with DLP policy tip blocking external share" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy tip in SharePoint/OneDrive when attempting to share a file externally</figcaption>
+  </figure>
+
+  <h3>Teams</h3>
+  <figure>
+    <a href="teams_block_tip.png" target="_blank">
+      <img src="teams_block_tip.png" alt="Teams composer showing policy tip when sending PHI to guest" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy tip displayed in Teams when trying to send PHI to an external guest</figcaption>
+  </figure>
+
+  <h3>Exchange</h3>
+  <figure>
+    <a href="exchange_ndr.png" target="_blank">
+      <img src="exchange_ndr.png" alt="Exchange NDR or policy tip when attempting to mail PHI externally" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Outlook compose tip and/or NDR that indicates the external send was blocked</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Screenshot: Admin side artifacts</h2>
+  <figure>
+    <a href="purview_incident.png" target="_blank">
+      <img src="purview_incident.png" alt="Purview incident for blocked external PHI share" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Purview incident view showing details of the blocked event</figcaption>
+  </figure>
+
+  <figure>
+    <a href="purview_alerts.png" target="_blank">
+      <img src="purview_alerts.png" alt="Purview alert dashboard showing HIPAA external block events" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Alert dashboard where admin receives notifications about blocked external sharing</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Validation & Test Plan</h2>
+  <ol>
+    <li>Publish policy and wait 30–60 minutes for initial propagation.</li>
+    <li>From a non-privileged user account, attempt to share a PHI-containing file externally from SharePoint/OneDrive (capture tip screenshot).</li>
+    <li>From Teams, send same PHI to an external guest account (capture tip screenshot).</li>
+    <li>From Outlook, send the PHI to an external recipient and capture the NDR or compose-tip.</li>
+    <li>Confirm incidents and alerts appear in Purview for each blocked action (capture admin screenshots).</li>
+    <li>Record timestamps and correlation IDs from incidents for audit evidence.</li>
+  </ol>
+
+  <h2>📊 Validation Matrix</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Workload</th>
+        <th>External Send/Share</th>
+        <th>Expected Result</th>
+        <th>Artifacts to Capture</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SharePoint / OneDrive</td>
+        <td>Share file to external user</td>
+        <td>Blocked; policy tip; incident recorded</td>
+        <td>Share dialog tip; user notification; Purview incident</td>
+      </tr>
+      <tr>
+        <td>Teams</td>
+        <td>Send message/file to guest</td>
+        <td>Blocked; policy tip; incident recorded</td>
+        <td>Teams composer tip; user notification; Purview incident</td>
+      </tr>
+      <tr>
+        <td>Exchange</td>
+        <td>Send email to external recipient</td>
+        <td>Blocked; NDR or compose block; incident recorded</td>
+        <td>Outlook tip/NDR; user notification; Purview incident</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>Single global external-block policy prevents PHI from leaving the tenant across all major M365 workloads. This simplified design reduces scoping complexity and avoids group-resolution exceptions. Admins receive incidents and alerts for auditing and response.</p>
+
+  <h2>Notes & next steps</h2>
   <ul>
-    <li><strong>External Protection:</strong> PHI never leaves tenant.</li>
-    <li><strong>Internal Minimum Necessary:</strong> PHI restricted to Care Team group only.</li>
-    <li><strong>User Education:</strong> Policy tips + email notifications guide compliant behavior.</li>
-    <li><strong>Compliance Visibility:</strong> Incident reports + alerts provide audit trail for blocked attempts.</li>
-    <li><strong>Care Team Exception:</strong> Demonstrates HIPAA’s minimum necessary principle by allowing PHI only in secure zones.</li>
+    <li>Keep this policy separate from other DLP policies that may also act on PHI to avoid conflict; the strictest action will apply.</li>
+    <li>If you later need an internal exception (Care Team), consider either a separate internal allow/monitor policy or per-workload internal policies with validated group membership.</li>
+    <li>Collect and archive screenshots, incident IDs, and timestamps for your recruiter-facing lab evidence.</li>
   </ul>
 </div>
 
