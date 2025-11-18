@@ -188,16 +188,16 @@
 
   <h2>Screenshot: Policy Overview</h2>
   <figure>
-    <a href="policy_overview.png" target="_blank">
-      <img src="policy_overview.png" alt="Policy overview configuration for HIPAA External Block Global" class="screenshot">
+    <a href="hippapolicy_overview.png" target="_blank">
+      <img src="hippapolicy_overview.png" alt="Policy overview configuration for HIPAA External Block Global" class="screenshot">
     </a>
     <figcaption class="screenshot-note">Click to view full-size: DLP policy overview showing name, location selections and actions</figcaption>
   </figure>
 
   <h2>Screenshot: Locations Picker (selected workloads)</h2>
   <figure>
-    <a href="locations_picker.png" target="_blank">
-      <img src="locations_picker.png" alt="Locations picker showing Exchange, SharePoint, OneDrive, Teams selected" class="screenshot">
+    <a href="hippalocations_picker.png" target="_blank">
+      <img src="hippalocations_picker.png" alt="Locations picker showing Exchange, SharePoint, OneDrive, Teams selected" class="screenshot">
     </a>
     <figcaption class="screenshot-note">Click to view full-size: Locations panel with Exchange, SharePoint, OneDrive and Teams selected (avoid All locations)</figcaption>
   </figure>
@@ -208,24 +208,42 @@
 
   <h3>SharePoint / OneDrive</h3>
   <figure>
-    <a href="sp_block_tip.png" target="_blank">
-      <img src="sp_block_tip.png" alt="Share dialog with DLP policy tip blocking external share" class="screenshot">
+    <a href="sphippablock.png" target="_blank">
+      <img src="sphippablock.png" alt="Share dialog with DLP policy tip blocking external share" class="screenshot">
     </a>
     <figcaption class="screenshot-note">Policy tip in SharePoint/OneDrive when attempting to share a file externally</figcaption>
+  </figure>
+  <h3>SharePoint / OneDrive</h3>
+  <figure>
+    <a href="sphippaemailnotif.png" target="_blank">
+      <img src="sphippaemailnotif.png" alt="Notice of Undeliberable Mail because of policy violation" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Email Notification, undeliberable</figcaption>
   </figure>
 
   <h3>Teams</h3>
   <figure>
-    <a href="teams_block_tip.png" target="_blank">
-      <img src="teams_block_tip.png" alt="Teams composer showing policy tip when sending PHI to guest" class="screenshot">
+    <a href="teamshippatip.png" target="_blank">
+      <img src="teamshippatip.png" alt="Teams composer showing policy tip when sending PHI to guest" class="screenshot">
     </a>
     <figcaption class="screenshot-note">Policy tip displayed in Teams when trying to send PHI to an external guest</figcaption>
   </figure>
-
+  <figure>
+    <a href="teamshippamessage.png" target="_blank">
+      <img src="teamshippamessage.png" alt="Teams composer showing message blocked" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Policy tip displayed in Teams when trying to send PHI to an external guest</figcaption>
+  </figure>
+  <figure>
+    <a href="teamshippareceiver.png" target="_blank">
+      <img src="teamshippareceiver.png" alt="Teams chat for receiving user" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Receiving chat example</figcaption>
+  </figure>
   <h3>Exchange</h3>
   <figure>
-    <a href="exchange_ndr.png" target="_blank">
-      <img src="exchange_ndr.png" alt="Exchange NDR or policy tip when attempting to mail PHI externally" class="screenshot">
+    <a href="exchangehippandr.png" target="_blank">
+      <img src="exchangehippandr.png" alt="Exchange NDR or policy tip when attempting to mail PHI externally" class="screenshot">
     </a>
     <figcaption class="screenshot-note">Outlook compose tip and/or NDR that indicates the external send was blocked</figcaption>
   </figure>
@@ -234,17 +252,24 @@
 
   <h2>Screenshot: Admin side artifacts</h2>
   <figure>
-    <a href="purview_incident.png" target="_blank">
-      <img src="purview_incident.png" alt="Purview incident for blocked external PHI share" class="screenshot">
+    <a href="purviewalerthippa.png" target="_blank">
+      <img src="purviewalerthippa.png" alt="Purview alert for blocked external PHI share" class="screenshot">
     </a>
-    <figcaption class="screenshot-note">Purview incident view showing details of the blocked event</figcaption>
+    <figcaption class="screenshot-note">Purview alert view showing details of the policy match/block</figcaption>
   </figure>
 
   <figure>
-    <a href="purview_alerts.png" target="_blank">
-      <img src="purview_alerts.png" alt="Purview alert dashboard showing HIPAA external block events" class="screenshot">
+    <a href="purviewhippaemailalert.png" target="_blank">
+      <img src="purviewhippaemailalert.png" alt="Purview alert emailed to Admin showing HIPAA external block events" class="screenshot">
     </a>
-    <figcaption class="screenshot-note">Alert dashboard where admin receives notifications about blocked external sharing</figcaption>
+    <figcaption class="screenshot-note">Alert email where admin receives notifications about blocked external sharing and policy match</figcaption>
+  </figure>
+
+    <figure>
+    <a href="purviewhippapolicymatch.png" target="_blank">
+      <img src="purviewhippapolicymatch.png" alt="Email notification to Admin showing policy match" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Email notification to Admin showing policy match</figcaption>
   </figure>
 
   <hr class="section-divider">
