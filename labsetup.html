@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Labs - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 20px;
+      background-color: #E0DFD6;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    li a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
 
+<header>
+  <h1>Labs</h1>
+  <p>Hands-on walkthroughs aligned with Microsoft certifications, built in sandbox environments and documented for recruiter clarity.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<main>
+  <section>
+    <ul>
+      <li>
+        <strong>SC-401 Lab 0 – Environment Setup</strong><br>
+        Prepare your Microsoft 365 environment by enabling auditing, device onboarding, insider risk analytics, Defender XDR, and MFA.<br>
+        <a href="SC-401Labs/sc401-lab0.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 1 – Manage compliance and security roles</strong><br>
+        Walk through for compliance and security roles.<br>
+        <a href="SC-401Labs/sc401-lab1.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 1.2 – Create and manage sensitive information types</strong><br>
+        Introduction to the SITs and their use<br>
+        <a href="SC-401Labs/sc401-lab1v2.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 1.3 – Sensitivity Labels</strong><br>
+        Create and manage sensitivity labels.<br>
+        <a href="SC-401Labs/sc401-lab1v3.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 1.4 – Message Encryption</strong><br>
+        Deploy Microsoft Purview Message Encryption.<br>
+        <a href="SC-401Labs/sc401-lab1v4.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 2.1 – DLP Policies</strong><br>
+        Implement and manage DLP policies.<br>
+        <a href="SC-401Labs/sc401-lab2v1.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 2.2 – Endpoint DLP</strong><br>
+        Implement and manage endpoint DLP.<br>
+        <a href="SC-401Labs/sc401-lab2v2.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 3.1 – Insider Risk</strong><br>
+        Implement Insider Risk Management.<br>
+        <a href="SC-401Labs/sc401-lab3v1.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 3.2 – Adaptive Protection</strong><br>
+        Implement Adaptive Protection.<br>
+        <a href="SC-401Labs/sc401-lab3v2.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 4.1 – AI Environments</strong><br>
+        Protect Data in AI Environments.<br>
+        <a href="SC-401Labs/sc401-lab4v1.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 5.1 – Retention Labels</strong><br>
+        Implement and Manage Retention.<br>
+        <a href="SC-401Labs/sc401-lab5v1.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 6.1 – Audit</strong><br>
+        Search the Audit Log.<br>
+        <a href="SC-401Labs/sc401-lab6v1.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 6.2 – Content Search</strong><br>
+        Perform a content search.<br>
+        <a href="SC-401Labs/sc401-lab6v2.html">View Lab →</a>
+      </li>
+      <li>
+        <strong>SC-401 Lab 7 – Validation</strong><br>
+        Validate sensitivity, DLP, and retention policies.<br>
+        <a href="SC-401Labs/sc401-lab7.html">View Lab →</a>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com
