@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 2 – DNS & Time Sync Validation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>DNS & Time Sync Validation</h1>
+  <p>Ensure reliable DNS resolution and accurate time synchronization before applying security policies.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>OPNsense Firewall</li>
+    <li>Unbound DNS Resolver</li>
+    <li>System Time Sync (NTP)</li>
+    <li>Diagnostics: DNS Lookup, Ping, NTP Status</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Verified DNS resolution using Diagnostics → DNS Lookup (queried microsoft.com).</li>
+    <li>Confirmed upstream DNS servers were reachable via Diagnostics → Ping.</li>
+    <li>Ensured Unbound DNS Resolver was active and listening on LAN.</li>
+    <li>Checked System → Settings → General for correct DNS server entries.</li>
+    <li>Validated NTP sync via System → Settings → Time and Diagnostics → NTP Status.</li>
+    <li>Confirmed system time was accurate and synchronized with upstream NTP servers.</li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <h2>Screenshot: DNS Lookup</h2>
+  <figure>
+    <a href="dnslookup.png" target="_blank">
+      <img src="dnslookup.png" alt="DNS Lookup result for microsoft.com" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: DNS resolution confirmed for microsoft.com.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Ping to DNS Server</h2>
+  <figure>
+    <a href="pingdns.png" target="_blank">
+      <img src="pingdns.png" alt="Ping results to upstream DNS server" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Upstream DNS server reachable via ICMP.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Unbound DNS Status</h2>
+  <figure>
+    <a href="unboundstatus.png" target="_blank">
+      <img src="unboundstatus.png" alt="Unbound DNS Resolver status" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Unbound DNS Resolver active and listening on LAN.</figcaption>
+  </figure>
+
+  <h2>Screenshot: NTP Sync Status</h2>
+  <figure>
+    <a href="ntpsync.png" target="_blank">
+      <img src="ntpsync.png" alt="NTP synchronization status" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: System time synchronized with upstream NTP server.</figcaption>
+  </figure>
+
+  <h2>Screenshot: System Time Settings</h2>
+  <figure>
+    <a href="systemtime.png" target="_blank">
+      <img src="systemtime.png" alt="System time settings and timezone" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Timezone and NTP sync source configured correctly.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>DNS resolution and time synchronization validated successfully. Firewall is now ready for policy enforcement, logging, and audit-ready operations. This step ensures that all future security events are timestamped accurately and that upstream services are reachable.</p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
 
