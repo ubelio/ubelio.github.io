@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 4 – Inbound Deny Posture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <h1>Inbound Deny Posture</h1>
+  <p>Deny all unsolicited inbound traffic from WAN to LAN, enforcing a secure baseline posture.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>OPNsense Firewall</li>
+    <li>Firewall Rules (WAN → LAN)</li>
+    <li>Log Viewer</li>
+    <li>Diagnostics: Port Scan / External Reachability Tests</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Verified default deny posture on WAN rules.</li>
+    <li>Added explicit block/log rules for recruiter-facing clarity.</li>
+    <li>Tested inbound reachability from external host (SSH/HTTP attempts).</li>
+    <li>Confirmed traffic blocked and logged.</li>
+    <li>Validated LAN services remained accessible internally.</li>
+  </ol>
+
+  <h2>Screenshot: WAN Rules</h2>
+  <figure>
+    <img src="wanrules.png" alt="WAN rules showing inbound deny posture" class="screenshot">
+    <figcaption class="screenshot-note">WAN rules configured to block/log all inbound traffic.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Inbound Attempt</h2>
+  <figure>
+    <img src="inboundattempt.png" alt="External test showing inbound blocked" class="screenshot">
+    <figcaption class="screenshot-note">External attempt to connect was denied.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Blocked Inbound Traffic</h2>
+  <figure>
+    <img src="blockedinbound.png" alt="Firewall logs showing blocked inbound traffic" class="screenshot">
+    <figcaption class="screenshot-note">Firewall logs confirm inbound traffic blocked.</figcaption>
+  </figure>
+
+  <h2>Screenshot: LAN Access</h2>
+  <figure>
+    <img src="lanaccess.png" alt="Internal LAN access test" class="screenshot">
+    <figcaption class="screenshot-note">Internal LAN services remain accessible.</figcaption>
+  </figure>
+
+  <h2>Outcome</h2>
+  <p>Inbound traffic denied by default, with explicit block/log rules documented. External scans confirmed no exposed services. Internal LAN access unaffected. This demonstrates secure baseline posture and SC-401 alignment.</p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
 
