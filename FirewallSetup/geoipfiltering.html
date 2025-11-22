@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 5 – GeoIP Blocking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>GeoIP Blocking</h1>
+  <p>Block traffic from selected geographic regions to enforce compliance and reduce attack surface.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>OPNsense Firewall</li>
+    <li>Firewall Aliases (GeoIP)</li>
+    <li>Firewall Rules (WAN → LAN)</li>
+    <li>Log Viewer</li>
+    <li>Diagnostics: External reachability tests</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Created GeoIP alias blocking selected countries.</li>
+    <li>Applied alias in WAN rule to block inbound traffic.</li>
+    <li>Tested external connections from blocked regions.</li>
+    <li>Confirmed traffic denied and logged.</li>
+    <li>Verified traffic from allowed regions remained functional.</li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <h2>Screenshot: GeoIP Alias</h2>
+  <figure>
+    <img src="geoipalias.png" alt="GeoIP alias showing blocked countries" class="screenshot">
+    <figcaption class="screenshot-note">GeoIP alias configured with blocked countries.</figcaption>
+  </figure>
+
+  <h2>Screenshot: WAN Rule with GeoIP</h2>
+  <figure>
+    <img src="wanrulegeoip.png" alt="WAN rule applying GeoIP alias" class="screenshot">
+    <figcaption class="screenshot-note">WAN rule applying GeoIP alias to block traffic.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Blocked GeoIP Traffic</h2>
+  <figure>
+    <img src="geoipblocked.png" alt="Firewall logs showing blocked GeoIP traffic" class="screenshot">
+    <figcaption class="screenshot-note">Firewall logs confirm traffic blocked from GeoIP alias.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Allowed Region Traffic</h2>
+  <figure>
+    <img src="geoipallowed.png" alt="External test showing allowed region traffic" class="screenshot">
+    <figcaption class="screenshot-note">Traffic from allowed region successfully passed.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>GeoIP blocking enforced. Traffic from high-risk regions denied, trusted regions allowed. Logs confirm enforcement. Demonstrates compliance, operational maturity, and SC-401 readiness.</p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
 
