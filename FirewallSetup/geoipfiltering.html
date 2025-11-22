@@ -111,17 +111,13 @@
     <li>OPNsense Firewall</li>
     <li>Firewall Aliases (GeoIP)</li>
     <li>Firewall Rules (WAN → LAN)</li>
-    <li>Log Viewer</li>
-    <li>Diagnostics: External reachability tests</li>
   </ul>
 
   <h2>Steps Taken</h2>
   <ol>
     <li>Created GeoIP alias blocking selected countries.</li>
     <li>Applied alias in WAN rule to block inbound traffic.</li>
-    <li>Tested external connections from blocked regions.</li>
-    <li>Confirmed traffic denied and logged.</li>
-    <li>Verified traffic from allowed regions remained functional.</li>
+    <li>Documented configuration for recruiter-facing clarity.</li>
   </ol>
 
   <hr class="section-divider">
@@ -138,22 +134,10 @@
     <figcaption class="screenshot-note">WAN rule applying GeoIP alias to block traffic.</figcaption>
   </figure>
 
-  <h2>Screenshot: Blocked GeoIP Traffic</h2>
-  <figure>
-    <img src="geoipblocked.png" alt="Firewall logs showing blocked GeoIP traffic" class="screenshot">
-    <figcaption class="screenshot-note">Firewall logs confirm traffic blocked from GeoIP alias.</figcaption>
-  </figure>
-
-  <h2>Screenshot: Allowed Region Traffic</h2>
-  <figure>
-    <img src="geoipallowed.png" alt="External test showing allowed region traffic" class="screenshot">
-    <figcaption class="screenshot-note">Traffic from allowed region successfully passed.</figcaption>
-  </figure>
-
   <hr class="section-divider">
 
   <h2>Outcome</h2>
-  <p>GeoIP blocking enforced. Traffic from high-risk regions denied, trusted regions allowed. Logs confirm enforcement. Demonstrates compliance, operational maturity, and SC-401 readiness.</p>
+  <p>GeoIP blocking configured. Traffic from high-risk regions will be denied, trusted regions remain allowed. This demonstrates compliance, operational maturity, and SC-401 readiness without requiring external traffic tests.</p>
 </div>
 
 <footer>
@@ -163,4 +147,3 @@
 
 </body>
 </html>
-
