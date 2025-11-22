@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SC-401 Lab 4 – Inbound Deny Posture</title>
+  <title>SC-401 Lab 3 – Outbound Rule Hardening</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -92,8 +94,8 @@
 <body>
 
 <header>
-  <h1>Inbound Deny Posture</h1>
-  <p>Deny all unsolicited inbound traffic from WAN to LAN, enforcing a secure baseline posture.</p>
+  <h1>Outbound Rule Hardening</h1>
+  <p>Restrict outbound traffic to essential services (HTTPS/DNS) and block/log all other traffic.</p>
 </header>
 
 <nav id="main-nav">
@@ -118,50 +120,57 @@
   <h2>Tools Used</h2>
   <ul>
     <li>OPNsense Firewall</li>
-    <li>Firewall Rules (WAN → LAN)</li>
+    <li>Firewall Rules (LAN → WAN)</li>
+    <li>Diagnostics: Ping/Traceroute</li>
     <li>Log Viewer</li>
-    <li>Diagnostics: Port Scan / External Reachability Tests</li>
   </ul>
 
   <h2>Steps Taken</h2>
   <ol>
-    <li>Verified default deny posture on WAN rules.</li>
-    <li>Added explicit block/log rules for recruiter-facing clarity.</li>
-    <li>Tested inbound reachability from external host (SSH/HTTP attempts).</li>
-    <li>Confirmed traffic blocked and logged.</li>
-    <li>Validated LAN services remained accessible internally.</li>
+    <li>Created explicit allow rules for HTTPS (TCP/443) and DNS (UDP/53).</li>
+    <li>Added final block/log rule for all other LAN → WAN traffic.</li>
+    <li>Validated HTTPS browsing and DNS lookups worked.</li>
+    <li>Confirmed non-allowed outbound traffic was blocked and logged.</li>
   </ol>
 
   <hr class="section-divider">
 
-  <h2>Screenshot: WAN Rules</h2>
+  <h2>Screenshot: LAN Rules</h2>
   <figure>
-    <img src="wanrules.png" alt="WAN rules showing inbound deny posture" class="screenshot">
-    <figcaption class="screenshot-note">WAN rules configured to block/log all inbound traffic.</figcaption>
+    <a href="lanrules.png" target="_blank">
+      <img src="lanrules.png" alt="LAN rules showing HTTPS/DNS allow and block/log rule" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: LAN rules configured for outbound hardening.</figcaption>
   </figure>
 
-  <h2>Screenshot: Inbound Attempt</h2>
+  <h2>Screenshot: HTTPS Allowed</h2>
   <figure>
-    <img src="inboundattempt.png" alt="External test showing inbound blocked" class="screenshot">
-    <figcaption class="screenshot-note">External attempt to connect was denied.</figcaption>
+    <a href="httpsallowed.png" target="_blank">
+      <img src="httpsallowed.png" alt="Browser test showing HTTPS access" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: HTTPS browsing validated successfully.</figcaption>
   </figure>
 
-  <h2>Screenshot: Blocked Inbound Traffic</h2>
+  <h2>Screenshot: DNS Allowed</h2>
   <figure>
-    <img src="blockedinbound.png" alt="Firewall logs showing blocked inbound traffic" class="screenshot">
-    <figcaption class="screenshot-note">Firewall logs confirm inbound traffic blocked.</figcaption>
+    <a href="dnsallowed.png" target="_blank">
+      <img src="dnsallowed.png" alt="DNS lookup result" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: DNS resolution validated successfully.</figcaption>
   </figure>
 
-  <h2>Screenshot: LAN Access</h2>
+  <h2>Screenshot: Blocked Traffic</h2>
   <figure>
-    <img src="lanaccess.png" alt="Internal LAN access test" class="screenshot">
-    <figcaption class="screenshot-note">Internal LAN services remain accessible.</figcaption>
+    <a href="blockedtraffic.png" target="_blank">
+      <img src="blockedtraffic.png" alt="Log viewer showing blocked outbound traffic" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Blocked outbound traffic logged for non-allowed ports.</figcaption>
   </figure>
 
   <hr class="section-divider">
 
   <h2>Outcome</h2>
-  <p>Inbound traffic denied by default, with explicit block/log rules documented. External scans confirmed no exposed services. Internal LAN access unaffected. This demonstrates secure baseline posture and SC-401 alignment.</p>
+  <p>Outbound traffic restricted to HTTPS and DNS only. All other traffic blocked and logged, demonstrating least-privilege enforcement and SC-401 readiness.</p>
 </div>
 
 <footer>
