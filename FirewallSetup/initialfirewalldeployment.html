@@ -1,1 +1,108 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 1 – Initial Firewall Deployment & Access Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <h1>Initial Firewall Deployment & Access Control</h1>
+  <p>Deploy OPNsense firewall, validate WAN/LAN connectivity, confirm anti-lockout safeguards, and restrict administrative access.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Tools Used</h2>
+  <ul>
+    <li>OPNsense Firewall (latest stable release)</li>
+    <li>Web GUI (HTTPS access)</li>
+    <li>LAN/WAN interfaces</li>
+    <li>2FA for admin access (optional)</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Installed OPNsense on dedicated hardware/VM.</li>
+    <li>Verified WAN connectivity (public IP assigned, outbound reachability).</li>
+    <li>Verified LAN connectivity (clients able to reach firewall GUI).</li>
+    <li>Confirmed anti-lockout rule exists by default (ensures GUI access from LAN).</li>
+    <li>Restricted GUI access to LAN only (disabled WAN GUI exposure).</li>
+    <li>Enabled 2FA for admin login to strengthen access control.</li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <h2>Screenshot: OPNsense Dashboard</h2>
+  <figure>
+    <a href="dashboard.png" target="_blank">
+      <img src="dashboard.png" alt="OPNsense dashboard after install" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: OPNsense dashboard after initial deployment.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Interface Assignment</h2>
+  <figure>
+    <a href="interfaces.png" target="_blank">
+      <img src="interfaces.png" alt="WAN and LAN interface assignment" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: WAN/LAN interface assignment during setup.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Anti-Lockout Rule</h2>
+  <figure>
+    <a href="antilockout.png" target="_blank">
+      <img src="antilockout.png" alt="Anti-lockout firewall rule" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Anti-lockout rule ensuring GUI access from LAN.</figcaption>
+  </figure>
+
+  <h2>Screenshot: GUI Access Restriction</h2>
+  <figure>
+    <a href="guirestriction.png" target="_blank">
+      <img src="guirestriction.png" alt="Restricting GUI access to LAN only" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: GUI restricted to LAN access only.</figcaption>
+  </figure>
+
+  <h2>Screenshot: 2FA Configuration</h2>
+  <figure>
+    <a href="2fa.png" target="_blank">
+      <img src="2fa.png" alt="2FA configuration for admin account" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: 2FA enabled for administrative access.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>Firewall successfully deployed with secure administrative access. WAN/LAN connectivity validated, anti-lockout safeguards confirmed, and GUI restricted to LAN with optional 2FA. This establishes a hardened baseline for further configuration.</p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
