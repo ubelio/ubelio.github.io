@@ -3,8 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <title>SC-401 Lab 4 – Inbound Deny Posture</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style.css">
+  <meta name="viewport" caontent="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,6 +104,15 @@
   <a href="/labs.html">Labs</a>
   <a href="/contact.html">Contact</a>
 </nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
 
 <div class="container">
   <h2>Tools Used</h2>
@@ -39,6 +131,8 @@
     <li>Confirmed traffic blocked and logged.</li>
     <li>Validated LAN services remained accessible internally.</li>
   </ol>
+
+  <hr class="section-divider">
 
   <h2>Screenshot: WAN Rules</h2>
   <figure>
@@ -64,6 +158,8 @@
     <figcaption class="screenshot-note">Internal LAN services remain accessible.</figcaption>
   </figure>
 
+  <hr class="section-divider">
+
   <h2>Outcome</h2>
   <p>Inbound traffic denied by default, with explicit block/log rules documented. External scans confirmed no exposed services. Internal LAN access unaffected. This demonstrates secure baseline posture and SC-401 alignment.</p>
 </div>
@@ -75,4 +171,3 @@
 
 </body>
 </html>
-
