@@ -109,7 +109,8 @@
 
       <ol>
         <li>Create sensitivity label <strong>Client Data Confidential</strong> (encryption + allowed access).</li>
-        <li>Publish a label policy targeting the Finance SharePoint site (site auto‑apply) and Finance M365 Group for manual assignment.</li>
+        <li>Create a M365 Group for targetting Finance-Confidential
+        <li>Publish a label policy targeting the Finance-Confidentiak SharePoint site (site auto‑apply) and Finance-Confidential M365 Group, making it available for manual assignment to group members.</li>
         <li>Upload and manual-apply tests; send protected messages to external test recipient(s).</li>
         <li>Collect evidence from SharePoint, Outlook, Teams, OneDrive, Purview Activity Explorer and Message Trace.</li>
       </ol>
@@ -119,9 +120,9 @@
     <section>
       <h2>Label Configuration</h2>
       <ul>
-        <li><strong>Name:</strong> Finance Client Confidential — Global</li>
-        <li><strong>Locations:</strong> SharePoint (Finance site URL, site auto-apply); OneDrive; Teams (files & chats); Exchange (mail-enabled security group)</li>
-        <li><strong>Users in scope:</strong> Finance-MailSec (manual assign); site auto-apply covers site content</li>
+        <li><strong>Name:</strong> Client Data Confidential</li>
+        <li><strong>Locations:</strong> SharePoint (Finance-Confidential site URL, site auto-apply); OneDrive; Teams (files & chats); Exchange (m365 group)</li>
+        <li><strong>Users in scope:</strong> Finance-Confidential (manual assign); site auto-apply covers site content</li>
         <li><strong>Condition:</strong> Content contains configured financial sensitive info types or custom classifiers</li>
         <li><strong>Actions:</strong> Apply sensitivity label with encryption and usage restrictions; create Purview incident and alert admins</li>
       </ul>
@@ -131,13 +132,10 @@
     <section>
       <h2>Steps Taken</h2>
       <ol>
-        <li>Create sensitivity label “Finance — Client Confidential” with encryption keys and allowed access list (service accounts + Finance approvers).</li>
-        <li>Publish label policy targeting Finance SharePoint site and Finance-MailSec (mail-enabled security group).</li>
-        <li>Confirm Finance-MailSec is mail enabled in Exchange so it appears in Exchange selectors.</li>
-        <li>Upload <strong>TEST-FIN-001.docx</strong> to Finance SharePoint (auto-apply expected).</li>
-        <li>From UserB Office desktop, create <strong>TEST-FIN-002.xlsx</strong>, manually apply label, save to desktop, upload to non-Finance site and attach to email.</li>
-        <li>From UserA send <strong>TEST-FIN-003</strong> with protected attachment to external test recipient. From FinanceGroup mailbox send <strong>TEST-FIN-004</strong> externally.</li>
-        <li>Wait policy evaluation (minutes → up to 1 hour); collect Activity Explorer, Outlook, SharePoint and Message Trace evidence.</li>
+        <li>Create sensitivity label “Client Data Confidential” with encryption and access control.</li>
+        <li>Publish label policy targeting Finance-Confidential SharePoint site and M365 Finance-Confidential M365 Group.</li>
+        <li>Confirm Finance-Confidential is mail enabled in Exchange so it appears in Exchange selectors.</li>
+        <li>Add user mailboxes in exchange location pikcer for auto-apply as well as inheritance does not happen in m365 mail enabled groups</li>
       </ol>
     </section>
 
