@@ -1,1 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lab - Bank Finance — Client Confidential Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .meta {
+      background-color: #E0DFD6;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+    .tools-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tools-list li {
+      background-color: #F4F3EE;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .callout {
+      background-color: #fff7e6;
+      border-left: 4px solid #ffb703;
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .steps {
+      background-color: #EDECE5;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .steps ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .images {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .img-placeholder {
+      background-color: #ffffff;
+      border: 1px dashed #BDBBB2;
+      padding: 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .img-placeholder img {
+      max-width: 220px;
+      max-height: 140px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    .img-caption {
+      font-size: 0.95em;
+      color: #333;
+    }
+    pre {
+      background-color: #F4F3EE;
+      padding: 10px;
+      overflow: auto;
+      border-radius: 6px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 700px) {
+      .images {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bank Finance — Client Confidential Data</h1>
+    <p>Site Auto‑Protection + User Manual Protection — single‑policy design, recruiter friendly evidence</p>
+  </header>
+
+  <nav id="main-nav">
+    <a href="/index.html">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/scripts.html">Scripts</a>
+    <a href="/homelabconfig.html">Home-Lab Config</a>
+    <a href="/labs.html">Labs</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+
+  <script>
+    const current = window.location.pathname.split("/").pop();
+    document.querySelectorAll("#main-nav a").forEach(link => {
+      if (link.getAttribute("href").endsWith(current)) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+  <main>
+    <!-- Summary -->
+    <section>
+      <div class="meta">
+        <strong>One-line summary</strong><br />
+        Demonstrates site-level automatic protection on the Finance SharePoint site plus the same sensitivity label published to Finance users so they can manually protect files and emails across SharePoint, OneDrive, Teams, and Outlook.
+      </div>
+
+      <h2>Tools Used</h2>
+      <ul class="tools-list">
+        <li>Microsoft Purview Information Protection (sensitivity labels, label policy, Activity Explorer)</li>
+        <li>Microsoft 365 E5</li>
+        <li>Exchange Online, SharePoint Online, OneDrive, Microsoft Teams</li>
+        <li>Sensitive info types: custom financial classifiers (loan numbers, account numbers), SSN, tax IDs, PCI patterns</li>
+      </ul>
+    </section>
+
+    <!-- Approach -->
+    <section>
+      <h2>Approach</h2>
+      <div class="callout">
+        1 policy, 1 label: site auto-protection + same label published to users for manual apply. Use a mail-enabled security group for Exchange selector compatibility.
+      </div>
+
+      <div class="steps">
+        <ol>
+          <li>Create sensitivity label <strong>Finance — Client Confidential</strong> (encryption + allowed access).</li>
+          <li>Publish a label policy targeting the Finance SharePoint site (site auto‑apply) and Finance-MailSec for manual assignment.</li>
+          <li>Confirm Finance-MailSec is mail enabled so it appears in Exchange pickers.</li>
+          <li>Upload and manual-apply tests; send protected messages to external test recipient(s).</li>
+          <li>Collect evidence from SharePoint, Outlook, Teams, OneDrive, Purview Activity Explorer and Message Trace.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Policy configuration -->
+    <section>
+      <h2>Policy Configuration</h2>
+      <ul>
+        <li><strong>Name:</strong> Finance Client Confidential — Global</li>
+        <li><strong>Locations:</strong> SharePoint (Finance site URL, site auto-apply); OneDrive; Teams (files & chats); Exchange (mail-enabled security group)</li>
+        <li><strong>Users in scope:</strong> Finance-MailSec (manual assign); site auto-apply covers site content</li>
+        <li><strong>Condition:</strong> Content contains configured financial sensitive info types or custom classifiers</li>
+        <li><strong>Actions:</strong> Apply sensitivity label with encryption and usage restrictions; create Purview incident and alert admins</li>
+      </ul>
+    </section>
+
+    <!-- Steps taken -->
+    <section>
+      <h2>Steps Taken</h2>
+      <ol>
+        <li>Create sensitivity label “Finance — Client Confidential” with encryption keys and allowed access list (service accounts + Finance approvers).</li>
+        <li>Publish label policy targeting Finance SharePoint site and Finance-MailSec (mail-enabled security group).</li>
+        <li>Confirm Finance-MailSec is mail enabled in Exchange so it appears in Exchange selectors.</li>
+        <li>Upload <strong>TEST-FIN-001.docx</strong> to Finance SharePoint (auto-apply expected).</li>
+        <li>From UserB Office desktop, create <strong>TEST-FIN-002.xlsx</strong>, manually apply label, save to desktop, upload to non-Finance site and attach to email.</li>
+        <li>From UserA send <strong>TEST-FIN-003</strong> with protected attachment to external test recipient. From FinanceGroup mailbox send <strong>TEST-FIN-004</strong> externally.</li>
+        <li>Wait policy evaluation (minutes → up to 1 hour); collect Activity Explorer, Outlook, SharePoint and Message Trace evidence.</li>
+      </ol>
+    </section>
+
+    <!-- Image placeholders -->
+    <section>
+      <h2>Screenshots / Evidence</h2>
+      <div class="images">
+        <div class="img-placeholder">
+          <img src="/images/finance_policy_overview.png" alt="Policy overview placeholder" />
+          <div class="img-caption"><strong>finance_policy_overview.png</strong><br/>Label policy published to Finance site and Finance users (site auto-apply + manual assign).</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/finance_locations_picker.png" alt="Locations picker placeholder" />
+          <div class="img-caption"><strong>finance_locations_picker.png</strong><br/>Locations picker: SharePoint site, OneDrive, Teams, Exchange (site auto-apply enabled).</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/sp_fin_auto_label.png" alt="SharePoint auto label placeholder" />
+          <div class="img-caption"><strong>sp_fin_auto_label.png</strong><br/>SharePoint library showing TEST-FIN-001.docx with the Finance — Client Confidential label auto-applied.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/sp_file_details_finance.png" alt="SharePoint file details placeholder" />
+          <div class="img-caption"><strong>sp_file_details_finance.png</strong><br/>SharePoint file details pane showing sensitivity label and allowed users.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/outlook_sent_finance.png" alt="Outlook sent item placeholder" />
+          <div class="img-caption"><strong>outlook_sent_finance.png</strong><br/>Outlook Sent Items showing labeled email from UserA with protected attachment (TEST-FIN-003).</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/exchange_msgtrace_finance.png" alt="Exchange message trace placeholder" />
+          <div class="img-caption"><strong>exchange_msgtrace_finance.png</strong><br/>Exchange Message Trace linking the send event to the MessageTraceId.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/teams_file_open_finance.png" alt="Teams file open placeholder" />
+          <div class="img-caption"><strong>teams_file_open_finance.png</strong><br/>Teams channel file open behavior showing protection persists for team members and restricted for guests.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/external_recipient_block_finance.png" alt="External recipient block placeholder" />
+          <div class="img-caption"><strong>external_recipient_block_finance.png</strong><br/>External recipient blocked or forced to authenticate per label encryption policy for TEST-FIN-003.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/purview_activity_finance.png" alt="Purview activity placeholder" />
+          <div class="img-caption"><strong>purview_activity_finance.png</strong><br/>Purview Activity Explorer showing auto-apply and manual-apply events for TEST tokens with timestamps.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/purview_alert_finance.png" alt="Purview alert placeholder" />
+          <div class="img-caption"><strong>purview_alert_finance.png</strong><br/>Purview alert sent to admins for labeled/protected asset activity.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What to capture -->
+    <section>
+      <h2>What to capture</h2>
+      <ul>
+        <li>Policy overview (policy name, publish status, locations targeting)</li>
+        <li>Sensitivity label settings (name + encryption summary)</li>
+        <li>SharePoint library row showing auto-applied label</li>
+        <li>Outlook sent item showing label on attachment (member send)</li>
+        <li>External recipient view showing restricted access or blocked open</li>
+        <li>Activity Explorer row for the TEST token correlating event, label and timestamp</li>
+        <li>Exchange Message Trace row linking message id for auditing</li>
+      </ul>
+    </section>
+
+    <!-- Outcome -->
+    <section>
+      <h2>Outcome</h2>
+      <ul>
+        <li>Auto‑apply: Files uploaded to Finance SharePoint show the Finance label and encryption metadata.</li>
+        <li>Manual apply: Users can apply the same label to files and email attachments; protection persists when moved/shared across OneDrive, Teams and Outlook.</li>
+        <li>Enforcement: External recipients are blocked or required to authenticate per the label policy; admin receives Purview incidents/alerts.</li>
+      </ul>
+    </section>
+
+    <!-- Deliverables -->
+    <section>
+      <h2>Deliverables</h2>
+      <ul>
+        <li>HTML blocks matching your HIPAA lab layout with image placeholders named above</li>
+        <li>One-line captions for each screenshot to paste directly under images</li>
+        <li>Printable one-page runbook checklist for the test flow (available on request)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  </footer>
+</body>
+</html>
 
