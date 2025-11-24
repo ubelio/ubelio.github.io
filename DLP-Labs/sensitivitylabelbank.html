@@ -105,12 +105,11 @@
     <!-- Approach -->
     <section>
       <h2>Approach</h2>
-      <p>1 policy, 1 label: site auto-protection + same label published to users for manual apply. Use a mail-enabled security group for Exchange selector compatibility.</p>
+      <p>1 policy, 1 label: site auto-protection + same label published to users for manual apply. Use a M365 group plus add single user mailboxes for wholesome protection.</p>
 
       <ol>
         <li>Create sensitivity label <strong>Finance — Client Confidential</strong> (encryption + allowed access).</li>
-        <li>Publish a label policy targeting the Finance SharePoint site (site auto‑apply) and Finance-MailSec for manual assignment.</li>
-        <li>Confirm Finance-MailSec is mail enabled so it appears in Exchange pickers.</li>
+        <li>Publish a label policy targeting the Finance SharePoint site (site auto‑apply) and Finance M365 Group for manual assignment.</li>
         <li>Upload and manual-apply tests; send protected messages to external test recipient(s).</li>
         <li>Collect evidence from SharePoint, Outlook, Teams, OneDrive, Purview Activity Explorer and Message Trace.</li>
       </ol>
@@ -118,7 +117,7 @@
 
     <!-- Policy configuration -->
     <section>
-      <h2>Policy Configuration</h2>
+      <h2>Label Configuration</h2>
       <ul>
         <li><strong>Name:</strong> Finance Client Confidential — Global</li>
         <li><strong>Locations:</strong> SharePoint (Finance site URL, site auto-apply); OneDrive; Teams (files & chats); Exchange (mail-enabled security group)</li>
