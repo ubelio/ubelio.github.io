@@ -5,39 +5,39 @@
   <title>Lab - Bank Finance — Client Confidential Data</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Original page styles (kept and slightly consolidated) */
-    :root{
-      --bg:#C9C8BF;
-      --ink:#141413;
-      --muted:#BDBBB2;
-      --accent:#0073e6;
-      --panel:#ffffff;
-      --card-border:#DAD8D0;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #C9C8BF;
+      color: #141413;
     }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+    nav a.active { text-decoration: underline; color: #0073e6; }
 
-    html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
-    header{background:var(--ink);color:var(--bg);padding:30px 20px;text-align:center}
-    header h1{margin:0;font-size:1.5rem}
-    header p{margin:8px 0 0;font-size:0.95rem;color:var(--bg);opacity:0.95}
+    main { padding: 20px; max-width: 900px; margin: auto; }
+    section { margin-bottom: 40px; }
+    h2 { margin-top: 0; }
 
-    nav{background:var(--muted);padding:10px;text-align:center}
-    nav a{color:var(--ink);margin:0 15px;text-decoration:none;font-weight:bold}
-    nav a:hover{text-decoration:underline}
-    nav a.active{color:var(--accent);text-decoration:underline}
+    .tools-list { margin: 0 0 16px 0; padding: 0; list-style: none; }
+    .tools-list li { margin-bottom: 8px; }
 
-    main{padding:20px;max-width:980px;margin:18px auto;background:transparent}
-    section{margin-bottom:40px}
-    h2{margin-top:0;font-size:1.15rem}
-    p, li{font-size:0.98rem;line-height:1.45;color:var(--ink)}
-
-    .tools-list{margin:0 0 16px 0;padding:0;list-style:none}
-    .tools-list li{margin-bottom:8px}
-
-    footer{background:var(--muted);text-align:center;padding:20px;font-size:0.9em;margin-top:18px}
-    footer a{color:var(--ink);text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
-    /* Legacy image placeholder styles (kept for compatibility) */
     .images { display: grid; grid-template-columns: 1fr; gap: 14px; }
     .img-placeholder {
       background-color: #ffffff;
@@ -53,157 +53,16 @@
     }
     .img-caption { font-size: 0.95em; color: #333; }
 
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a { color: #141413; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
     @media (min-width: 700px) { .images { grid-template-columns: 1fr 1fr; } }
-
-    /* --- New screenshot-area styles (unified, accessible, responsive) --- */
-    .screenshots-wrap{
-      background:var(--panel);
-      border:1px solid var(--card-border);
-      border-radius:10px;
-      padding:14px;
-      box-shadow:0 6px 18px rgba(20,20,20,0.04);
-    }
-
-    .screens-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-    }
-
-    @media (min-width:720px){
-      .screens-grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (min-width:1100px){
-      .screens-grid{grid-template-columns:repeat(3,1fr)}
-    }
-
-    figure.screenshot-item{
-      margin:0;
-      background:#fff;
-      border:1px dashed var(--muted);
-      border-radius:8px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      padding:10px;
-      align-items:stretch;
-      transition:transform .12s ease,box-shadow .12s ease;
-    }
-    figure.screenshot-item:focus-within,
-    figure.screenshot-item:hover{
-      transform:translateY(-4px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .thumb-btn{
-      display:block;
-      width:100%;
-      padding:0;
-      border:0;
-      background:transparent;
-      text-align:left;
-      cursor:pointer;
-    }
-
-    .thumb-btn img{
-      width:100%;
-      height:160px;
-      object-fit:cover;
-      border-radius:6px;
-      border:1px solid #e6e6e6;
-      display:block;
-      background:linear-gradient(180deg,#f6f6f6,#fff);
-    }
-
-    figure.screenshot-item figcaption{
-      font-size:0.92rem;
-      color:#333;
-      line-height:1.25;
-      padding:0 4px 6px 4px;
-    }
-
-    figure.screenshot-item strong{display:block;color:var(--ink);font-weight:700;margin-bottom:6px}
-
-    .filename-list{
-      margin-top:12px;
-      font-size:0.9rem;
-      color:#444;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    .filename-list code{
-      background:#f3f3f3;
-      padding:6px 8px;
-      border-radius:6px;
-      border:1px solid #eee;
-      font-family:monospace;
-      font-size:0.85rem;
-      color:#222;
-    }
-
-    /* Lightbox */
-    .lightbox{
-      position:fixed;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      background:rgba(20,20,20,0.86);
-      z-index:1200;
-      padding:20px;
-    }
-    .lightbox[aria-hidden="false"]{display:flex}
-    .lightbox-inner{
-      max-width:1200px;
-      width:100%;
-      max-height:92vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-    }
-    .lightbox img{
-      max-width:100%;
-      max-height:78vh;
-      border-radius:6px;
-      box-shadow:0 12px 40px rgba(0,0,0,0.6);
-      background:#fff;
-    }
-    .lb-caption{
-      color:#eee;
-      font-size:0.95rem;
-      text-align:center;
-      max-width:96%;
-    }
-    .lb-close{
-      position:absolute;
-      top:18px;
-      right:22px;
-      background:transparent;
-      color:#fff;
-      border:0;
-      font-size:30px;
-      line-height:1;
-      cursor:pointer;
-    }
-    .lb-nav{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .lb-nav button{
-      background:rgba(255,255,255,0.06);
-      color:#fff;
-      border:1px solid rgba(255,255,255,0.08);
-      padding:8px 12px;
-      border-radius:6px;
-      cursor:pointer;
-    }
-
-    /* Accessibility focus */
-    .thumb-btn:focus{outline:3px solid var(--accent);border-radius:6px}
   </style>
 </head>
 <body>
@@ -222,19 +81,17 @@
   </nav>
 
   <script>
-    (function(){
-      const current = window.location.pathname.split("/").pop();
-      document.querySelectorAll("#main-nav a").forEach(link=>{
-        if (link.getAttribute("href").endsWith(current)) link.classList.add("active");
-      });
-    })();
+    const current = window.location.pathname.split("/").pop();
+    document.querySelectorAll("#main-nav a").forEach(link => {
+      if (link.getAttribute("href").endsWith(current)) link.classList.add("active");
+    });
   </script>
 
   <main>
     <!-- Summary -->
     <section>
       <p><strong>One-line summary</strong><br />
-      Demonstrates site-level automatic protection on the Finance SharePoint site plus the same sensitivity label published to Finance users so they can manually protect files and emails across SharePoint, OneDrive, Teams, and Outlook.</p>
+      Demonstrates site-level automatic protection on the Finance SharePoint site plus same sensitivity label published to Finance users so they can manually protect files and emails across SharePoint, OneDrive, Teams, and Outlook.</p>
 
       <h2>Tools Used</h2>
       <ul class="tools-list">
@@ -251,241 +108,89 @@
       <p>1 policy, 1 label: site auto-protection + same label published to users for manual apply. Use a M365 group plus add single user mailboxes for wholesome protection.</p>
 
       <ol>
-        <li>Create sensitivity label <strong>Finance — Client Confidential</strong> (encryption + allowed access).</li>
-        <li>Publish a label policy targeting the Finance SharePoint site (site auto‑apply) and Finance M365 Group for manual assignment.</li>
+        <li>Create sensitivity label <strong>Client Data Confidential</strong> (encryption + allowed access).</li>
+        <li>Create a M365 Group for targetting Finance-Confidential
+        <li>Publish a label policy targeting the Finance-Confidentiak SharePoint site (site auto‑apply) and Finance-Confidential M365 Group, making it available for manual assignment to group members.</li>
         <li>Upload and manual-apply tests; send protected messages to external test recipient(s).</li>
         <li>Collect evidence from SharePoint, Outlook, Teams, OneDrive, Purview Activity Explorer and Message Trace.</li>
       </ol>
     </section>
 
-    <!-- Label Configuration -->
+    <!-- Policy configuration -->
     <section>
       <h2>Label Configuration</h2>
       <ul>
-        <li><strong>Name:</strong> Finance Client Confidential — Global</li>
-        <li><strong>Locations:</strong> SharePoint (Finance site URL, site auto-apply); OneDrive; Teams (files & chats); Exchange (mail-enabled security group)</li>
-        <li><strong>Users in scope:</strong> Finance-MailSec (manual assign); site auto-apply covers site content</li>
+        <li><strong>Name:</strong> Client Data Confidential</li>
+        <li><strong>Locations:</strong> SharePoint (Finance-Confidential site URL, site auto-apply); OneDrive; Teams (files & chats); Exchange (m365 group)</li>
+        <li><strong>Users in scope:</strong> Finance-Confidential (manual assign); site auto-apply covers site content</li>
         <li><strong>Condition:</strong> Content contains configured financial sensitive info types or custom classifiers</li>
         <li><strong>Actions:</strong> Apply sensitivity label with encryption and usage restrictions; create Purview incident and alert admins</li>
       </ul>
     </section>
 
-    <!-- Screenshots / Evidence (reworked section) -->
+    <!-- Steps taken -->
+    <section>
+      <h2>Steps Taken</h2>
+      <ol>
+        <li>Create sensitivity label “Client Data Confidential” with encryption and access control.</li>
+        <li>Publish label policy targeting Finance-Confidential SharePoint site and M365 Finance-Confidential M365 Group.</li>
+        <li>Confirm Finance-Confidential is mail enabled in Exchange so it appears in Exchange selectors.</li>
+        <li>Add user mailboxes in exchange location pikcer for auto-apply as well as inheritance does not happen in m365 mail enabled groups</li>
+      </ol>
+    </section>
+
+    <!-- Image placeholders -->
     <section>
       <h2>Screenshots / Evidence</h2>
-
-      <div class="screenshots-wrap" aria-live="polite">
-        <div class="screens-grid" id="screens-grid">
-          <!-- Core finance screenshots -->
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/finance_policy_overview.png" aria-label="Open finance_policy_overview.png">
-              <img src="/images/finance_policy_overview.png" alt="Label policy published to Finance site and Finance users" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>finance_policy_overview.png</strong>Label policy published to Finance site and Finance users (site auto-apply + manual assign).</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/finance_locations_picker.png" aria-label="Open finance_locations_picker.png">
-              <img src="/images/finance_locations_picker.png" alt="Locations picker showing SharePoint, OneDrive, Teams, Exchange" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>finance_locations_picker.png</strong>Locations picker: SharePoint site, OneDrive, Teams, Exchange (site auto-apply enabled).</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/sp_fin_auto_label.png" aria-label="Open sp_fin_auto_label.png">
-              <img src="/images/sp_fin_auto_label.png" alt="SharePoint library showing TEST-FIN-001.docx with label auto-applied" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>sp_fin_auto_label.png</strong>SharePoint library showing TEST-FIN-001.docx with the Finance — Client Confidential label auto-applied.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/sp_file_details_finance.png" aria-label="Open sp_file_details_finance.png">
-              <img src="/images/sp_file_details_finance.png" alt="SharePoint file details pane showing sensitivity label and allowed users" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>sp_file_details_finance.png</strong>SharePoint file details pane showing sensitivity label and allowed users.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/outlook_sent_finance.png" aria-label="Open outlook_sent_finance.png">
-              <img src="/images/outlook_sent_finance.png" alt="Outlook Sent Items showing labeled email from UserA with protected attachment" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>outlook_sent_finance.png</strong>Outlook Sent Items showing labeled email from UserA with protected attachment (TEST-FIN-003).</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/exchange_msgtrace_finance.png" aria-label="Open exchange_msgtrace_finance.png">
-              <img src="/images/exchange_msgtrace_finance.png" alt="Exchange Message Trace linking the send event to the MessageTraceId" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>exchange_msgtrace_finance.png</strong>Exchange Message Trace linking the send event to the MessageTraceId.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/teams_file_open_finance.png" aria-label="Open teams_file_open_finance.png">
-              <img src="/images/teams_file_open_finance.png" alt="Teams channel file open behavior showing protection persists" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>teams_file_open_finance.png</strong>Teams channel file open behavior showing protection persists for team members and restricted for guests.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/external_recipient_block_finance.png" aria-label="Open external_recipient_block_finance.png">
-              <img src="/images/external_recipient_block_finance.png" alt="External recipient blocked or forced to authenticate per label encryption policy" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>external_recipient_block_finance.png</strong>External recipient blocked or forced to authenticate per label encryption policy for TEST-FIN-003.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/purview_activity_finance.png" aria-label="Open purview_activity_finance.png">
-              <img src="/images/purview_activity_finance.png" alt="Purview Activity Explorer showing auto-apply and manual-apply events" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>purview_activity_finance.png</strong>Purview Activity Explorer showing auto-apply and manual-apply events for TEST tokens with timestamps.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/purview_alert_finance.png" aria-label="Open purview_alert_finance.png">
-              <img src="/images/purview_alert_finance.png" alt="Purview alert sent to admins for labeled/protected asset activity" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>purview_alert_finance.png</strong>Purview alert sent to admins for labeled/protected asset activity.</figcaption>
-          </figure>
-
-          <!-- Additional screenshots provided by you -->
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/autolabelinggroup.png" aria-label="Open autolabelinggroup.png">
-              <img src="/images/autolabelinggroup.png" alt="Auto labeling group configuration" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>autolabelinggroup.png</strong>Auto labeling group configuration screenshot.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/autolabelingpolicy.png" aria-label="Open autolabelingpolicy.png">
-              <img src="/images/autolabelingpolicy.png" alt="Auto labeling policy configuration" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>autolabelingpolicy.png</strong>Auto labeling policy configuration screenshot.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/autolabelinguser.png" aria-label="Open autolabelinguser.png">
-              <img src="/images/autolabelinguser.png" alt="Auto labeling user experience" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>autolabelinguser.png</strong>Auto labeling user view and notifications.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/cloudlinkemailnotlabeled.png" aria-label="Open cloudlinkemailnotlabeled.png">
-              <img src="/images/cloudlinkemailnotlabeled.png" alt="Cloud link email not labeled" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>cloudlinkemailnotlabeled.png</strong>Cloud link sent by email without label applied.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/cloudlinkfilesharepoint.png" aria-label="Open cloudlinkfilesharepoint.png">
-              <img src="/images/cloudlinkfilesharepoint.png" alt="Cloud link file in SharePoint" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>cloudlinkfilesharepoint.png</strong>Cloud link file view in SharePoint.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/labeledclouddocattempt.png" aria-label="Open labeledclouddocattempt.png">
-              <img src="/images/labeledclouddocattempt.png" alt="Attempt to open labeled cloud document" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>labeledclouddocattempt.png</strong>Attempt to open labeled cloud document showing protection.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/labeleddocteamsattempt.png" aria-label="Open labeleddocteamsattempt.png">
-              <img src="/images/labeleddocteamsattempt.png" alt="Attempt to open labeled document in Teams" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>labeleddocteamsattempt.png</strong>Teams attempt showing label enforcement for team members and guests.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/labeledfileattempt.png" aria-label="Open labeledfileattempt.png">
-              <img src="/images/labeledfileattempt.png" alt="Attempt to access labeled file" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>labeledfileattempt.png</strong>Access attempt for a labeled file demonstrating restrictions.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/labeledfilemail.png" aria-label="Open labeledfilemail.png">
-              <img src="/images/labeledfilemail.png" alt="Labeled file attached to email" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>labeledfilemail.png</strong>Labeled file attached to an email showing encryption metadata.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/labeledlocaldocandclouddoc.png" aria-label="Open labeledlocaldocandclouddoc.png">
-              <img src="/images/labeledlocaldocandclouddoc.png" alt="Local and cloud document both labeled" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>labeledlocaldocandclouddoc.png</strong>Comparison of local document and cloud document both labeled.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/manualapplypolicy.png" aria-label="Open manualapplypolicy.png">
-              <img src="/images/manualapplypolicy.png" alt="Manual apply policy settings" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>manualapplypolicy.png</strong>Policy settings for manual label application.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/manualassignment.png" aria-label="Open manualassignment.png">
-              <img src="/images/manualassignment.png" alt="Manual assignment of label to users or groups" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>manualassignment.png</strong>Manual assignment view showing targeted users and groups.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/senslabel.png" aria-label="Open senslabel.png">
-              <img src="/images/senslabel.png" alt="Sensitivity label details" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>senslabel.png</strong>Sensitivity label details and encryption settings.</figcaption>
-          </figure>
-
-          <figure class="screenshot-item">
-            <button class="thumb-btn" data-src="/images/siteaccessattempt.png" aria-label="Open siteaccessattempt.png">
-              <img src="/images/siteaccessattempt.png" alt="Site access attempt blocked or restricted" loading="lazy" width="880" height="560" />
-            </button>
-            <figcaption><strong>siteaccessattempt.png</strong>Site access attempt showing blocked or restricted access per policy.</figcaption>
-          </figure>
+      <div class="images">
+        <div class="img-placeholder">
+          <img src="senselabel.png" alt="Sensitivity Label Configuration" />
+          <div class="img-caption"><<br/>Label configuration.</div>
         </div>
 
-        <!-- compact filename list for maintainability -->
-        <div class="filename-list" aria-hidden="false">
-          <code>finance_policy_overview.png</code>
-          <code>finance_locations_picker.png</code>
-          <code>sp_fin_auto_label.png</code>
-          <code>sp_file_details_finance.png</code>
-          <code>outlook_sent_finance.png</code>
-          <code>exchange_msgtrace_finance.png</code>
-          <code>teams_file_open_finance.png</code>
-          <code>external_recipient_block_finance.png</code>
-          <code>purview_activity_finance.png</code>
-          <code>purview_alert_finance.png</code>
-          <code>autolabelinggroup.png</code>
-          <code>autolabelingpolicy.png</code>
-          <code>autolabelinguser.png</code>
-          <code>cloudlinkemailnotlabeled.png</code>
-          <code>cloudlinkfilesharepoint.png</code>
-          <code>labeledclouddocattempt.png</code>
-          <code>labeleddocteamsattempt.png</code>
-          <code>labeledfileattempt.png</code>
-          <code>labeledfilemail.png</code>
-          <code>labeledlocaldocandclouddoc.png</code>
-          <code>manualapplypolicy.png</code>
-          <code>manualassignment.png</code>
-          <code>senslabel.png</code>
-          <code>siteaccessattempt.png</code>
+        <div class="img-placeholder">
+          <img src="/images/finance_locations_picker.png" alt="Locations picker placeholder" />
+          <div class="img-caption"><strong>finance_locations_picker.png</strong><br/>Locations picker: SharePoint site, OneDrive, Teams, Exchange (site auto-apply enabled).</div>
         </div>
-      </div>
 
-      <!-- Lightbox modal -->
-      <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
-        <button id="lb-close" class="lb-close" aria-label="Close preview">&times;</button>
-        <div class="lightbox-inner" role="document">
-          <img id="lb-image" src="" alt="" />
-          <div id="lb-caption" class="lb-caption" aria-live="polite"></div>
-          <div class="lb-nav" aria-hidden="false">
-            <button id="lb-prev" aria-label="Previous image">Prev</button>
-            <button id="lb-next" aria-label="Next image">Next</button>
-          </div>
+        <div class="img-placeholder">
+          <img src="/images/sp_fin_auto_label.png" alt="SharePoint auto label placeholder" />
+          <div class="img-caption"><strong>sp_fin_auto_label.png</strong><br/>SharePoint library showing TEST-FIN-001.docx with the Finance — Client Confidential label auto-applied.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/sp_file_details_finance.png" alt="SharePoint file details placeholder" />
+          <div class="img-caption"><strong>sp_file_details_finance.png</strong><br/>SharePoint file details pane showing sensitivity label and allowed users.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/outlook_sent_finance.png" alt="Outlook sent item placeholder" />
+          <div class="img-caption"><strong>outlook_sent_finance.png</strong><br/>Outlook Sent Items showing labeled email from UserA with protected attachment (TEST-FIN-003).</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/exchange_msgtrace_finance.png" alt="Exchange message trace placeholder" />
+          <div class="img-caption"><strong>exchange_msgtrace_finance.png</strong><br/>Exchange Message Trace linking the send event to the MessageTraceId.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/teams_file_open_finance.png" alt="Teams file open placeholder" />
+          <div class="img-caption"><strong>teams_file_open_finance.png</strong><br/>Teams channel file open behavior showing protection persists for team members and restricted for guests.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/external_recipient_block_finance.png" alt="External recipient block placeholder" />
+          <div class="img-caption"><strong>external_recipient_block_finance.png</strong><br/>External recipient blocked or forced to authenticate per label encryption policy for TEST-FIN-003.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/purview_activity_finance.png" alt="Purview activity placeholder" />
+          <div class="img-caption"><strong>purview_activity_finance.png</strong><br/>Purview Activity Explorer showing auto-apply and manual-apply events for TEST tokens with timestamps.</div>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="/images/purview_alert_finance.png" alt="Purview alert placeholder" />
+          <div class="img-caption"><strong>purview_alert_finance.png</strong><br/>Purview alert sent to admins for labeled/protected asset activity.</div>
         </div>
       </div>
     </section>
@@ -504,70 +209,5 @@
   <footer>
     <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
   </footer>
-
-  <script>
-    (function(){
-      // Build an ordered list of all thumbnail buttons for navigation
-      const thumbs = Array.from(document.querySelectorAll('.thumb-btn'));
-      const lb = document.getElementById('lightbox');
-      const lbImage = document.getElementById('lb-image');
-      const lbCaption = document.getElementById('lb-caption');
-      const closeBtn = document.getElementById('lb-close');
-      const prevBtn = document.getElementById('lb-prev');
-      const nextBtn = document.getElementById('lb-next');
-      let currentIndex = -1;
-
-      function openLightbox(index){
-        const btn = thumbs[index];
-        if(!btn) return;
-        const src = btn.getAttribute('data-src');
-        const img = btn.querySelector('img');
-        const alt = img.getAttribute('alt') || '';
-        const filename = btn.nextElementSibling ? (btn.nextElementSibling.querySelector('strong')?.textContent || '') : '';
-        lbImage.src = src;
-        lbImage.alt = alt;
-        lbCaption.textContent = filename ? filename + ' — ' + alt : alt;
-        lb.setAttribute('aria-hidden','false');
-        currentIndex = index;
-        closeBtn.focus();
-      }
-
-      function closeLightbox(){
-        lb.setAttribute('aria-hidden','true');
-        lbImage.src = '';
-        lbImage.alt = '';
-        currentIndex = -1;
-      }
-
-      function showPrev(){ if(currentIndex > 0) openLightbox(currentIndex - 1); }
-      function showNext(){ if(currentIndex < thumbs.length - 1) openLightbox(currentIndex + 1); }
-
-      // attach click handlers to thumbnails
-      thumbs.forEach((btn, idx) => {
-        btn.addEventListener('click', () => openLightbox(idx));
-        btn.addEventListener('keydown', (e) => {
-          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(idx); }
-        });
-        // ensure thumbnails are focusable
-        btn.setAttribute('tabindex','0');
-      });
-
-      closeBtn.addEventListener('click', closeLightbox);
-      prevBtn.addEventListener('click', showPrev);
-      nextBtn.addEventListener('click', showNext);
-
-      // close when clicking backdrop
-      lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
-
-      // keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if(lb.getAttribute('aria-hidden') === 'false'){
-          if(e.key === 'Escape') closeLightbox();
-          if(e.key === 'ArrowLeft') showPrev();
-          if(e.key === 'ArrowRight') showNext();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
