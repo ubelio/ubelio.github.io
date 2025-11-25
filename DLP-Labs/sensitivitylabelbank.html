@@ -270,20 +270,6 @@
       </ul>
     </section>
 
-    <!-- Steps Taken -->
-    <section>
-      <h2>Steps Taken</h2>
-      <ol>
-        <li>Create sensitivity label “Finance — Client Confidential” with encryption keys and allowed access list (service accounts + Finance approvers).</li>
-        <li>Publish label policy targeting Finance SharePoint site and Finance-MailSec (mail-enabled security group).</li>
-        <li>Confirm Finance-MailSec is mail enabled in Exchange so it appears in Exchange selectors.</li>
-        <li>Upload <strong>TEST-FIN-001.docx</strong> to Finance SharePoint (auto-apply expected).</li>
-        <li>From UserB Office desktop, create <strong>TEST-FIN-002.xlsx</strong>, manually apply label, save to desktop, upload to non-Finance site and attach to email.</li>
-        <li>From UserA send <strong>TEST-FIN-003</strong> with protected attachment to external test recipient. From FinanceGroup mailbox send <strong>TEST-FIN-004</strong> externally.</li>
-        <li>Wait policy evaluation (minutes → up to 1 hour); collect Activity Explorer, Outlook, SharePoint and Message Trace evidence.</li>
-      </ol>
-    </section>
-
     <!-- Screenshots / Evidence (reworked section) -->
     <section>
       <h2>Screenshots / Evidence</h2>
