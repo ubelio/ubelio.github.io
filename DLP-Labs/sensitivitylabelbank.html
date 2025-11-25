@@ -50,8 +50,13 @@
     }
     .img-placeholder img {
       max-width: 220px; max-height: 140px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;
+      transition: transform .25s ease;
+      display: block;
     }
+    .img-placeholder:hover img { transform: scale(1.03); }
     .img-caption { font-size: 0.95em; color: #333; }
+
+    .screenshots-lead { color: #333; margin: 8px 0 12px 0; }
 
     footer {
       background-color: #BDBBB2;
@@ -109,7 +114,7 @@
 
       <ol>
         <li>Create sensitivity label <strong>Client Data Confidential</strong> (encryption + allowed access).</li>
-        <li>Create a M365 Group for targetting Finance-Confidential
+        <li>Create a M365 Group for targetting Finance-Confidential</li>
         <li>Publish a label policy targeting the Finance-Confidentiak SharePoint site (site auto‑apply) and Finance-Confidential M365 Group, making it available for manual assignment to group members.</li>
         <li>Upload and manual-apply tests; send protected messages to external test recipient(s).</li>
         <li>Collect evidence from SharePoint, Outlook, Teams, OneDrive, Purview Activity Explorer and Message Trace.</li>
@@ -139,7 +144,111 @@
       </ol>
     </section>
 
-   
+    <!-- Screenshots (inserted after Steps Taken) -->
+    <section id="screenshots">
+      <h2>Screenshots</h2>
+      <p class="screenshots-lead">Screenshots showing the steps taken and evidence collected. Click any image to view full size.</p>
+
+      <div class="images">
+        <figure class="img-placeholder">
+          <a href="images/screenshots/autolabelinggroup.png" class="screenshot-link" data-full="images/screenshots/autolabelinggroup.png">
+            <img src="images/screenshots/autolabelinggroup.png" alt="Auto labeling group" loading="lazy">
+          </a>
+          <div class="img-caption">Auto labeling group</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/autolabelingpolicy.png" class="screenshot-link" data-full="images/screenshots/autolabelingpolicy.png">
+            <img src="images/screenshots/autolabelingpolicy.png" alt="Auto labeling policy" loading="lazy">
+          </a>
+          <div class="img-caption">Auto labeling policy</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/autolabelinguser.png" class="screenshot-link" data-full="images/screenshots/autolabelinguser.png">
+            <img src="images/screenshots/autolabelinguser.png" alt="Auto labeling user view" loading="lazy">
+          </a>
+          <div class="img-caption">Auto labeling user</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/cloudlinkemailnotlabeled.png" class="screenshot-link" data-full="images/screenshots/cloudlinkemailnotlabeled.png">
+            <img src="images/screenshots/cloudlinkemailnotlabeled.png" alt="Cloud link email not labeled" loading="lazy">
+          </a>
+          <div class="img-caption">Cloud link — email not labeled</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/cloudlinkfilesharepoint.png" class="screenshot-link" data-full="images/screenshots/cloudlinkfilesharepoint.png">
+            <img src="images/screenshots/cloudlinkfilesharepoint.png" alt="Cloud link files in SharePoint" loading="lazy">
+          </a>
+          <div class="img-caption">Cloud link — files in SharePoint</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/labeledclouddocattempt.png" class="screenshot-link" data-full="images/screenshots/labeledclouddocattempt.png">
+            <img src="images/screenshots/labeledclouddocattempt.png" alt="Labeled cloud doc attempt" loading="lazy">
+          </a>
+          <div class="img-caption">Labeled cloud doc attempt</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/labeleddocteamsattempt.png" class="screenshot-link" data-full="images/screenshots/labeleddocteamsattempt.png">
+            <img src="images/screenshots/labeleddocteamsattempt.png" alt="Labeled doc Teams attempt" loading="lazy">
+          </a>
+          <div class="img-caption">Labeled doc — Teams attempt</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/labeledfileattempt.png" class="screenshot-link" data-full="images/screenshots/labeledfileattempt.png">
+            <img src="images/screenshots/labeledfileattempt.png" alt="Labeled file attempt" loading="lazy">
+          </a>
+          <div class="img-caption">Labeled file attempt</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/labeledfilemail.png" class="screenshot-link" data-full="images/screenshots/labeledfilemail.png">
+            <img src="images/screenshots/labeledfilemail.png" alt="Labeled file in mail" loading="lazy">
+          </a>
+          <div class="img-caption">Labeled file — mail</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/labeledlocaldocandclouddoc.png" class="screenshot-link" data-full="images/screenshots/labeledlocaldocandclouddoc.png">
+            <img src="images/screenshots/labeledlocaldocandclouddoc.png" alt="Labeled local and cloud doc" loading="lazy">
+          </a>
+          <div class="img-caption">Labeled local doc and cloud doc</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/manualapplypolicy.png" class="screenshot-link" data-full="images/screenshots/manualapplypolicy.png">
+            <img src="images/screenshots/manualapplypolicy.png" alt="Manual apply policy" loading="lazy">
+          </a>
+          <div class="img-caption">Manual apply — policy view</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/manualassignment.png" class="screenshot-link" data-full="images/screenshots/manualassignment.png">
+            <img src="images/screenshots/manualassignment.png" alt="Manual assignment" loading="lazy">
+          </a>
+          <div class="img-caption">Manual assignment</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/senslabel.png" class="screenshot-link" data-full="images/screenshots/senslabel.png">
+            <img src="images/screenshots/senslabel.png" alt="Sensitivity label" loading="lazy">
+          </a>
+          <div class="img-caption">Sensitivity label</div>
+        </figure>
+
+        <figure class="img-placeholder">
+          <a href="images/screenshots/siteaccessattempt.png" class="screenshot-link" data-full="images/screenshots/siteaccessattempt.png">
+            <img src="images/screenshots/siteaccessattempt.png" alt="Site access attempt" loading="lazy">
+          </a>
+          <div class="img-caption">Site access attempt</div>
+        </figure>
+      </div>
+    </section>
 
     <!-- Outcome -->
     <section>
@@ -155,5 +264,35 @@
   <footer>
     <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
   </footer>
+
+  <!-- Minimal lightbox: click any screenshot to open a full-screen overlay -->
+  <script>
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('.screenshot-link');
+      if (!link) return;
+      e.preventDefault();
+      const src = link.getAttribute('data-full') || link.href;
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.inset = '0';
+      overlay.style.background = 'rgba(0,0,0,0.85)';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.zIndex = '9999';
+      overlay.addEventListener('click', () => overlay.remove());
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      img.style.maxWidth = '92%';
+      img.style.maxHeight = '92%';
+      img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+      img.style.borderRadius = '6px';
+      overlay.appendChild(img);
+
+      document.body.appendChild(overlay);
+    });
+  </script>
 </body>
 </html>
