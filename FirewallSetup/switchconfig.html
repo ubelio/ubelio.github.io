@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-401 Lab 1 – Switch Segmentation & Hardening</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Switch Segmentation & Hardening</h1>
+  <p>Configure VLAN segmentation, trunking, access port assignments, and enterprise-grade hardening to support a multi-VLAN OPNsense environment.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Cisco Catalyst-style Layer 2 switch</li>
+    <li>Console or SSH access</li>
+    <li>OPNsense Firewall (trunk uplink)</li>
+    <li>Terminal emulator (PuTTY, SecureCRT, etc.)</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Created VLANs for all network segments (Management, Servers, Workstations, VirtualLab, IoT, Guest, AP Infrastructure, Blackhole, and reserved DMZ/VPN/Quarantine).</li>
+    <li>Configured 802.1Q trunk uplink to OPNsense with VLAN 99 as the native VLAN.</li>
+    <li>Assigned access ports to their respective VLANs (Gi1/0/1–26).</li>
+    <li>Configured the management SVI on VLAN 10 with a static IP.</li>
+    <li>Enabled PortFast and BPDU Guard on all access ports.</li>
+    <li>Enabled storm control for broadcast, multicast, and unicast protection.</li>
+    <li>Enabled LLDP for device visibility.</li>
+    <li>Shut down unused ports (Gi1/0/27–47) and labeled them accordingly.</li>
+    <li>Restricted SSH access to VLAN 10 only using an ACL.</li>
+    <li>Disabled HTTP and enabled HTTPS for secure management.</li>
+    <li>Saved configuration to startup-config.</li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <h2>Screenshot: VLAN Table</h2>
+  <figure>
+    <a href="vlan-table.png" target="_blank">
+      <img src="vlan-table.png" alt="VLAN table output" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: VLAN table showing segmentation and port assignments.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Trunk Status</h2>
+  <figure>
+    <a href="trunk-status.png" target="_blank">
+      <img src="trunk-status.png" alt="Trunk interface status" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Trunk configuration on Gi1/0/48.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Interface Status</h2>
+  <figure>
+    <a href="interface-status.png" target="_blank">
+      <img src="interface-status.png" alt="Interface status overview" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Active ports, shutdown ports, and descriptions.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Management SVI</h2>
+  <figure>
+    <a href="svi-status.png" target="_blank">
+      <img src="svi-status.png" alt="SVI status output" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: VLAN 10 SVI with management IP.</figcaption>
+  </figure>
+
+  <h2>Screenshot: SSH Access Restriction</h2>
+  <figure>
+    <a href="ssh-acl.png" target="_blank">
+      <img src="ssh-acl.png" alt="ACL restricting SSH access" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: MGMT_ONLY ACL applied to VTY lines.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Hardening Configuration</h2>
+  <figure>
+    <a href="hardening.png" target="_blank">
+      <img src="hardening.png" alt="BPDU Guard, PortFast, storm control configuration" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Hardening applied to access ports.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Network Diagram</h2>
+  <figure>
+    <a href="network-diagram.png" target="_blank">
+      <img src="network-diagram.png" alt="Logical network diagram" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Logical diagram of VLANs, switch, and OPNsense firewall.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>The switch is fully segmented and hardened, supporting a multi-VLAN architecture with secure management access, protected access ports, and a validated trunk to OPNsense. This establishes a strong foundation for subsequent labs involving DHCP, firewall rules, and inter-VLAN communication.</p>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
 
