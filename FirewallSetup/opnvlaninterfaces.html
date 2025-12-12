@@ -1,1 +1,203 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OPNsense VLAN Interfaces</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>OPNsense VLAN Interfaces</h1>
+  <p>Create and validate VLAN interfaces on OPNsense to support the segmented switch configuration from Lab 1.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2>Tools Used</h2>
+  <ul>
+    <li>OPNsense Firewall</li>
+    <li>Web GUI access</li>
+    <li>Cisco Catalyst-style switch from Lab 1</li>
+    <li>Browser + screenshot tool</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Created VLAN entries under <strong>Interfaces → Other Types → VLAN</strong> for VLANs 10–70.</li>
+    <li>Assigned each VLAN to an OPT interface under <strong>Interfaces → Assignments</strong>.</li>
+    <li>Enabled each interface and configured static IPv4 gateway addresses.</li>
+    <li>Applied changes and verified interface status.</li>
+    <li>Validated connectivity using OPNsense diagnostics (pinging each gateway IP).</li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <h2>Screenshot: VLAN Definitions</h2>
+  <figure>
+    <a href="vlan-definitions.png" target="_blank">
+      <img src="vlan-definitions.png" alt="OPNsense VLAN definitions" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: VLAN entries created for all network segments.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Interface Assignments</h2>
+  <figure>
+    <a href="interface-assignments.png" target="_blank">
+      <img src="interface-assignments.png" alt="Interface assignments for VLANs" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: OPT interfaces mapped to VLANs 10–70.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Interface Configuration</h2>
+  <figure>
+    <a href="interface-config.png" target="_blank">
+      <img src="interface-config.png" alt="Interface configuration with static IPs" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Example of a VLAN interface enabled with its gateway IP.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Interface Status</h2>
+  <figure>
+    <a href="interface-status.png" target="_blank">
+      <img src="interface-status.png" alt="Interface status overview" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: All VLAN interfaces showing as 'up' after configuration.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Ping Validation</h2>
+  <figure>
+    <a href="ping-tests.png" target="_blank">
+      <img src="ping-tests.png" alt="Ping diagnostics" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: OPNsense successfully pinging each VLAN gateway IP.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Network Diagram</h2>
+  <figure>
+    <a href="network-diagram.png" target="_blank">
+      <img src="network-diagram.png" alt="Logical network diagram" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Logical diagram of VLANs, switch, and OPNsense firewall.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>All VLAN interfaces are now active on OPNsense with correct IP assignments and verified operational status. This completes the firewall-side foundation for the segmented network created in Lab 1. With VLANs online and reachable, the next step will be configuring DHCP scopes for each network segment in Lab 3.</p>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
