@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OPNsense Isolation Rules for IoT and Guest VLANs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9C8BF;
+      color: #141413;
+      margin: 0;
+    }
+    header {
+      background-color: #141413;
+      color: #C9C8BF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #AFACA1;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #141413;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      text-decoration: underline;
+      color: #0073e6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #BDBBB2;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #141413;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>OPNsense Isolation Rules for IoT and Guest VLANs</h1>
+  <p>Lock down untrusted networks while preserving DNS and internet access.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2>Tools Used</h2>
+  <ul>
+    <li>OPNsense Firewall</li>
+    <li>IoT and Guest VLANs configured from previous labs</li>
+    <li>OPNsense Diagnostics (Ping and DNS Lookup)</li>
+    <li>Browser + screenshot tool</li>
+  </ul>
+
+  <h2>Steps Taken</h2>
+  <ol>
+    <li>Opened <strong>Firewall → Rules</strong> for the IoT and Guest VLAN interfaces.</li>
+    <li>Created rules to:
+      <ul>
+        <li>Block access to RFC1918 address ranges from IoT and Guest.</li>
+        <li>Allow DNS from IoT and Guest to the OPNsense firewall.</li>
+        <li>Allow outbound internet access for IoT and Guest networks.</li>
+      </ul>
+    </li>
+    <li>Enabled logging for blocked inter-VLAN attempts.</li>
+    <li>Applied changes and verified rule order for each interface.</li>
+    <li>Validated that IoT and Guest could not reach any internal subnets.</li>
+    <li>Confirmed that DNS and internet connectivity still worked for both VLANs.</li>
+    <li>Generated and reviewed firewall logs showing blocked inter-VLAN attempts.</li>
+  </ol>
+
+  <hr class="section-divider">
+
+  <h2>Screenshot: IoT VLAN Firewall Rules</h2>
+  <figure>
+    <a href="fw-rules-iot.png" target="_blank">
+      <img src="fw-rules-iot.png" alt="Firewall rules for IoT VLAN" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: IoT VLAN allowed DNS and internet, blocked from all RFC1918 internal networks.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Guest VLAN Firewall Rules</h2>
+  <figure>
+    <a href="fw-rules-guest.png" target="_blank">
+      <img src="fw-rules-guest.png" alt="Firewall rules for Guest VLAN" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Guest VLAN isolated from internal networks with DNS and internet access only.</figcaption>
+  </figure>
+
+  <h2>Screenshot: Blocked Traffic Logs</h2>
+  <figure>
+    <a href="blocked-logs-iot-guest.png" target="_blank">
+      <img src="blocked-logs-iot-guest.png" alt="Firewall logs showing blocked IoT and Guest traffic to internal networks" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Logged attempts from IoT and Guest to internal RFC1918 subnets being blocked.</figcaption>
+  </figure>
+
+  <h2>Screenshot: DNS and Internet Tests</h2>
+  <figure>
+    <a href="dns-internet-tests-iot-guest.png" target="_blank">
+      <img src="dns-internet-tests-iot-guest.png" alt="Diagnostics showing working DNS and internet for IoT and Guest VLANs" class="screenshot">
+    </a>
+    <figcaption class="screenshot-note">Click to view full-size: Successful DNS lookups and internet pings from IoT and Guest VLANs.</figcaption>
+  </figure>
+
+  <hr class="section-divider">
+
+  <h2>Outcome</h2>
+  <p>
+    This lab enforces strict isolation for untrusted IoT and Guest networks. Both VLANs are prevented from
+    reaching any internal RFC1918 subnets while still retaining DNS resolution and outbound internet access.
+    Firewall logs confirm that inter-VLAN attempts from these networks are blocked and recorded, providing
+    both security and visibility. The result is a hardened edge where untrusted devices can operate without
+    exposing critical internal services or management networks.
+  </p>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
