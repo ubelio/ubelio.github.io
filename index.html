@@ -37,6 +37,25 @@
       font-size: 0.9em;
       margin-top: 15px;
     }
+    .skills-columns {
+      columns: 2;
+      column-gap: 30px;
+    }
+    .skill-category {
+      break-inside: avoid;
+      margin-bottom: 20px;
+    }
+    .skill-category h3 {
+      color: #141413;
+      margin: 0 0 6px;
+      font-size: 1.05em;
+    }
+    .skill-category ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
@@ -85,25 +104,92 @@
 
     <section>
       <h2>Welcome</h2>
-      <p>This portfolio showcases my work across enterprise IT, including identity governance, endpoint security, automation, and infrastructure modernization. I’ve led cloud migrations, enforced Zero Trust, and built systems that scale securely and efficiently.</p>
+      <p>This portfolio showcases my work across enterprise IT, including identity and access management, endpoint and information security, cloud governance, and automation. Over 10+ years across manufacturing, education, and MSP environments, I've raised a Microsoft Secure Score from 30% to 87% at one organization and currently maintain a 92%+ security posture. I've automated patching for 1,000+ endpoints, migrated Exchange to the cloud, and enforced Zero Trust across hybrid infrastructure. My current focus is Azure security posture, data governance with Microsoft Purview, and building AI-powered Copilot Studio agents, including MCP-connected solutions that bring secure, self-service intelligence into enterprise workflows.</p>
     </section>
 
     <section style="max-width: 900px; margin: 40px auto;">
       <h2 style="text-align: center;">Technical Skills</h2>
-      <ul style="columns: 2; font-size: 1em; line-height: 1.6;">
-        <li>Microsoft 365 & Exchange Online (Hybrid)</li>
-        <li>Microsoft Entra ID (SSO, SCIM, CA, MFA, PIM)</li>
-        <li>Intune, Autopilot, MDM/MAM</li>
-        <li>PowerShell Automation & Health Checks</li>
-        <li>Windows Server 2016–2025, AD DS, GPO</li>
-        <li>Azure RBAC, Conditional Access, Defender</li>
-        <li>Zero Trust Architecture & Identity Protection</li>
-        <li>BitLocker, TLS/SSL, Microsoft Purview DLP</li>
-        <li>SCCM, Co-Management, PXE/MDT/WDS</li>
-        <li>VMware, Thin Clients, Backup & Recovery</li>
-        <li>DNS, DHCP, VPN, Firewall, Cisco Switches</li>
-        <li>Endpoint Analytics, Compliance Policies</li>
-      </ul>
+      <div class="skills-columns">
+        <div class="skill-category">
+          <h3>Identity & Access</h3>
+          <ul>
+            <li>Entra ID (SSO, SCIM, CA, MFA, PIM)</li>
+            <li>RBAC</li>
+            <li>Windows Hello (Hybrid)</li>
+            <li>Passwordless Authentication</li>
+            <li>Zero Trust Architecture</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Security & Compliance</h3>
+          <ul>
+            <li>Microsoft Defender / Defender for Cloud</li>
+            <li>Defender for Cloud Apps (Shadow IT discovery)</li>
+            <li>Microsoft Sentinel</li>
+            <li>CrowdStrike Falcon</li>
+            <li>Purview DLP & Information Protection</li>
+            <li>BitLocker, TLS/SSL</li>
+            <li>Security Baselines</li>
+            <li>Incident Response</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Cloud & Governance</h3>
+          <ul>
+            <li>Microsoft Azure</li>
+            <li>Azure Policy</li>
+            <li>Defender for Cloud regulatory compliance</li>
+            <li>Azure Well-Architected reviews</li>
+            <li>Secure Score optimization</li>
+            <li>Microsoft 365</li>
+            <li>Exchange Online (Hybrid)</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>AI & Copilot Agent Development</h3>
+          <ul>
+            <li>Copilot Studio agent building</li>
+            <li>MCP server integration (Microsoft Learn)</li>
+            <li>Business-process agents (IT self-service, sales prospecting)</li>
+            <li>Microsoft Agent Academy hands-on labs</li>
+            <li>AI retention policy administration</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Endpoint Management</h3>
+          <ul>
+            <li>Intune, Autopilot, MDM/MAM</li>
+            <li>SCCM/MECM</li>
+            <li>Co-Management</li>
+            <li>PXE/MDT/WDS</li>
+            <li>Windows 10/11 upgrades</li>
+            <li>Endpoint Analytics</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Automation & Scripting</h3>
+          <ul>
+            <li>PowerShell</li>
+            <li>Python</li>
+            <li>Bash</li>
+            <li>SQL</li>
+            <li>Deployment & health-check automation</li>
+            <li>SCCM remediation scripts</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Infrastructure</h3>
+          <ul>
+            <li>Windows Server (2016–2025)</li>
+            <li>AD DS, GPO, ADCS</li>
+            <li>VMware</li>
+            <li>DNS/DHCP/VPN</li>
+            <li>Firewall</li>
+            <li>Cisco Switches</li>
+            <li>Backup & Recovery</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section style="max-width: 900px; margin: 40px auto;">
