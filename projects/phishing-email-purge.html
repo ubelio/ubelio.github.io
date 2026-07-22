@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tenant-Wide Phishing Email Purge - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Tenant-Wide Phishing Email Purge - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Incident response tooling that finds and removes malicious email across every mailbox in the tenant, with enforced just-in-time privilege, mandatory preview, and full audit logging.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/phishing-email-purge-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/phishing-email-purge.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tenant-Wide Phishing Email Purge</h1>
+    <p>Incident response tooling that finds and removes malicious email across every mailbox in the tenant, with enforced just-in-time privilege, mandatory preview, and full audit logging.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>When a phishing message reaches multiple mailboxes, or a trusted third party notifies us that one of their accounts has been compromised and used to send mail into our tenant, the priority is removing those messages from user mailboxes as quickly as possible. Doing that manually through Purview means building the content search by hand, waiting on it, and stepping through the purge workflow. For a handful of mailboxes that is roughly 5 to 15 minutes of hands-on work per incident, and it scales badly as the number of affected recipients grows. Speed matters, because every minute the message sits in an inbox is another chance someone interacts with it.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>An interactive PowerShell tool for tenant-wide search and purge of malicious email. It collects the sender, exact subject, and date range, builds a compliance search across all mailboxes, previews the matches, and then soft-deletes them on explicit confirmation. The tool is deliberately built with guardrails at every destructive step, because it operates across the entire tenant.</p>
+    </section>
+
+    <section>
+      <h2>Safety and Controls</h2>
+      <ul>
+        <li><strong>Just-in-time privilege enforcement:</strong> before doing anything, the script queries Microsoft Graph to verify that Global Administrator is actively elevated through Entra PIM for the running user. If the role is not active, the script refuses to continue. Standing privilege is never assumed.</li>
+        <li><strong>Mandatory non-destructive preview:</strong> a preview action always runs before any purge is possible, so matches can be reviewed in Purview first.</li>
+        <li><strong>Typed confirmation:</strong> the purge requires typing an exact confirmation phrase, and any other input loops rather than proceeding. Accidental keypresses cannot trigger a deletion.</li>
+        <li><strong>Soft delete</strong> rather than hard delete, so removed messages remain recoverable.</li>
+        <li><strong>Dual audit logging:</strong> every run writes both a CSV and a JSON record capturing the operator, the exact search query used, the date range, item count, whether the purge was confirmed, the machine it ran from, and the script version. This produces a defensible record of who removed what and when.</li>
+        <li><strong>Pinned module versions</strong> imported by explicit path, so a module update cannot silently change the behavior of a tool that deletes mail tenant-wide.</li>
+        <li><strong>Unique timestamped search names</strong> per run, and a search-only session for the compliance connection.</li>
+        <li><strong>Input validation</strong> on all fields, including UPN and email format checks and date range sanity checking, before any connection is made.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How It Runs</h2>
+      <p>Run on demand by a Global Administrator, since the required Purview roles are intentionally restricted to that group. It is used for incidents where more than a handful of messages were delivered, where manual cleanup would be impractical.</p>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Reduces tenant-wide phishing containment from a manual multi-step Purview workflow to a single guided run</li>
+          <li>Removes malicious mail from every affected mailbox in one operation rather than one at a time</li>
+          <li>Enforces just-in-time privilege and produces a complete audit trail for every destructive action</li>
+          <li>Keeps removed messages recoverable through soft delete</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Script</h2>
+      <a href="/scripts.html#PhishCleanup">View the full script →</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>

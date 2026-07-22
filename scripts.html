@@ -183,6 +183,33 @@ function Get-ResolvedUPN {
       <p><a href="/projects/mailbox-permission-audit-report.html">View the full project write-up →</a></p>
     </section>
 
+    <!-- Script 6 section with anchor ID for linking -->
+    <section>
+      <h2 id="PhishCleanup">PhishCleanup_AllMailboxes.ps1</h2>
+      <p>Interactive incident response tool for tenant-wide search and soft-delete of phishing email, with PIM elevation checks, mandatory preview, typed confirmation, and audit logging.</p>
+      <pre>
+# Confirm Global Administrator is actively elevated via PIM before doing anything
+$gaActive = $instances | Where-Object {
+    $_.RoleDefinition.DisplayName -in @("Global Administrator","Company Administrator")
+}
+if (-not $gaActive) {
+    Write-ErrorMsg "Global Administrator is NOT ACTIVE for $UserPrincipalName."
+    exit 1
+}
+
+# Typed confirmation required before the tenant-wide purge executes
+do {
+    Write-Warn "Type exactly: PURGE-ALL, anything else will do nothing."
+    $confirm = Read-Host "Confirm"
+} until ($confirm -eq "PURGE-ALL")
+
+New-ComplianceSearchAction -SearchName $searchName -Purge -PurgeType SoftDelete
+# Full script includes input validation, compliance search creation and polling, preview, and CSV/JSON audit logging
+      </pre>
+      <a class="download-link" href="scripts/PhishCleanup_AllMailboxes.ps1" download>Download Full Script</a>
+      <p><a href="/projects/phishing-email-purge.html">View the full project write-up →</a></p>
+    </section>
+
   </main>
 
   <!-- Footer with contact info -->
