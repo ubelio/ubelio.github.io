@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Share to SharePoint Sync - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="File Share to SharePoint Sync - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Continuous one-way sync that bridged a network file share to SharePoint during migration, letting a department adopt the new platform at its own pace without stranding data.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/fileshare-sharepoint-sync-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/fileshare-sharepoint-sync.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>File Share to SharePoint Sync</h1>
+    <p>Continuous one-way sync that bridged a network file share to SharePoint during migration, letting a department adopt the new platform at its own pace without stranding data.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>A department's files were migrated from a network share to SharePoint, but the team needed time to adjust to working inside SharePoint rather than a mapped drive. Forcing an immediate cutover risked resistance and mistakes, while allowing continued use of the share risked the real problem: files existing in two places, diverging into conflicting versions with no single source of truth. The migration needed to succeed without making adoption a hard deadline.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>A continuous one-way sync that watches the network share and uploads new and modified files to the SharePoint document library, preserving folder structure exactly. Staff could keep saving where they were comfortable, and anything they saved locally landed in SharePoint automatically. This turned a hard cutover into a gradual transition, with SharePoint always holding the current copy.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ul>
+        <li>Runs as a scheduled task every five minutes, so changes propagate quickly enough that SharePoint is never meaningfully behind</li>
+        <li>Certificate-based app-only authentication to both SharePoint (via PnP PowerShell) and Microsoft Graph, so it runs unattended with no stored secrets</li>
+        <li>Signature-based change detection: each file is tracked by path, last-write time, and size. Files whose signature is unchanged since the last successful upload are skipped, making every run idempotent and safe to repeat.</li>
+        <li>Persistent JSON state file carries upload history and failure counts across runs</li>
+        <li>Locked-file handling: before uploading, the script attempts an exclusive read. If a user has the document open, the file is skipped and retried on the next run rather than failing the sync. On a share people work in all day, this matters.</li>
+        <li>Temp file filtering excludes Office lock files and partial-write artifacts that should never reach SharePoint</li>
+        <li>Folder structure is mirrored exactly, so the SharePoint library matches the source tree rather than flattening it</li>
+        <li>Failure escalation with noise control: a file must fail three consecutive runs before an email alert is sent, and the counter resets on success. Transient failures resolve themselves silently; only genuinely stuck files generate a notification.</li>
+        <li>Per-run logging with timestamps and severity levels</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>A Note on State Serialization</h2>
+      <p>PowerShell's ConvertFrom-Json returns PSCustomObject rather than a hashtable, which does not support ContainsKey, Remove, or index assignment. Round-tripping sync state through JSON therefore breaks hashtable operations on load. The script normalizes deserialized state back into real hashtables, which keeps the state file both human-readable and safe to operate on.</p>
+    </section>
+
+    <section>
+      <h2>One-Way by Design</h2>
+      <p>The sync is deliberately one directional, from the file share to SharePoint. A reverse path was never needed, and omitting it removes an entire class of conflict-resolution problems.</p>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Completed the migration with no data loss and no version conflicts between the share and SharePoint</li>
+          <li>Let the department adopt the new platform gradually instead of on a forced cutover date</li>
+          <li>Still running today, though it does progressively less work as the team increasingly works directly in SharePoint</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Script</h2>
+      <a href="/scripts.html#FileShareToSharePointSync">View the full script →</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>

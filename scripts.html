@@ -236,6 +236,32 @@ function Set-MailboxQuotaIfNeeded {
       <p><a href="/projects/mailbox-quota-enforcement.html">View the full project write-up →</a></p>
     </section>
 
+    <!-- Script 8 section with anchor ID for linking -->
+    <section>
+      <h2 id="FileShareToSharePointSync">FileShareToSharePointSync.ps1</h2>
+      <p>One-way sync from a network file share to a SharePoint library, with signature-based change detection, locked-file handling, persistent state, and failure escalation.</p>
+      <pre>
+# Skip locked/in-use files: attempt an exclusive read, retry on the next run
+function Test-FileLocked {
+    param([string]$Path)
+    try {
+        $stream = [System.IO.File]::Open($Path, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::None)
+        $stream.Close()
+        return $false
+    } catch { return $true }
+}
+
+# Signature = path + last-write time + size; skip if unchanged since last upload
+$Signature = "$($File.FullName)|$($File.LastWriteTimeUtc.Ticks)|$($File.Length)"
+if ($State.Files.ContainsKey($File.FullName) -and $State.Files[$File.FullName] -eq $Signature) {
+    continue
+}
+# Full script includes state persistence, folder structure mirroring, temp file filtering, and Graph email escalation
+      </pre>
+      <a class="download-link" href="scripts/FileShareToSharePointSync.ps1" download>Download Full Script</a>
+      <p><a href="/projects/fileshare-sharepoint-sync.html">View the full project write-up →</a></p>
+    </section>
+
   </main>
 
   <!-- Footer with contact info -->
