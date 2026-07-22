@@ -210,6 +210,32 @@ New-ComplianceSearchAction -SearchName $searchName -Purge -PurgeType SoftDelete
       <p><a href="/projects/phishing-email-purge.html">View the full project write-up →</a></p>
     </section>
 
+    <!-- Script 7 section with anchor ID for linking -->
+    <section>
+      <h2 id="MonthlyMailboxQuotaEnforcement">MonthlyMailboxQuotaEnforcement.ps1</h2>
+      <p>Monthly Exchange Online quota enforcement that compares each mailbox against policy and corrects only what has drifted, with tiered exception groups and email reporting.</p>
+      <pre>
+# Quota policy definitions: IssueWarning / ProhibitSend / ProhibitSendReceive
+$DefaultQuotas = @{ Warn = "23GB"; Send = "25GB"; SendReceive = "50GB"  }
+$Tier1Quotas   = @{ Warn = "48GB"; Send = "50GB"; SendReceive = "100GB" }
+$Tier2Quotas   = @{ Warn = "72GB"; Send = "75GB"; SendReceive = "100GB" }
+$SharedQuotas  = @{ Warn = "48GB"; Send = "50GB"; SendReceive = "50GB"  }
+
+# Compare current quotas against policy; only act if something is different
+function Set-MailboxQuotaIfNeeded {
+    param ($Identity,$Category,$Warn,$Send,$SendReceive)
+    $mb = Get-Mailbox -Identity $Identity
+    if ($oldWarn -ne $newWarn -or $oldSend -ne $newSend -or $oldSR -ne $newSR) {
+        Set-Mailbox -Identity $Identity -IssueWarningQuota $Warn `
+            -ProhibitSendQuota $Send -ProhibitSendReceiveQuota $SendReceive
+    }
+}
+# Full script includes value normalization, per-mailbox error isolation, CSV audit export, and HTML email reporting
+      </pre>
+      <a class="download-link" href="scripts/MonthlyMailboxQuotaEnforcement.ps1" download>Download Full Script</a>
+      <p><a href="/projects/mailbox-quota-enforcement.html">View the full project write-up →</a></p>
+    </section>
+
   </main>
 
   <!-- Footer with contact info -->

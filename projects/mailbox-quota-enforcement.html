@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automated Mailbox Quota Enforcement - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Automated Mailbox Quota Enforcement - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Monthly drift correction that keeps mailbox quotas aligned to policy across standard, tiered-exception, and shared mailboxes.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/mailbox-quota-enforcement-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/mailbox-quota-enforcement.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Automated Mailbox Quota Enforcement</h1>
+    <p>Monthly drift correction that keeps mailbox quotas aligned to policy across standard, tiered-exception, and shared mailboxes.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Mailbox storage limits need to stay consistent with policy, but quotas drift over time. New mailboxes get provisioned with defaults that do not match the intended tier, exception group membership changes, and manual adjustments accumulate. When a mailbox quota is wrong, the user finds out by hitting a limit and filing a ticket, which makes the problem reactive rather than managed. The helpdesk had a more primitive version of a quota script in place, and asked for something more capable.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>An enhanced monthly enforcement script that compares every mailbox against its intended quota policy and corrects only what has drifted. It handles four categories: standard users, two tiers of raised-limit exceptions, and shared mailboxes. Quota policy definitions live in a single configuration block, so changing a limit is a one-line edit rather than a hunt through the script.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ul>
+        <li>Certificate-based app-only authentication to both Exchange Online and Microsoft Graph, so it runs unattended as a scheduled task with no stored secrets</li>
+        <li>Comparison before action: each mailbox is read, its current quota values normalized, and compared against the desired policy. Mailboxes already correct are logged and skipped rather than rewritten, so the script does not generate unnecessary change events across the tenant.</li>
+        <li>Value normalization handles the fact that Exchange returns quota values with a byte count appended, which must be stripped before a meaningful comparison can be made</li>
+        <li>Four policy categories: standard users, Tier 1 and Tier 2 exception groups resolved from distribution group membership, and shared mailboxes. Room and equipment mailboxes are deliberately excluded.</li>
+        <li>Per-mailbox error isolation: a failure on one mailbox is recorded and the run continues, so a single problem account cannot halt enforcement across the tenant</li>
+        <li>Full transcript logging plus a timestamped CSV of every change, retained as an audit trail</li>
+        <li>HTML email report summarizing total changes, a per-category breakdown, error count, and the specific before-and-after values for each mailbox corrected</li>
+        <li>Configurable behavior for periods with no changes, so a quiet month still produces confirmation the run happened</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>The Tiered Exception Model</h2>
+      <p>Not every user fits the standard limit. The enterprise identifies which roles and users require raised quotas and maintains a template for which tier they belong to. Tier assignment is handled through change management and membership in the corresponding exception group, so the script enforces policy without needing to encode individual decisions.</p>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Prevents quota-related helpdesk tickets by correcting drift before users hit a limit</li>
+          <li>Keeps quota policy consistent across the entire tenant without manual review</li>
+          <li>Makes tier changes a matter of group membership rather than administrative work</li>
+          <li>Provides a monthly audit record of every quota change made</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Script</h2>
+      <a href="/scripts.html#MonthlyMailboxQuotaEnforcement">View the full script →</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>
