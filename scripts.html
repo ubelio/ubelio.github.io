@@ -83,6 +83,7 @@ if ($TPMver -match '2.0') {
 }
       </pre>
       <a class="download-link" href="scripts/EnableBitlockerSystemDriveC.ps1" download>Download Full Script</a>
+      <p><a href="/projects/onprembitlocker-automation.html">View the full project write-up →</a></p>
     </section>
 
     <!-- Script 2 section with anchor ID for linking -->
@@ -103,6 +104,35 @@ if ($DRIVEd.volumeStatus -eq 'FullyDecrypted' -and $DRIVE.volumestatus -eq 'Full
 # Repeat for E: and F:
       </pre>
       <a class="download-link" href="scripts/EnableBitlockerDataDriveD.ps1" download>Download Full Script</a>
+      <p><a href="/projects/onprembitlocker-automation.html">View the full project write-up →</a></p>
+    </section>
+
+    <!-- Script 3 section with anchor ID for linking -->
+    <section>
+      <h2 id="Remove-EntraStaleDevices">Remove-EntraStaleDevices.ps1</h2>
+      <p>Automates cleanup of stale Microsoft Entra devices using certificate-based Graph authentication, with exclusion group protection, dry-run mode, and a persistent audit ledger.</p>
+      <pre>
+# Certificate-based app-only auth (unattended, no stored secret)
+Connect-MgGraph -TenantId $TenantId -ClientId $ClientId `
+                -CertificateThumbprint $CertThumbprint -NoWelcome
+
+$cutoffIso = (Get-Date).AddMonths(-$StaleMonths).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+
+# Pass 1: Graph-side filter on last sign-in
+$staleBySignIn = Get-MgDevice -Filter "approximateLastSignInDateTime lt $cutoffIso" `
+                              -ConsistencyLevel 'eventual' -All
+
+# Pass 2: devices that never signed in report null, so fall back to creation date
+$neverSignedIn = Get-MgDevice -All | Where-Object {
+  -not $_.ApproximateLastSignInDateTime -and $_.CreatedDateTime -lt $cutoffUtc
+}
+
+# Fail-closed: skip devices in the protection group; stop the run if it can't be read
+$staleAll = $staleAll | Where-Object { -not $excludedDeviceIds.Contains($_.Id) }
+# Full script includes ledger tracking, WhatIf mode, and HTML email reporting
+      </pre>
+      <a class="download-link" href="scripts/Remove-EntraStaleDevices.ps1" download>Download Full Script</a>
+      <p><a href="/projects/entra-stale-devices.html">View the full project write-up →</a></p>
     </section>
 
   </main>
