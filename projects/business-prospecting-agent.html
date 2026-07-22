@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Prospecting Agent - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Business Prospecting Agent - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Built a Copilot Studio agent that guides relationship managers through structured prospect research and generates a complete meeting-prep package.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/prospect-agent-flows-tools.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/business-prospecting-agent.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Business Prospecting Agent</h1>
+    <p>Agent that helps relationship managers research and prepare for prospective business clients using enterprise guidelines and a relationship-first approach.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Client-facing staff preparing for prospect meetings did research ad hoc, with inconsistent depth and quality across the team. Preparation was time-consuming and varied by individual, making it hard to walk into a first meeting consistently well-informed about a prospect's business, industry dynamics, and the right discovery questions to ask.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>A Copilot Studio agent that guides a user through a structured intake conversation, enriches the gathered information from multiple grounded sources, and generates a complete four-part preparation package delivered by email. It standardizes meeting preparation across the team while keeping output advisor-led and consultative rather than product-driven.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ul>
+        <li><strong>Multi-phase execution model:</strong> the agent operates in explicit gated phases (intake, generation, storage, delivery). No artifacts generate until intake validation confirms all required fields are present.</li>
+        <li><strong>Conversational intake with error correction:</strong> collects business name, city, state, and owner, with built-in correction handling to catch typos before they propagate into research.</li>
+        <li><strong>Custom agent flow used as a tool:</strong> the user supplies two company web addresses, and a purpose-built flow retrieves and parses additional HTML content from those pages, enriching business context beyond what standard web search returns.</li>
+        <li><strong>Multiple orchestrated grounding sources:</strong> SharePoint knowledge, uploaded reference documents, industry and regional data sources, the custom flow output, and web search, combined into a single generation step.</li>
+        <li><strong>Global variable state management:</strong> the complete generated response is captured verbatim into a global variable for downstream use, unedited.</li>
+        <li><strong>Automated email delivery:</strong> dedicated topics and a flow deliver the finished package to the user.</li>
+        <li><strong>Output formatting constraints:</strong> output is structured with headings, paragraphs, and bullets, deliberately avoiding tables because the final artifact renders as a Word document delivered by email.</li>
+      </ul>
+
+      <figure>
+        <a href="prospect-agent-flows-tools.png" target="_blank">
+          <img src="prospect-agent-flows-tools.png" alt="Agent flows and tools configured in Copilot Studio" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">Agent flows and tools configured in Copilot Studio.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="prospect-agent-knowledge-files.png" target="_blank">
+          <img src="prospect-agent-knowledge-files.png" alt="Uploaded reference documents used to ground the agent" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">Uploaded reference documents used to ground the agent.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="prospect-agent-sharepoint.png" target="_blank">
+          <img src="prospect-agent-sharepoint.png" alt="SharePoint knowledge source connected to the agent" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">SharePoint knowledge source connected to the agent.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Generated Output</h2>
+      <p>The agent produces four distinct, self-contained artifacts in order:</p>
+      <ul>
+        <li><strong>A.</strong> One-page executive summary of the company research and analysis</li>
+        <li><strong>B.</strong> Comprehensive industry summary and company research & analysis</li>
+        <li><strong>C.</strong> Initial 60-minute prospect meeting preparation, including ten industry-specific discovery questions</li>
+        <li><strong>D.</strong> Follow-up meeting preparation</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Standardizes prospect research quality across the team</li>
+          <li>Reduces manual preparation time per prospect</li>
+          <li>Ensures staff enter meetings grounded in industry-specific context with tailored discovery questions</li>
+          <li>Delivers a consistent, repeatable artifact rather than ad hoc notes</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>
