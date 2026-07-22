@@ -157,6 +157,32 @@ Start-MgServicePrincipalSynchronizationJob -ServicePrincipalId $sp.Id -Synchroni
       <p><a href="/projects/adobe-scim-sync-trigger.html">View the full project write-up →</a></p>
     </section>
 
+    <!-- Script 5 section with anchor ID for linking -->
+    <section>
+      <h2 id="BiweeklyMailboxPermissionReport">BiweeklyMailboxPermissionReport.ps1</h2>
+      <p>Pulls mailbox permission changes from the Microsoft 365 unified audit log on a biweekly cadence, resolves GUIDs to readable identities, and emails a timestamped CSV report.</p>
+      <pre>
+# Pull mailbox permission changes for the last 14 days
+$AuditData = Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate `
+    -Operations Add-MailboxPermission, Remove-MailboxPermission, Add-RecipientPermission, Remove-RecipientPermission `
+    -ResultSize 5000
+
+# Two-tier identity resolution: Exchange Online lookup first, then Graph fallback
+function Get-ResolvedUPN {
+    param([string]$Identity)
+    try {
+        $exo = Get-Recipient -Identity $Identity -ErrorAction Stop
+        if ($exo.PrimarySmtpAddress) { return $exo.PrimarySmtpAddress.ToString() }
+    } catch { }
+    try { $mgUser = Get-MgUser -UserId $guid -ErrorAction Stop; if ($mgUser.UserPrincipalName) { return $mgUser.UserPrincipalName } } catch { }
+    return $Identity
+}
+# Full script includes caching, CSV export, and Graph email delivery
+      </pre>
+      <a class="download-link" href="scripts/BiweeklyMailboxPermissionReport.ps1" download>Download Full Script</a>
+      <p><a href="/projects/mailbox-permission-audit-report.html">View the full project write-up →</a></p>
+    </section>
+
   </main>
 
   <!-- Footer with contact info -->

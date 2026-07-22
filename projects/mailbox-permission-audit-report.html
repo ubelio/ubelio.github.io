@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automated Mailbox Permission Audit Reporting - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Automated Mailbox Permission Audit Reporting - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Biweekly compliance reporting on mailbox permission changes, with automatic identity resolution and historical retention for auditor requests.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/mailbox-permission-audit-report-diagram.png">
+  <meta property="og:url" content="https://ubelio.github.io/projects/mailbox-permission-audit-report.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Automated Mailbox Permission Audit Reporting</h1>
+    <p>Biweekly compliance reporting on mailbox permission changes, with automatic identity resolution and historical retention for auditor requests.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Biweekly auditing of mailbox permission changes is an enterprise compliance requirement. Producing that report manually meant searching the unified audit log by hand every cycle, and the raw audit data returns identities as GUIDs and internal identifiers rather than readable email addresses, so the output required interpretation before anyone could act on it. There was also no consistent historical archive, which made responding to auditor requests for earlier periods difficult.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>A fully automated PowerShell report that pulls mailbox permission changes from the Microsoft 365 unified audit log on a biweekly cadence, resolves raw identifiers into readable email addresses, exports to a timestamped CSV, and emails the report to the security team. Reports are retained historically so any prior period can be produced on request.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ul>
+        <li>Certificate-based app-only authentication to both Exchange Online and Microsoft Graph, so it runs unattended with no stored secrets</li>
+        <li>Queries the unified audit log for the four relevant operations: Add-MailboxPermission, Remove-MailboxPermission, Add-RecipientPermission, and Remove-RecipientPermission, over a rolling 14-day window</li>
+        <li>Two-tier identity resolution: audit records return GUIDs and internal identifiers, so each identity is resolved first through an Exchange Online recipient lookup, then falling back to Microsoft Graph, and finally to the raw value if neither resolves</li>
+        <li>In-memory resolution cache so repeated identities are only looked up once per run, keeping large reports fast</li>
+        <li>Both raw and resolved values are written to the report, preserving the original audit data alongside the human-readable version</li>
+        <li>Timestamped output filenames so every run is retained rather than overwritten, building a historical archive</li>
+        <li>Explicit handling for periods with no changes, so an empty report is never mistaken for a failed run</li>
+        <li>Emails the CSV as an attachment through Microsoft Graph</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Who Uses It</h2>
+      <p>The report goes to the security team and is used primarily by the compliance, audit, and risk function, which monitors for unauthorized delegation and verifies that permission changes correspond to approved change requests.</p>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Replaces a recurring manual audit log review with a fully automated biweekly report</li>
+          <li>Converts raw GUIDs into readable identities so the data is actionable without interpretation</li>
+          <li>Maintains a historical archive so any prior reporting period can be produced immediately for auditors</li>
+          <li>Satisfies an enterprise compliance requirement with no ongoing administrative effort</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Script</h2>
+      <a href="/scripts.html#BiweeklyMailboxPermissionReport">View the full script →</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>
