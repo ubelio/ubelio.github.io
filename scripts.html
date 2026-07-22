@@ -135,6 +135,28 @@ $staleAll = $staleAll | Where-Object { -not $excludedDeviceIds.Contains($_.Id) }
       <p><a href="/projects/entra-stale-devices.html">View the full project write-up →</a></p>
     </section>
 
+    <!-- Script 4 section with anchor ID for linking -->
+    <section>
+      <h2 id="triggeradobesync">triggeradobesync.ps1</h2>
+      <p>Triggers an on-demand Entra-to-Adobe SCIM provisioning sync via Microsoft Graph, so time-sensitive access requests don't wait on the scheduled window.</p>
+      <pre>
+Connect-MgGraph -AppId $AppId -TenantID $TenantId -CertificateThumbprint $Thumbprint
+
+# Resolve the Adobe enterprise app's service principal
+$sp = Get-MgServicePrincipal -Filter "displayName eq 'Adobe Identity Management (OIDC)'"
+
+# Retrieve its synchronization job and capture the job Id
+$jobs  = Get-MgServicePrincipalSynchronizationJob -ServicePrincipalId $sp.Id
+$jobId = ($jobs | Select-Object -First 1 -ExpandProperty Id)
+
+# Start the provisioning job immediately
+Start-MgServicePrincipalSynchronizationJob -ServicePrincipalId $sp.Id -SynchronizationJobId $jobId
+# Full script includes job status reporting (status code, last successful execution time)
+      </pre>
+      <a class="download-link" href="scripts/triggeradobesync.ps1" download>Download Full Script</a>
+      <p><a href="/projects/adobe-scim-sync-trigger.html">View the full project write-up →</a></p>
+    </section>
+
   </main>
 
   <!-- Footer with contact info -->
