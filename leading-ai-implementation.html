@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leading AI Implementation - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Leading AI Implementation - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Took AI adoption from a single free Copilot Chat license to a governed, org-wide AI program — Frontier enrollment, Copilot Studio agents, Azure AI Foundry, and compliance-driven retention for a regulated environment.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/ai-implementation-adoption.png">
+  <meta property="og:url" content="https://ubelio.github.io/leading-ai-implementation.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Leading AI Implementation</h1>
+    <p>Took AI adoption from a single free Copilot Chat license to a governed, org-wide AI program — Frontier enrollment, Copilot Studio agents, Azure AI Foundry, and compliance-driven retention for a regulated environment.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Before this work, the organization had no real in-house experience or roadmap for AI beyond a free tier of Copilot Chat. Copilot Pro licensing hadn't been explored, the Microsoft Frontier program hadn't been evaluated, Copilot Studio permissions were minimal, and there was no Azure AI Foundry setup for future pro-code agent development. The existing AI policy had only ever been written for the free Copilot Chat tier and hadn't kept pace with what the platform could actually do.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>I took AI adoption from a single free license to a governed, org-wide program. I rolled out Copilot Pro licensing to its full capability, enrolled the organization in Microsoft's Frontier program for early access to experimental Copilot features, expanded Copilot Studio permissions to enable in-house agent development, and stood up Azure AI Foundry for future pro-code agent development. On the governance side, I rewrote the existing AI policy (which had only covered free Copilot Chat) to reflect the expanded platform, built admin guides for retrieving Copilot chat history, set up recurring Copilot usage reporting for supervisors and the security/risk team, and implemented AI retention policy for Copilot chat interactions to meet compliance requirements in a highly regulated environment.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ul>
+        <li>Copilot Pro rollout and Frontier program enrollment gave the organization early access to experimental Copilot features ahead of general availability</li>
+      </ul>
+
+      <figure>
+        <a href="projects/ai-implementation-frontier.png" target="_blank">
+          <img src="projects/ai-implementation-frontier.png" alt="Frontier program enrollment, scoped to specific users and groups" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">Frontier program enrollment, scoped to specific users and groups.</figcaption>
+      </figure>
+
+      <ul>
+        <li>Copilot Studio: expanded permissions enabled in-house agent development — the org now runs multiple in-house Copilot Studio agents (including two documented as their own projects) alongside 10+ third-party agents</li>
+      </ul>
+
+      <figure>
+        <a href="projects/ai-implementation-agents.png" target="_blank">
+          <img src="projects/ai-implementation-agents.png" alt="In-house Copilot Studio agents in production" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">In-house Copilot Studio agents in production.</figcaption>
+      </figure>
+
+      <ul>
+        <li>Azure AI Foundry set up as the foundation for future pro-code, full-control agent development beyond what Copilot Studio's low-code builder supports</li>
+      </ul>
+
+      <figure>
+        <a href="projects/ai-implementation-foundry.png" target="_blank">
+          <img src="projects/ai-implementation-foundry.png" alt="Azure AI Foundry project set up for future agent development" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">Azure AI Foundry project set up for future agent development.</figcaption>
+      </figure>
+
+      <ul>
+        <li>AI policy rewritten to cover the expanded Copilot platform, replacing the original policy that only addressed the free Copilot Chat tier</li>
+        <li>Admin guides created for retrieving Copilot chat history on behalf of users when needed</li>
+        <li>Recurring Copilot usage reports delivered to supervisors and the security/risk team for oversight</li>
+        <li>Compliance-driven retention policy implemented for Copilot chat interactions to meet regulatory requirements</li>
+      </ul>
+
+      <figure>
+        <a href="projects/ai-implementation-chat-retention.png" target="_blank">
+          <img src="projects/ai-implementation-chat-retention.png" alt="Copilot Chat retention policy configured for regulatory compliance" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">Copilot Chat retention policy configured for regulatory compliance.</figcaption>
+      </figure>
+
+      <ul>
+        <li>Agent administration governed through DLP policies combined with standard Microsoft 365 admin governance features, with 2 departments currently using custom agents; evaluating Microsoft Agent 365 for future expansion</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Grew from a single free Copilot Chat license to a governed AI program spanning Copilot Pro, Frontier features, Copilot Studio, and Azure AI Foundry</li>
+          <li>300+ active Copilot users across the organization</li>
+          <li>Replaced a policy written only for free Copilot Chat with a governance framework covering the full expanded platform</li>
+          <li>Established compliance-driven chat retention meeting regulatory requirements for a highly regulated environment</li>
+          <li>Gave supervisors and the security/risk team ongoing visibility into Copilot usage through recurring reporting</li>
+          <li>Agent oversight extended to 10+ third-party agents plus in-house Copilot Studio agents across 2 departments, governed under DLP and standard M365 admin controls</li>
+        </ul>
+      </div>
+
+      <figure>
+        <a href="projects/ai-implementation-adoption.png" target="_blank">
+          <img src="projects/ai-implementation-adoption.png" alt="Copilot adoption summary showing active users across Microsoft 365 Copilot and Copilot Chat" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">Copilot adoption summary showing active users across Microsoft 365 Copilot and Copilot Chat.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Roadmap</h2>
+      <p>Evaluating Microsoft Agent 365 as the next step in agent administration maturity, and continuing pro-code agent development in Azure AI Foundry.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>
