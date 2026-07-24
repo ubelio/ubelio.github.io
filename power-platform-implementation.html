@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leading Power Platform Implementation - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Leading Power Platform Implementation - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Stood up Power Platform from scratch — designed a four-environment ALM strategy, least-privilege access model, and connector governance where none existed before.">
+  <meta property="og:image" content="https://ubelio.github.io/projects/pp-implementation-environments.png">
+  <meta property="og:url" content="https://ubelio.github.io/power-platform-implementation.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    figure {
+      margin: 24px 0;
+      padding: 12px;
+      background-color: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      border-radius: 8px;
+    }
+    .screenshot {
+      display: block;
+      max-width: 100%;
+      width: 720px;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid #141413;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    figcaption.screenshot-note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    pre {
+      background-color: #E0DFD6;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Leading Power Platform Implementation</h1>
+    <p>Stood up Power Platform from scratch — designed a four-environment ALM strategy, least-privilege access model, and connector governance where none existed before.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Before this work, Power Platform had no dedicated administration. There was a single Default environment with no separation between development, testing, and production, no connector governance in place, and no formal access model — every flow and app was built and run in the same space as ungoverned personal productivity tools, creating risk of accidental data exposure with no safe way to validate changes before they reached live business processes.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>I designed and stood up a proper environment strategy — Default, DEV, TEST, and PROD — establishing a documented application lifecycle (build only in DEV, validate only in TEST, publish only in PROD) so nothing reaches production without going through a managed solution import. I built connector governance from the ground up using Power Platform's Data Policy and Advanced Connector Policies, approving connectors on an as-needed basis tied to what each solution actually required. I also established a least-privilege access model and created a governance hub documenting environment purpose, roles, naming conventions, and access request procedures so the practices don't depend on institutional memory.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ul>
+        <li>4 environments total: Default (personal productivity only, IT-only access), DEV (all app/flow development, Makers build here), TEST (Managed Environment enabled, validation-only, mirrors production, no building allowed), PROD (Managed Environment enabled, no Makers, all changes arrive via managed solution import)</li>
+        <li>End-to-end ALM enforced: solutions built in DEV, exported as Managed, imported to TEST for validation (functionality, permissions, integrations), then promoted to PROD after approval — no direct editing in TEST or PROD</li>
+        <li>Connector access governed through Data Policy and Advanced Connector Policies, approving connectors per-solution and as-needed rather than blanket access</li>
+      </ul>
+
+      <figure>
+        <a href="projects/pp-implementation-connector-policies.png" target="_blank">
+          <img src="projects/pp-implementation-connector-policies.png" alt="Data protection and connector policy controls used to govern connector access" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">Data protection and connector policy controls used to govern connector access.</figcaption>
+      </figure>
+
+      <ul>
+        <li>Access model built on least privilege: 2 Environment Admins manage all environments; a BI team holds Maker access to build flows, apps, and solutions within approved environments, with no broad standing access beyond that</li>
+        <li>New permissions (environment access, Maker role, connector requests) go through a formal request process rather than ad hoc grants, closing off the privilege-creep risk that existed before</li>
+        <li>Documented ownership model: every app requires an owner plus a backup owner</li>
+      </ul>
+
+      <figure>
+        <a href="projects/pp-implementation-environments.png" target="_blank">
+          <img src="projects/pp-implementation-environments.png" alt="The four-environment structure: Default, DEV, TEST, and PROD" class="screenshot">
+        </a>
+        <figcaption class="screenshot-note">The four-environment structure: Default, DEV, TEST, and PROD.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Went from zero environment separation to a documented four-environment ALM pipeline</li>
+          <li>Closed the connector governance gap — from no connector policy at all to a controlled, as-needed approval process</li>
+          <li>Replaced an informal/no access model with a least-privilege structure — a small, defined set of admins plus a scoped Maker group, both gated by a formal request process</li>
+          <li>Established the baseline that all subsequent Power Automate flows and the org's AI governance work were later built on top of</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>
