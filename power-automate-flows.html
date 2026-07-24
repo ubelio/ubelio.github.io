@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Power Automate Flows - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Power Automate Flows - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Built and maintain 30+ production Power Automate flows automating HR onboarding, change management, fraud intake, and compliance reporting.">
+  <meta property="og:url" content="https://ubelio.github.io/power-automate-flows.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Power Automate Flows</h1>
+    <p>Built and maintain 30+ production Power Automate flows automating HR onboarding, change management, fraud intake, and compliance reporting.</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <main>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Before these flows existed, a lot of work across HR, change management, fraud handling, and compliance reporting was repetitive and manual — filling out email templates by hand, tracking new hires through paper-style checklists, logging change management requests manually, and compiling compliance data without a repeatable process.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <p>I designed and built 30+ production Power Automate flows automating deterministic, repeatable processes across four domains: HR onboarding, change management/ITSM ticketing, fraud intake, and compliance reporting. This is an ongoing effort — I continue building new automations, and the flow count and time savings keep growing.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ul>
+        <li>HR onboarding: automates the new-hire tracking checklist HR previously managed manually, saving the HR team significant recurring time per hire (note: account creation/provisioning itself is a separate process, not part of this automation)</li>
+        <li>Change management requests: intake moved from a fully manual process to a Microsoft Forms submission, which automatically creates and routes the ticket from there</li>
+        <li>Fraud intake: a Microsoft Forms submission triggers notification to the appropriate personnel, logs the submission to a SharePoint list for audit and historical record, and generates weekly summary reports of submissions</li>
+        <li>Compliance reporting: queries Azure Log Analytics Workspace (LAW) for sign-ins and other actions tracked by compliance regulators, then emails the resulting reports to the appropriate parties on a recurring basis</li>
+        <li>Built on deterministic, repeatable trigger patterns — app-based (Forms submissions) and recurrence-based (scheduled queries/reports)</li>
+        <li>Connectors used across the flow set: Dataverse, SharePoint, Microsoft Forms, HTTP actions (for API calls), Word Online, Outlook (send email), and calendar invites</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>30+ flows now in production across HR, change management, fraud intake, and compliance reporting</li>
+          <li>Approximately 200 hours per year saved, measured across the flows in production to date — and growing, since new automations are continuously being added</li>
+          <li>Replaced fully manual, error-prone processes (email templates, manual checklists, manual ticket logging) with consistent, auditable, repeatable workflows</li>
+          <li>Fraud submissions now generate an audit trail automatically via SharePoint logging, supporting compliance and historical record-keeping</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Roadmap</h2>
+      <p>Continuing to build additional automations as new repetitive processes are identified — the ~200 hours/year figure reflects current production flows only and is expected to grow.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>
