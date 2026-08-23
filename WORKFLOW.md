@@ -71,3 +71,34 @@ Add a requirements block listing the Graph/Exchange permissions the script needs
 - Project pages never name the current employer.
 - Describe roles generically (e.g. "relationship managers", "client-facing staff") rather than by industry, where naming the industry would identify the organization.
 - The resume names employers. The site does not.
+
+## Session Handoff Log
+
+Compact, append-only record of what happened each session, so the next session can pick up cold. Never delete or edit a prior entry — only append a new one at the bottom, even if it corrects an earlier one. Keep each field to a line or two.
+
+Template:
+```
+### <YYYY-MM-DD>
+- **Goal**:
+- **Current status**:
+- **Files touched**:
+- **Next 3 actions**:
+- **Blockers**:
+- **Validation done**:
+```
+
+### 2026-08-23
+- **Goal**: Add a Session Handoff Log section to WORKFLOW.md so future sessions have a running handoff record.
+- **Current status**: Done — section added with template and this entry.
+- **Files touched**: WORKFLOW.md
+- **Next 3 actions**: 1) Append a new entry at the end of each future session. 2) Revisit formatting if entries start running long. 3) No open follow-up from this task.
+- **Blockers**: None.
+- **Validation done**: Read the file back to confirm the new section matches existing heading/list style; no other files touched.
+
+### 2026-08-23
+- **Goal**: Make updating the Session Handoff Log a standing habit for every session on this project, not a one-off.
+- **Current status**: Standing rule adopted going forward; this entry is the first application of it.
+- **Files touched**: WORKFLOW.md
+- **Next 3 actions**: 1) Append a new entry like this one at the end of every future session automatically. 2) Keep entries concise/scannable per the user's format. 3) No other open follow-up from this exchange.
+- **Blockers**: None.
+- **Validation done**: Confirmed only a new entry was appended — prior entries untouched.
