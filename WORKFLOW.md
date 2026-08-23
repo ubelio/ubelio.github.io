@@ -110,3 +110,11 @@ Template:
 - **Next 3 actions**: 1) Merge `applied-skills-pages` into `main` and push once reviewed. 2) Preview the new pages locally (`python3 -m http.server`) to sanity-check rendering and nav active-state. 3) No other open follow-up.
 - **Blockers**: None — branch is complete and committed, awaiting merge/push decision from the user.
 - **Validation done**: Scripted checks confirmed all 23 files link `/style.css`, contain exactly one `<style>` block each, and no `href="#"` placeholders remain in `appliedskills.html`.
+
+### 2026-08-23
+- **Goal**: Add a visible in-page title heading (h2 + subtitle) above the At a Glance section on all 23 AppliedSkills pages, so the credential name shows in the body, not just the header band.
+- **Current status**: Done. The header `<h1>` already had the title from the original build; only the in-body `<h2 style="margin-bottom:4px;">`/`<p style="color:#555; margin-top:0;">` pair needed adding, done via scripted find/replace on the uniform `<div class="container">` → `<h2>At a Glance</h2>` anchor across all 23 files. Committed to `applied-skills-pages`.
+- **Files touched**: all 23 files in AppliedSkills/ (administer-adds.html, ai-chat-workflows.html, ai-research-agents.html, azure-container-apps.html, azure-management-tasks.html, azure-monitor.html, azure-networking-security.html, canvas-apps-power-apps.html, cloud-security-monitoring.html, copilot-studio-build-agent.html, copilot-studio-create-agents.html, csharp-classes-properties-methods.html, defender-for-cloud-compliance.html, defender-xdr.html, entra-identities-access.html, github-copilot-dev.html, information-protection-dlp-purview.html, microsoft-foundry-agents.html, power-automate.html, purview-copilot-protection.html, retention-ediscovery-communication-compliance.html, secure-ai-solutions.html, secure-storage-azure.html)
+- **Next 3 actions**: 1) Merge `applied-skills-pages` into `main` and push once reviewed. 2) Preview a few pages locally to confirm the new heading renders as expected. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Confirmed exactly one "At a Glance" h2 per file, exactly 23 files carry the new title heading, and every file's header `<h1>` is still intact.
