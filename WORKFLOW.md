@@ -102,3 +102,11 @@ Template:
 - **Next 3 actions**: 1) Append a new entry like this one at the end of every future session automatically. 2) Keep entries concise/scannable per the user's format. 3) No other open follow-up from this exchange.
 - **Blockers**: None.
 - **Validation done**: Confirmed only a new entry was appended — prior entries untouched.
+
+### 2026-08-23
+- **Goal**: Rename the SC-401 labs section from the generic "SC-401 Labs"/"Labs" title to the actual certification name, "SC-401: Microsoft Information Protection Administrator".
+- **Current status**: Done. Updated the `labs.html` hub `<li>` link text and `SC-401labs.html`'s `<h1>`/subtitle `<p>`. Committed directly to `main` (single-line-scale fix, no branch).
+- **Files touched**: labs.html, SC-401labs.html
+- **Next 3 actions**: 1) No open follow-up from this task. 2) Note: `applied-skills-pages` branch (23 new AppliedSkills pages + appliedskills.html hub) is still unmerged — decide when to merge/push it. 3) Consider whether other lab hub entries (DLP, Misc, FirewallSetup) should also be renamed to their certification/series names for consistency.
+- **Blockers**: None.
+- **Validation done**: Reviewed the diff for both files before committing — only the intended text changed.
