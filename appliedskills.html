@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Microsoft Applied Skills – Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    h2 {
+      color: #141413;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 20px;
+      background-color: #E0DFD6;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    li a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Microsoft Applied Skills</h1>
+  <p>Microsoft Applied Skills credentials earned through hands-on scenario-based assessments.</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "appliedskills.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Applied Skills</h2>
+  <ul>
+    <li><a href="/AppliedSkills/github-copilot-dev.html">Accelerate AI-assisted development by using GitHub Copilot</a><br>Earned Aug 12, 2026</li>
+    <li><a href="/AppliedSkills/csharp-classes-properties-methods.html">Get started with classes, properties, and methods in C#</a><br>Earned Aug 12, 2026</li>
+    <li><a href="/AppliedSkills/administer-adds.html">Administer Active Directory Domain Services</a><br>Earned Aug 12, 2026</li>
+    <li><a href="/AppliedSkills/canvas-apps-power-apps.html">Create and manage canvas apps with Power Apps</a><br>Earned Aug 11, 2026</li>
+    <li><a href="/AppliedSkills/retention-ediscovery-communication-compliance.html">Implement retention, eDiscovery, and Communication Compliance in Microsoft Purview</a><br>Earned Aug 11, 2026</li>
+    <li><a href="/AppliedSkills/information-protection-dlp-purview.html">Implement information protection and data loss prevention by using Microsoft Purview</a><br>Earned Aug 11, 2026</li>
+    <li><a href="/AppliedSkills/defender-xdr.html">Defend against cyberthreats with Microsoft Defender XDR</a><br>Earned Aug 10, 2026</li>
+    <li><a href="/AppliedSkills/defender-for-cloud-compliance.html">Secure Azure services and workloads with Microsoft Defender for Cloud regulatory compliance controls</a><br>Earned Aug 10, 2026</li>
+    <li><a href="/AppliedSkills/secure-storage-azure.html">Secure storage for Azure Files and Azure Blob Storage</a><br>Earned Aug 7, 2026</li>
+    <li><a href="/AppliedSkills/secure-ai-solutions.html">Secure AI solutions in the cloud</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/purview-copilot-protection.html">Protect information in Microsoft 365 Copilot by using Microsoft Purview</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/power-automate.html">Create and manage automated processes by using Power Automate</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/ai-chat-workflows.html">Streamline business workflows with AI chat</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/cloud-security-monitoring.html">Get started with cloud security and monitoring tasks</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/entra-identities-access.html">Get started with identities and access using Microsoft Entra</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/copilot-studio-build-agent.html">Build an agent in Microsoft Copilot Studio</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/azure-container-apps.html">Deploy cloud-native apps using Azure Container Apps</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/azure-management-tasks.html">Get started with Azure management tasks</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/microsoft-foundry-agents.html">Get started developing agents in Microsoft Foundry</a><br>Earned Aug 5, 2026</li>
+    <li><a href="/AppliedSkills/azure-monitor.html">Deploy and configure Azure Monitor</a><br>Earned Aug 4, 2026</li>
+    <li><a href="/AppliedSkills/azure-networking-security.html">Configure secure access to your workloads using Azure networking</a><br>Earned Aug 4, 2026</li>
+    <li><a href="/AppliedSkills/copilot-studio-create-agents.html">Create agents in Microsoft Copilot Studio</a><br>Earned Jun 29, 2026</li>
+    <li><a href="/AppliedSkills/ai-research-agents.html">Generate reports with AI research agents</a><br>Earned Jun 29, 2026</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
