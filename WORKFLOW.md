@@ -104,9 +104,33 @@ Template:
 - **Validation done**: Confirmed only a new entry was appended — prior entries untouched.
 
 ### 2026-08-23
+- **Goal**: Build out a new "Microsoft Applied Skills" lab section — a hub page linking to 23 individual credential writeup pages.
+- **Current status**: Done. `appliedskills.html` hub created and linked from `labs.html`; all 23 pages built in `AppliedSkills/` matching the existing lab-writeup style (header/nav/active-nav-script/footer, `.container`, At a Glance table, Overview, Skills Assessed, View Credential link). One retired credential uses a `.note` callout instead of a skills list. All `href="#"` placeholders replaced with real paths. Committed to branch `applied-skills-pages` (not merged to main or pushed).
+- **Files touched**: labs.html, appliedskills.html, AppliedSkills/administer-adds.html, AppliedSkills/ai-chat-workflows.html, AppliedSkills/ai-research-agents.html, AppliedSkills/azure-container-apps.html, AppliedSkills/azure-management-tasks.html, AppliedSkills/azure-monitor.html, AppliedSkills/azure-networking-security.html, AppliedSkills/canvas-apps-power-apps.html, AppliedSkills/cloud-security-monitoring.html, AppliedSkills/copilot-studio-build-agent.html, AppliedSkills/copilot-studio-create-agents.html, AppliedSkills/csharp-classes-properties-methods.html, AppliedSkills/defender-for-cloud-compliance.html, AppliedSkills/defender-xdr.html, AppliedSkills/entra-identities-access.html, AppliedSkills/github-copilot-dev.html, AppliedSkills/information-protection-dlp-purview.html, AppliedSkills/microsoft-foundry-agents.html, AppliedSkills/power-automate.html, AppliedSkills/purview-copilot-protection.html, AppliedSkills/retention-ediscovery-communication-compliance.html, AppliedSkills/secure-ai-solutions.html, AppliedSkills/secure-storage-azure.html
+- **Next 3 actions**: 1) Merge `applied-skills-pages` into `main` and push once reviewed. 2) Preview the new pages locally (`python3 -m http.server`) to sanity-check rendering and nav active-state. 3) No other open follow-up.
+- **Blockers**: None — branch is complete and committed, awaiting merge/push decision from the user.
+- **Validation done**: Scripted checks confirmed all 23 files link `/style.css`, contain exactly one `<style>` block each, and no `href="#"` placeholders remain in `appliedskills.html`.
+
+### 2026-08-23
+- **Goal**: Add a visible in-page title heading (h2 + subtitle) above the At a Glance section on all 23 AppliedSkills pages, so the credential name shows in the body, not just the header band.
+- **Current status**: Done. The header `<h1>` already had the title from the original build; only the in-body `<h2 style="margin-bottom:4px;">`/`<p style="color:#555; margin-top:0;">` pair needed adding, done via scripted find/replace on the uniform `<div class="container">` → `<h2>At a Glance</h2>` anchor across all 23 files. Committed to `applied-skills-pages`.
+- **Files touched**: all 23 files in AppliedSkills/ (administer-adds.html, ai-chat-workflows.html, ai-research-agents.html, azure-container-apps.html, azure-management-tasks.html, azure-monitor.html, azure-networking-security.html, canvas-apps-power-apps.html, cloud-security-monitoring.html, copilot-studio-build-agent.html, copilot-studio-create-agents.html, csharp-classes-properties-methods.html, defender-for-cloud-compliance.html, defender-xdr.html, entra-identities-access.html, github-copilot-dev.html, information-protection-dlp-purview.html, microsoft-foundry-agents.html, power-automate.html, purview-copilot-protection.html, retention-ediscovery-communication-compliance.html, secure-ai-solutions.html, secure-storage-azure.html)
+- **Next 3 actions**: 1) Merge `applied-skills-pages` into `main` and push once reviewed. 2) Preview a few pages locally to confirm the new heading renders as expected. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Confirmed exactly one "At a Glance" h2 per file, exactly 23 files carry the new title heading, and every file's header `<h1>` is still intact.
+
+### 2026-08-23
+- **Goal**: Apply an explicit inline style to the header `<h1>` on all 23 AppliedSkills pages: `color:#C9C8BF; margin:0 0 8px 0; font-size:2em;`.
+- **Current status**: Done via scripted find/replace keyed on the exact `<h1>{title}</h1>` text per file. Committed to `applied-skills-pages`. Noted for the record: `scripts.html`'s own `<h1>` actually carries no inline style — it relies on `style.css`'s `header{}` rule alone — so this inline duplication is unique to the AppliedSkills pages, not a literal copy of scripts.html's markup. Applied as explicitly instructed regardless.
+- **Files touched**: all 23 files in AppliedSkills/ (administer-adds.html, ai-chat-workflows.html, ai-research-agents.html, azure-container-apps.html, azure-management-tasks.html, azure-monitor.html, azure-networking-security.html, canvas-apps-power-apps.html, cloud-security-monitoring.html, copilot-studio-build-agent.html, copilot-studio-create-agents.html, csharp-classes-properties-methods.html, defender-for-cloud-compliance.html, defender-xdr.html, entra-identities-access.html, github-copilot-dev.html, information-protection-dlp-purview.html, microsoft-foundry-agents.html, power-automate.html, purview-copilot-protection.html, retention-ediscovery-communication-compliance.html, secure-ai-solutions.html, secure-storage-azure.html)
+- **Next 3 actions**: 1) Merge `applied-skills-pages` into `main` and push once reviewed. 2) Decide whether the scripts.html-vs-actual-markup discrepancy needs resolving. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Confirmed exactly 23 files carry the new inline h1 style and each file still has exactly one `<h1>`.
+
+### 2026-08-23
 - **Goal**: Rename the SC-401 labs section from the generic "SC-401 Labs"/"Labs" title to the actual certification name, "SC-401: Microsoft Information Protection Administrator".
 - **Current status**: Done. Updated the `labs.html` hub `<li>` link text and `SC-401labs.html`'s `<h1>`/subtitle `<p>`. Committed directly to `main` (single-line-scale fix, no branch).
 - **Files touched**: labs.html, SC-401labs.html
-- **Next 3 actions**: 1) No open follow-up from this task. 2) Note: `applied-skills-pages` branch (23 new AppliedSkills pages + appliedskills.html hub) is still unmerged — decide when to merge/push it. 3) Consider whether other lab hub entries (DLP, Misc, FirewallSetup) should also be renamed to their certification/series names for consistency.
+- **Next 3 actions**: 1) No open follow-up from this task. 2) Note: `applied-skills-pages` branch (23 new AppliedSkills pages + appliedskills.html hub) is now merged into `main`. 3) Consider whether other lab hub entries (DLP, Misc, FirewallSetup) should also be renamed to their certification/series names for consistency.
 - **Blockers**: None.
 - **Validation done**: Reviewed the diff for both files before committing — only the intended text changed.

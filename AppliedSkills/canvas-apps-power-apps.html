@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create and manage canvas apps with Power Apps – Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    h1, h2 {
+      color: #141413;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+    .note {
+      background: #E6E5DE;
+      border: 1px solid #BDBBB2;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance {
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    table.at-a-glance th,
+    table.at-a-glance td {
+      text-align: left;
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    table.at-a-glance th {
+      background-color: #E6E5DE;
+      width: 140px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Create and manage canvas apps with Power Apps</h1>
+  <p>Microsoft Applied Skills — Earned Aug 11, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "canvas-apps-power-apps.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Create and manage canvas apps with Power Apps</h2>
+  <p style="color:#555; margin-top:0;">Microsoft Applied Skills Credential</p>
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Level</th><td>Intermediate</td></tr>
+    <tr><th>Role(s)</th><td>App Maker</td></tr>
+    <tr><th>Product(s)</th><td>Power Apps</td></tr>
+    <tr><th>Credential #</th><td>BC24A620704F3DC1</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Validates the ability to solve business problems by creating canvas apps with Microsoft Power Platform. Requires understanding of application development, writing formulas, and creating/reading/updating/deleting data.</p>
+
+  <hr class="section-divider">
+
+  <h2>Skills Assessed</h2>
+  <ul>
+    <li>Create a canvas app from scratch</li>
+    <li>Connect a canvas app to a data source</li>
+    <li>Configure a gallery</li>
+    <li>Configure a details screen</li>
+    <li>Configure an input screen</li>
+    <li>Save and publish a canvas app</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Credential</h2>
+  <p><a href="https://learn.microsoft.com/en-us/credentials/applied-skills/create-manage-canvas-apps-power-apps/" target="_blank" rel="noopener noreferrer">View Credential on Microsoft Learn →</a></p>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
