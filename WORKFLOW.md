@@ -134,3 +134,11 @@ Template:
 - **Next 3 actions**: 1) No open follow-up from this task. 2) Note: `applied-skills-pages` branch (23 new AppliedSkills pages + appliedskills.html hub) is now merged into `main`. 3) Consider whether other lab hub entries (DLP, Misc, FirewallSetup) should also be renamed to their certification/series names for consistency.
 - **Blockers**: None.
 - **Validation done**: Reviewed the diff for both files before committing — only the intended text changed.
+
+### 2026-08-23
+- **Goal**: Merge `applied-skills-pages` into `main` and push, per user request.
+- **Current status**: Done. Merge hit one conflict in this WORKFLOW.md file (both branches had appended handoff-log entries independently) — resolved by keeping every entry from both sides, ordered chronologically, nothing dropped. `labs.html` merged cleanly with both its independent changes intact (SC-401 rename + the Applied Skills hub `<li>`). Pushed to origin/main (`04ebd6f..071cc70`).
+- **Files touched**: WORKFLOW.md (conflict resolution + this entry); merge otherwise brought in labs.html, appliedskills.html, and all 23 AppliedSkills/*.html unchanged from the branch.
+- **Next 3 actions**: 1) Local `applied-skills-pages` branch still exists post-merge — delete it if no longer needed (`git branch -d applied-skills-pages`), not done automatically. 2) No other open follow-up. 3) None.
+- **Blockers**: None.
+- **Validation done**: Post-merge, confirmed 23 files in AppliedSkills/, zero `href="#"` placeholders in appliedskills.html, and both labs.html changes present before pushing.
