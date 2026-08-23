@@ -6,13 +6,14 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 
 ### Top-level pages (root)
 - `index.html` — homepage / bio / skills summary
-- `projects.html` — index/hub linking to all pages in `projects/`
-- `labs.html` — index/hub linking to all pages in `SC-401Labs/`
+- `projects.html` — index/hub linking to every project writeup, in `projects/` and three at repo root (see quirk below)
+- `labs.html` — top-level hub linking to the five lab-category hub pages below, plus 6 "Coming Soon" placeholder entries (`href="#"`, no pages yet) for MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500
 - `scripts.html` — index/hub linking to files in `scripts/`
 - `homelabconfig.html` — hub for the homelab writeups (links into `FirewallSetup/`, `DLP-Labs/`, etc.)
 - `homelabfirewall.html` — homelab firewall overview/hub
 - `contact.html` — contact info + resume download link
-- `DLPInformationProtection.html`, `SC-401labs.html`, `Misc.html` — additional index/hub pages
+- `DLPInformationProtection.html`, `SC-401labs.html`, `Misc.html`, `appliedskills.html` — additional index/hub pages (`SC-401labs.html`'s h1 reads "SC-401: Microsoft Information Protection Administrator")
+- `leading-ai-implementation.html`, `power-automate-flows.html`, `power-platform-implementation.html` — project writeups that live at repo root instead of in `projects/`, unlike every other project page (a drift from a later `git pull`, not a convention to replicate — see `SITE_INVENTORY.md`)
 - `README.md`, `CNAME`, `favicon.png`, `headshot.jpg`, `labdiagram.png`, `UbelioFernandezTabetResume.docx` — site metadata/assets at root
 
 ### Content subfolders
@@ -21,6 +22,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `FirewallSetup/` — homelab OPNsense/VLAN/switch configuration writeups, each paired with `*.png` screenshots in the same folder.
 - `DLP-Labs/` — Microsoft Purview DLP / compliance lab writeups, each paired with `*.png` screenshots.
 - `Misc/` — miscellaneous writeups (e.g. `imacwindows.html`) + related images.
+- `AppliedSkills/` — 23 Microsoft Applied Skills credential writeups, linked from `appliedskills.html`. Structurally distinct from the other four lab folders — see §2 and `WORKFLOW.md`'s "Adding an Applied Skills Page" section.
 - `scripts/` — raw PowerShell scripts (`.ps1`) referenced/linked from `scripts.html`.
 
 ### Asset convention
@@ -28,7 +30,7 @@ Screenshots and diagrams live **next to** the HTML file that uses them (same fol
 
 ## 2. Styling Conventions
 
-**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every one of the 67 HTML pages via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
+**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (102 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
 
 `style.css` contains only the universal site chrome, shared byte-for-byte across every page before the refactor:
 - `body` (font-family, margin, background-color, color)
@@ -38,6 +40,8 @@ Screenshots and diagrams live **next to** the HTML file that uses them (same fol
 - `footer`, `footer a`, `footer a:hover`
 
 **Everything page-specific stays inline** in that page's own `<style>` block in `<head>` — this was deliberately *not* moved to `style.css`. That includes: `section`, `h2`, `.impact-box` (project pages), `figure`/`.screenshot`/`figcaption.screenshot-note`/`.section-divider`/`.note`/`.img-caption` and other lab-writeup classes, `pre`/`.download-link` (scripts.html), `ul`/`li` list styling (hub pages), and all image/diagram styling (`img.diagram`, etc.). When adding new page-specific styling, put it in that page's inline `<style>` block, not in `style.css`.
+
+**`AppliedSkills/` pages have their own page-specific pattern**, distinct from the other lab folders: a `table.at-a-glance` (Level / Role(s) / Product(s) / Credential #), an Overview paragraph, a Skills Assessed `<ul>`, and a View Credential link, all separated by `.section-divider`. One retired credential (`copilot-studio-create-agents.html`) uses `.note` in place of the Skills Assessed list. The header `<h1>` and the in-body title `<h2>` both carry inline styles unique to this folder (`color:#C9C8BF; margin:0 0 8px 0; font-size:2em;` on the h1) rather than relying solely on `style.css`/`h1,h2{}` — this was an explicit one-off request, not a pattern to extend elsewhere without being asked.
 
 **`contact.html` intentionally keeps inline overrides that are *not* in `style.css`** and must stay that way: a `header { margin: -40px -20px 0; }` hack and `nav` side-margin overrides (both counteract `body`'s page-specific `text-align`/`padding` so the header/nav still render edge-to-edge despite `contact.html`'s own body padding). These aren't leftover cruft — don't "clean them up" into `style.css` or delete them; they're what makes `contact.html` render correctly given its one-off body padding.
 
@@ -118,3 +122,4 @@ When adding a new project or lab writeup, match the existing pattern rather than
 - Store new screenshots/diagrams in the same folder as the HTML file that references them, not in a shared assets folder.
 - Wrap main content in `<div class="container">` for subfolder lab/project writeups (matching the majority convention in `FirewallSetup/`, `SC-401Labs/`, `DLP-Labs/`), or `<main>` if adding a new top-level hub page.
 - Add the new page's link to the relevant hub page (`projects.html`, `labs.html`, `homelabconfig.html`, etc.) so it's actually reachable from navigation.
+- For a new project page specifically, follow `WORKFLOW.md`'s "Adding a Project Page" section; for a new PowerShell script, follow "Adding a Script" (includes mandatory sanitization steps before publishing); for a new Microsoft Applied Skills credential, follow "Adding an Applied Skills Page." Never fabricate credential numbers, Microsoft Learn URLs, or other real-world identifiers — ask if data is missing.

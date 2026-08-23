@@ -45,6 +45,27 @@ Then browse `http://localhost:5500/`.
    - A link back to the project page
 3. The project page links to the script section via `/scripts.html#<anchor>`.
 
+## Adding an Applied Skills Page
+
+1. Create `AppliedSkills/<slug>.html`, copying the header / nav / active-nav `<script>` / footer block and inline `<style>` block from an existing page, e.g. `AppliedSkills/github-copilot-dev.html`.
+2. The active-nav `<script>` uses `let current` (not `const`) and remaps the page's own filename to `"labs.html"` before the href-matching check, so the **Labs** nav item highlights instead of nothing:
+   ```js
+   let current = window.location.pathname.split("/").pop();
+   if (current === "<this-file>.html") {
+     current = "labs.html";
+   }
+   ```
+3. Standard section structure inside `<div class="container">`:
+   - `<h2 style="margin-bottom:4px;">[Skill Title]</h2>` + `<p style="color:#555; margin-top:0;">Microsoft Applied Skills Credential</p>` — visible in-body title, directly above At a Glance
+   - **At a Glance** — a `table.at-a-glance` with rows for Level, Role(s), Product(s), Credential #
+   - **Overview** — one paragraph describing what the credential validates
+   - **Skills Assessed** — a `<ul>` of assessed skills (or, for a retired credential, a `.note` callout stating the retirement date instead of a list)
+   - **View Credential** — a link to the Microsoft Learn credential URL, styled like other lab-page links
+   - `.section-divider` (`<hr>`) between each section
+4. The header `<h1>` also carries the full skill title (inline-styled `color:#C9C8BF; margin:0 0 8px 0; font-size:2em;`) and a `<p>` subtitle reading `Microsoft Applied Skills — Earned [Date]`.
+5. Add a hub entry to `appliedskills.html`'s `<ul>`, in earned-date-descending order matching the existing entries: a bold link plus the earned date on the line below via `<br>`.
+6. Never fabricate credential numbers, Microsoft Learn URLs, or skills-assessed lists — this is real certification data. If any field is missing, ask rather than guess.
+
 ## Sanitization Before Publishing Any Script
 
 Before a script excerpt or download goes live, strip:

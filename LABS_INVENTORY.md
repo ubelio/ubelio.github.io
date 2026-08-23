@@ -1,6 +1,6 @@
 # LABS_INVENTORY.md
 
-Every lab writeup across the four lab folders, with its page `<h1>` title and the hub page that links to it. All four hub pages are themselves reached from the top-level `labs.html`.
+Every lab writeup across the five lab folders, with its page `<h1>` title and the hub page that links to it. All five hub pages are themselves reached from the top-level `labs.html`, which also carries 6 "Coming Soon" placeholder entries (MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
 
 ## `SC-401Labs/` — linked from `SC-401labs.html`
 
@@ -53,6 +53,36 @@ Note the filename numbering doesn't match the in-page lab numbering (e.g. `sc401
 |---|---|
 | `imacwindows.html` | Repurposing Unsupported Intel iMacs into Windows 11 Workstations |
 
+## `AppliedSkills/` — linked from `appliedskills.html`
+
+Microsoft Applied Skills credentials, listed in the same order as the hub page (earned date descending). Structurally different from the other four folders — see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Applied Skills Page" section for the page pattern (At a Glance table, Overview, Skills Assessed, View Credential link).
+
+| Filename | `<h1>` title |
+|---|---|
+| `github-copilot-dev.html` | Accelerate AI-assisted development by using GitHub Copilot |
+| `csharp-classes-properties-methods.html` | Get started with classes, properties, and methods in C# |
+| `administer-adds.html` | Administer Active Directory Domain Services |
+| `canvas-apps-power-apps.html` | Create and manage canvas apps with Power Apps |
+| `retention-ediscovery-communication-compliance.html` | Implement retention, eDiscovery, and Communication Compliance in Microsoft Purview |
+| `information-protection-dlp-purview.html` | Implement information protection and data loss prevention by using Microsoft Purview |
+| `defender-xdr.html` | Defend against cyberthreats with Microsoft Defender XDR |
+| `defender-for-cloud-compliance.html` | Secure Azure services and workloads with Microsoft Defender for Cloud regulatory compliance controls |
+| `secure-storage-azure.html` | Secure storage for Azure Files and Azure Blob Storage |
+| `secure-ai-solutions.html` | Secure AI solutions in the cloud |
+| `purview-copilot-protection.html` | Protect information in Microsoft 365 Copilot by using Microsoft Purview |
+| `power-automate.html` | Create and manage automated processes by using Power Automate |
+| `ai-chat-workflows.html` | Streamline business workflows with AI chat |
+| `cloud-security-monitoring.html` | Get started with cloud security and monitoring tasks |
+| `entra-identities-access.html` | Get started with identities and access using Microsoft Entra |
+| `copilot-studio-build-agent.html` | Build an agent in Microsoft Copilot Studio |
+| `azure-container-apps.html` | Deploy cloud-native apps using Azure Container Apps |
+| `azure-management-tasks.html` | Get started with Azure management tasks |
+| `microsoft-foundry-agents.html` | Get started developing agents in Microsoft Foundry |
+| `azure-monitor.html` | Deploy and configure Azure Monitor |
+| `azure-networking-security.html` | Configure secure access to your workloads using Azure networking |
+| `copilot-studio-create-agents.html` | Create agents in Microsoft Copilot Studio (retired by Microsoft July 8, 2026 — page carries a `.note` callout instead of a Skills Assessed list) |
+| `ai-research-agents.html` | Generate reports with AI research agents |
+
 ---
 
-**Totals**: 29 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc. Verified every file in all four folders is linked exactly once from its expected hub page — no orphaned or missing files.
+**Totals**: 52 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills. Verified every file in all five folders is linked exactly once from its expected hub page — no orphaned or missing files.

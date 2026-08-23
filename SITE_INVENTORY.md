@@ -8,14 +8,15 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 |---|---|
 | `index.html` | Homepage — bio, skills, certifications |
 | `projects.html` | Hub page — links to every project writeup (in `projects/` and three at repo root) |
-| `labs.html` | Top-level hub — links to the four lab-category hub pages below |
+| `labs.html` | Top-level hub — links to the five lab-category hub pages below, plus 6 "Coming Soon" placeholder `<li>` entries (`href="#"`, no pages yet) for MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500 |
 | `scripts.html` | Hub page — PowerShell scripts with excerpts, download links, and links back to project writeups |
 | `homelabconfig.html` | Writeup — home lab equipment and configuration |
 | `homelabfirewall.html` | Hub page — links to the `FirewallSetup/` lab writeups |
 | `contact.html` | Contact info + resume download |
 | `DLPInformationProtection.html` | Hub page — links to the `DLP-Labs/` lab writeups |
-| `SC-401labs.html` | Hub page — links to the `SC-401Labs/` lab writeups |
+| `SC-401labs.html` | Hub page — links to the `SC-401Labs/` lab writeups (h1 now reads "SC-401: Microsoft Information Protection Administrator") |
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
+| `appliedskills.html` | Hub page — links to the 23 `AppliedSkills/` credential writeups |
 | `leading-ai-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-automate-flows.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-platform-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
@@ -44,6 +45,10 @@ Lab writeups — Microsoft Purview DLP / compliance labs, linked from `DLPInform
 |---|---|
 | `Misc/imacwindows.html` | Lab writeup — repurposing unsupported Intel iMacs as Windows 11 workstations, linked from `Misc.html` |
 
+## `AppliedSkills/` (23 files)
+
+Microsoft Applied Skills credential writeups, linked from `appliedskills.html`. Each follows a distinct sub-pattern from the other lab folders — At a Glance table, Overview, Skills Assessed, View Credential link (see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Applied Skills Page" section). See `LABS_INVENTORY.md` for the full per-file breakdown.
+
 ---
 
-**Totals**: 78 HTML files — 13 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`.
+**Totals**: 102 HTML files — 14 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`.
