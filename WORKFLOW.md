@@ -118,3 +118,11 @@ Template:
 - **Next 3 actions**: 1) Merge `applied-skills-pages` into `main` and push once reviewed. 2) Preview a few pages locally to confirm the new heading renders as expected. 3) No other open follow-up.
 - **Blockers**: None.
 - **Validation done**: Confirmed exactly one "At a Glance" h2 per file, exactly 23 files carry the new title heading, and every file's header `<h1>` is still intact.
+
+### 2026-08-23
+- **Goal**: Apply an explicit inline style to the header `<h1>` on all 23 AppliedSkills pages: `color:#C9C8BF; margin:0 0 8px 0; font-size:2em;`.
+- **Current status**: Done via scripted find/replace keyed on the exact `<h1>{title}</h1>` text per file. Committed to `applied-skills-pages`. Noted for the record: `scripts.html`'s own `<h1>` actually carries no inline style — it relies on `style.css`'s `header{}` rule alone — so this inline duplication is unique to the AppliedSkills pages, not a literal copy of scripts.html's markup. Applied as explicitly instructed regardless.
+- **Files touched**: all 23 files in AppliedSkills/ (administer-adds.html, ai-chat-workflows.html, ai-research-agents.html, azure-container-apps.html, azure-management-tasks.html, azure-monitor.html, azure-networking-security.html, canvas-apps-power-apps.html, cloud-security-monitoring.html, copilot-studio-build-agent.html, copilot-studio-create-agents.html, csharp-classes-properties-methods.html, defender-for-cloud-compliance.html, defender-xdr.html, entra-identities-access.html, github-copilot-dev.html, information-protection-dlp-purview.html, microsoft-foundry-agents.html, power-automate.html, purview-copilot-protection.html, retention-ediscovery-communication-compliance.html, secure-ai-solutions.html, secure-storage-azure.html)
+- **Next 3 actions**: 1) Merge `applied-skills-pages` into `main` and push once reviewed. 2) Decide whether the scripts.html-vs-actual-markup discrepancy needs resolving. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Confirmed exactly 23 files carry the new inline h1 style and each file still has exactly one `<h1>`.
