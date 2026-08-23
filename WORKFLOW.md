@@ -179,3 +179,11 @@ Template:
 - **Next 3 actions**: 1) Push this commit to origin/main. 2) Build the actual lab pages for these 6 certs when ready, then replace the `href="#"` placeholders (same pattern as the AppliedSkills rollout). 3) No other open follow-up.
 - **Blockers**: None.
 - **Validation done**: Reviewed the diff before committing — only the 6 new `<li>` blocks added, no other lines touched.
+
+### 2026-08-23
+- **Goal**: Sync all 6 markdown docs with everything done this session (Applied Skills rollout, SC-401 rename, "Coming Soon" placeholders) so a future session can pick up cold.
+- **Current status**: Done. Updated CLAUDE.md (§1 site structure now lists appliedskills.html/AppliedSkills/, the SC-401 title change, and the three root-level project pages from an earlier pull; §2 documents the AppliedSkills page-specific styling pattern and fixes a stale page-count; §4 cross-references the new WORKFLOW.md sections). Added an "Adding an Applied Skills Page" process section to WORKFLOW.md. Updated SITE_INVENTORY.md and LABS_INVENTORY.md with appliedskills.html, all 23 AppliedSkills/ files, and corrected totals (78→102 HTML files, 29→52 lab writeups). Checked PROJECTS_INVENTORY.md — no projects/ files changed this session, so it needed no edits (confirmed via diff against HEAD, zero changes). Committed to `main`, not yet pushed.
+- **Files touched**: CLAUDE.md, WORKFLOW.md, SITE_INVENTORY.md, LABS_INVENTORY.md
+- **Next 3 actions**: 1) Push this commit to origin/main. 2) When the 6 "Coming Soon" lab pages get built, update SITE_INVENTORY.md/LABS_INVENTORY.md/CLAUDE.md again the same way. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Cross-checked every inventory total against actual `find`/`ls` counts on the filesystem (all matched exactly) and confirmed all 23 AppliedSkills files are genuinely linked from appliedskills.html before writing the "no orphans" claim.
