@@ -142,3 +142,19 @@ Template:
 - **Next 3 actions**: 1) Local `applied-skills-pages` branch still exists post-merge — delete it if no longer needed (`git branch -d applied-skills-pages`), not done automatically. 2) No other open follow-up. 3) None.
 - **Blockers**: None.
 - **Validation done**: Post-merge, confirmed 23 files in AppliedSkills/, zero `href="#"` placeholders in appliedskills.html, and both labs.html changes present before pushing.
+
+### 2026-08-23
+- **Goal**: Delete the fully-merged local `applied-skills-pages` branch per user request.
+- **Current status**: Done — `git branch -d applied-skills-pages` succeeded (git confirmed it was fully merged before deleting).
+- **Files touched**: none (git metadata only).
+- **Next 3 actions**: None from this task.
+- **Blockers**: None.
+- **Validation done**: `-d` (safe delete) was used rather than `-D`, so git itself verified the branch was fully merged before removing it.
+
+### 2026-08-23
+- **Goal**: Add 6 placeholder `<li>` entries to labs.html for upcoming certification labs (MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500), each with an inline "Coming Soon" badge.
+- **Current status**: Done. Inserted immediately after the SC-401 entry, before the other existing hub entries and the commented-out future-sections block. All six use `href="#"` placeholders since their pages don't exist yet. Committed directly to `main` (not pushed yet).
+- **Files touched**: labs.html
+- **Next 3 actions**: 1) Push this commit to origin/main. 2) Build the actual lab pages for these 6 certs when ready, then replace the `href="#"` placeholders (same pattern as the AppliedSkills rollout). 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Reviewed the diff before committing — only the 6 new `<li>` blocks added, no other lines touched.
