@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Copilot Studio Agent Academy – Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    h2 {
+      color: #141413;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 20px;
+      background-color: #E0DFD6;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    li a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+    .coming-soon {
+      color: #888;
+      font-style: italic;
+      font-size: 0.9em;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #BDBBB2;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Copilot Studio Agent Academy</h1>
+  <p>Hands-On Agent Development Labs — Issued by the Global AI Community</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "agentacademy.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Copilot Studio Agent Academy</h2>
+  <p style="color:#555; margin-top:0;">Free, open-source training program by Microsoft — build real agents with Microsoft Copilot Studio</p>
+
+  <p>
+    The <a href="https://microsoft.github.io/agent-academy/" target="_blank" rel="noopener noreferrer">Copilot Studio Agent Academy</a> is a structured, badge-earning program published by Microsoft that teaches agent development from the ground up. It covers two progressive rank courses, standalone Special Ops missions targeting specific skills and integrations, and a Cowork Collective track focused on Copilot Cowork inside Microsoft 365. Each completed lab or course earns a verified digital badge issued by the Global AI Community.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>🎖️ Rank Progression</h2>
+  <ul>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/recruit.html">Recruit — Standard Harness</a>
+      </strong><br>
+      Earned June 15, 2026
+    </li>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/operative.html">Operative</a>
+      </strong><br>
+      Earned June 24, 2026
+    </li>
+    <li>
+      <span class="coming-soon">Commander — Coming Soon (not yet released by Microsoft)</span>
+    </li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>🎯 Special Ops</h2>
+  <ul>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/ms-learn-mcp.html">Microsoft Learn MCP Server</a>
+      </strong><br>
+      Earned June 24, 2026
+    </li>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/pac-cli-mcp.html">Power Platform CLI MCP</a>
+      </strong><br>
+      Earned July 28, 2026
+    </li>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/yaml-specialist.html">YAML Specialist</a>
+      </strong><br>
+      Earned July 28, 2026
+    </li>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/mcs-mcp.html">Microsoft Copilot Studio ❤️ MCP</a>
+      </strong><br>
+      Earned July 29, 2026
+    </li>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/docusign-mcp.html">MCS + Docusign MCP — Agreement Orchestrator</a>
+      </strong><br>
+      Earned July 29, 2026
+    </li>
+    <li>
+      <span class="coming-soon">Marketing Agent with Skills (Ghostwriter) — Not yet completed</span>
+    </li>
+    <li>
+      <span class="coming-soon">Secure MCP with OAuth 2.0 — Not yet completed</span>
+    </li>
+    <li>
+      <span class="coming-soon">RAG with Azure AI Search — Not yet completed</span>
+    </li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>🤝 Cowork Collective</h2>
+  <ul>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/badge-check.html">Badge Check</a>
+      </strong><br>
+      Earned June 25, 2026
+    </li>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/out-of-office.html">Out of Office Vacation Handoff</a>
+      </strong><br>
+      Earned June 25, 2026
+    </li>
+    <li>
+      <strong>
+        <a href="/AgentAcademy/compliance-packet.html">The Compliance Packet</a>
+      </strong><br>
+      Earned June 25, 2026
+    </li>
+  </ul>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
