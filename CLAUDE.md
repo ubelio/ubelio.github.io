@@ -7,12 +7,12 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 ### Top-level pages (root)
 - `index.html` — homepage / bio / skills summary
 - `projects.html` — index/hub linking to every project writeup, in `projects/` and three at repo root (see quirk below)
-- `labs.html` — top-level hub linking to the five lab-category hub pages below, plus 6 "Coming Soon" placeholder entries (`href="#"`, no pages yet) for MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500
+- `labs.html` — top-level hub linking to `agentacademy.html` plus the five lab-category hub pages below, plus 6 "Coming Soon" placeholder entries (`href="#"`, no pages yet) for MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500
 - `scripts.html` — index/hub linking to files in `scripts/`
 - `homelabconfig.html` — hub for the homelab writeups (links into `FirewallSetup/`, `DLP-Labs/`, etc.)
 - `homelabfirewall.html` — homelab firewall overview/hub
 - `contact.html` — contact info + resume download link
-- `DLPInformationProtection.html`, `SC-401labs.html`, `Misc.html`, `appliedskills.html` — additional index/hub pages (`SC-401labs.html`'s h1 reads "SC-401: Microsoft Information Protection Administrator")
+- `DLPInformationProtection.html`, `SC-401labs.html`, `Misc.html`, `appliedskills.html`, `agentacademy.html` — additional index/hub pages (`SC-401labs.html`'s h1 reads "SC-401: Microsoft Information Protection Administrator")
 - `leading-ai-implementation.html`, `power-automate-flows.html`, `power-platform-implementation.html` — project writeups that live at repo root instead of in `projects/`, unlike every other project page (a drift from a later `git pull`, not a convention to replicate — see `SITE_INVENTORY.md`)
 - `README.md`, `CNAME`, `favicon.png`, `headshot.jpg`, `labdiagram.png`, `UbelioFernandezTabetResume.docx` — site metadata/assets at root
 
@@ -23,6 +23,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `DLP-Labs/` — Microsoft Purview DLP / compliance lab writeups, each paired with `*.png` screenshots.
 - `Misc/` — miscellaneous writeups (e.g. `imacwindows.html`) + related images.
 - `AppliedSkills/` — 23 Microsoft Applied Skills credential writeups, linked from `appliedskills.html`. Structurally distinct from the other four lab folders — see §2 and `WORKFLOW.md`'s "Adding an Applied Skills Page" section.
+- `AgentAcademy/` — Copilot Studio Agent Academy lab writeups (Rank Progression, Special Ops, and Cowork Collective tracks), linked from `agentacademy.html`. Structurally similar to `AppliedSkills/` (badge image + at-a-glance table + Overview + What I Built + View Badge) — see §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section. As of this writing 7 of 10 linked pages exist; the remaining 3 (Cowork Collective track: `badge-check.html`, `out-of-office.html`, `compliance-packet.html`) are still to be built.
 - `scripts/` — raw PowerShell scripts (`.ps1`) referenced/linked from `scripts.html`.
 
 ### Asset convention
@@ -30,7 +31,7 @@ Screenshots and diagrams live **next to** the HTML file that uses them (same fol
 
 ## 2. Styling Conventions
 
-**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (102 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
+**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (110 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
 
 `style.css` contains only the universal site chrome, shared byte-for-byte across every page before the refactor:
 - `body` (font-family, margin, background-color, color)
@@ -42,6 +43,8 @@ Screenshots and diagrams live **next to** the HTML file that uses them (same fol
 **Everything page-specific stays inline** in that page's own `<style>` block in `<head>` — this was deliberately *not* moved to `style.css`. That includes: `section`, `h2`, `.impact-box` (project pages), `figure`/`.screenshot`/`figcaption.screenshot-note`/`.section-divider`/`.note`/`.img-caption` and other lab-writeup classes, `pre`/`.download-link` (scripts.html), `ul`/`li` list styling (hub pages), and all image/diagram styling (`img.diagram`, etc.). When adding new page-specific styling, put it in that page's inline `<style>` block, not in `style.css`.
 
 **`AppliedSkills/` pages have their own page-specific pattern**, distinct from the other lab folders: a `table.at-a-glance` (Level / Role(s) / Product(s) / Credential #), an Overview paragraph, a Skills Assessed `<ul>`, and a View Credential link, all separated by `.section-divider`. One retired credential (`copilot-studio-create-agents.html`) uses `.note` in place of the Skills Assessed list. The header `<h1>` and the in-body title `<h2>` both carry inline styles unique to this folder (`color:#C9C8BF; margin:0 0 8px 0; font-size:2em;` on the h1) rather than relying solely on `style.css`/`h1,h2{}` — this was an explicit one-off request, not a pattern to extend elsewhere without being asked.
+
+**`AgentAcademy/` pages follow their own pattern**, close to `AppliedSkills/` but with a badge image: a centered `.badge-wrap` image, a `table.at-a-glance` (Category / Badge / Issued By / Earned / Products / Skills), an Overview paragraph, a "What I Built" `<ul>`, and a "View Badge" link back to the credential on Global AI Community, all separated by `.section-divider`. The header `<h1>` and in-body `<h2>` carry the same `color:#C9C8BF; margin:0 0 8px 0; font-size:2em;` inline style as `AppliedSkills/`. The hub page `agentacademy.html` uses a `.coming-soon` class (`color:#888; font-style:italic; font-size:0.9em;`) for ranks/missions not yet completed. Note: as of this writing, `agentacademy.html`'s Cowork Collective section links to 3 pages (`badge-check.html`, `out-of-office.html`, `compliance-packet.html`) that don't exist yet — those are real hrefs, not `.coming-soon` placeholders, so they currently 404 until built.
 
 **`contact.html` intentionally keeps inline overrides that are *not* in `style.css`** and must stay that way: a `header { margin: -40px -20px 0; }` hack and `nav` side-margin overrides (both counteract `body`'s page-specific `text-align`/`padding` so the header/nav still render edge-to-edge despite `contact.html`'s own body padding). These aren't leftover cruft — don't "clean them up" into `style.css` or delete them; they're what makes `contact.html` render correctly given its one-off body padding.
 
@@ -122,4 +125,4 @@ When adding a new project or lab writeup, match the existing pattern rather than
 - Store new screenshots/diagrams in the same folder as the HTML file that references them, not in a shared assets folder.
 - Wrap main content in `<div class="container">` for subfolder lab/project writeups (matching the majority convention in `FirewallSetup/`, `SC-401Labs/`, `DLP-Labs/`), or `<main>` if adding a new top-level hub page.
 - Add the new page's link to the relevant hub page (`projects.html`, `labs.html`, `homelabconfig.html`, etc.) so it's actually reachable from navigation.
-- For a new project page specifically, follow `WORKFLOW.md`'s "Adding a Project Page" section; for a new PowerShell script, follow "Adding a Script" (includes mandatory sanitization steps before publishing); for a new Microsoft Applied Skills credential, follow "Adding an Applied Skills Page." Never fabricate credential numbers, Microsoft Learn URLs, or other real-world identifiers — ask if data is missing.
+- For a new project page specifically, follow `WORKFLOW.md`'s "Adding a Project Page" section; for a new PowerShell script, follow "Adding a Script" (includes mandatory sanitization steps before publishing); for a new Microsoft Applied Skills credential, follow "Adding an Applied Skills Page"; for a new Agent Academy lab, follow "Adding an Agent Academy Page." Never fabricate credential numbers, Microsoft Learn URLs, badge URLs, or other real-world identifiers — ask if data is missing.

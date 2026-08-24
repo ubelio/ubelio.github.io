@@ -1,6 +1,6 @@
 # LABS_INVENTORY.md
 
-Every lab writeup across the five lab folders, with its page `<h1>` title and the hub page that links to it. All five hub pages are themselves reached from the top-level `labs.html`, which also carries 6 "Coming Soon" placeholder entries (MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
+Every lab writeup across the six lab folders, with its page `<h1>` title and the hub page that links to it. All six hub pages are themselves reached from the top-level `labs.html`, which also carries 6 "Coming Soon" placeholder entries (MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
 
 ## `SC-401Labs/` — linked from `SC-401labs.html`
 
@@ -83,6 +83,22 @@ Microsoft Applied Skills credentials, listed in the same order as the hub page (
 | `copilot-studio-create-agents.html` | Create agents in Microsoft Copilot Studio (retired by Microsoft July 8, 2026 — page carries a `.note` callout instead of a Skills Assessed list) |
 | `ai-research-agents.html` | Generate reports with AI research agents |
 
+## `AgentAcademy/` — linked from `agentacademy.html`
+
+Copilot Studio Agent Academy labs, badge-earning program by Microsoft/Global AI Community. Structurally different from the other lab folders — see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section for the page pattern (badge image, At a Glance table, Overview, What I Built, View Badge link).
+
+| Filename | `<h1>` title | Track |
+|---|---|---|
+| `recruit.html` | Recruit — Copilot Studio Agent Academy | Rank Progression |
+| `operative.html` | Operative — Copilot Studio Agent Academy | Rank Progression |
+| `ms-learn-mcp.html` | Microsoft Learn MCP Server | Special Ops |
+| `pac-cli-mcp.html` | Power Platform CLI MCP | Special Ops |
+| `yaml-specialist.html` | YAML Specialist | Special Ops |
+| `mcs-mcp.html` | Microsoft Copilot Studio ❤️ MCP | Special Ops |
+| `docusign-mcp.html` | MCS + Docusign MCP — Agreement Orchestrator | Special Ops |
+
+Not yet built (linked from `agentacademy.html`'s Cowork Collective section with real hrefs that currently 404, not `.coming-soon` placeholders): `badge-check.html`, `out-of-office.html`, `compliance-packet.html`. Also not yet built, but correctly marked `.coming-soon` on the hub: Commander rank and 3 further Special Ops missions (Marketing Agent with Skills, Secure MCP with OAuth 2.0, RAG with Azure AI Search), plus a "Recruit — GitHub Copilot Harness" rank-progression entry.
+
 ---
 
-**Totals**: 52 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills. Verified every file in all five folders is linked exactly once from its expected hub page — no orphaned or missing files.
+**Totals**: 59 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy. Verified every file in all six folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

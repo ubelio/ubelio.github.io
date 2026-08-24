@@ -17,6 +17,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | `SC-401labs.html` | Hub page — links to the `SC-401Labs/` lab writeups (h1 now reads "SC-401: Microsoft Information Protection Administrator") |
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
 | `appliedskills.html` | Hub page — links to the 23 `AppliedSkills/` credential writeups |
+| `agentacademy.html` | Hub page — links to the `AgentAcademy/` lab writeups (Rank Progression, Special Ops, Cowork Collective tracks); also carries `.coming-soon` entries for ranks/missions not yet completed |
 | `leading-ai-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-automate-flows.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-platform-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
@@ -49,6 +50,10 @@ Lab writeups — Microsoft Purview DLP / compliance labs, linked from `DLPInform
 
 Microsoft Applied Skills credential writeups, linked from `appliedskills.html`. Each follows a distinct sub-pattern from the other lab folders — At a Glance table, Overview, Skills Assessed, View Credential link (see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Applied Skills Page" section). See `LABS_INVENTORY.md` for the full per-file breakdown.
 
+## `AgentAcademy/` (7 files)
+
+Copilot Studio Agent Academy lab writeups, linked from `agentacademy.html`. Badge-image pattern distinct from `AppliedSkills/` — At a Glance table, Overview, What I Built, View Badge link (see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section). See `LABS_INVENTORY.md` for the full per-file breakdown. 3 more pages (Cowork Collective track) are linked from the hub but not yet built.
+
 ---
 
-**Totals**: 102 HTML files — 14 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`.
+**Totals**: 110 HTML files — 15 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`.

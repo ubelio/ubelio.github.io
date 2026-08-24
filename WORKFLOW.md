@@ -66,6 +66,28 @@ Then browse `http://localhost:5500/`.
 5. Add a hub entry to `appliedskills.html`'s `<ul>`, in earned-date-descending order matching the existing entries: a bold link plus the earned date on the line below via `<br>`.
 6. Never fabricate credential numbers, Microsoft Learn URLs, or skills-assessed lists — this is real certification data. If any field is missing, ask rather than guess.
 
+## Adding an Agent Academy Page
+
+1. Create `AgentAcademy/<slug>.html`, copying the header / nav / active-nav `<script>` / footer block and inline `<style>` block from an existing page, e.g. `AgentAcademy/recruit.html`.
+2. The active-nav `<script>` uses `let current` (not `const`) and remaps the page's own filename to `"labs.html"` before the href-matching check, so the **Labs** nav item highlights instead of nothing:
+   ```js
+   let current = window.location.pathname.split("/").pop();
+   if (current === "<this-file>.html") {
+     current = "labs.html";
+   }
+   ```
+3. Standard section structure inside `<div class="container">`:
+   - `<h2 style="margin-bottom:4px;">[Badge Title]</h2>` + `<p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — [Track Name]</p>` — visible in-body title, directly above the badge image
+   - **Badge image** — `<div class="badge-wrap"><img src="[Global AI Community badge URL]" alt="..."></div>`
+   - **At a Glance** — a `table.at-a-glance` with rows for Category, Badge, Issued By, Earned, Products, Skills
+   - **Overview** — one paragraph describing the mission/course
+   - **What I Built** — a `<ul>` of concrete things built/configured during the lab
+   - **View Badge** — a link to the badge's Global AI Community verification URL, plus a `.back-link` back to `/agentacademy.html`
+   - `.section-divider` (`<hr>`) between each section
+4. The header `<h1>` also carries the full badge/course title (inline-styled `color:#C9C8BF; margin:0 0 8px 0; font-size:2em;`) and a `<p>` subtitle reading `[Track Name] — Earned [Date]`.
+5. Add a hub entry to `agentacademy.html`'s relevant track `<ul>` (Rank Progression / Special Ops / Cowork Collective), matching the existing entries: a bold link plus the earned date on the line below via `<br>`. Anything not yet completed uses `<span class="coming-soon">...</span>` instead of a link.
+6. Never fabricate badge URLs, Global AI Community verification URLs, or earned dates — this is real credential data. If any field is missing, ask rather than guess.
+
 ## Sanitization Before Publishing Any Script
 
 Before a script excerpt or download goes live, strip:
@@ -187,3 +209,11 @@ Template:
 - **Next 3 actions**: 1) Push this commit to origin/main. 2) When the 6 "Coming Soon" lab pages get built, update SITE_INVENTORY.md/LABS_INVENTORY.md/CLAUDE.md again the same way. 3) No other open follow-up.
 - **Blockers**: None.
 - **Validation done**: Cross-checked every inventory total against actual `find`/`ls` counts on the filesystem (all matched exactly) and confirmed all 23 AppliedSkills files are genuinely linked from appliedskills.html before writing the "no orphans" claim.
+
+### 2026-08-24
+- **Goal**: Stand up the Copilot Studio Agent Academy lab section (new hub page + folder, mirroring the AppliedSkills rollout pattern) on branch `agent-academy-pages`, then bring all docs current and merge/push to `main`.
+- **Current status**: Done. Built `agentacademy.html` (root hub, Rank Progression / Special Ops / Cowork Collective tracks) and added its entry to the top of `labs.html`'s hub `<ul>`. Built 7 `AgentAcademy/*.html` writeups: `recruit.html`, `operative.html` (Rank Progression), and `ms-learn-mcp.html`, `pac-cli-mcp.html`, `yaml-specialist.html`, `mcs-mcp.html`, `docusign-mcp.html` (Special Ops — all 5 completed Special Ops missions). Added a `.coming-soon` entry for "Recruit — GitHub Copilot Harness" to the Rank Progression list. Updated CLAUDE.md (§1 lists `agentacademy.html`/`AgentAcademy/`; §2 documents the AgentAcademy page pattern and the stale-link caveat below; §4 cross-references the new WORKFLOW.md section; page-count 102→110), added an "Adding an Agent Academy Page" WORKFLOW.md section, and updated SITE_INVENTORY.md/LABS_INVENTORY.md totals and per-file tables.
+- **Files touched**: agentacademy.html (new), labs.html, AgentAcademy/recruit.html (new), AgentAcademy/operative.html (new), AgentAcademy/ms-learn-mcp.html (new), AgentAcademy/pac-cli-mcp.html (new), AgentAcademy/yaml-specialist.html (new), AgentAcademy/mcs-mcp.html (new), AgentAcademy/docusign-mcp.html (new), CLAUDE.md, WORKFLOW.md, SITE_INVENTORY.md, LABS_INVENTORY.md
+- **Next 3 actions**: 1) Build the 3 remaining Cowork Collective pages (`AgentAcademy/badge-check.html`, `out-of-office.html`, `compliance-packet.html`) — `agentacademy.html` already links to them with real (currently 404) hrefs, not `.coming-soon` placeholders, so this is the priority follow-up, not a nice-to-have. 2) Once Microsoft releases the Commander rank or the 3 remaining Special Ops missions (Marketing Agent with Skills, Secure MCP with OAuth 2.0, RAG with Azure AI Search) get completed, replace their `.coming-soon` spans with real links following the same pattern. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Served the repo locally (`python3 -m http.server`) and curled every new page for a 200 before each commit. Cross-checked SITE_INVENTORY.md/LABS_INVENTORY.md totals against actual `find` counts on the filesystem (110 HTML files total, 7 in AgentAcademy/) before writing them down. Flagged the 3 dead Cowork Collective links to the user rather than silently fixing or hiding them, since the content was user-provided verbatim.
