@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recruit — Copilot Studio Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Recruit — Copilot Studio Agent Academy</h1>
+  <p>Rank Progression Course (Standard Harness) — Earned June 15, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "recruit.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Recruit — Standard Harness</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Rank Progression Course</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/93393c9ba042ea65f6169087d060c05423a1d882090408ebe54d5deb0643d0dd.png?h=500" alt="Copilot Studio Agent Academy — Recruit Badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Rank Progression Course</td></tr>
+    <tr><th>Badge</th><td>Recruit</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>June 15, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio · Power Platform · SharePoint · Microsoft Teams</td></tr>
+    <tr><th>Skills</th><td>Generative AI · Copilot Studio · Artificial Intelligence</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    The Recruit course is the entry point to the Copilot Studio Agent Academy — a 13-mission, hands-on program that takes you from zero to building and publishing a fully functional IT helpdesk agent using Microsoft Copilot Studio's standard (topic-based) harness. The course uses a realistic IT help desk scenario throughout so every concept is immediately grounded in a real use case. By the end, you have gone through the complete agent development lifecycle: environment provisioning, agent creation, conversation design, SharePoint knowledge grounding, flow automation, declarative agent deployment for Microsoft 365 Copilot, and production publishing to Teams — and understand how Copilot Studio licensing and Copilot Credits billing work before agents go live.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Built an IT helpdesk agent in Copilot Studio grounded on a SharePoint knowledge source and IT policy documentation, enabling the agent to answer questions from live organizational content rather than generic training data.</li>
+    <li>Designed conversational topics with triggers, branching nodes, and intent matching to handle device requests and IT support queries — covering both informational and task-execution topic types.</li>
+    <li>Created Adaptive Cards using JSON payloads and Power Fx formulas to replace plain-text prompts with structured, interactive input collection inside the agent conversation.</li>
+    <li>Built an agent flow that fires on device request submission: retrieves the selected device record from a SharePoint list and sends an automated notification email to the user's manager, completing an end-to-end approval initiation without leaving the agent.</li>
+    <li>Configured event triggers to enable autonomous agent actions that execute on a schedule or system event without requiring active user input.</li>
+    <li>Deployed a declarative agent targeting Microsoft 365 Copilot, customizing the M365 Copilot experience with scoped instructions, tools, and knowledge for the IT help desk use case.</li>
+    <li>Published the completed agent to Microsoft Teams and Microsoft 365 Copilot channels, making it available to end users in the interfaces where they already work.</li>
+    <li>Packaged all agent components — agent definition, flows, uploaded files — inside a Power Platform solution to enable ALM practices: version control, environment promotion (dev → test → production), and repeatable deployment.</li>
+    <li>Studied Copilot Studio licensing models, Copilot Credits consumption across deployment scenarios (internal, external, automated), and how to estimate and monitor usage costs before agents go live at scale.</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/7a2e4a61-bcf1-4996-b3c6-20aaa356b3a7" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
