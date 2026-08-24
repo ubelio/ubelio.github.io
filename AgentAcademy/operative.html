@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Operative — Copilot Studio Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Operative — Copilot Studio Agent Academy</h1>
+  <p>Rank Progression Course — Earned June 24, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "operative.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Operative</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Rank Progression Course</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/6ab5240ee0a990e855d5dbb78f6411c91c2654134242ecb73df0ec4f58fb32ba.png?h=500" alt="Copilot Studio Agent Academy — Operative Badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Rank Progression Course</td></tr>
+    <tr><th>Badge</th><td>Operative</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>June 24, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio · Microsoft Dataverse · Power Platform · Microsoft Teams</td></tr>
+    <tr><th>Skills</th><td>Generative AI · Copilot Studio · Artificial Intelligence</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    The Operative course is the advanced tier of the Copilot Studio Agent Academy — an 11-mission program that moves well beyond single-agent design into multi-agent orchestration, external system integration, AI safety, and multimodal processing. The scenario is a realistic enterprise talent acquisition workflow: rather than building one general-purpose agent, you design a system of specialized agents that hand off work to each other, coordinated by a central orchestrator. By the end of the course you have built a functioning hiring automation system in Copilot Studio backed by Dataverse, capable of ingesting resumes, preparing interview materials, scheduling meetings through MCP servers, and applying responsible AI controls throughout.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Designed and deployed a Hiring Agent as the central orchestrator of a three-agent system — responsible for routing user requests to the appropriate specialist agent and consolidating results.</li>
+    <li>Built an Application Intake Agent that uses multimodal document analysis to automatically extract structured data from uploaded resume files, removing manual data entry from the intake process.</li>
+    <li>Built an Interview Prep Agent that generates role-specific interview questions, evaluation criteria, and formatted prep documents tailored to individual candidate profiles and job requirements.</li>
+    <li>Wired all three agents together in a multi-agent topology, with the Hiring Agent orchestrating handoffs and data passing between the Application Intake and Interview Prep sub-agents without human re-entry of information.</li>
+    <li>Authored detailed natural-language agent instructions that define each agent's persona, behavior boundaries, scope of authority, and escalation logic — the core governance layer for enterprise agent deployment.</li>
+    <li>Implemented event-based automation triggers enabling background processing (e.g., new application received) that runs without an active user session or direct conversation initiation.</li>
+    <li>Applied content moderation and AI safety configurations: topic filtering, output safety controls, and responsible AI guardrails that prevent the hiring system from producing biased or non-compliant responses.</li>
+    <li>Built Dataverse-grounded prompts to retrieve, filter, and act on structured candidate and job position data stored in Dataverse tables provisioned as part of the solution.</li>
+    <li>Configured document generation to produce formatted, ready-to-use interview prep packages from agent reasoning and Dataverse data — outputting real Word-compatible documents from within the agent flow.</li>
+    <li>Integrated Work IQ User and Work IQ Calendar MCP servers (Microsoft 365 Frontier preview) into the agent, enabling calendar availability lookup and interview scheduling directly from the agent without leaving the conversation.</li>
+    <li>Collected structured user feedback using Adaptive Cards at the end of agent interactions, establishing a feedback loop for measuring agent quality and driving continuous improvement.</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/828b6215-8cd6-4ffa-9c1a-9305a53be2bf" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
