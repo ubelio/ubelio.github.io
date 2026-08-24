@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Microsoft Learn MCP Server — Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Microsoft Learn MCP Server</h1>
+  <p>Special Ops Mission — Earned June 24, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms-learn-mcp.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Microsoft Learn MCP Server</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Special Ops Mission</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/3467bef91c77346396b7551b4cbbdc5fa660101c4ca8b6f47dd8ee02ddb82c29.png?h=500" alt="Copilot Studio Agent Academy — Learn MCP Specialist Badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Special Ops Mission</td></tr>
+    <tr><th>Badge</th><td>Learn MCP Specialist</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>June 24, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio · GitHub Copilot Harness</td></tr>
+    <tr><th>Skills</th><td>MCP · Copilot Studio</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    Operation Open Book connects a Copilot Studio agent — built on the GitHub Copilot harness — to the publicly hosted Microsoft Learn Docs MCP Server. The Model Context Protocol (MCP) is an open standard that gives AI models a consistent, secure way to call external tools and data sources at query time. Because the Microsoft Learn server is remote and publicly accessible, no backend infrastructure or custom code is required to wire it in. The result is an agent that answers questions about any Microsoft product using live, up-to-date documentation pulled directly from Microsoft Learn — eliminating the stale or hallucinated product information that plagues agents grounded only on training data.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Connected the public Microsoft Learn Docs MCP Server to a Copilot Studio agent (GitHub Copilot harness) as a callable MCP tool, giving the agent real-time access to the full Microsoft Learn documentation library without writing any backend code.</li>
+    <li>Verified the agent retrieves and cites live Microsoft Learn documentation in direct response to product questions, including content published after the model's training cutoff.</li>
+    <li>Built a reusable teaching Skill — a modular agent component — that transforms raw documentation results into guided lessons with knowledge-check questions and practice activities, demonstrating how Skills extend base agent capabilities.</li>
+    <li>Explored the architecture distinction between remote/hosted MCP servers (zero infrastructure overhead) and custom self-hosted MCP servers, and when each approach is appropriate.</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/d60633b9-d566-4495-8c83-7bf905a376a5" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>

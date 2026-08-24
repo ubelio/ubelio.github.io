@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YAML Specialist — Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">YAML Specialist</h1>
+  <p>Special Ops Mission — Earned July 28, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "yaml-specialist.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">YAML Specialist</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Special Ops Mission</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/c9f2fd6262c19de09c47d646ec0314c2d8303ee77ec9bb03198de1f070120bb9.png?h=500" alt="Copilot Studio Agent Academy — YAML Specialist Badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Special Ops Mission</td></tr>
+    <tr><th>Badge</th><td>YAML Specialist</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>July 28, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio · VS Code · Power Platform</td></tr>
+    <tr><th>Skills</th><td>YAML · VS Code · Copilot Studio</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    The YAML Specialist mission introduces code-first agent authoring in Microsoft Copilot Studio — an approach where agent definitions, topics, and configuration are written and managed as YAML files in VS Code rather than exclusively through the Studio canvas UI. This matters for enterprise deployments: when agents are expressed as code files, they can be stored in source control, reviewed in pull requests, diffed across versions, and deployed through automated pipelines — bringing standard software engineering practices to agent lifecycle management. This is the foundation for treating agents as first-class software artifacts rather than low-code configurations.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Authored Copilot Studio agent definitions, topics, and configuration directly in YAML using VS Code, working outside the Studio canvas UI.</li>
+    <li>Managed the full agent as a set of code files: edited, validated, and applied changes without relying on the drag-and-drop authoring experience.</li>
+    <li>Packaged YAML-defined agents inside Power Platform solutions and explored how this pattern integrates with source control and environment promotion workflows.</li>
+    <li>Established a code-first agent authoring pattern applicable to CI/CD pipelines, peer code review, and enterprise ALM processes where the Studio UI alone is insufficient for governance requirements.</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/5ba2acd8-124a-437a-96c3-b30d5a369509" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>

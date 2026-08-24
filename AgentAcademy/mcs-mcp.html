@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Microsoft Copilot Studio ❤️ MCP — Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Microsoft Copilot Studio ❤️ MCP</h1>
+  <p>Special Ops Mission — Earned July 29, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "mcs-mcp.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Microsoft Copilot Studio ❤️ MCP</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Special Ops Mission</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/7196df100d3d014524d798a522c0e2c0c449a72809afda87f2733cdd1659f12c.png?h=500" alt="Copilot Studio Agent Academy — MCP Joker Badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Special Ops Mission</td></tr>
+    <tr><th>Badge</th><td>MCP Joker</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>July 29, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio · Azure · Azure Developer CLI</td></tr>
+    <tr><th>Skills</th><td>MCP · Copilot Studio · AI Agents</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    Where the Microsoft Learn MCP mission consumes an existing hosted MCP server, this mission builds one from scratch and deploys it to the cloud. Using the Azure Developer CLI (<code>azd</code>), a custom MCP server is deployed as a publicly accessible Azure resource and then connected to a Copilot Studio agent as a callable tool. This is the complete end-to-end pattern for teams that need proprietary MCP integrations — connecting internal systems, private APIs, or custom business logic to Copilot Studio agents without relying on prebuilt connectors or certified third-party servers. The mission also establishes how MCP servers surface inside Copilot Studio via the existing connector infrastructure, answering the practical question of when to use MCP versus standard connectors.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Built a custom MCP server locally and deployed it to Azure as a publicly accessible endpoint using Azure Developer CLI (<code>azd up</code>).</li>
+    <li>Connected the custom-deployed MCP server to a Copilot Studio agent as a callable tool and verified end-to-end tool invocation from the agent conversation.</li>
+    <li>Explored how MCP servers surface in Copilot Studio through the platform's existing connector infrastructure, clarifying the relationship between MCP and traditional connectors and when each approach is appropriate.</li>
+    <li>Decommissioned the Azure deployment post-lab using <code>azd down</code>, following least-privilege and cost hygiene practices to avoid leaving public resources running unnecessarily.</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/475a8efc-d958-4964-9b83-5a74945200d5" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
