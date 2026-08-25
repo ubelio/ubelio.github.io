@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS-102 Lab 10 – Conditional Access | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">MS-102 Lab 10 – Conditional Access</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft 365 Administrator Essentials — Lab 10</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms102-lab10.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 10 – Conditional Access</h2>
+  <p style="color:#555; margin-top:0;">MS-102: Microsoft 365 Administrator Essentials</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Built and tested Conditional Access policies in Microsoft Entra ID, including a location-based block policy and an Intune device compliance-integrated access control scenario, using two Microsoft Learn interactive exercises.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Created a Conditional Access policy scoped to a specific user and the My Apps cloud application</li>
+    <li>Configured a location-based condition set to Any Location with a Grant control of Block Access</li>
+    <li>Enabled the policy and confirmed that access to My Apps was blocked for the targeted account</li>
+    <li>Disabled the policy after validation and confirmed access was restored</li>
+    <li>Configured a second Conditional Access policy requiring Intune device compliance as a grant condition</li>
+    <li>Tested the device compliance condition and reviewed expected access behavior on a Windows device</li>
+  </ul>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://learn.microsoft.com/en-us/training/modules/plan-implement-administer-conditional-access/6-exercise-implement-conditional-access-policies-roles-assignments" target="_blank" rel="noopener noreferrer">Implement Conditional Access Policies, Roles and Assignments</a> and <a href="https://learn.microsoft.com/en-us/training/modules/protect-data-control-access-intune-conditional-access/4-exercise-protect-control-access" target="_blank" rel="noopener noreferrer">Protect Data and Control Access with Intune and Conditional Access</a> from Microsoft Learn. All steps were executed in a personal, paid Microsoft 365 test tenant.</p>
+
+  <p class="back-link"><a href="/ms102labs.html">← Back to MS-102 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

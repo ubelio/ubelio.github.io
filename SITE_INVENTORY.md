@@ -8,7 +8,8 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 |---|---|
 | `index.html` | Homepage — bio, skills, certifications |
 | `projects.html` | Hub page — links to every project writeup (in `projects/` and three at repo root) |
-| `labs.html` | Top-level hub — links to the five lab-category hub pages below, plus 6 "Coming Soon" placeholder `<li>` entries (`href="#"`, no pages yet) for MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500 |
+| `labs.html` | Top-level hub — links to `agentacademy.html`, `ms102labs.html`, the five lab-category hub pages below, plus 5 "Coming Soon" placeholder `<li>` entries (`href="#"`, no pages yet) for SC-200, SC-300, AZ-104, MD-102, AZ-500 |
+| `ms102labs.html` | Hub page — links to the 11 `MS-102Labs/` lab writeups |
 | `scripts.html` | Hub page — PowerShell scripts with excerpts, download links, and links back to project writeups |
 | `homelabconfig.html` | Writeup — home lab equipment and configuration |
 | `homelabfirewall.html` | Hub page — links to the `FirewallSetup/` lab writeups |
@@ -54,6 +55,24 @@ Microsoft Applied Skills credential writeups, linked from `appliedskills.html`. 
 
 Copilot Studio Agent Academy lab writeups, linked from `agentacademy.html`. Badge-image pattern distinct from `AppliedSkills/` — At a Glance table, Overview, What I Built, View Badge link (see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section). See `LABS_INVENTORY.md` for the full per-file breakdown. 3 more pages (Cowork Collective track) are linked from the hub but not yet built.
 
+## `MS-102Labs/` (11 files)
+
+MS-102 exam prep lab writeups, linked from `ms102labs.html`. Completed in a personal Microsoft 365 test tenant using official MicrosoftLearning GitHub lab instructions and Microsoft Learn exercises. Same text-only structure as other lab writeup pages (no screenshots).
+
+| File | What it is |
+|---|---|
+| `ms102-lab1.html` | Lab 1 — Tenant initialization, users, groups, custom domain |
+| `ms102-lab2.html` | Lab 2 — Admin roles, monitoring, M365 Apps |
+| `ms102-lab3.html` | Lab 3 — Identity synchronization with Entra Connect |
+| `ms102-lab4.html` | Lab 4 — Secure user access and PIM workflows |
+| `ms102-lab5.html` | Lab 5 — Safe Attachments and Safe Links (Defender for Office 365) |
+| `ms102-lab6.html` | Lab 6 — Alert policies and Attack Simulation Training |
+| `ms102-lab7.html` | Lab 7 — Retention policies and labels in Microsoft Purview |
+| `ms102-lab8.html` | Lab 8 — DLP policy creation and testing |
+| `ms102-lab9.html` | Lab 9 — Sensitivity labels and label policies |
+| `ms102-lab10.html` | Lab 10 — Conditional Access policies |
+| `ms102-lab11.html` | Lab 11 — Authentication methods (MFA, SSPR, passwordless) |
+
 ---
 
-**Totals**: 110 HTML files — 15 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`.
+**Totals**: 122 HTML files — 16 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`.

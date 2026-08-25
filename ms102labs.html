@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS-102: Microsoft 365 Administrator Essentials | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .lab-list { list-style: none; padding: 0; }
+    .lab-list li { background: #E0DFD6; margin-bottom: 10px; padding: 12px 16px; border-radius: 4px; }
+    .lab-list li a { color: #0073e6; font-weight: bold; text-decoration: none; }
+    .lab-list li a:hover { text-decoration: underline; }
+    .lab-list li .lab-desc { display: block; color: #444; font-size: 0.95em; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">MS-102: Microsoft 365 Administrator Essentials</h1>
+  <p style="color:#C9C8BF; margin:0;">Exam Preparation Labs — Personal Microsoft 365 Test Tenant</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms102labs.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <p>The following labs were completed as hands-on preparation for the <strong>MS-102: Microsoft 365 Administrator Essentials</strong> exam. All exercises were performed in a personal, paid Microsoft 365 test tenant using official lab instructions from the <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials" target="_blank" rel="noopener noreferrer">MicrosoftLearning GitHub repository</a> and Microsoft Learn interactive exercises.</p>
+
+  <ul class="lab-list">
+    <li><a href="/MS-102Labs/ms102-lab1.html">Lab 1 – Tenant Initialization, Users, Groups & Domain</a><span class="lab-desc">Configure the M365 org profile, enable audit logging and IRM, create admin accounts and groups, and add a custom domain.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab2.html">Lab 2 – Roles, Monitoring & Microsoft 365 Apps</a><span class="lab-desc">Manage admin roles and role groups, monitor service health and activity, and configure M365 Apps deployment settings.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab3.html">Lab 3 – Identity Synchronization</a><span class="lab-desc">Prepare on-premises Active Directory and implement Microsoft Entra Connect to sync identities to the cloud.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab4.html">Lab 4 – Secure User Access & Privileged Identity Management</a><span class="lab-desc">Configure smart lockout and MFA, then implement and test three PIM role activation workflows and assign Azure resource roles.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab5.html">Lab 5 – Microsoft Defender for Office 365</a><span class="lab-desc">Configure Safe Attachments with Dynamic Delivery and Safe Links policies to protect against malicious email content.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab6.html">Lab 6 – Alert Policies & Attack Simulation Training</a><span class="lab-desc">Create compliance alert policies for mailbox and SharePoint activity, run phishing and password spray simulations, and validate results.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab7.html">Lab 7 – Retention Policies</a><span class="lab-desc">Create and manage retention policies and labels in Microsoft Purview to enforce data lifecycle governance.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab8.html">Lab 8 – Data Loss Prevention</a><span class="lab-desc">Create DLP policies in Microsoft Purview and validate enforcement by testing against sensitive data scenarios.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab9.html">Lab 9 – Sensitivity Labels</a><span class="lab-desc">Create sensitivity labels with encryption and visual markings and publish them through label policies to pilot users.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab10.html">Lab 10 – Conditional Access</a><span class="lab-desc">Build and test Conditional Access policies including location-based blocking and Intune device compliance integration.</span></li>
+    <li><a href="/MS-102Labs/ms102-lab11.html">Lab 11 – Authentication Methods</a><span class="lab-desc">Configure Microsoft Entra authentication methods including MFA, SSPR, and passwordless options.</span></li>
+  </ul>
+
+  <p style="margin-top:24px;"><a href="/labs.html">← Back to Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

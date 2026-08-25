@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS-102 Lab 11 – Authentication Methods | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">MS-102 Lab 11 – Authentication Methods</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft 365 Administrator Essentials — Lab 11</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms102-lab11.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 11 – Authentication Methods</h2>
+  <p style="color:#555; margin-top:0;">MS-102: Microsoft 365 Administrator Essentials</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Configured Microsoft Entra authentication methods including MFA, self-service password reset, and passwordless options, then verified the combined registration experience for pilot project users.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Reviewed the Authentication Methods policy in the Microsoft Entra admin center</li>
+    <li>Enabled and configured Microsoft Authenticator as an allowed MFA method</li>
+    <li>Configured FIDO2 security key settings within the Authentication Methods policy</li>
+    <li>Enabled Temporary Access Pass for initial passwordless onboarding scenarios</li>
+    <li>Reviewed combined security information registration settings for MFA and SSPR</li>
+    <li>Tested the user registration flow for MFA via the combined registration portal</li>
+    <li>Reviewed authentication method usage and registration reports in the Microsoft Entra admin center</li>
+  </ul>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://learn.microsoft.com/en-us/training/modules/manage-implement-authentication-methods/6-exercise-configure-authentication-methods" target="_blank" rel="noopener noreferrer">Configure Authentication Methods</a> from Microsoft Learn. All steps were executed in a personal, paid Microsoft 365 test tenant.</p>
+
+  <p class="back-link"><a href="/ms102labs.html">← Back to MS-102 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

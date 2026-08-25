@@ -1,6 +1,6 @@
 # LABS_INVENTORY.md
 
-Every lab writeup across the six lab folders, with its page `<h1>` title and the hub page that links to it. All six hub pages are themselves reached from the top-level `labs.html`, which also carries 6 "Coming Soon" placeholder entries (MS-102, SC-200, SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
+Every lab writeup across the seven lab folders, with its page `<h1>` title and the hub page that links to it. All seven hub pages are themselves reached from the top-level `labs.html`, which also carries 5 "Coming Soon" placeholder entries (SC-200, SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
 
 ## `SC-401Labs/` — linked from `SC-401labs.html`
 
@@ -99,6 +99,24 @@ Copilot Studio Agent Academy labs, badge-earning program by Microsoft/Global AI 
 
 Not yet built (linked from `agentacademy.html`'s Cowork Collective section with real hrefs that currently 404, not `.coming-soon` placeholders): `badge-check.html`, `out-of-office.html`, `compliance-packet.html`. Also not yet built, but correctly marked `.coming-soon` on the hub: Commander rank and 3 further Special Ops missions (Marketing Agent with Skills, Secure MCP with OAuth 2.0, RAG with Azure AI Search), plus a "Recruit — GitHub Copilot Harness" rank-progression entry.
 
+## `MS-102Labs/` — linked from `ms102labs.html`
+
+MS-102 exam prep labs completed in a personal Microsoft 365 test tenant. Sources: MicrosoftLearning GitHub (Labs 1–9) and Microsoft Learn interactive exercises (Labs 4, 7, 10, 11).
+
+| Filename | `<h1>` title |
+|---|---|
+| `ms102-lab1.html` | MS-102 Lab 1 – Tenant Initialization, Users, Groups & Domain |
+| `ms102-lab2.html` | MS-102 Lab 2 – Roles, Monitoring & Microsoft 365 Apps |
+| `ms102-lab3.html` | MS-102 Lab 3 – Identity Synchronization |
+| `ms102-lab4.html` | MS-102 Lab 4 – Secure User Access & Privileged Identity Management |
+| `ms102-lab5.html` | MS-102 Lab 5 – Microsoft Defender for Office 365 |
+| `ms102-lab6.html` | MS-102 Lab 6 – Alert Policies & Attack Simulation Training |
+| `ms102-lab7.html` | MS-102 Lab 7 – Retention Policies |
+| `ms102-lab8.html` | MS-102 Lab 8 – Data Loss Prevention |
+| `ms102-lab9.html` | MS-102 Lab 9 – Sensitivity Labels |
+| `ms102-lab10.html` | MS-102 Lab 10 – Conditional Access |
+| `ms102-lab11.html` | MS-102 Lab 11 – Authentication Methods |
+
 ---
 
-**Totals**: 59 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy. Verified every file in all six folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)
+**Totals**: 70 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs. Verified every file in all seven folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

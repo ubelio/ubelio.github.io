@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS-102 Lab 2 – Roles, Monitoring & Microsoft 365 Apps | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">MS-102 Lab 2 – Roles, Monitoring & Microsoft 365 Apps</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft 365 Administrator Essentials — Lab 2</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms102-lab2.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 2 – Roles, Monitoring & Microsoft 365 Apps</h2>
+  <p style="color:#555; margin-top:0;">MS-102: Microsoft 365 Administrator Essentials</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Managed Microsoft 365 administrative roles and compliance role groups, monitored tenant health and activity, and configured Microsoft 365 Apps deployment settings.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Reviewed built-in Microsoft 365 admin roles and assigned roles to pilot project users</li>
+    <li>Created and managed role groups in the Microsoft Purview compliance portal</li>
+    <li>Monitored Microsoft 365 service health and reviewed active incidents and advisories in the admin center</li>
+    <li>Configured service health notification preferences and activity-based alert policies</li>
+    <li>Reviewed Microsoft 365 adoption and usage reports in the admin center</li>
+    <li>Configured Microsoft 365 Apps update channel settings and deployment preferences</li>
+  </ul>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_02_Lab2_Ex1_Manage_roles_and_role_groups.md" target="_blank" rel="noopener noreferrer">Exercise 1</a>, <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_02_Lab2_Ex2_Monitor_Microsoft_365.md" target="_blank" rel="noopener noreferrer">Exercise 2</a>, and <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_02_Lab2_Ex3_M365_Apps.md" target="_blank" rel="noopener noreferrer">Exercise 3</a> from the MS-102T00 MicrosoftLearning GitHub repository. All steps were executed in a personal, paid Microsoft 365 test tenant.</p>
+
+  <p class="back-link"><a href="/ms102labs.html">← Back to MS-102 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

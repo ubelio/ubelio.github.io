@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS-102 Lab 1 – Tenant Initialization, Users, Groups & Domain | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">MS-102 Lab 1 – Tenant Initialization, Users, Groups & Domain</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft 365 Administrator Essentials — Lab 1</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms102-lab1.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 1 – Tenant Initialization, Users, Groups & Domain</h2>
+  <p style="color:#555; margin-top:0;">MS-102: Microsoft 365 Administrator Essentials</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Set up the foundational configuration of a Microsoft 365 tenant, including organization profile settings, audit logging, Information Rights Management, and PowerShell tooling. Created and managed user accounts, Microsoft 365 groups, a security group, and added a custom domain.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Configured the M365 organization profile: name, address, language, and targeted release preferences for select users</li>
+    <li>Enabled Information Rights Management (IRM) for SharePoint Online via the classic SharePoint admin center</li>
+    <li>Installed the Microsoft Graph PowerShell module and set execution policy to RemoteSigned</li>
+    <li>Enabled unified audit logging via Exchange Online Management module (Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true)</li>
+    <li>Created the Holly Dickson Global Administrator account; freed up licenses by unassigning them from an existing user</li>
+    <li>Created a custom M365 theme for the pilot project group to display the signed-in user's name in the header band</li>
+    <li>Created Microsoft 365 groups: M365 Pilot Project, Inside Sales, and Accounting — with assigned owners and members</li>
+    <li>Created the IT Admins security group and added administrative personnel as members</li>
+    <li>Deleted the Inside Sales group and restored it using Microsoft Graph PowerShell (Restore-MgDirectoryDeletedItem)</li>
+    <li>Added a custom domain to the Microsoft 365 tenant and validated DNS records</li>
+  </ul>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_01_Lab1_Ex1_Initialize_M365_Tenant.md" target="_blank" rel="noopener noreferrer">Exercise 1</a>, <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_01_Lab1_Ex2_Manage_Users_and_Groups.md" target="_blank" rel="noopener noreferrer">Exercise 2</a>, and <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_01_Lab1_Ex3_Add_a_Domain.md" target="_blank" rel="noopener noreferrer">Exercise 3</a> from the MS-102T00 MicrosoftLearning GitHub repository. All steps were executed in a personal, paid Microsoft 365 test tenant.</p>
+
+  <p class="back-link"><a href="/ms102labs.html">← Back to MS-102 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS-102 Lab 7 – Retention Policies | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">MS-102 Lab 7 – Retention Policies</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft 365 Administrator Essentials — Lab 7</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms102-lab7.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 7 – Retention Policies</h2>
+  <p style="color:#555; margin-top:0;">MS-102: Microsoft 365 Administrator Essentials</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Created and configured retention policies and retention labels in Microsoft Purview to enforce data lifecycle governance across Exchange, SharePoint, OneDrive, and Teams — using both the official GitHub lab and supplemental Microsoft Learn exercises.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Created a tenant-wide retention policy covering Exchange mailboxes, SharePoint sites, and OneDrive accounts</li>
+    <li>Configured a separate retention policy for Teams channel messages with a shorter retention period</li>
+    <li>Created retention labels with specific retain-then-delete lifecycle settings</li>
+    <li>Published retention labels via a label policy targeted to pilot project users</li>
+    <li>Configured an auto-apply retention label policy based on sensitive information type detection</li>
+    <li>Created and published additional retention policies and labels via Microsoft Learn interactive exercises</li>
+    <li>Reviewed retention policy status and verified coverage across workloads in the Purview compliance portal</li>
+  </ul>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_07_Lab7_Ex1_Retention_Policies.md" target="_blank" rel="noopener noreferrer">Lab 7 – Exercise 1</a> from the MS-102T00 MicrosoftLearning GitHub repository; and Microsoft Learn exercises <a href="https://learn.microsoft.com/en-us/training/modules/purview-implement-manage-retention/exercise-retention-policies" target="_blank" rel="noopener noreferrer">Implement Retention Policies</a>, <a href="https://learn.microsoft.com/en-us/training/modules/purview-implement-manage-retention/exercise-retention-labels" target="_blank" rel="noopener noreferrer">Implement Retention Labels</a>, <a href="https://learn.microsoft.com/en-us/training/modules/purview-exercise-implement-retention-ediscovery-communication-compliance/create-retention-policy" target="_blank" rel="noopener noreferrer">Create a Retention Policy</a>, and <a href="https://learn.microsoft.com/en-us/training/modules/purview-exercise-implement-retention-ediscovery-communication-compliance/create-retention-label" target="_blank" rel="noopener noreferrer">Create a Retention Label</a>. All steps were executed in a personal, paid Microsoft 365 test tenant.</p>
+
+  <p class="back-link"><a href="/ms102labs.html">← Back to MS-102 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

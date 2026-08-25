@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS-102 Lab 4 – Secure User Access & Privileged Identity Management | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">MS-102 Lab 4 – Secure User Access & Privileged Identity Management</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft 365 Administrator Essentials — Lab 4</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "ms102-lab4.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 4 – Secure User Access & Privileged Identity Management</h2>
+  <p style="color:#555; margin-top:0;">MS-102: Microsoft 365 Administrator Essentials</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Hardened user authentication with smart lockout and MFA controls, then deployed and tested three distinct PIM role activation workflows — admin approval, self-approval, and peer approval. Also completed a Microsoft Learn exercise assigning Azure resource roles through PIM.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Reviewed and configured Microsoft Entra smart lockout thresholds and lockout duration</li>
+    <li>Verified MFA registration requirements and SSPR policy settings for pilot project users</li>
+    <li>Configured a PIM role setting requiring admin approval before role activation</li>
+    <li>Tested the admin-approval workflow: submitted a role activation request, approved it as a second admin, and verified activation</li>
+    <li>Configured a second PIM role for self-approval and validated the self-service activation flow end-to-end</li>
+    <li>Configured a third PIM role for teammate approval and verified the peer-approval path end-to-end</li>
+    <li>Assigned an Azure Virtual Machine Contributor resource role in PIM and configured activation duration and justification requirements (Microsoft Learn exercise)</li>
+  </ul>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_04_Lab4_Ex1_Manage_secure_user_access.md" target="_blank" rel="noopener noreferrer">Exercise 1</a>, <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_04_Lab4_Ex2_PIM_Admin_Approval.md" target="_blank" rel="noopener noreferrer">Exercise 2</a>, <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_04_Lab4_Ex3_PIM_Self_Approval.md" target="_blank" rel="noopener noreferrer">Exercise 3</a>, and <a href="https://github.com/MicrosoftLearning/MS-102T00-Microsoft-365-Administrator-Essentials/blob/master/Instructions/Labs/LAB_AK_04_Lab4_Ex4_PIM_Teammate_Approval.md" target="_blank" rel="noopener noreferrer">Exercise 4</a> from the MS-102T00 MicrosoftLearning GitHub repository; and <a href="https://learn.microsoft.com/en-us/training/modules/plan-implement-privileged-access/6-assign-azure-resource-roles-privileged-identity-management" target="_blank" rel="noopener noreferrer">Assign Azure Resource Roles in PIM</a> from Microsoft Learn. All steps were executed in a personal, paid Microsoft 365 test tenant.</p>
+
+  <p class="back-link"><a href="/ms102labs.html">← Back to MS-102 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
