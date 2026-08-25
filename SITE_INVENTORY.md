@@ -8,8 +8,9 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 |---|---|
 | `index.html` | Homepage — bio, skills, certifications |
 | `projects.html` | Hub page — links to every project writeup (in `projects/` and three at repo root) |
-| `labs.html` | Top-level hub — links to `agentacademy.html`, `ms102labs.html`, the five lab-category hub pages below, plus 5 "Coming Soon" placeholder `<li>` entries (`href="#"`, no pages yet) for SC-200, SC-300, AZ-104, MD-102, AZ-500 |
+| `labs.html` | Top-level hub — links to `agentacademy.html`, `ms102labs.html`, `sc200labs.html`, the five lab-category hub pages below, plus 4 "Coming Soon" placeholder `<li>` entries (`href="#"`, no pages yet) for SC-300, AZ-104, MD-102, AZ-500 |
 | `ms102labs.html` | Hub page — links to the 11 `MS-102Labs/` lab writeups |
+| `sc200labs.html` | Hub page — links to the 9 `SC-200Labs/` lab writeups |
 | `scripts.html` | Hub page — PowerShell scripts with excerpts, download links, and links back to project writeups |
 | `homelabconfig.html` | Writeup — home lab equipment and configuration |
 | `homelabfirewall.html` | Hub page — links to the `FirewallSetup/` lab writeups |
@@ -73,6 +74,22 @@ MS-102 exam prep lab writeups, linked from `ms102labs.html`. Completed in a pers
 | `ms102-lab10.html` | Lab 10 — Conditional Access policies |
 | `ms102-lab11.html` | Lab 11 — Authentication methods (MFA, SSPR, passwordless) |
 
+## `SC-200Labs/` (9 files + 11 images)
+
+SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an employer-provided Azure subscription (resources deleted after each lab) and a personal Microsoft 365 E5 test tenant. Pages include embedded lab architecture diagrams sourced from MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst under MIT License.
+
+| File | What it is |
+|---|---|
+| `sc200-lab1.html` | Lab 1 — Microsoft Defender XDR |
+| `sc200-lab2.html` | Lab 2 — Microsoft Security Copilot |
+| `sc200-lab3.html` | Lab 3 — Purview: Audit, DLP, eDiscovery & Insider Risk |
+| `sc200-lab4.html` | Lab 4 — Microsoft Defender for Endpoint |
+| `sc200-lab5.html` | Lab 5 — Kusto Query Language (KQL) |
+| `sc200-lab6.html` | Lab 6 — Sentinel deployment and data connectors |
+| `sc200-lab7.html` | Lab 7 — Sentinel analytics rules, detections, and ASIM |
+| `sc200-lab8.html` | Lab 8 — Sentinel incidents, playbooks, and investigation |
+| `sc200-lab9.html` | Lab 9 — Sentinel threat hunting, workbooks, and notebooks |
+
 ---
 
-**Totals**: 122 HTML files — 16 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`.
+**Totals**: 132 HTML files — 17 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`.

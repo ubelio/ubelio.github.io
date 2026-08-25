@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200 Lab 3 – Microsoft Purview: Audit, DLP, eDiscovery & Insider Risk | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+    figure { background: #E6E5DE; padding: 16px; border-radius: 4px; margin: 20px 0; text-align: center; }
+    .screenshot { max-width: 100%; height: auto; border: 1px solid #BDBBB2; }
+    figcaption.screenshot-note { font-size: 0.85em; color: #666; margin-top: 8px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200 Lab 3 – Microsoft Purview: Audit, DLP, eDiscovery & Insider Risk</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft Security Operations Analyst — Lab 3</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200-lab3.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 3 – Microsoft Purview: Audit, DLP, eDiscovery & Insider Risk</h2>
+  <p style="color:#555; margin-top:0;">SC-200: Microsoft Security Operations Analyst</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Explored Microsoft Purview compliance capabilities relevant to a security operations analyst role — including audit log search, DLP alert investigation, eDiscovery content search, and insider risk alert triage.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Explored the Microsoft Purview compliance portal and reviewed the Audit solution</li>
+    <li>Searched the unified audit log for user and admin activity events</li>
+    <li>Reviewed and investigated a Data Loss Prevention policy alert, examined matched content and policy details</li>
+    <li>Created and ran a Content Search in Microsoft Purview eDiscovery to locate items across Exchange and SharePoint</li>
+    <li>Reviewed eDiscovery search results, exported a report, and examined match statistics</li>
+    <li>Navigated to the Insider Risk Management solution and investigated an active insider risk alert</li>
+    <li>Reviewed the insider risk alert timeline, user activity sequence, and available triage actions</li>
+  </ul>
+  <p>Environment: Microsoft 365 E5 test tenant.</p>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_03_Lab1_Ex01_Explore_Purview_Audit.html" target="_blank" rel="noopener noreferrer">Lab 3 – Exercise 1: Explore Microsoft Purview Audit</a> from the SC-200T00A MicrosoftLearning GitHub repository; and Microsoft Learn exercises <a href="https://learn.microsoft.com/en-us/training/modules/purview-data-loss-prevention-alerts/exercise-investigate-alert" target="_blank" rel="noopener noreferrer">Investigate a DLP Alert</a>, <a href="https://learn.microsoft.com/en-us/training/modules/purview-exercise-implement-retention-ediscovery-communication-compliance/search-ediscovery" target="_blank" rel="noopener noreferrer">Search with eDiscovery</a>, and <a href="https://learn.microsoft.com/en-us/training/modules/purview-insider-risk-investigate-alerts/exercise-investigate-alert" target="_blank" rel="noopener noreferrer">Investigate an Insider Risk Alert</a>. Completed in a personal Microsoft 365 E5 test tenant.</p>
+
+  <p class="back-link"><a href="/sc200labs.html">← Back to SC-200 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200 Lab 6 – Microsoft Sentinel: Deployment & Data Connectors | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+    figure { background: #E6E5DE; padding: 16px; border-radius: 4px; margin: 20px 0; text-align: center; }
+    .screenshot { max-width: 100%; height: auto; border: 1px solid #BDBBB2; }
+    figcaption.screenshot-note { font-size: 0.85em; color: #666; margin-top: 8px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200 Lab 6 – Microsoft Sentinel: Deployment & Data Connectors</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft Security Operations Analyst — Lab 6</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200-lab6.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 6 – Microsoft Sentinel: Deployment & Data Connectors</h2>
+  <p style="color:#555; margin-top:0;">SC-200: Microsoft Security Operations Analyst</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Deployed Microsoft Sentinel into Microsoft Defender and established data ingestion from multiple sources — Defender for Cloud, Azure Activity, Windows devices via AMA, Linux hosts via CEF and Syslog, and Defender XDR. Supplemented with Microsoft Learn exercises covering SIEM configuration and the Sentinel-to-Defender XDR integration.</p>
+
+  <figure>
+    <img src="SC-200-Lab_Diagrams_Mod6_L1_Ex1.png" alt="Connect data to Microsoft Sentinel: Sentinel Content Hub connecting Defender for Cloud and Azure Activity connectors" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Deployed Microsoft Sentinel and connected it to a Log Analytics workspace in the Defender portal</li>
+    <li>Accessed the Sentinel Content Hub and installed solution packages for key data connectors</li>
+    <li>Connected the Microsoft Defender for Cloud data connector (enabled incident creation)</li>
+    <li>Connected the Azure Activity data connector to ingest subscription-level events</li>
+  </ul>
+
+  <figure>
+    <img src="SC-200-Lab_Diagrams_Mod6_L1_Ex2.png" alt="Connect Windows devices to Microsoft Sentinel: Azure VM with AMA connector and non-Azure Windows machine via Azure Arc" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <ul class="tasks-list">
+    <li>Created an Azure Windows Virtual Machine (AZWIN01) in a dedicated resource group</li>
+    <li>Connected the Azure VM to Sentinel using the Windows Security Events via AMA connector and a Data Collection Rule</li>
+    <li>Connected a non-Azure Windows machine (WINServer) to Sentinel via Azure Arc and the AMA connector</li>
+  </ul>
+
+  <figure>
+    <img src="SC-200-Lab_Diagrams_Mod6_L1_Ex3.png" alt="Connect Linux hosts to Microsoft Sentinel: LIN1 via CEF connector and LIN2 via Syslog connector to Log Analytics workspace" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <ul class="tasks-list">
+    <li>Connected a Linux host (LIN1) to Sentinel using the Common Event Format (CEF) connector</li>
+    <li>Connected a second Linux host (LIN2) using the Syslog connector and configured facility/severity collection</li>
+    <li>Connected Microsoft Defender XDR as a data connector to ingest XDR incidents and alerts into Sentinel</li>
+    <li>Configured SIEM security operations settings across three Microsoft Learn interactive exercises</li>
+    <li>Deployed Sentinel to Microsoft Defender XDR via the integration simulation exercise (Microsoft Learn)</li>
+  </ul>
+  <p>Environment: Employer-provided Azure subscription (resources deleted after lab).</p>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_06_Lab1_Ex01_Deploy_Sentinel_Defender.html" target="_blank" rel="noopener noreferrer">Lab 6 – Exercise 1: Deploy Sentinel</a>, <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_07_Lab1_Ex01_Connect_Services_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 1: Connect Services</a>, <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_07_Lab1_Ex02_Connect_Windows_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 2: Connect Windows</a>, <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_07_Lab1_Ex03_Connect_Linux_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 3: Connect Linux</a>, and <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_07_Lab1_Ex04_Connect_Defender_XDR.html" target="_blank" rel="noopener noreferrer">Exercise 4: Connect Defender XDR</a> from the SC-200T00A MicrosoftLearning GitHub repository; and Microsoft Learn exercises <a href="https://learn.microsoft.com/en-us/training/modules/configure-siem-security-operations-using-microsoft-sentinel/3-exercise" target="_blank" rel="noopener noreferrer">SIEM Configuration Exercise 1</a>, <a href="https://learn.microsoft.com/en-us/training/modules/configure-siem-security-operations-using-microsoft-sentinel/5-exercise" target="_blank" rel="noopener noreferrer">Exercise 2</a>, <a href="https://learn.microsoft.com/en-us/training/modules/configure-siem-security-operations-using-microsoft-sentinel/6-exercise" target="_blank" rel="noopener noreferrer">Exercise 3</a>, and <a href="https://learn.microsoft.com/en-us/training/modules/integrate-microsoft-defender-xdr-with-microsoft-sentinel/simulation-exercise-deploy-sentinel-to-defender" target="_blank" rel="noopener noreferrer">Deploy Sentinel to Defender XDR</a>. Completed in an employer-provided Azure subscription.</p>
+
+  <p class="back-link"><a href="/sc200labs.html">← Back to SC-200 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200 Lab 7 – Microsoft Sentinel: Analytics Rules, Detections & ASIM | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+    figure { background: #E6E5DE; padding: 16px; border-radius: 4px; margin: 20px 0; text-align: center; }
+    .screenshot { max-width: 100%; height: auto; border: 1px solid #BDBBB2; }
+    figcaption.screenshot-note { font-size: 0.85em; color: #666; margin-top: 8px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200 Lab 7 – Microsoft Sentinel: Analytics Rules, Detections & ASIM</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft Security Operations Analyst — Lab 7</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200-lab7.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 7 – Microsoft Sentinel: Analytics Rules, Detections & ASIM</h2>
+  <p style="color:#555; margin-top:0;">SC-200: Microsoft Security Operations Analyst</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Built Sentinel analytics rules from scheduled queries, configured entity behavior analytics, simulated three real-world attack patterns against a connected server, wrote KQL detection rules for each attack, and implemented ASIM (Advanced Security Information Model) normalization parsers. Supplemented with Microsoft Learn exercises for Sentinel analytics setup and threat detection.</p>
+
+  <figure>
+    <img src="SC-200-Lab_Diagrams_Mod9_L1_Ex5.png" alt="Prepare for simulated attacks: onboard WinServer to Azure Arc and understand three attack types — persistence registry key, user add privilege elevation, and DNS C2" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Created a scheduled query analytics rule from a Sentinel template</li>
+    <li>Configured entity behavior analytics (UEBA) and enabled entity pages for users and hosts</li>
+    <li>Connected WinServer to Azure Arc as an on-premises server target for attack simulations</li>
+    <li>Simulated Attack 1: Persistence via registry key add (startup.bat RegKey)</li>
+    <li>Simulated Attack 2: User add and privilege elevation (SecurityEvent — Local Administrators)</li>
+    <li>Simulated Attack 3: Command and Control DNS query (C2 DNS beaconing)</li>
+  </ul>
+
+  <figure>
+    <img src="SC-200-Lab_Diagrams_Mod7_L1_Ex7.png" alt="Create Detections: three scheduled query rules detecting persistence registry key, privilege elevation user add, and C2 DNS query attacks" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <ul class="tasks-list">
+    <li>Created a scheduled query detection rule for the persistence attack (startup.bat RegKey in SecurityEvent)</li>
+    <li>Created a scheduled query detection rule for the privilege elevation attack (Local Administrators User Add)</li>
+    <li>Created a scheduled query detection rule for the C2 DNS attack (C2 DNS query pattern)</li>
+    <li>Implemented an ASIM (Advanced Security Information Model) network session parser to normalize connector data</li>
+    <li>Configured Microsoft Sentinel analytics settings and detected threats via two Microsoft Learn exercises</li>
+  </ul>
+  <p>Environment: Employer-provided Azure subscription (resources deleted after lab).</p>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex02_Scheduled_Query_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 2: Scheduled Query</a>, <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex03_Entity_Behavior_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 3: Entity Behavior</a>, <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex04_Attacks_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 4: Understand Attacks</a>, <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex05_Perform_Attacks_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 5: Perform Attacks</a>, <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex06_Detections_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 6: Create Detections</a>, and <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex08_ASIM_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 8: ASIM</a> from the SC-200T00A MicrosoftLearning GitHub repository; and Microsoft Learn exercises <a href="https://learn.microsoft.com/en-us/training/modules/analyze-data-in-sentinel/2-exercise-setup" target="_blank" rel="noopener noreferrer">Analyze Data Setup</a> and <a href="https://learn.microsoft.com/en-us/training/modules/analyze-data-in-sentinel/8-exercise-detect-threats" target="_blank" rel="noopener noreferrer">Detect Threats with Sentinel Analytics</a>. Completed in an employer-provided Azure subscription.</p>
+
+  <p class="back-link"><a href="/sc200labs.html">← Back to SC-200 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

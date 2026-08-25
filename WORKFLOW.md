@@ -225,3 +225,11 @@ Template:
 - **Next 3 actions**: 1) Preview locally to confirm nav active state and all 11 links work from hub. 2) Add Applied Skills credentials that map to MS-102 under the hub page when ready. 3) Build SC-200 labs next using the same 5-prompt pattern.
 - **Blockers**: None.
 - **Validation done**: Verified 11 files in MS-102Labs/, no href="#" dead links in any new page, all pages link /style.css, labs.html Coming Soon entry replaced with real link, all doc totals updated.
+
+### 2026-08-24
+- **Goal**: Build SC-200 lab writeup section — hub page, 9 individual lab pages with embedded MIT-licensed lab architecture diagrams, and full doc updates.
+- **Current status**: Done. `sc200labs.html` hub created at root and linked from `labs.html` (replaced SC-200 Coming Soon placeholder). 9 pages built in `SC-200Labs/` covering Defender XDR, Security Copilot, Purview, Defender for Endpoint, KQL, Sentinel deployment/connectors, Sentinel analytics/detections/ASIM, Sentinel incidents/playbooks, and Sentinel threat hunting/workbooks/notebooks. 11 lab architecture diagram images included under MIT License from MicrosoftLearning/SC-200T00A. CLAUDE.md, SITE_INVENTORY.md, LABS_INVENTORY.md, and WORKFLOW.md updated. Awaiting user review before commit.
+- **Files touched**: sc200labs.html (new), labs.html, SC-200Labs/sc200-lab1.html through sc200-lab9.html (9 new), SC-200Labs/*.png (11 images placed by user), CLAUDE.md, SITE_INVENTORY.md, LABS_INVENTORY.md, WORKFLOW.md
+- **Next 3 actions**: 1) Preview locally to confirm images render, nav active state works, and all 9 hub links resolve. 2) Build SC-300 labs next using the same pattern. 3) Revisit Applied Skills page to add MS-102 and SC-200 credential cross-links.
+- **Blockers**: None.
+- **Validation done**: Verified 9 HTML files in SC-200Labs/, all 11 images present and referenced correctly, no href="#" dead links, all pages link /style.css, labs.html Coming Soon replaced with real link, all doc totals updated.

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200: Microsoft Security Operations Analyst | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .lab-list { list-style: none; padding: 0; }
+    .lab-list li { background: #E0DFD6; margin-bottom: 10px; padding: 12px 16px; border-radius: 4px; }
+    .lab-list li a { color: #0073e6; font-weight: bold; text-decoration: none; }
+    .lab-list li a:hover { text-decoration: underline; }
+    .lab-list li .lab-desc { display: block; color: #444; font-size: 0.95em; margin-top: 4px; }
+    .env-badge { display: inline-block; font-size: 0.8em; background: #141413; color: #C9C8BF; border-radius: 3px; padding: 1px 6px; margin-left: 8px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200: Microsoft Security Operations Analyst</h1>
+  <p style="color:#C9C8BF; margin:0;">Exam Preparation Labs — Azure Subscription & Microsoft 365 E5 Test Tenant</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200labs.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <p>The following labs were completed as hands-on preparation for the <strong>SC-200: Microsoft Security Operations Analyst</strong> exam. Labs were performed across two environments: an employer-provided Azure subscription (resources provisioned and deleted immediately after each lab to control cost) and a personal, paid Microsoft 365 E5 test tenant. Lab instructions sourced from the <a href="https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst" target="_blank" rel="noopener noreferrer">MicrosoftLearning GitHub repository</a> and Microsoft Learn interactive exercises.</p>
+
+  <ul class="lab-list">
+    <li><a href="/SC-200Labs/sc200-lab1.html">Lab 1 – Microsoft Defender XDR</a><span class="env-badge">E5 Tenant</span><span class="lab-desc">Explore the Defender XDR portal, apply preset security policies, and configure the workspace.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab2.html">Lab 2 – Microsoft Security Copilot</a><span class="env-badge">E5 Tenant</span><span class="lab-desc">Explore Security Copilot and use it to investigate and respond to endpoint threats.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab3.html">Lab 3 – Microsoft Purview: Audit, DLP, eDiscovery & Insider Risk</a><span class="env-badge">E5 Tenant</span><span class="lab-desc">Explore Purview Audit, investigate DLP alerts, run eDiscovery searches, and investigate insider risk alerts.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab4.html">Lab 4 – Microsoft Defender for Endpoint</a><span class="env-badge">Azure + E5 Tenant</span><span class="lab-desc">Deploy and configure Defender for Endpoint, onboard devices, mitigate simulated attacks, and harden endpoints.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab5.html">Lab 5 – Kusto Query Language (KQL)</a><span class="env-badge">Azure</span><span class="lab-desc">Write KQL queries against Sentinel log data, build visualizations, and work with multi-table statements.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab6.html">Lab 6 – Microsoft Sentinel: Deployment & Data Connectors</a><span class="env-badge">Azure</span><span class="lab-desc">Deploy Sentinel into Microsoft Defender and connect data from Defender for Cloud, Windows, Linux, and XDR.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab7.html">Lab 7 – Microsoft Sentinel: Analytics Rules, Detections & ASIM</a><span class="env-badge">Azure</span><span class="lab-desc">Create scheduled query rules, simulate attacks, build detections, and implement ASIM parsers.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab8.html">Lab 8 – Microsoft Sentinel: Incidents, Playbooks & Investigation</a><span class="env-badge">Azure</span><span class="lab-desc">Investigate incidents, create Logic Apps playbooks for automated response, and manage Sentinel content.</span></li>
+    <li><a href="/SC-200Labs/sc200-lab9.html">Lab 9 – Microsoft Sentinel: Threat Hunting, Workbooks & Notebooks</a><span class="env-badge">Azure</span><span class="lab-desc">Perform proactive threat hunting with KQL, build Sentinel workbooks, and use Jupyter notebooks for investigation.</span></li>
+  </ul>
+
+  <p style="margin-top:24px;"><a href="/labs.html">← Back to Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

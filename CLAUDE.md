@@ -7,8 +7,9 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 ### Top-level pages (root)
 - `index.html` — homepage / bio / skills summary
 - `projects.html` — index/hub linking to every project writeup, in `projects/` and three at repo root (see quirk below)
-- `labs.html` — top-level hub linking to `agentacademy.html`, `ms102labs.html`, plus the five lab-category hub pages below, plus 5 "Coming Soon" placeholder entries (`href="#"`, no pages yet) for SC-200, SC-300, AZ-104, MD-102, AZ-500
+- `labs.html` — top-level hub linking to `agentacademy.html`, `ms102labs.html`, `sc200labs.html`, plus the five lab-category hub pages below, plus 4 "Coming Soon" placeholder entries (`href="#"`, no pages yet) for SC-300, AZ-104, MD-102, AZ-500
 - `ms102labs.html` — hub page linking to the 11 `MS-102Labs/` lab writeups
+- `sc200labs.html` — hub page linking to the 9 `SC-200Labs/` lab writeups
 - `scripts.html` — index/hub linking to files in `scripts/`
 - `homelabconfig.html` — hub for the homelab writeups (links into `FirewallSetup/`, `DLP-Labs/`, etc.)
 - `homelabfirewall.html` — homelab firewall overview/hub
@@ -26,6 +27,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `AppliedSkills/` — 23 Microsoft Applied Skills credential writeups, linked from `appliedskills.html`. Structurally distinct from the other four lab folders — see §2 and `WORKFLOW.md`'s "Adding an Applied Skills Page" section.
 - `AgentAcademy/` — Copilot Studio Agent Academy lab writeups (Rank Progression, Special Ops, and Cowork Collective tracks), linked from `agentacademy.html`. Structurally similar to `AppliedSkills/` (badge image + at-a-glance table + Overview + What I Built + View Badge) — see §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section. As of this writing 7 of 10 linked pages exist; the remaining 3 (Cowork Collective track: `badge-check.html`, `out-of-office.html`, `compliance-packet.html`) are still to be built.
 - `MS-102Labs/` — 11 MS-102 exam prep lab writeups (tenant admin, identity sync, Defender for Office 365, Purview compliance, Conditional Access, authentication), linked from `ms102labs.html`
+- `SC-200Labs/` — 9 SC-200 exam prep lab writeups (Defender XDR, Security Copilot, Purview, Defender for Endpoint, KQL, Sentinel deployment/analytics/incidents/hunting), linked from `sc200labs.html`. Includes 11 lab architecture diagram images licensed MIT from MicrosoftLearning/SC-200T00A.
 - `scripts/` — raw PowerShell scripts (`.ps1`) referenced/linked from `scripts.html`.
 
 ### Asset convention
@@ -33,7 +35,7 @@ Screenshots and diagrams live **next to** the HTML file that uses them (same fol
 
 ## 2. Styling Conventions
 
-**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (122 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
+**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (132 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
 
 `style.css` contains only the universal site chrome, shared byte-for-byte across every page before the refactor:
 - `body` (font-family, margin, background-color, color)

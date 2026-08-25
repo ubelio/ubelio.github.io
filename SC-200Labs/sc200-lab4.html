@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200 Lab 4 – Microsoft Defender for Endpoint | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+    figure { background: #E6E5DE; padding: 16px; border-radius: 4px; margin: 20px 0; text-align: center; }
+    .screenshot { max-width: 100%; height: auto; border: 1px solid #BDBBB2; }
+    figcaption.screenshot-note { font-size: 0.85em; color: #666; margin-top: 8px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200 Lab 4 – Microsoft Defender for Endpoint</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft Security Operations Analyst — Lab 4</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200-lab4.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 4 – Microsoft Defender for Endpoint</h2>
+  <p style="color:#555; margin-top:0;">SC-200: Microsoft Security Operations Analyst</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Deployed and configured Microsoft Defender for Endpoint, onboarded a Windows device, configured roles and device groups, then ran a simulated backdoor attack and investigated the resulting multi-stage incident. Supplemented with Microsoft Learn exercises covering endpoint hardening, Defender for Cloud, and Entra ID Protection policies.</p>
+
+  <figure>
+    <img src="SC-200-Lab_Diagrams_Mod2_L1_Ex1.png" alt="Deploy Microsoft Defender for Endpoint: initialize, onboard device, configure role and device groups" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Initialized Microsoft Defender for Endpoint and configured standard device discovery</li>
+    <li>Onboarded a Windows device (Win1) using a local onboarding script package</li>
+    <li>Configured a Tier 1 support role and assigned the sg-IT security group</li>
+    <li>Created a Regular device group scoped to Win1 and assigned to sg-IT</li>
+    <li>Ran a simulated automated investigation attack (RS4_WinATP-Intro-Invoice.docx backdoor) against the onboarded device</li>
+  </ul>
+
+  <figure>
+    <img src="SC-200-Lab_Diagrams_Mod2_L1_Ex2_10_19.png" alt="Mitigate Attacks with Microsoft Defender for Endpoint: simulated attack flow and multi-stage incident review" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <ul class="tasks-list">
+    <li>Reviewed the resulting multi-stage incident in Microsoft Defender XDR (Incidents & alerts)</li>
+    <li>Hardened endpoints using Intune and Defender for Endpoint security baselines (Microsoft Learn exercise)</li>
+    <li>Explored the Defender for Cloud interactive guide and reviewed security recommendations (Microsoft Learn exercise)</li>
+    <li>Enabled the sign-in risk policy in Microsoft Entra ID Protection to require MFA on medium/high risk sign-ins</li>
+    <li>Configured the MFA registration policy in Entra ID Protection to enforce combined registration for the pilot group</li>
+  </ul>
+  <p>Environment: Employer-provided Azure subscription (resources deleted after lab) and Microsoft 365 E5 test tenant.</p>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_04_Lab1_Ex01_Deploy_Defender_Endpoint.html" target="_blank" rel="noopener noreferrer">Exercise 1: Deploy Microsoft Defender for Endpoint</a> and <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_04_Lab1_Ex02_Mitigate_Attacks.html" target="_blank" rel="noopener noreferrer">Exercise 2: Mitigate Attacks</a> from the SC-200T00A MicrosoftLearning GitHub repository; and Microsoft Learn exercises <a href="https://learn.microsoft.com/en-us/training/modules/harden-endpoints-monitor-security-intune-defender-endpoint/5-exercise-harden-monitor-endpoints" target="_blank" rel="noopener noreferrer">Harden and Monitor Endpoints</a>, <a href="https://learn.microsoft.com/en-us/training/modules/what-is-azure-defender/4-exercise-azure-security-center-interactive-guide" target="_blank" rel="noopener noreferrer">Defender for Cloud Interactive Guide</a>, <a href="https://learn.microsoft.com/en-us/training/modules/manage-azure-active-directory-identity-protection/4-exercise-enable-sign-risk-policy" target="_blank" rel="noopener noreferrer">Enable Sign-In Risk Policy</a>, and <a href="https://learn.microsoft.com/en-us/training/modules/manage-azure-active-directory-identity-protection/5-exercise-configure-multi-factor-authentication-registration-policy" target="_blank" rel="noopener noreferrer">Configure MFA Registration Policy</a>. Completed in an employer-provided Azure subscription and a personal Microsoft 365 E5 test tenant.</p>
+
+  <p class="back-link"><a href="/sc200labs.html">← Back to SC-200 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

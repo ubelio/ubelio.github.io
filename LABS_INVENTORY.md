@@ -1,6 +1,6 @@
 # LABS_INVENTORY.md
 
-Every lab writeup across the seven lab folders, with its page `<h1>` title and the hub page that links to it. All seven hub pages are themselves reached from the top-level `labs.html`, which also carries 5 "Coming Soon" placeholder entries (SC-200, SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
+Every lab writeup across the eight lab folders, with its page `<h1>` title and the hub page that links to it. All eight hub pages are themselves reached from the top-level `labs.html`, which also carries 4 "Coming Soon" placeholder entries (SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
 
 ## `SC-401Labs/` — linked from `SC-401labs.html`
 
@@ -117,6 +117,22 @@ MS-102 exam prep labs completed in a personal Microsoft 365 test tenant. Sources
 | `ms102-lab10.html` | MS-102 Lab 10 – Conditional Access |
 | `ms102-lab11.html` | MS-102 Lab 11 – Authentication Methods |
 
+## `SC-200Labs/` — linked from `sc200labs.html`
+
+SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsoft Learn interactive exercises. Environment: employer Azure subscription (Labs 4–9) and personal E5 tenant (Labs 1–3). Lab architecture diagrams included under MIT License from MicrosoftLearning/SC-200T00A.
+
+| Filename | `<h1>` title |
+|---|---|
+| `sc200-lab1.html` | SC-200 Lab 1 – Microsoft Defender XDR |
+| `sc200-lab2.html` | SC-200 Lab 2 – Microsoft Security Copilot |
+| `sc200-lab3.html` | SC-200 Lab 3 – Microsoft Purview: Audit, DLP, eDiscovery & Insider Risk |
+| `sc200-lab4.html` | SC-200 Lab 4 – Microsoft Defender for Endpoint |
+| `sc200-lab5.html` | SC-200 Lab 5 – Kusto Query Language (KQL) |
+| `sc200-lab6.html` | SC-200 Lab 6 – Microsoft Sentinel: Deployment & Data Connectors |
+| `sc200-lab7.html` | SC-200 Lab 7 – Microsoft Sentinel: Analytics Rules, Detections & ASIM |
+| `sc200-lab8.html` | SC-200 Lab 8 – Microsoft Sentinel: Incidents, Playbooks & Investigation |
+| `sc200-lab9.html` | SC-200 Lab 9 – Microsoft Sentinel: Threat Hunting, Workbooks & Notebooks |
+
 ---
 
-**Totals**: 70 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs. Verified every file in all seven folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)
+**Totals**: 79 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs. Verified every file in all eight folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

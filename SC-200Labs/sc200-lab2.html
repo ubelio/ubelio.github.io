@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200 Lab 2 – Microsoft Security Copilot | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+    figure { background: #E6E5DE; padding: 16px; border-radius: 4px; margin: 20px 0; text-align: center; }
+    .screenshot { max-width: 100%; height: auto; border: 1px solid #BDBBB2; }
+    figcaption.screenshot-note { font-size: 0.85em; color: #666; margin-top: 8px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200 Lab 2 – Microsoft Security Copilot</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft Security Operations Analyst — Lab 2</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200-lab2.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 2 – Microsoft Security Copilot</h2>
+  <p style="color:#555; margin-top:0;">SC-200: Microsoft Security Operations Analyst</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Explored Microsoft Security Copilot in both the standalone experience and embedded within Microsoft Defender XDR. Used Copilot to investigate a security incident and accelerate endpoint threat response using natural language prompts.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Explored the Microsoft Security Copilot standalone portal and reviewed available promptbooks and plugins</li>
+    <li>Configured Security Copilot capacity settings and connected it to the Microsoft 365 tenant</li>
+    <li>Used Security Copilot to summarize a security incident and generate a threat assessment</li>
+    <li>Switched to the Copilot embedded experience in Microsoft Defender XDR</li>
+    <li>Used embedded Copilot to investigate an endpoint alert, analyze script behavior, and generate a guided response</li>
+    <li>Reviewed Copilot session history and audit logging for prompt traceability</li>
+  </ul>
+  <p>Environment: Microsoft 365 E5 test tenant.</p>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_02_Lab1_Ex01_Explore_Copilot_Security.html" target="_blank" rel="noopener noreferrer">Lab 2 – Exercise 1: Explore Microsoft Security Copilot</a> from the SC-200T00A MicrosoftLearning GitHub repository; and <a href="https://learn.microsoft.com/en-us/training/modules/accelerate-endpoint-remediation-response-security-copilot/5-exercise-investigate-respond" target="_blank" rel="noopener noreferrer">Exercise: Investigate and Respond with Security Copilot</a> from Microsoft Learn. Completed in a personal Microsoft 365 E5 test tenant.</p>
+
+  <p class="back-link"><a href="/sc200labs.html">← Back to SC-200 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

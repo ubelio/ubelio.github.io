@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200 Lab 1 – Microsoft Defender XDR | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+    figure { background: #E6E5DE; padding: 16px; border-radius: 4px; margin: 20px 0; text-align: center; }
+    .screenshot { max-width: 100%; height: auto; border: 1px solid #BDBBB2; }
+    figcaption.screenshot-note { font-size: 0.85em; color: #666; margin-top: 8px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200 Lab 1 – Microsoft Defender XDR</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft Security Operations Analyst — Lab 1</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200-lab1.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 1 – Microsoft Defender XDR</h2>
+  <p style="color:#555; margin-top:0;">SC-200: Microsoft Security Operations Analyst</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Explored the Microsoft Defender XDR portal and configured preset email security policies. Applied Standard and Strict protection profiles to the tenant domain and a leadership group, then prepared the Defender XDR workspace for the remaining labs.</p>
+
+  <figure>
+    <img src="SC-200-Lab_M1_L1_Ex1.png" alt="Defender XDR preset security policy architecture showing Standard and Strict protection profiles" class="screenshot">
+    <figcaption class="screenshot-note">Lab architecture diagram — Source: MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst, MIT License</figcaption>
+  </figure>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Obtained Microsoft Defender XDR trial credentials and accessed the Defender portal</li>
+    <li>Applied the Standard protection preset security policy to the tenant domain (anti-phishing, anti-spam, anti-malware, Safe Attachments, Safe Links)</li>
+    <li>Applied the Strict protection preset security policy scoped to a Leadership group</li>
+    <li>Explored the Microsoft Defender XDR portal layout: incidents, alerts, advanced hunting, and the action center</li>
+    <li>Prepared the Defender XDR workspace for subsequent lab exercises</li>
+  </ul>
+  <p>Environment: Microsoft 365 E5 test tenant.</p>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_01_Lab1_Ex01_Explore_Defender_XDR.html" target="_blank" rel="noopener noreferrer">Lab 1 – Exercise 1: Explore Microsoft Defender XDR</a> from the SC-200T00A MicrosoftLearning GitHub repository. Completed in a personal Microsoft 365 E5 test tenant.</p>
+
+  <p class="back-link"><a href="/sc200labs.html">← Back to SC-200 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

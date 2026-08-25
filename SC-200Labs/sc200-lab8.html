@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SC-200 Lab 8 – Microsoft Sentinel: Incidents, Playbooks & Investigation | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .section-divider { border: none; border-top: 1px solid #BDBBB2; margin: 24px 0; }
+    .tasks-list li { margin-bottom: 8px; }
+    .back-link { margin-top: 32px; display: block; }
+    figure { background: #E6E5DE; padding: 16px; border-radius: 4px; margin: 20px 0; text-align: center; }
+    .screenshot { max-width: 100%; height: auto; border: 1px solid #BDBBB2; }
+    figcaption.screenshot-note { font-size: 0.85em; color: #666; margin-top: 8px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">SC-200 Lab 8 – Microsoft Sentinel: Incidents, Playbooks & Investigation</h1>
+  <p style="color:#C9C8BF; margin:0;">Microsoft Security Operations Analyst — Lab 8</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "sc200-lab8.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Lab 8 – Microsoft Sentinel: Incidents, Playbooks & Investigation</h2>
+  <p style="color:#555; margin-top:0;">SC-200: Microsoft Security Operations Analyst</p>
+
+  <h2>Overview</h2>
+  <hr class="section-divider">
+  <p>Investigated Sentinel incidents generated from the simulated attacks in Lab 7, triaged and managed incident workflows, then built a Logic Apps playbook triggered by Sentinel incidents for automated response. Managed Sentinel content using repositories. Supplemented with Microsoft Learn exercises for incident setup and investigation.</p>
+
+  <h2>Tasks Completed</h2>
+  <hr class="section-divider">
+  <ul class="tasks-list">
+    <li>Reviewed Sentinel incidents generated from the Lab 7 attack simulations and analytics rules</li>
+    <li>Triaged incidents: set severity, assigned owner, added comments, and updated incident status</li>
+    <li>Investigated an incident using the Sentinel investigation graph to map entity relationships and attack paths</li>
+    <li>Created a Logic Apps playbook triggered by a Sentinel incident alert rule</li>
+    <li>Configured the playbook to post incident details to a Teams channel as an automated response action</li>
+    <li>Attached the playbook to a Sentinel analytics rule as an automated response action</li>
+    <li>Managed Sentinel content using the Repositories feature to connect a GitHub repository for content deployment</li>
+    <li>Configured incident management settings and investigated a simulated incident via Microsoft Learn exercises</li>
+  </ul>
+  <p>Environment: Employer-provided Azure subscription (resources deleted after lab).</p>
+
+  <h2>Source Material</h2>
+  <hr class="section-divider">
+  <p>Completed using <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex07_Investigate_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 7: Investigate Incidents</a> and <a href="https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_08_Lab1_Ex10_Content_Management_Defender.html" target="_blank" rel="noopener noreferrer">Exercise 10: Content Management</a> from the SC-200T00A MicrosoftLearning GitHub repository; and Microsoft Learn exercises <a href="https://learn.microsoft.com/en-us/training/modules/incident-management-sentinel/2-exercise-setup" target="_blank" rel="noopener noreferrer">Incident Management Setup</a>, <a href="https://learn.microsoft.com/en-us/training/modules/incident-management-sentinel/6-exercise-investigate-incident" target="_blank" rel="noopener noreferrer">Investigate an Incident</a>, <a href="https://learn.microsoft.com/en-us/training/modules/threat-response-sentinel-playbooks/2-exercise-setup" target="_blank" rel="noopener noreferrer">Playbook Setup</a>, and <a href="https://learn.microsoft.com/en-us/training/modules/threat-response-sentinel-playbooks/6-exercise-create-playbook" target="_blank" rel="noopener noreferrer">Create a Playbook</a>. Completed in an employer-provided Azure subscription.</p>
+
+  <p class="back-link"><a href="/sc200labs.html">← Back to SC-200 Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
