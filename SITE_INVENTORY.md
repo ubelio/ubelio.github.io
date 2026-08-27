@@ -20,6 +20,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
 | `appliedskills.html` | Hub page — links to the 23 `AppliedSkills/` credential writeups |
 | `agentacademy.html` | Hub page — links to the `AgentAcademy/` lab writeups (Rank Progression, Special Ops, Cowork Collective tracks); also carries `.coming-soon` entries for ranks/missions not yet completed |
+| `pluralsightlabs.html` | Hub page — links to 50 Pluralsight hands-on lab writeups (all coming soon) |
 | `leading-ai-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-automate-flows.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-platform-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
@@ -92,4 +93,4 @@ SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an
 
 ---
 
-**Totals**: 132 HTML files — 17 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`.
+**Totals**: 133 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`.

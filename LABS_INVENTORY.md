@@ -135,4 +135,74 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 
 ---
 
-**Totals**: 79 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs. Verified every file in all eight folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)
+## `PluralSightLabs/` — linked from `pluralsightlabs.html`
+
+No pages built yet — all 50 entries are coming-soon placeholders on the hub.
+
+**Azure Fundamentals**
+- Accessing and Using the Azure Portal
+- Accessing and Using the Azure Cloud Shell
+- Deploying Your First Azure Virtual Machine
+- Add Existing Data Disk to a VM in Azure
+- Azure Resource Manager Tagging and Locking Scenarios
+- Troubleshooting and Restoring a Misconfigured Virtual Machine
+
+**Networking**
+- Create a Virtual Network
+- Create Multiple Subnets in Azure
+- Create and Configure VNet Peering in Azure
+- Create and Configure VNet Peering in Azure v3
+- Configuring an Azure VNet-to-VNet VPN Gateway (v2)
+- Implement Custom Network Routes in Azure Virtual Network
+- Implementing Secure VNet Peering Between Departmental Networks
+- Implement and Configure Private DNS in Azure
+- Access Windows VMs over SSL without Public IPs Using Azure Bastion
+
+**Storage**
+- Creating an Azure Storage Account and Blob Container
+- Configuration and Security of Azure Storage Accounts
+- Configuring Azure Private Link for Blob Storage
+- Configure Azure Private Link for Blob Storage
+- Create Service Endpoints Between Virtual Machines and Blob Storage
+- Secure Storage Access with Shared Access Signatures
+- Create a User Delegation SAS Using Azure CLI
+- Limit Access to Azure Storage Account Using SAS URI
+- Create and Restore File Share Snapshots in Azure
+- Expire Data Based on Age in Azure Blob Storage
+
+**Security**
+- Implement Defense in Depth on Azure
+- Secure Network Traffic with NSGs and Azure Firewall
+- Configure Application-Level Rules within Azure Firewall
+- Deploy a Secure Web App Using NSGs and Private Endpoints
+- Securely Access Script Secrets in Azure Key Vault
+- Enabling Always Encrypted in Azure SQL
+- Configure Data Masking in Azure SQL Database
+- Applying Azure Disk Encryption to a Windows Virtual Machine
+- Setting Up Backup and Recovery to Meet Compliance Requirements
+- Deploying a Cost-Optimized Compute and Storage Solution
+
+**Identity & Governance**
+- Create and Manage Microsoft Entra ID Users in the Portal
+- Create a Group and Add a Member in Microsoft Entra ID
+- Perform Bulk Microsoft Entra ID Operations in the Portal
+- Creating and Organizing Azure AD Users and Groups for Access Control
+- Ensuring Compliance with Azure Policies
+- Using Azure Policy and Resource Locks
+- Cost Planning and Management in Azure
+
+**Monitoring**
+- Configure Logging and Alerts with Activity Log and Azure Monitor
+- Configure an Azure Monitor Alert Rule
+- Understanding Azure Monitor Alerting
+- Survey Resource Alerts Using Azure Monitor
+
+**AI & Containers**
+- Analyzing Faces with Azure AI
+- Object Detection with Azure Custom Vision
+- Create Web App from Docker Container in Azure
+- Build and Run a Container Using Azure ACR Tasks
+
+---
+
+**Totals**: 79 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 0 PluralSightLabs (50 planned). Verified every file in all eight folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

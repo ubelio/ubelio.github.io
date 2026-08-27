@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pluralsight Hands-On Labs | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    ul{list-style:none;padding:0}
+    li{background:#E0DFD6;margin:6px 0;padding:10px 14px;border-radius:4px}
+    li a{color:#0073e6;text-decoration:none;font-weight:bold}
+    li a:hover{text-decoration:underline}
+    .coming-soon{color:#888;font-style:italic;font-size:0.9em}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Pluralsight Hands-On Labs</h1>
+  <p style="color:#C9C8BF; margin:0;">Azure hands-on labs completed on the Pluralsight platform</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2>Azure Fundamentals</h2>
+  <hr class="section-divider">
+  <ul>
+    <li><span class="coming-soon">Accessing and Using the Azure Portal — Coming Soon</span></li>
+    <li><span class="coming-soon">Accessing and Using the Azure Cloud Shell — Coming Soon</span></li>
+    <li><span class="coming-soon">Deploying Your First Azure Virtual Machine — Coming Soon</span></li>
+    <li><span class="coming-soon">Add Existing Data Disk to a VM in Azure — Coming Soon</span></li>
+    <li><span class="coming-soon">Azure Resource Manager Tagging and Locking Scenarios — Coming Soon</span></li>
+    <li><span class="coming-soon">Troubleshooting and Restoring a Misconfigured Virtual Machine — Coming Soon</span></li>
+  </ul>
+
+  <h2>Networking</h2>
+  <hr class="section-divider">
+  <ul>
+    <li><span class="coming-soon">Create a Virtual Network — Coming Soon</span></li>
+    <li><span class="coming-soon">Create Multiple Subnets in Azure — Coming Soon</span></li>
+    <li><span class="coming-soon">Create and Configure VNet Peering in Azure — Coming Soon</span></li>
+    <li><span class="coming-soon">Create and Configure VNet Peering in Azure v3 — Coming Soon</span></li>
+    <li><span class="coming-soon">Configuring an Azure VNet-to-VNet VPN Gateway (v2) — Coming Soon</span></li>
+    <li><span class="coming-soon">Implement Custom Network Routes in Azure Virtual Network — Coming Soon</span></li>
+    <li><span class="coming-soon">Implementing Secure VNet Peering Between Departmental Networks — Coming Soon</span></li>
+    <li><span class="coming-soon">Implement and Configure Private DNS in Azure — Coming Soon</span></li>
+    <li><span class="coming-soon">Access Windows VMs over SSL without Public IPs Using Azure Bastion — Coming Soon</span></li>
+  </ul>
+
+  <h2>Storage</h2>
+  <hr class="section-divider">
+  <ul>
+    <li><span class="coming-soon">Creating an Azure Storage Account and Blob Container — Coming Soon</span></li>
+    <li><span class="coming-soon">Configuration and Security of Azure Storage Accounts — Coming Soon</span></li>
+    <li><span class="coming-soon">Configuring Azure Private Link for Blob Storage — Coming Soon</span></li>
+    <li><span class="coming-soon">Configure Azure Private Link for Blob Storage — Coming Soon</span></li>
+    <li><span class="coming-soon">Create Service Endpoints Between Virtual Machines and Blob Storage — Coming Soon</span></li>
+    <li><span class="coming-soon">Secure Storage Access with Shared Access Signatures — Coming Soon</span></li>
+    <li><span class="coming-soon">Create a User Delegation SAS Using Azure CLI — Coming Soon</span></li>
+    <li><span class="coming-soon">Limit Access to Azure Storage Account Using SAS URI — Coming Soon</span></li>
+    <li><span class="coming-soon">Create and Restore File Share Snapshots in Azure — Coming Soon</span></li>
+    <li><span class="coming-soon">Expire Data Based on Age in Azure Blob Storage — Coming Soon</span></li>
+  </ul>
+
+  <h2>Security</h2>
+  <hr class="section-divider">
+  <ul>
+    <li><span class="coming-soon">Implement Defense in Depth on Azure — Coming Soon</span></li>
+    <li><span class="coming-soon">Secure Network Traffic with NSGs and Azure Firewall — Coming Soon</span></li>
+    <li><span class="coming-soon">Configure Application-Level Rules within Azure Firewall — Coming Soon</span></li>
+    <li><span class="coming-soon">Deploy a Secure Web App Using NSGs and Private Endpoints — Coming Soon</span></li>
+    <li><span class="coming-soon">Securely Access Script Secrets in Azure Key Vault — Coming Soon</span></li>
+    <li><span class="coming-soon">Enabling Always Encrypted in Azure SQL — Coming Soon</span></li>
+    <li><span class="coming-soon">Configure Data Masking in Azure SQL Database — Coming Soon</span></li>
+    <li><span class="coming-soon">Applying Azure Disk Encryption to a Windows Virtual Machine — Coming Soon</span></li>
+    <li><span class="coming-soon">Setting Up Backup and Recovery to Meet Compliance Requirements — Coming Soon</span></li>
+    <li><span class="coming-soon">Deploying a Cost-Optimized Compute and Storage Solution — Coming Soon</span></li>
+  </ul>
+
+  <h2>Identity &amp; Governance</h2>
+  <hr class="section-divider">
+  <ul>
+    <li><span class="coming-soon">Create and Manage Microsoft Entra ID Users in the Portal — Coming Soon</span></li>
+    <li><span class="coming-soon">Create a Group and Add a Member in Microsoft Entra ID — Coming Soon</span></li>
+    <li><span class="coming-soon">Perform Bulk Microsoft Entra ID Operations in the Portal — Coming Soon</span></li>
+    <li><span class="coming-soon">Creating and Organizing Azure AD Users and Groups for Access Control — Coming Soon</span></li>
+    <li><span class="coming-soon">Ensuring Compliance with Azure Policies — Coming Soon</span></li>
+    <li><span class="coming-soon">Using Azure Policy and Resource Locks — Coming Soon</span></li>
+    <li><span class="coming-soon">Cost Planning and Management in Azure — Coming Soon</span></li>
+  </ul>
+
+  <h2>Monitoring</h2>
+  <hr class="section-divider">
+  <ul>
+    <li><span class="coming-soon">Configure Logging and Alerts with Activity Log and Azure Monitor — Coming Soon</span></li>
+    <li><span class="coming-soon">Configure an Azure Monitor Alert Rule — Coming Soon</span></li>
+    <li><span class="coming-soon">Understanding Azure Monitor Alerting — Coming Soon</span></li>
+    <li><span class="coming-soon">Survey Resource Alerts Using Azure Monitor — Coming Soon</span></li>
+  </ul>
+
+  <h2>AI &amp; Containers</h2>
+  <hr class="section-divider">
+  <ul>
+    <li><span class="coming-soon">Analyzing Faces with Azure AI — Coming Soon</span></li>
+    <li><span class="coming-soon">Object Detection with Azure Custom Vision — Coming Soon</span></li>
+    <li><span class="coming-soon">Create Web App from Docker Container in Azure — Coming Soon</span></li>
+    <li><span class="coming-soon">Build and Run a Container Using Azure ACR Tasks — Coming Soon</span></li>
+  </ul>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

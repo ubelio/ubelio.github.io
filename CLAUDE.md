@@ -15,6 +15,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `homelabfirewall.html` — homelab firewall overview/hub
 - `contact.html` — contact info + resume download link
 - `DLPInformationProtection.html`, `SC-401labs.html`, `Misc.html`, `appliedskills.html`, `agentacademy.html` — additional index/hub pages (`SC-401labs.html`'s h1 reads "SC-401: Microsoft Information Protection Administrator")
+- `pluralsightlabs.html` — hub page linking to the 50 PluralSightLabs/ lab writeups
 - `leading-ai-implementation.html`, `power-automate-flows.html`, `power-platform-implementation.html` — project writeups that live at repo root instead of in `projects/`, unlike every other project page (a drift from a later `git pull`, not a convention to replicate — see `SITE_INVENTORY.md`)
 - `README.md`, `CNAME`, `favicon.png`, `headshot.jpg`, `labdiagram.png`, `UbelioFernandezTabetResume.docx` — site metadata/assets at root
 
@@ -28,6 +29,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `AgentAcademy/` — Copilot Studio Agent Academy lab writeups (Rank Progression, Special Ops, and Cowork Collective tracks), linked from `agentacademy.html`. Structurally similar to `AppliedSkills/` (badge image + at-a-glance table + Overview + What I Built + View Badge) — see §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section. As of this writing 7 of 10 linked pages exist; the remaining 3 (Cowork Collective track: `badge-check.html`, `out-of-office.html`, `compliance-packet.html`) are still to be built.
 - `MS-102Labs/` — 11 MS-102 exam prep lab writeups (tenant admin, identity sync, Defender for Office 365, Purview compliance, Conditional Access, authentication), linked from `ms102labs.html`
 - `SC-200Labs/` — 9 SC-200 exam prep lab writeups (Defender XDR, Security Copilot, Purview, Defender for Endpoint, KQL, Sentinel deployment/analytics/incidents/hunting), linked from `sc200labs.html`. Includes 11 lab architecture diagram images licensed MIT from MicrosoftLearning/SC-200T00A.
+- `PluralSightLabs/` — Pluralsight hands-on lab writeups (50 planned, none built yet), linked from `pluralsightlabs.html`
 - `scripts/` — raw PowerShell scripts (`.ps1`) referenced/linked from `scripts.html`.
 
 ### Asset convention

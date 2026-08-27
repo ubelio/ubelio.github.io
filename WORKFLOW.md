@@ -233,3 +233,11 @@ Template:
 - **Next 3 actions**: 1) Preview locally to confirm images render, nav active state works, and all 9 hub links resolve. 2) Build SC-300 labs next using the same pattern. 3) Revisit Applied Skills page to add MS-102 and SC-200 credential cross-links.
 - **Blockers**: None.
 - **Validation done**: Verified 9 HTML files in SC-200Labs/, all 11 images present and referenced correctly, no href="#" dead links, all pages link /style.css, labs.html Coming Soon replaced with real link, all doc totals updated.
+
+### 2026-08-27
+- Goal: Create Pluralsight hands-on labs section — pluralsightlabs.html hub at root, entry on labs.html, all 50 labs as coming-soon placeholders organized into 7 sections. PluralSightLabs/ subfolder planned but not yet populated.
+- Current status: Done. Branch pluralsight-labs. Hub and labs.html entry complete. Docs updated. Awaiting commit.
+- Files touched: pluralsightlabs.html (new), labs.html, CLAUDE.md, SITE_INVENTORY.md, LABS_INVENTORY.md, WORKFLOW.md
+- Next 3 actions: 1) Merge pluralsight-labs to main and push. 2) Build individual lab pages in PluralSightLabs/ one at a time (Phase 2 — user will supply content per lab). 3) Flip each coming-soon entry to a real link as pages are built.
+- Blockers: None.
+- Validation done: Confirmed pluralsightlabs.html links /style.css, all 50 entries present across 7 sections, labs.html entry added at top of hub list.
