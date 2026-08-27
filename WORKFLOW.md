@@ -241,3 +241,11 @@ Template:
 - Next 3 actions: 1) Merge pluralsight-labs to main and push. 2) Build individual lab pages in PluralSightLabs/ one at a time (Phase 2 — user will supply content per lab). 3) Flip each coming-soon entry to a real link as pages are built.
 - Blockers: None.
 - Validation done: Confirmed pluralsightlabs.html links /style.css, all 50 entries present across 7 sections, labs.html entry added at top of hub list.
+
+### 2026-08-27
+- Goal: Build the first PluralSightLabs/ page (Implement Defense in Depth on Azure) and flip its coming-soon entry to a real link, then sync all four doc files to reflect progress (1 of 50 planned labs built).
+- Current status: Done. `PluralSightLabs/implement-defense-in-depth.html` built following the standard At a Glance / Overview / detail-sections pattern, with active-nav remap to `labs.html`. `pluralsightlabs.html`'s Security-section entry now links to it. Committed directly to `main` and pushed. CLAUDE.md, SITE_INVENTORY.md, and LABS_INVENTORY.md updated with the new file, revised counts (134 total HTML files, 80 lab writeups, 1/50 PluralSightLabs built), and a new `PluralSightLabs/` breakdown section in SITE_INVENTORY.md.
+- Files touched: PluralSightLabs/implement-defense-in-depth.html (new), pluralsightlabs.html, CLAUDE.md, SITE_INVENTORY.md, LABS_INVENTORY.md, WORKFLOW.md
+- Next 3 actions: 1) Build the next PluralSightLabs/ page when the user supplies content (49 remain — see roadmap in LABS_INVENTORY.md). 2) Flip each coming-soon entry to a real link as pages are built, same pattern as this one. 3) No other open follow-up.
+- Blockers: None.
+- Validation done: Confirmed the new page links /style.css, has exactly one `<style>` block, and the active-nav remap targets its own filename. Confirmed pluralsightlabs.html's Security section now links instead of showing coming-soon for this lab. Cross-checked all doc totals arithmetically before writing them down.

@@ -1,6 +1,6 @@
 # LABS_INVENTORY.md
 
-Every lab writeup across the eight lab folders, with its page `<h1>` title and the hub page that links to it. All eight hub pages are themselves reached from the top-level `labs.html`, which also carries 4 "Coming Soon" placeholder entries (SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
+Every lab writeup across the nine lab folders, with its page `<h1>` title and the hub page that links to it. All nine hub pages are themselves reached from the top-level `labs.html`, which also carries 4 "Coming Soon" placeholder entries (SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
 
 ## `SC-401Labs/` — linked from `SC-401labs.html`
 
@@ -137,7 +137,11 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 
 ## `PluralSightLabs/` — linked from `pluralsightlabs.html`
 
-No pages built yet — all 50 entries are coming-soon placeholders on the hub.
+1 of 50 planned labs built so far. Built pages follow an At a Glance table / Overview / detail-sections pattern. The remaining 49 entries below are coming-soon placeholders on the hub, listed by section as a build roadmap.
+
+| Filename | `<h1>` title |
+|---|---|
+| `implement-defense-in-depth.html` | Implement Defense in Depth on Azure |
 
 **Azure Fundamentals**
 - Accessing and Using the Azure Portal
@@ -171,7 +175,7 @@ No pages built yet — all 50 entries are coming-soon placeholders on the hub.
 - Expire Data Based on Age in Azure Blob Storage
 
 **Security**
-- Implement Defense in Depth on Azure
+- Implement Defense in Depth on Azure *(built)*
 - Secure Network Traffic with NSGs and Azure Firewall
 - Configure Application-Level Rules within Azure Firewall
 - Deploy a Secure Web App Using NSGs and Private Endpoints
@@ -205,4 +209,4 @@ No pages built yet — all 50 entries are coming-soon placeholders on the hub.
 
 ---
 
-**Totals**: 79 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 0 PluralSightLabs (50 planned). Verified every file in all eight folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)
+**Totals**: 80 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 1 PluralSightLabs (49 remaining of 50 planned). Verified every file in all nine folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

@@ -20,7 +20,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
 | `appliedskills.html` | Hub page — links to the 23 `AppliedSkills/` credential writeups |
 | `agentacademy.html` | Hub page — links to the `AgentAcademy/` lab writeups (Rank Progression, Special Ops, Cowork Collective tracks); also carries `.coming-soon` entries for ranks/missions not yet completed |
-| `pluralsightlabs.html` | Hub page — links to 50 Pluralsight hands-on lab writeups (all coming soon) |
+| `pluralsightlabs.html` | Hub page — links to 50 planned Pluralsight hands-on lab writeups (1 built, 49 coming soon) |
 | `leading-ai-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-automate-flows.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-platform-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
@@ -75,6 +75,14 @@ MS-102 exam prep lab writeups, linked from `ms102labs.html`. Completed in a pers
 | `ms102-lab10.html` | Lab 10 — Conditional Access policies |
 | `ms102-lab11.html` | Lab 11 — Authentication methods (MFA, SSPR, passwordless) |
 
+## `PluralSightLabs/` (1 file)
+
+Pluralsight hands-on lab writeups, linked from `pluralsightlabs.html`. 1 of 50 planned labs built so far. See `LABS_INVENTORY.md` for the full breakdown, including the roadmap of remaining planned titles.
+
+| File | What it is |
+|---|---|
+| `PluralSightLabs/implement-defense-in-depth.html` | Lab — Implement Defense in Depth on Azure (layered security: perimeter, network, identity, compute, application, data, security operations) |
+
 ## `SC-200Labs/` (9 files + 11 images)
 
 SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an employer-provided Azure subscription (resources deleted after each lab) and a personal Microsoft 365 E5 test tenant. Pages include embedded lab architecture diagrams sourced from MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst under MIT License.
@@ -93,4 +101,4 @@ SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an
 
 ---
 
-**Totals**: 133 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`.
+**Totals**: 134 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 1 in `PluralSightLabs/`.
