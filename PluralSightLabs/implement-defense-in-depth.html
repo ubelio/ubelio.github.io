@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Implement Defense in Depth on Azure | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Implement Defense in Depth on Azure</h1>
+  <p>Pluralsight Hands-On Lab — Azure Security</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "implement-defense-in-depth.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Implement Defense in Depth on Azure</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Security</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure Security</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Windows VM via Remote Desktop</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Defense in depth is a layered security strategy where multiple protection measures are applied across every tier of a workload — so that if one layer is breached, additional controls are already in place to contain the threat. In this lab, I was given a scenario as a cybersecurity engineer at a managed service provider, tasked with securing a customer-facing web application and SQL database for a fictional client. I applied security controls at each layer of the defense in depth model: perimeter, network, identity and access, compute, application, and data.</p>
+  <hr class="section-divider">
+
+  <h2>Security Layers Implemented</h2>
+
+  <h3>Perimeter</h3>
+  <ul>
+    <li>Deployed Azure Firewall (Basic SKU, policy-based) with dedicated AzureFirewallSubnet and AzureFirewallManagementSubnet</li>
+    <li>Created a route table (rt-01) with a default route directing all traffic through the firewall as a virtual appliance</li>
+    <li>Configured DNAT rule collections to forward HTTP and HTTPS traffic from the firewall public IP to the web server</li>
+    <li>Updated firewall rules to forward HTTPS (port 443) after binding a TLS certificate</li>
+  </ul>
+
+  <h3>Network</h3>
+  <ul>
+    <li>Created dedicated subnets: data-subnet for Azure SQL, keyvault-subnet for Key Vault</li>
+    <li>Deployed a Private Endpoint (pe-sql) for the Azure SQL Server and disabled its public endpoint</li>
+    <li>Created a Private Endpoint for Key Vault and disabled public access</li>
+    <li>Deployed Azure Bastion for secure RDP access without a public IP on the VM</li>
+    <li>Dissociated and deleted the VM's public IP address after Bastion was in place</li>
+  </ul>
+
+  <h3>Identity and Access</h3>
+  <ul>
+    <li>Enabled a system-assigned managed identity on the web server VM</li>
+    <li>Enforced Microsoft Entra ID-only authentication on the Azure SQL Server</li>
+    <li>Created a database-contained user for the VM's managed identity and granted db_datareader and db_datawriter roles</li>
+    <li>Updated the web application connection string to use Entra ID passwordless authentication</li>
+  </ul>
+
+  <h3>Compute</h3>
+  <ul>
+    <li>Configured Azure Update Manager with a customer-managed schedule for weekly automatic patching on the web server</li>
+    <li>Deployed Azure Disk Encryption using a Key Vault-stored key (4096-bit RSA) for OS and data disks</li>
+  </ul>
+
+  <h3>Application</h3>
+  <ul>
+    <li>Generated a self-signed TLS certificate in Key Vault and bound it to the IIS web application on port 443</li>
+    <li>Used PowerShell and Azure VM Run Command to automate certificate binding to IIS without direct VM access</li>
+  </ul>
+
+  <h3>Data</h3>
+  <ul>
+    <li>Deployed Azure Key Vault with a private endpoint for secure secret and key management</li>
+    <li>Configured Dynamic Data Masking on the SQL database to mask the CreditCardNumber column</li>
+  </ul>
+
+  <h3>Security Operations</h3>
+  <ul>
+    <li>Deployed a Log Analytics workspace (log-sentinel) and Microsoft Sentinel</li>
+    <li>Created a Data Collection Rule to capture IIS logs from the web server</li>
+    <li>Installed the Web Session Essentials solution from the Sentinel Content Hub</li>
+    <li>Enabled an analytics rule to detect a single source using multiple user agents</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
