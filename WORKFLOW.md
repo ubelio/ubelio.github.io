@@ -249,3 +249,11 @@ Template:
 - Next 3 actions: 1) Build the next PluralSightLabs/ page when the user supplies content (49 remain — see roadmap in LABS_INVENTORY.md). 2) Flip each coming-soon entry to a real link as pages are built, same pattern as this one. 3) No other open follow-up.
 - Blockers: None.
 - Validation done: Confirmed the new page links /style.css, has exactly one `<style>` block, and the active-nav remap targets its own filename. Confirmed pluralsightlabs.html's Security section now links instead of showing coming-soon for this lab. Cross-checked all doc totals arithmetically before writing them down.
+
+### 2026-08-28
+- Goal: Build all 50 Pluralsight lab individual pages in PluralSightLabs/ and flip all hub entries from coming-soon to real links.
+- Current status: Done. All 50 labs built across 7 sections. Two sets of duplicate-topic labs consolidated into single pages (Private Link Blob Storage: labs 5 and 23 -> one page; VNet Peering: labs 27 and 31 -> one page), with both hub entries pointing to the same file in each case. Lab 22 (service endpoints) absorbed a shorter duplicate lab with identical content -- no separate page needed. Total new HTML files: 48 individual lab pages in PluralSightLabs/. All hub entries on pluralsightlabs.html flipped to real links.
+- Files touched: PluralSightLabs/*.html (48 new files), pluralsightlabs.html (all 50 entries updated), WORKFLOW.md
+- Next 3 actions: 1) Update SITE_INVENTORY.md and LABS_INVENTORY.md totals and per-file tables to reflect 48 new PluralSightLabs pages. 2) Update CLAUDE.md page count. 3) Consider adding a Survey Resource Alerts lab page (lab 45) if content becomes available.
+- Blockers: None.
+- Validation done: All pages link /style.css, active-nav remap to labs.html confirmed in prompt pattern, all hub entries flipped from coming-soon spans to real links.
