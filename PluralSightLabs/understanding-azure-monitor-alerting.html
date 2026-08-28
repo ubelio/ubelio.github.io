@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Understanding Azure Monitor Alerting | Ubelio Fernandez-Tabet</title>
+  <title>Azure Monitor Alerting: Rules, Action Groups, and Investigation | Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/style.css">
   <style>
@@ -18,7 +18,7 @@
 <body>
 
 <header>
-  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Understanding Azure Monitor Alerting</h1>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Azure Monitor Alerting: Rules, Action Groups, and Investigation</h1>
   <p>Pluralsight Hands-On Lab — Azure Monitoring</p>
 </header>
 
@@ -42,7 +42,7 @@
 </script>
 
 <div class="container">
-  <h2 style="margin-bottom:4px;">Understanding Azure Monitor Alerting</h2>
+  <h2 style="margin-bottom:4px;">Azure Monitor Alerting: Rules, Action Groups, and Investigation</h2>
   <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Monitoring</p>
   <hr class="section-divider">
 
@@ -51,26 +51,51 @@
     <tr><th>Platform</th><td>Pluralsight</td></tr>
     <tr><th>Category</th><td>Azure Monitoring</td></tr>
     <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
-    <tr><th>Environment</th><td>Azure Portal, Azure Monitor</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Azure Monitor, Activity Log, Azure Cloud Shell (Bash), Azure CLI</td></tr>
     <tr><th>Completed</th><td>2026</td></tr>
   </table>
   <hr class="section-divider">
 
   <h2>Overview</h2>
-  <p>Azure Monitor Alerting provides three complementary components for operational awareness and noise management: alert rules that define when to fire, action groups that define who to notify and how, and alert processing rules that suppress or modify alerts during known maintenance windows. In this lab, I configured all three — creating an availability alert rule on a storage account, building an action group with email and webhook notifications, and defining a recurring suppression rule to silence alerts during a weekly VM maintenance window.</p>
+  <p>Azure Monitor alerting provides three complementary components for operational awareness: alert rules that define when to fire, action groups that define who to notify and how, and alert processing rules that suppress or modify alerts during known maintenance windows. These three Pluralsight labs cover the full alerting lifecycle — creating rules via both the portal and Azure CLI, configuring multi-channel action groups, triggering alerts and investigating them through the Activity Log, and suppressing alert noise during scheduled maintenance windows.</p>
   <hr class="section-divider">
 
-  <h2>What I Did</h2>
+  <h2>Lab 1 — Configure Logging and Alerts with Activity Log and Azure Monitor</h2>
   <ul>
-    <li>Created an alert rule in Azure Monitor scoped to the lab storage account, using Availability as the signal condition with default thresholds, and set severity to 1 - Error with the name "storage01Unavailable"</li>
-    <li>Created an action group (notifyOfUnavailable, display name: dangerWR) with two notification channels:
-      <ul>
-        <li>Email/SMS/Push/Voice notification (notifyofproblem) configured with a fictitious email address and common alert schema enabled</li>
-        <li>Webhook action (notifyUs) with a fictitious URI and common alert schema enabled</li>
-      </ul>
+    <li>Created an alert rule in Azure Monitor scoped to the subscription, using "Delete Virtual Machine" as the signal condition and naming the rule "vm-delete-alert"</li>
+    <li>Triggered the alert by deleting the lab VM and waiting approximately five minutes for propagation</li>
+    <li>Filtered the Activity Log by Virtual Machines resource type, located the VM deletion event with Succeeded status, and reviewed event details including the affected resource, timestamp, and initiating identity</li>
+    <li>Opened Azure Monitor Alerts, selected the fired vm-delete-alert, and reviewed alert details — demonstrating how this data supports incident investigation workflows</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Lab 2 — Configure an Azure Monitor Alert Rule via CLI</h2>
+  <ul>
+    <li>Set environment variables for resource group name and storage account resource ID in Azure Cloud Shell (Bash)</li>
+    <li>Created an action group (my-agl) with an SMS receiver using Azure CLI:
+      <pre>az monitor action-group create \
+--name $action_group_name \
+--short-name $action_group_name \
+--resource-group $resource_group_name \
+--action sms &lt;name&gt; 1 &lt;phone&gt;</pre>
     </li>
-    <li>Created an alert processing rule (updateWindow) scoped to lab-VM with the Suppress notifications action type, configured to run on a recurring weekly schedule every Sunday from 3:00 AM to 5:00 AM — representing a known VM maintenance window where alert noise should be suppressed</li>
-    <li>Added a descriptive rule description: "Virtual Machine is updated every Sunday between 3AM and 5AM"</li>
+    <li>Created an activity log alert rule (myalertrule3) scoped to the storage account, triggering on Administrative category write operations:
+      <pre>az monitor activity-log alert create \
+  --name "myalertrule3" \
+  --resource-group $resource_group_name \
+  --scope $rule_scope \
+  --condition "category=Administrative and operationName=Microsoft.Storage/storageAccounts/write" \
+  --action-group $action_group_name</pre>
+    </li>
+    <li>Confirmed alert creation with az monitor activity-log alert list and verified the rule appeared in the portal's Alert rules blade</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Lab 3 — Alert Rules, Action Groups, and Alert Processing Rules</h2>
+  <ul>
+    <li>Created an alert rule scoped to the lab storage account using Availability as the signal condition, severity 1 - Error, named "storage01Unavailable"</li>
+    <li>Created an action group (notifyOfUnavailable) with two notification channels: an Email/SMS/Push/Voice notification with common alert schema enabled, and a Webhook action pointing to a fictitious URI</li>
+    <li>Created an alert processing rule (updateWindow) scoped to lab-VM with Suppress notifications action type, configured as a recurring weekly schedule every Sunday from 3:00 AM to 5:00 AM to silence alerts during a known VM maintenance window</li>
   </ul>
   <hr class="section-divider">
 
