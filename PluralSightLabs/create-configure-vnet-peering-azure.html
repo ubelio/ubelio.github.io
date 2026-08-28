@@ -51,22 +51,32 @@
     <tr><th>Platform</th><td>Pluralsight</td></tr>
     <tr><th>Category</th><td>Azure Networking</td></tr>
     <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
-    <tr><th>Environment</th><td>Azure Portal, Linux VM via Serial Console</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Linux VM via SSH, Serial Console</td></tr>
     <tr><th>Completed</th><td>2026</td></tr>
   </table>
   <hr class="section-divider">
 
   <h2>Overview</h2>
-  <p>VNet peering connects Azure virtual networks so resources can communicate privately across network boundaries — a foundational pattern for Hub and Spoke architectures and cross-region or cross-subscription deployments. In this lab, I configured peering between three virtual networks, deployed a VPN Gateway on the hub VNet to enable gateway transit, peered a spoke VNet to the hub with gateway transit enabled, and validated connectivity end-to-end using ping from a Linux VM's serial console.</p>
+  <p>VNet peering connects Azure virtual networks so resources can communicate privately across network boundaries — a foundational pattern for Hub and Spoke architectures and cross-region or cross-subscription deployments. These two Pluralsight labs cover VNet peering at different depths: one focuses on peering pre-built VNets with gateway transit and VPN gateway configuration, while the other covers building VNets and VMs from scratch, enabling peering, and validating private connectivity using SSH, ping, and traceroute to confirm traffic never traverses the public internet.</p>
   <hr class="section-divider">
 
-  <h2>What I Did</h2>
+  <h2>Lab 1 — VNet Peering with Gateway Transit</h2>
   <ul>
-    <li>Added a GatewaySubnet to vnet2 and deployed a VPN Gateway (vpngw, VpnGw1AZ SKU) with a new public IP (vpngwip), waiting for the 20–45 minute deployment to complete</li>
-    <li>Created bidirectional VNet peering between vnet2 and vnet1, adding both link names (vnet1-to-vnet2 and vnet2-to-vnet1) in a single peering operation and confirming Connected status</li>
-    <li>Validated vnet2-to-vnet1 peering by connecting to vm2 via Serial Console, authenticating, and running ping 10.1.1.4 — confirmed 0% packet loss</li>
-    <li>Created bidirectional VNet peering between vnet2 and vnet3, enabling "Use remote gateway" on vnet3's side and "Allow gateway transit" on vnet2's side to route vnet3 traffic through the VPN gateway on vnet2</li>
-    <li>Validated vnet2-to-vnet3 peering from vm2's Serial Console by running ping 10.3.3.4 — confirmed 0% packet loss, verifying gateway transit connectivity</li>
+    <li>Added a GatewaySubnet to vnet2 and deployed a VPN Gateway (vpngw, VpnGw1AZ SKU) with a dedicated public IP (vpngwip)</li>
+    <li>Created bidirectional peering between vnet2 and vnet1 (link names: vnet1-to-vnet2 and vnet2-to-vnet1) and confirmed Connected status</li>
+    <li>Validated connectivity from vm2 via Serial Console by pinging vm1's private IP (10.1.1.4) — confirmed 0% packet loss</li>
+    <li>Created bidirectional peering between vnet2 and vnet3 with "Use remote gateway" enabled on vnet3 and "Allow gateway transit" enabled on vnet2, routing vnet3 traffic through the VPN gateway</li>
+    <li>Validated vnet3 connectivity from vm2's Serial Console by pinging vm3's private IP (10.3.3.4) — confirmed 0% packet loss</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Lab 2 — VNet Peering from Scratch with Traceroute Validation</h2>
+  <ul>
+    <li>Created two virtual networks from scratch: vnet-a (10.0.0.0/16, subnet defaultA at 10.0.1.0/24) and vnet-b (10.1.0.0/16, subnet defaultB at 10.1.1.0/24) in East US</li>
+    <li>Deployed two Linux VMs: vm-a on vnet-a and vm-b on vnet-b, each with SSH key authentication</li>
+    <li>Created bidirectional VNet peering between vnet-a and vnet-b (link name: vnet-a-to-vnet-b) with forwarded traffic allowed on both sides</li>
+    <li>SSH'd into vm-a using the downloaded private key and ran ping against vm-b's private IP — confirmed successful responses, validating peered connectivity</li>
+    <li>Installed traceroute on vm-a and ran traceroute against vm-b's private IP — confirmed a single direct hop with no internet traversal, proving traffic flows entirely within the Azure backbone</li>
   </ul>
   <hr class="section-divider">
 
