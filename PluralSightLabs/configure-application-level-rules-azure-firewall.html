@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Configure Application-Level Rules within Azure Firewall | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Configure Application-Level Rules within Azure Firewall</h1>
+  <p>Pluralsight Hands-On Lab — Azure Networking &amp; Security</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "configure-application-level-rules-azure-firewall.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Configure Application-Level Rules within Azure Firewall</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Security</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure Networking &amp; Security</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Windows VMs via Remote Desktop</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Azure Firewall provides centralized network security for Azure Virtual Networks, with the ability to control outbound internet access at the application layer using FQDN-based rules. In this lab, I worked in a pre-configured three-subnet architecture — a jump server subnet, a work server subnet, and a firewall subnet — where all outbound traffic from the work server was routed through Azure Firewall and blocked by default. I added an application rule collection to allow the work server to reach www.google.com over HTTP and HTTPS, then verified the change took effect.</p>
+  <hr class="section-divider">
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Connected to the jump VM (Srv-Jump) via Remote Desktop using its public IP address</li>
+    <li>From the jump VM, connected to the work VM (Srv-Work) using its private IP address, demonstrating the hub-and-spoke access pattern</li>
+    <li>Attempted to browse to http://www.google.com from the work VM and confirmed access was blocked by the firewall</li>
+    <li>Navigated to the Azure Firewall resource (Test-FW01) in the portal and opened Rules (classic)</li>
+    <li>Created an application rule collection named "appcollection" with priority 100 and action Allow</li>
+    <li>Added a rule targeting www.google.com over HTTP and HTTPS protocols with a wildcard source</li>
+    <li>Waited for the firewall to finish updating, then returned to the work VM and confirmed www.google.com was now accessible</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
