@@ -51,25 +51,26 @@
     <tr><th>Platform</th><td>Pluralsight</td></tr>
     <tr><th>Category</th><td>Azure Storage &amp; Networking</td></tr>
     <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
-    <tr><th>Environment</th><td>Azure Portal, Linux VM via SSH</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Linux VM via SSH, Windows VM via Remote Desktop</td></tr>
     <tr><th>Completed</th><td>2026</td></tr>
   </table>
   <hr class="section-divider">
 
   <h2>Overview</h2>
-  <p>By default, Azure Blob Storage is accessible over the public internet. In this lab, I disabled public network access on a storage account and replaced it with a private endpoint, ensuring all traffic between a virtual machine and the blob service travels entirely within the virtual network. I used DNS lookups before and after configuration to confirm the storage account's hostname shifted from resolving to a public IP to resolving to a private IP within the virtual network — demonstrating the full Private Link and private DNS zone integration flow.</p>
+  <p>Azure Private Link allows Azure Storage to be accessed over a private endpoint within a virtual network, removing exposure to the public internet. These two Pluralsight labs both cover the same core workflow: disabling or restricting public access to a storage account, creating a private endpoint scoped to the blob service, integrating with a private DNS zone, and verifying that the storage account hostname resolves to a private IP address from within the virtual network — confirming all traffic stays off the public internet.</p>
   <hr class="section-divider">
 
   <h2>What I Did</h2>
   <ul>
-    <li>Reviewed the storage account's network settings and confirmed public access was enabled, then noted the two subnets on lab-vnet: vm-subnet and private-endpoint-subnet</li>
-    <li>Connected to lab-vm via SSH and ran an nslookup against the storage account's blob endpoint, confirming it resolved to a public IP address</li>
-    <li>Disabled public network access on the storage account, blocking all public internet access to blob storage</li>
-    <li>Created a private endpoint (pe-blob-storage) scoped to the blob sub-resource of the storage account, placed in the private-endpoint-subnet subnet of lab-vnet</li>
-    <li>Enabled private DNS zone integration during endpoint creation, which provisioned the privatelink.blob.core.windows.net zone and linked it to lab-vnet</li>
-    <li>Reviewed the private DNS zone record set confirming the storage account name resolved to a private IP in the private-endpoint-subnet range</li>
-    <li>Confirmed the virtual network link to lab-vnet was in place, allowing VMs on that network to use the private DNS zone for resolution</li>
-    <li>Re-ran the nslookup from lab-vm and confirmed the storage account hostname now resolved to a private IP address starting with 10.0.1, verifying all traffic stays within the virtual network</li>
+    <li>Reviewed the storage account's network settings and confirmed public access was enabled; noted the virtual network subnets (vm-subnet and private-endpoint-subnet)</li>
+    <li>Connected to the lab VM via SSH and ran nslookup against the blob endpoint FQDN, confirming it resolved to a public IP address before any changes</li>
+    <li>Disabled public network access on the storage account, removing all public internet access to blob storage</li>
+    <li>Created a private endpoint (pe-blob-storage / pe-1) scoped to the blob sub-resource of the storage account, placed in the designated private endpoint subnet of the virtual network</li>
+    <li>Enabled private DNS zone integration during endpoint creation, provisioning the privatelink.blob.core.windows.net zone and linking it to the virtual network</li>
+    <li>Reviewed the private DNS zone record set confirming the storage account name resolved to a private IP in the subnet range</li>
+    <li>Confirmed the virtual network link was in place, allowing VMs on the network to resolve the storage account via the private DNS zone</li>
+    <li>Re-ran nslookup from the VM and confirmed the blob endpoint FQDN now resolved to a private IP address, verifying all traffic travels within the virtual network</li>
+    <li>In a second lab variant, connected to a Windows VM via RDP, ran nslookup from the command prompt against the blob FQDN, and confirmed a private IP (e.g. 10.1.1.5) was returned — validating private endpoint connectivity from a Windows guest</li>
   </ul>
   <hr class="section-divider">
 
