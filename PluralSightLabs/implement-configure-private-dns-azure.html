@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Implement and Configure Private DNS in Azure | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Implement and Configure Private DNS in Azure</h1>
+  <p>Pluralsight Hands-On Lab — Azure Networking</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "implement-configure-private-dns-azure.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Implement and Configure Private DNS in Azure</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Networking</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure Networking</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Windows VM via Remote Desktop, PowerShell</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Azure Private DNS zones enable name resolution within a virtual network without exposing DNS records to the public internet. In this lab, I acted as a network engineer for Big Ben Corporation and configured a private DNS zone (bigbencorp.private), linked it to the lab virtual network with auto-registration enabled, created a manual A record for a server VM, and validated DNS resolution and connectivity from a user VM using nslookup and ping — confirming both auto-registered and manually created records resolved correctly to private IP addresses.</p>
+  <hr class="section-divider">
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Created an Azure Private DNS zone named bigbencorp.private</li>
+    <li>Linked the private DNS zone to the lab virtual network by creating a virtual network link (vnetlink) with auto-registration enabled, allowing VMs on the network to automatically register their A records</li>
+    <li>Verified that auto-registered A records for both server-vm and user-vm appeared in the zone's recordsets after the link completed</li>
+    <li>Created a manual A record named "server" pointing to the server VM's private IP address (10.0.1.4)</li>
+    <li>Connected to user-vm via Remote Desktop and opened PowerShell</li>
+    <li>Ran hostname to confirm the correct VM, then ran nslookup against the manually created record (server.bigbencorp.private) and confirmed it resolved to 10.0.1.4</li>
+    <li>Ran nslookup against the auto-registered record (server-vm-xxxxx.bigbencorp.private) and confirmed it also resolved to 10.0.1.4</li>
+    <li>Ran ping against server.bigbencorp.private and confirmed responses from 10.0.1.4, validating end-to-end private DNS resolution and connectivity</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
