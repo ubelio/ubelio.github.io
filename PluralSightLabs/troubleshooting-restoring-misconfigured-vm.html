@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Troubleshooting and Restoring a Misconfigured Virtual Machine | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Troubleshooting and Restoring a Misconfigured Virtual Machine</h1>
+  <p>Pluralsight Hands-On Lab — Azure Fundamentals</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "troubleshooting-restoring-misconfigured-vm.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Troubleshooting and Restoring a Misconfigured Virtual Machine</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Azure Fundamentals</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure VM Administration</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Windows VM via Azure Bastion, Windows Disk Management</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Diagnosing and remediating Azure VM issues requires systematic elimination — confirming platform health first, then isolating the problem to OS or network configuration. In this lab, I was given a VM reported as inaccessible with a low-disk warning. I confirmed the VM was running and the guest OS was healthy via Boot Diagnostics, identified a misconfigured NSG rule as the access blocker, corrected it to restore RDP connectivity, then stopped and deallocated the VM to resize the OS disk from 128 GiB to 256 GiB and extended the volume inside Windows — completing a full troubleshooting and remediation cycle.</p>
+  <hr class="section-divider">
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Confirmed the VM (lab-vm) was in Running status and reviewed Boot Diagnostics, which showed a Windows sign-in screen confirming the guest OS started successfully</li>
+    <li>Attempted a Bastion connection and confirmed it failed with a Connection Error — isolating the issue to network configuration rather than the platform or OS</li>
+    <li>Navigated to Network Settings and located the inbound NSG rule named Allow-RDP targeting TCP port 3389 — confirmed its Action was set to Deny instead of Allow</li>
+    <li>Changed the Allow-RDP rule's Action from Deny to Allow and saved — restored RDP connectivity confirmed by a successful Bastion connection</li>
+    <li>Stopped and deallocated the VM to meet the prerequisite for disk resizing</li>
+    <li>Navigated to the OS disk (lab-vm-osdisk) and changed the disk size from 128 GiB to 256 GiB under Size + performance, then saved and waited for the resize to complete</li>
+    <li>Restarted the VM, connected via Bastion, and opened Disk Management through Computer Management in Server Manager</li>
+    <li>Used Extend Volume on the C: drive to claim all unallocated space, confirming the C: drive now reflected the full 256 GiB capacity</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
