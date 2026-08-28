@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Configuration and Security of Azure Storage Accounts | Ubelio Fernandez-Tabet</title>
+  <title>Securing Azure Storage with Shared Access Signatures | Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/style.css">
   <style>
@@ -18,7 +18,7 @@
 <body>
 
 <header>
-  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Configuration and Security of Azure Storage Accounts</h1>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Securing Azure Storage with Shared Access Signatures</h1>
   <p>Pluralsight Hands-On Lab — Azure Storage Security</p>
 </header>
 
@@ -42,7 +42,7 @@
 </script>
 
 <div class="container">
-  <h2 style="margin-bottom:4px;">Configuration and Security of Azure Storage Accounts</h2>
+  <h2 style="margin-bottom:4px;">Securing Azure Storage with Shared Access Signatures</h2>
   <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Storage</p>
   <hr class="section-divider">
 
@@ -51,27 +51,41 @@
     <tr><th>Platform</th><td>Pluralsight</td></tr>
     <tr><th>Category</th><td>Azure Storage Security</td></tr>
     <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
-    <tr><th>Environment</th><td>Azure Portal, Windows VM via Remote Desktop, Azure Storage Explorer</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Windows VM via Remote Desktop &amp; Azure Bastion, Azure Storage Explorer, Azure Cloud Shell</td></tr>
     <tr><th>Completed</th><td>2026</td></tr>
   </table>
   <hr class="section-divider">
 
   <h2>Overview</h2>
-  <p>Azure Storage accounts offer multiple layers of access control — from account-level access keys to scoped Shared Access Signatures and Stored Access Policies. In this lab, I created and configured a storage account, explored replication and access tier options, and worked through progressively more granular access control scenarios using Azure Storage Explorer on a Windows VM. I demonstrated how access keys grant full control, how rotating keys immediately revokes existing connections, how SAS tokens can scope permissions to specific services and resource types, and how Stored Access Policies enable centralized revocation of SAS tokens without key rotation.</p>
+  <p>Shared Access Signatures (SAS) provide scoped, time-bound access to Azure Storage without exposing account keys or granting broad RBAC roles. These three Pluralsight labs cover SAS from multiple angles: the full storage account security lifecycle including access keys, SAS tokens, stored access policies, and key rotation; generating a user delegation SAS via Azure CLI backed by an Entra ID identity; and validating least-privilege read-only SAS access using Azure Storage Explorer. Together they demonstrate the complete spectrum of Azure Storage access control patterns.</p>
   <hr class="section-divider">
 
-  <h2>What I Did</h2>
+  <h2>Lab 1 — Configuration and Security of Azure Storage Accounts</h2>
   <ul>
-    <li>Created a storage account with LRS redundancy, then connected to a lab VM via Remote Desktop and launched Azure Storage Explorer</li>
-    <li>Signed in to Azure Storage Explorer using Azure AD, created a blob container named "images", and uploaded image files</li>
-    <li>Connected to the storage account using an account-level access key, uploaded and downloaded files successfully, then rotated key1 to confirm the key-based connection was immediately revoked</li>
-    <li>Generated a SAS token scoped to Blob service only with Read and List permissions — confirmed access to the container was denied because Container resource type was not included</li>
-    <li>Generated a second SAS adding Container and Object resource types — confirmed list access worked but upload failed due to missing Write permissions</li>
-    <li>Generated a third SAS adding Write, Add, and Create permissions — confirmed file upload succeeded</li>
-    <li>Rotated the access key again to revoke all three SAS connections simultaneously, confirming key rotation as a bulk revocation mechanism</li>
-    <li>Created a Stored Access Policy (Test-SAP) on the images container with all permissions and a defined validity window</li>
-    <li>Generated a container-level SAS linked to the Stored Access Policy via Azure Storage Explorer, confirmed upload and delete operations worked</li>
-    <li>Deleted the Stored Access Policy from the Azure portal and confirmed the SAS connection was immediately revoked on next access — demonstrating centralized SAS revocation without key rotation</li>
+    <li>Created a storage account with LRS redundancy, connected via Azure Storage Explorer using Azure AD, created a blob container named "images", and uploaded image files</li>
+    <li>Connected using an account-level access key, uploaded and downloaded files, then rotated key1 to confirm the key-based connection was immediately revoked</li>
+    <li>Generated three progressively scoped SAS tokens: Read/List only (access denied at container level), Read/List with Container and Object resource types (list worked, upload blocked), and a third adding Write/Add/Create (upload succeeded)</li>
+    <li>Rotated the access key again to revoke all three SAS connections simultaneously — demonstrating key rotation as a bulk revocation mechanism</li>
+    <li>Created a Stored Access Policy (Test-SAP) on the images container, generated a container-level SAS linked to the policy, confirmed upload and delete worked, then deleted the policy to immediately revoke the SAS without key rotation</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Lab 2 — Secure Storage Access with Shared Access Signatures</h2>
+  <ul>
+    <li>Created a private blob container (contractor-files) and uploaded two sample CSV datasets</li>
+    <li>Generated a SAS token with Read and List permissions only and an 8-hour expiry window</li>
+    <li>Connected to the lab VM via Azure Bastion, opened Azure Storage Explorer, and attached to the container using the SAS URL</li>
+    <li>Verified read and list access by previewing and downloading a CSV file</li>
+    <li>Confirmed write and delete were blocked — both a delete attempt and an upload attempt returned insufficient credentials errors, validating least-privilege SAS scoping</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Lab 3 — Limit Access Using SAS URI</h2>
+  <ul>
+    <li>Created a blob container (container1) and uploaded two sample text files</li>
+    <li>Enabled storage account key access, then generated a SAS token scoped to Blob service with Service, Container, and Object resource types and Read and List permissions only over HTTPS</li>
+    <li>Connected via Azure Storage Explorer on the lab VM using the Blob service SAS URL, confirmed both files were visible in the container</li>
+    <li>Attempted to delete a file and confirmed the action failed in the Activities pane — validating that Read and List-only permissions correctly blocked destructive operations</li>
   </ul>
   <hr class="section-divider">
 
