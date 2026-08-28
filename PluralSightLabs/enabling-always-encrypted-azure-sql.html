@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enabling Always Encrypted in Azure SQL | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Enabling Always Encrypted in Azure SQL</h1>
+  <p>Pluralsight Hands-On Lab — Azure Data Security</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "enabling-always-encrypted-azure-sql.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Enabling Always Encrypted in Azure SQL</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Security</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure Data Security</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Windows VM via Remote Desktop, SQL Server Management Studio</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Always Encrypted is an Azure SQL feature that ensures sensitive data is encrypted at rest and in transit, and is never exposed in plaintext to database administrators or backup operators — only the application holds the decryption keys. In this lab, I acted as a cloud data engineer tasked with protecting customer data so that privileged users with direct database access cannot read sensitive columns. I created an Azure SQL database, provisioned a Key Vault to store the column master key, and used the Always Encrypted wizard in SQL Server Management Studio to encrypt the FirstName, MiddleName, and LastName columns on the customer table, then confirmed the data was no longer readable in plaintext.</p>
+  <hr class="section-divider">
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Created an Azure SQL Server with SQL authentication and a Standard-tier single database (sampledb1) pre-loaded with sample data, with public endpoint access enabled for Azure services</li>
+    <li>Provisioned an Azure Key Vault with Standard pricing, vault access policy permission model, and full Key Management and Cryptographic Operations permissions assigned to the lab user</li>
+    <li>Connected to the lab VM via Remote Desktop and launched SQL Server Management Studio</li>
+    <li>Connected to the Azure SQL Server using SQL Server Authentication and viewed unencrypted customer data in the SalesLT.Customer table</li>
+    <li>Launched the Always Encrypted wizard from SSMS, selected the FirstName, MiddleName, and LastName columns, and configured Deterministic encryption for each — chosen over Randomized to preserve support for search and grouping operations</li>
+    <li>Configured Azure Key Vault as the column master key store and authenticated to Azure to authorize key creation</li>
+    <li>Completed the encryption process and confirmed all three columns now display fully encrypted ciphertext when queried directly from SSMS</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
