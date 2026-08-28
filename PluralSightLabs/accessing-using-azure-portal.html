@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessing and Using the Azure Portal | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Accessing and Using the Azure Portal</h1>
+  <p>Pluralsight Hands-On Lab — Azure Fundamentals</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "accessing-using-azure-portal.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Accessing and Using the Azure Portal</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Azure Fundamentals</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure Fundamentals</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>The Azure portal is the primary web-based interface for managing Azure resources. In this introductory lab, I explored the portal's core navigation elements, customized its appearance, located a storage account using the search bar, and worked with the dashboard system — adding a Metrics tile to an existing dashboard and creating a new dashboard from the Azure Inventory template, then publishing it and reviewing sharing options.</p>
+  <hr class="section-divider">
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Reviewed the top menu bar components: the hamburger menu, Microsoft Azure home button, Quick Search bar, Cloud Shell icon, Notifications, and Settings</li>
+    <li>Opened Settings and changed the Menu behavior to Docked and applied a custom theme to familiarize with appearance customization options</li>
+    <li>Used the search bar to locate Storage Accounts and explored the relationship between the left service menu and the top action menu bar at both the service list and individual resource levels</li>
+    <li>Opened the Dashboards interface, entered Edit mode, and dragged a Metrics Chart tile from the Tile Gallery onto the dashboard</li>
+    <li>Configured the Metrics Chart by scoping it to the lab storage account and selecting Used Capacity as the metric, then saved the chart to the dashboard</li>
+    <li>Created a new dashboard from the Azure Inventory template, named it "my-inventory", and submitted it</li>
+    <li>Published the dashboard using the Share option and reviewed the Access Control sharing options available in a production environment</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
