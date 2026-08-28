@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Service Endpoints Between Virtual Machines and Blob Storage | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Create Service Endpoints Between Virtual Machines and Blob Storage</h1>
+  <p>Pluralsight Hands-On Lab — Azure Networking &amp; Storage</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "create-service-endpoints-vms-blob-storage.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Create Service Endpoints Between Virtual Machines and Blob Storage</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Storage</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure Networking &amp; Storage</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Azure Cloud Shell (Bash)</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Azure Service Endpoints allow a subnet to present its virtual network identity to Azure Storage, enabling network-level access control without requiring private endpoints or public IP management. In this lab, I inherited a storage account open to all networks and was tasked with restricting it to a specific application subnet. I established a baseline, applied the restriction, validated the intended workload still succeeded, then diagnosed and restored access for a second VM on a different subnet that was blocked by the change — walking through the full service endpoint troubleshooting cycle using Azure Cloud Shell and the VM run command agent.</p>
+  <hr class="section-divider">
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Inspected the virtual network (vnet-export) and confirmed two subnets — snet-application (10.0.1.0/24) and snet-operations (10.0.2.0/24) — with no service endpoints enabled on either</li>
+    <li>Confirmed both VMs had no public IPs and used a NAT gateway for outbound connectivity, and that the storage account accepted traffic from all networks</li>
+    <li>Established a baseline using Azure Cloud Shell and az vm run-command to curl the blob from vm-application, confirming HTTP 200 and CSV content while the account was fully open</li>
+    <li>Restricted the storage account to selected networks, added vnet-export/snet-application as an allowed network — which triggered automatic enablement of the Microsoft.Storage service endpoint on that subnet — and saved the rule</li>
+    <li>Verified the Microsoft.Storage service endpoint appeared in snet-application's Service Endpoints table, and confirmed snet-operations remained empty</li>
+    <li>Reran the curl command from vm-application and confirmed HTTP 200 — the request now succeeded via the service endpoint identity rather than anonymous public access</li>
+    <li>Ran the same curl command from vm-operations and received HTTP 403 AuthorizationFailure — confirming snet-operations was excluded from the network rule</li>
+    <li>Restored access by adding snet-operations to the storage account's allowed networks, enabling its Microsoft.Storage service endpoint in the same flow, and saving</li>
+    <li>Reran the curl from vm-operations and confirmed HTTP 200, completing the troubleshooting cycle</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
