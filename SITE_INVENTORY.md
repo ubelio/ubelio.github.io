@@ -20,7 +20,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
 | `appliedskills.html` | Hub page — links to the 23 `AppliedSkills/` credential writeups |
 | `agentacademy.html` | Hub page — links to the `AgentAcademy/` lab writeups (Rank Progression, Special Ops, Cowork Collective tracks); also carries `.coming-soon` entries for ranks/missions not yet completed |
-| `pluralsightlabs.html` | Hub page — links to 50 planned Pluralsight hands-on lab writeups (1 built, 49 coming soon) |
+| `pluralsightlabs.html` | Hub page — Pluralsight hands-on labs in 7 sections (Azure Fundamentals, Networking, Storage, Security, Identity & Governance, Monitoring, AI & Containers); 48 of 50 planned labs done across 40 writeup pages, 2 still coming soon |
 | `leading-ai-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-automate-flows.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-platform-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
@@ -75,13 +75,52 @@ MS-102 exam prep lab writeups, linked from `ms102labs.html`. Completed in a pers
 | `ms102-lab10.html` | Lab 10 — Conditional Access policies |
 | `ms102-lab11.html` | Lab 11 — Authentication methods (MFA, SSPR, passwordless) |
 
-## `PluralSightLabs/` (1 file)
+## `PluralSightLabs/` (40 files)
 
-Pluralsight hands-on lab writeups, linked from `pluralsightlabs.html`. 1 of 50 planned labs built so far. See `LABS_INVENTORY.md` for the full breakdown, including the roadmap of remaining planned titles.
+Pluralsight hands-on lab writeups, linked from `pluralsightlabs.html`. 40 pages covering 48 of 50 planned labs; 2 hub entries remain `.coming-soon`. Five pages each consolidate 2–3 closely related labs into one writeup with per-lab `<h2>` subsections. See `LABS_INVENTORY.md` for the section-by-section breakdown.
 
 | File | What it is |
 |---|---|
-| `PluralSightLabs/implement-defense-in-depth.html` | Lab — Implement Defense in Depth on Azure (layered security: perimeter, network, identity, compute, application, data, security operations) |
+| `accessing-using-azure-portal.html` | Accessing and Using the Azure Portal |
+| `accessing-using-azure-cloud-shell.html` | Accessing and Using the Azure Cloud Shell |
+| `deploying-first-azure-virtual-machine.html` | Deploying Your First Azure Virtual Machine |
+| `add-existing-data-disk-vm-azure.html` | Add Existing Data Disk to a VM in Azure |
+| `troubleshooting-restoring-misconfigured-vm.html` | Troubleshooting and Restoring a Misconfigured Virtual Machine |
+| `create-virtual-network-azure.html` | Create a Virtual Network |
+| `create-multiple-subnets-azure.html` | Create Multiple Subnets in Azure |
+| `create-configure-vnet-peering-azure.html` | Create and Configure VNet Peering in Azure — **consolidated** (2 labs; linked twice from the hub as the base and "v3" entries) |
+| `vnet-to-vnet-vpn-gateway.html` | Configuring an Azure VNet-to-VNet VPN Gateway (v2) |
+| `implement-custom-network-routes-azure.html` | Implement Custom Network Routes in Azure Virtual Network |
+| `implementing-secure-vnet-peering-departmental-networks.html` | Implementing Secure VNet Peering Between Departmental Networks |
+| `implement-configure-private-dns-azure.html` | Implement and Configure Private DNS in Azure |
+| `access-windows-vms-ssl-azure-bastion.html` | Access Windows VMs over SSL without Public IPs Using Azure Bastion |
+| `creating-azure-storage-account-blob-container.html` | Creating an Azure Storage Account and Blob Container |
+| `configuration-security-azure-storage-accounts.html` | Securing Azure Storage with Shared Access Signatures — **consolidated** (3 SAS labs: storage account security, secure storage access, limit access via SAS URI) |
+| `configuring-azure-private-link-blob-storage.html` | Configuring Azure Private Link for Blob Storage — **consolidated** (2 labs) |
+| `create-service-endpoints-vms-blob-storage.html` | Create Service Endpoints Between Virtual Machines and Blob Storage |
+| `create-user-delegation-sas-azure-cli.html` | Create a User Delegation SAS Using Azure CLI |
+| `create-restore-file-share-snapshots-azure.html` | Create and Restore File Share Snapshots in Azure |
+| `expire-data-age-azure-blob-storage.html` | Expire Data Based on Age in Azure Blob Storage |
+| `implement-defense-in-depth.html` | Implement Defense in Depth on Azure (layered security: perimeter, network, identity, compute, application, data, security operations) |
+| `secure-network-traffic-nsgs-azure-firewall.html` | Secure Network Traffic with NSGs and Azure Firewall |
+| `configure-application-level-rules-azure-firewall.html` | Configure Application-Level Rules within Azure Firewall |
+| `deploy-secure-web-app-nsgs-private-endpoints.html` | Deploy a Secure Web App Using NSGs and Private Endpoints |
+| `securely-access-script-secrets-key-vault.html` | Securely Access Script Secrets in Azure Key Vault |
+| `enabling-always-encrypted-azure-sql.html` | Enabling Always Encrypted in Azure SQL |
+| `configure-data-masking-azure-sql.html` | Configure Data Masking in Azure SQL Database |
+| `applying-azure-disk-encryption-windows-vm.html` | Applying Azure Disk Encryption to a Windows Virtual Machine |
+| `setting-up-backup-recovery-compliance.html` | Setting Up Backup and Recovery to Meet Compliance Requirements |
+| `deploying-cost-optimized-compute-storage.html` | Deploying a Cost-Optimized Compute and Storage Solution |
+| `create-manage-entra-id-users-portal.html` | Managing Users and Groups in Microsoft Entra ID — **consolidated** (3 labs: create/manage users, create group + membership/ownership, organize users & groups for access control) |
+| `perform-bulk-entra-id-operations-portal.html` | Perform Bulk Microsoft Entra ID Operations in the Portal |
+| `ensuring-compliance-azure-policies.html` | Ensuring Compliance with Azure Policies |
+| `using-azure-policy-resource-locks.html` | Using Azure Policy and Resource Locks |
+| `cost-planning-management-azure.html` | Cost Planning and Management in Azure |
+| `understanding-azure-monitor-alerting.html` | Azure Monitor Alerting: Rules, Action Groups, and Investigation — **consolidated** (3 labs: Activity Log investigation, alert rule via CLI, action groups + alert processing rules) |
+| `analyzing-faces-azure-ai.html` | Analyzing Faces with Azure AI |
+| `object-detection-azure-custom-vision.html` | Object Detection with Azure Custom Vision |
+| `create-web-app-docker-container-azure.html` | Create Web App from Docker Container in Azure |
+| `build-run-container-azure-acr-tasks.html` | Build and Run a Container Using Azure ACR Tasks |
 
 ## `SC-200Labs/` (9 files + 11 images)
 
@@ -101,4 +140,4 @@ SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an
 
 ---
 
-**Totals**: 134 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 1 in `PluralSightLabs/`.
+**Totals**: 173 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 40 in `PluralSightLabs/`.

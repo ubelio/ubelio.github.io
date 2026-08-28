@@ -137,76 +137,85 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 
 ## `PluralSightLabs/` — linked from `pluralsightlabs.html`
 
-1 of 50 planned labs built so far. Built pages follow an At a Glance table / Overview / detail-sections pattern. The remaining 49 entries below are coming-soon placeholders on the hub, listed by section as a build roadmap.
+40 pages covering 48 of 50 planned labs. Pages follow the `AppliedSkills/` pattern — At a Glance table / Overview / detail `<ul>` sections separated by `.section-divider`, "← Back to Pluralsight Labs" link — with the active-nav `<script>` remapping the page's own filename to `labs.html`. The hub groups entries into 7 sections. Five pages each **consolidate** 2–3 closely related labs into one writeup with per-lab `<h2>` subsections. Two hub entries remain `.coming-soon` and have no page: *Azure Resource Manager Tagging and Locking Scenarios* (Azure Fundamentals) and *Survey Resource Alerts Using Azure Monitor* (Monitoring).
+
+### Azure Fundamentals
+
+| Filename | `<h1>` title |
+|---|---|
+| `accessing-using-azure-portal.html` | Accessing and Using the Azure Portal |
+| `accessing-using-azure-cloud-shell.html` | Accessing and Using the Azure Cloud Shell |
+| `deploying-first-azure-virtual-machine.html` | Deploying Your First Azure Virtual Machine |
+| `add-existing-data-disk-vm-azure.html` | Add Existing Data Disk to a VM in Azure |
+| `troubleshooting-restoring-misconfigured-vm.html` | Troubleshooting and Restoring a Misconfigured Virtual Machine |
+| *(none — coming soon)* | Azure Resource Manager Tagging and Locking Scenarios |
+
+### Networking
+
+| Filename | `<h1>` title |
+|---|---|
+| `create-virtual-network-azure.html` | Create a Virtual Network |
+| `create-multiple-subnets-azure.html` | Create Multiple Subnets in Azure |
+| `create-configure-vnet-peering-azure.html` | Create and Configure VNet Peering in Azure — **consolidated** (2 labs; hub links it twice, as the base entry and the "v3" entry) |
+| `vnet-to-vnet-vpn-gateway.html` | Configuring an Azure VNet-to-VNet VPN Gateway (v2) |
+| `implement-custom-network-routes-azure.html` | Implement Custom Network Routes in Azure Virtual Network |
+| `implementing-secure-vnet-peering-departmental-networks.html` | Implementing Secure VNet Peering Between Departmental Networks |
+| `implement-configure-private-dns-azure.html` | Implement and Configure Private DNS in Azure |
+| `access-windows-vms-ssl-azure-bastion.html` | Access Windows VMs over SSL without Public IPs Using Azure Bastion |
+
+### Storage
+
+| Filename | `<h1>` title |
+|---|---|
+| `creating-azure-storage-account-blob-container.html` | Creating an Azure Storage Account and Blob Container |
+| `configuration-security-azure-storage-accounts.html` | Securing Azure Storage with Shared Access Signatures — **consolidated** (3 labs: storage account security lifecycle, secure storage access with SAS, limit access using SAS URI) |
+| `configuring-azure-private-link-blob-storage.html` | Configuring Azure Private Link for Blob Storage — **consolidated** (2 labs) |
+| `create-service-endpoints-vms-blob-storage.html` | Create Service Endpoints Between Virtual Machines and Blob Storage |
+| `create-user-delegation-sas-azure-cli.html` | Create a User Delegation SAS Using Azure CLI |
+| `create-restore-file-share-snapshots-azure.html` | Create and Restore File Share Snapshots in Azure |
+| `expire-data-age-azure-blob-storage.html` | Expire Data Based on Age in Azure Blob Storage |
+
+### Security
 
 | Filename | `<h1>` title |
 |---|---|
 | `implement-defense-in-depth.html` | Implement Defense in Depth on Azure |
+| `secure-network-traffic-nsgs-azure-firewall.html` | Secure Network Traffic with NSGs and Azure Firewall |
+| `configure-application-level-rules-azure-firewall.html` | Configure Application-Level Rules within Azure Firewall |
+| `deploy-secure-web-app-nsgs-private-endpoints.html` | Deploy a Secure Web App Using NSGs and Private Endpoints |
+| `securely-access-script-secrets-key-vault.html` | Securely Access Script Secrets in Azure Key Vault |
+| `enabling-always-encrypted-azure-sql.html` | Enabling Always Encrypted in Azure SQL |
+| `configure-data-masking-azure-sql.html` | Configure Data Masking in Azure SQL Database |
+| `applying-azure-disk-encryption-windows-vm.html` | Applying Azure Disk Encryption to a Windows Virtual Machine |
+| `setting-up-backup-recovery-compliance.html` | Setting Up Backup and Recovery to Meet Compliance Requirements |
+| `deploying-cost-optimized-compute-storage.html` | Deploying a Cost-Optimized Compute and Storage Solution |
 
-**Azure Fundamentals**
-- Accessing and Using the Azure Portal
-- Accessing and Using the Azure Cloud Shell
-- Deploying Your First Azure Virtual Machine
-- Add Existing Data Disk to a VM in Azure
-- Azure Resource Manager Tagging and Locking Scenarios
-- Troubleshooting and Restoring a Misconfigured Virtual Machine
+### Identity & Governance
 
-**Networking**
-- Create a Virtual Network
-- Create Multiple Subnets in Azure
-- Create and Configure VNet Peering in Azure
-- Create and Configure VNet Peering in Azure v3
-- Configuring an Azure VNet-to-VNet VPN Gateway (v2)
-- Implement Custom Network Routes in Azure Virtual Network
-- Implementing Secure VNet Peering Between Departmental Networks
-- Implement and Configure Private DNS in Azure
-- Access Windows VMs over SSL without Public IPs Using Azure Bastion
+| Filename | `<h1>` title |
+|---|---|
+| `create-manage-entra-id-users-portal.html` | Managing Users and Groups in Microsoft Entra ID — **consolidated** (3 labs: create/manage users, create group + membership/ownership, organize users & groups for access control) |
+| `perform-bulk-entra-id-operations-portal.html` | Perform Bulk Microsoft Entra ID Operations in the Portal |
+| `ensuring-compliance-azure-policies.html` | Ensuring Compliance with Azure Policies |
+| `using-azure-policy-resource-locks.html` | Using Azure Policy and Resource Locks |
+| `cost-planning-management-azure.html` | Cost Planning and Management in Azure |
 
-**Storage**
-- Creating an Azure Storage Account and Blob Container
-- Configuration and Security of Azure Storage Accounts
-- Configuring Azure Private Link for Blob Storage
-- Configure Azure Private Link for Blob Storage
-- Create Service Endpoints Between Virtual Machines and Blob Storage
-- Secure Storage Access with Shared Access Signatures
-- Create a User Delegation SAS Using Azure CLI
-- Limit Access to Azure Storage Account Using SAS URI
-- Create and Restore File Share Snapshots in Azure
-- Expire Data Based on Age in Azure Blob Storage
+### Monitoring
 
-**Security**
-- Implement Defense in Depth on Azure *(built)*
-- Secure Network Traffic with NSGs and Azure Firewall
-- Configure Application-Level Rules within Azure Firewall
-- Deploy a Secure Web App Using NSGs and Private Endpoints
-- Securely Access Script Secrets in Azure Key Vault
-- Enabling Always Encrypted in Azure SQL
-- Configure Data Masking in Azure SQL Database
-- Applying Azure Disk Encryption to a Windows Virtual Machine
-- Setting Up Backup and Recovery to Meet Compliance Requirements
-- Deploying a Cost-Optimized Compute and Storage Solution
+| Filename | `<h1>` title |
+|---|---|
+| `understanding-azure-monitor-alerting.html` | Azure Monitor Alerting: Rules, Action Groups, and Investigation — **consolidated** (3 labs: Activity Log investigation, alert rule via Azure CLI, action groups + alert processing rules) |
+| *(none — coming soon)* | Survey Resource Alerts Using Azure Monitor |
 
-**Identity & Governance**
-- Create and Manage Microsoft Entra ID Users in the Portal
-- Create a Group and Add a Member in Microsoft Entra ID
-- Perform Bulk Microsoft Entra ID Operations in the Portal
-- Creating and Organizing Azure AD Users and Groups for Access Control
-- Ensuring Compliance with Azure Policies
-- Using Azure Policy and Resource Locks
-- Cost Planning and Management in Azure
+### AI & Containers
 
-**Monitoring**
-- Configure Logging and Alerts with Activity Log and Azure Monitor
-- Configure an Azure Monitor Alert Rule
-- Understanding Azure Monitor Alerting
-- Survey Resource Alerts Using Azure Monitor
-
-**AI & Containers**
-- Analyzing Faces with Azure AI
-- Object Detection with Azure Custom Vision
-- Create Web App from Docker Container in Azure
-- Build and Run a Container Using Azure ACR Tasks
+| Filename | `<h1>` title |
+|---|---|
+| `analyzing-faces-azure-ai.html` | Analyzing Faces with Azure AI |
+| `object-detection-azure-custom-vision.html` | Object Detection with Azure Custom Vision |
+| `create-web-app-docker-container-azure.html` | Create Web App from Docker Container in Azure |
+| `build-run-container-azure-acr-tasks.html` | Build and Run a Container Using Azure ACR Tasks |
 
 ---
 
-**Totals**: 80 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 1 PluralSightLabs (49 remaining of 50 planned). Verified every file in all nine folders is linked exactly once from its expected hub page — no orphaned files. (AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)
+**Totals**: 119 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 40 PluralSightLabs (48 of 50 planned labs done; 2 hub entries coming-soon). Verified every file in all nine folders is linked from its expected hub page — no orphaned files. (`create-configure-vnet-peering-azure.html` is deliberately linked twice from the PluralSightLabs hub; AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

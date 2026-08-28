@@ -257,3 +257,12 @@ Template:
 - Next 3 actions: 1) Update SITE_INVENTORY.md and LABS_INVENTORY.md totals and per-file tables to reflect 48 new PluralSightLabs pages. 2) Update CLAUDE.md page count. 3) Consider adding a Survey Resource Alerts lab page (lab 45) if content becomes available.
 - Blockers: None.
 - Validation done: All pages link /style.css, active-nav remap to labs.html confirmed in prompt pattern, all hub entries flipped from coming-soon spans to real links.
+
+### 2026-08-28 (later — supersedes the entry above)
+- Goal: Finish building the PluralSightLabs/ pages and reconcile the docs to the real end state.
+- Current status: Done. 40 HTML pages exist in PluralSightLabs/, covering 48 of 50 planned Pluralsight labs. 2 hub entries remain .coming-soon with no page: "Azure Resource Manager Tagging and Locking Scenarios" (Azure Fundamentals) and "Survey Resource Alerts Using Azure Monitor" (Monitoring). Five pages each consolidate 2-3 related labs into one writeup with per-lab <h2> subsections: SAS storage -> configuration-security-azure-storage-accounts.html (title "Securing Azure Storage with Shared Access Signatures"); Entra ID users/groups -> create-manage-entra-id-users-portal.html (title "Managing Users and Groups in Microsoft Entra ID"); Azure Monitor alerting -> understanding-azure-monitor-alerting.html (title "Azure Monitor Alerting: Rules, Action Groups, and Investigation"); Private Link Blob Storage -> configuring-azure-private-link-blob-storage.html; VNet Peering -> create-configure-vnet-peering-azure.html (linked twice from the hub as the base and "v3" entries). Redundant standalone pages from the consolidations were git rm-ed. Also today: added AZ-500 (Azure Security Engineer Associate) to the Completed certifications list in index.html.
+- Files touched: PluralSightLabs/*.html (40 files, net), pluralsightlabs.html, index.html, CLAUDE.md, SITE_INVENTORY.md, LABS_INVENTORY.md, WORKFLOW.md
+- Doc counts now: 173 total HTML files (40 in PluralSightLabs/); 119 lab writeups.
+- Next 3 actions: 1) Build the 2 remaining coming-soon labs when content is supplied. 2) When built, flip their hub spans to links and update the doc counts (40 -> 42 pages, 173 -> 175 HTML, 119 -> 121 writeups, "48 of 50" -> "50 of 50"). 3) No other open follow-up.
+- Blockers: None.
+- Validation done: ls PluralSightLabs/*.html = 40; find -name "*.html" = 173; grep coming-soon pluralsightlabs.html = 2 real entries (+1 CSS rule); every PluralSightLabs page linked from the hub, create-configure-vnet-peering-azure.html intentionally linked twice.

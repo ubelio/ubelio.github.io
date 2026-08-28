@@ -15,7 +15,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `homelabfirewall.html` — homelab firewall overview/hub
 - `contact.html` — contact info + resume download link
 - `DLPInformationProtection.html`, `SC-401labs.html`, `Misc.html`, `appliedskills.html`, `agentacademy.html` — additional index/hub pages (`SC-401labs.html`'s h1 reads "SC-401: Microsoft Information Protection Administrator")
-- `pluralsightlabs.html` — hub page linking to the 50 planned PluralSightLabs/ lab writeups (1 built so far, 49 still "Coming Soon")
+- `pluralsightlabs.html` — hub page for the Pluralsight hands-on labs, grouped into 7 sections (Azure Fundamentals, Networking, Storage, Security, Identity & Governance, Monitoring, AI & Containers). 48 of 50 planned labs done, covered by 40 writeup pages (5 pages each consolidate 2–3 closely related labs); 2 entries still `.coming-soon` (Azure Resource Manager Tagging and Locking Scenarios; Survey Resource Alerts Using Azure Monitor)
 - `leading-ai-implementation.html`, `power-automate-flows.html`, `power-platform-implementation.html` — project writeups that live at repo root instead of in `projects/`, unlike every other project page (a drift from a later `git pull`, not a convention to replicate — see `SITE_INVENTORY.md`)
 - `README.md`, `CNAME`, `favicon.png`, `headshot.jpg`, `labdiagram.png`, `UbelioFernandezTabetResume.docx` — site metadata/assets at root
 
@@ -29,7 +29,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `AgentAcademy/` — Copilot Studio Agent Academy lab writeups (Rank Progression, Special Ops, and Cowork Collective tracks), linked from `agentacademy.html`. Structurally similar to `AppliedSkills/` (badge image + at-a-glance table + Overview + What I Built + View Badge) — see §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section. As of this writing 7 of 10 linked pages exist; the remaining 3 (Cowork Collective track: `badge-check.html`, `out-of-office.html`, `compliance-packet.html`) are still to be built.
 - `MS-102Labs/` — 11 MS-102 exam prep lab writeups (tenant admin, identity sync, Defender for Office 365, Purview compliance, Conditional Access, authentication), linked from `ms102labs.html`
 - `SC-200Labs/` — 9 SC-200 exam prep lab writeups (Defender XDR, Security Copilot, Purview, Defender for Endpoint, KQL, Sentinel deployment/analytics/incidents/hunting), linked from `sc200labs.html`. Includes 11 lab architecture diagram images licensed MIT from MicrosoftLearning/SC-200T00A.
-- `PluralSightLabs/` — Pluralsight hands-on lab writeups (1 of 50 planned built so far), linked from `pluralsightlabs.html`
+- `PluralSightLabs/` — Pluralsight hands-on lab writeups, linked from `pluralsightlabs.html`. 40 HTML pages covering 48 of 50 planned labs (see `LABS_INVENTORY.md`). Same page pattern as `AppliedSkills/` (At a Glance table / Overview / detail `<ul>` sections separated by `.section-divider`, "← Back to Pluralsight Labs" link), with the active-nav `<script>` remapping the page's own filename to `labs.html`. Five pages each consolidate 2–3 related labs into one writeup with per-lab `<h2>` subsections: SAS storage (`configuration-security-azure-storage-accounts.html`), Entra ID users/groups (`create-manage-entra-id-users-portal.html`), Azure Monitor alerting (`understanding-azure-monitor-alerting.html`), Private Link Blob Storage (`configuring-azure-private-link-blob-storage.html`), VNet Peering (`create-configure-vnet-peering-azure.html`, linked twice from the hub as the base and "v3" entries)
 - `scripts/` — raw PowerShell scripts (`.ps1`) referenced/linked from `scripts.html`.
 
 ### Asset convention
@@ -37,7 +37,7 @@ Screenshots and diagrams live **next to** the HTML file that uses them (same fol
 
 ## 2. Styling Conventions
 
-**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (134 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
+**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (173 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
 
 `style.css` contains only the universal site chrome, shared byte-for-byte across every page before the refactor:
 - `body` (font-family, margin, background-color, color)
