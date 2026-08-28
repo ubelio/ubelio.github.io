@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Create and Manage Microsoft Entra ID Users in the Portal | Ubelio Fernandez-Tabet</title>
+  <title>Managing Users and Groups in Microsoft Entra ID | Ubelio Fernandez-Tabet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/style.css">
   <style>
@@ -18,7 +18,7 @@
 <body>
 
 <header>
-  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Create and Manage Microsoft Entra ID Users in the Portal</h1>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Managing Users and Groups in Microsoft Entra ID</h1>
   <p>Pluralsight Hands-On Lab — Azure Identity &amp; Governance</p>
 </header>
 
@@ -42,7 +42,7 @@
 </script>
 
 <div class="container">
-  <h2 style="margin-bottom:4px;">Create and Manage Microsoft Entra ID Users in the Portal</h2>
+  <h2 style="margin-bottom:4px;">Managing Users and Groups in Microsoft Entra ID</h2>
   <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Identity &amp; Governance</p>
   <hr class="section-divider">
 
@@ -57,17 +57,34 @@
   <hr class="section-divider">
 
   <h2>Overview</h2>
-  <p>Microsoft Entra ID is the centralized identity and access management platform for Azure, and managing user accounts is one of the most fundamental administrative tasks. In this lab, I walked through the full user account lifecycle: creating multiple users, modifying profile and job information, resetting a password, revoking active sessions, deleting a user, and verifying the 30-day soft-delete retention in the Deleted Users view.</p>
+  <p>Microsoft Entra ID is the centralized identity and access management platform for Azure. These three Pluralsight labs cover the full user and group lifecycle: creating and modifying users, managing group membership and ownership, performing bulk identity operations via CSV, resetting passwords, revoking sessions, and deprovisioning users — the foundational IAM skills every Azure administrator needs.</p>
   <hr class="section-divider">
 
-  <h2>What I Did</h2>
+  <h2>Lab 1 — Create and Manage Microsoft Entra ID Users</h2>
   <ul>
-    <li>Created three Microsoft Entra ID users (RP One, RP Two, RP Three) using the Create new user flow and confirmed all three appeared in the Users list</li>
-    <li>Opened RP One's profile and edited properties: set First name, Last name, Job title (Helpdesk Technician), and Department (IT Helpdesk) across the Identity and Job Information tabs, then saved</li>
-    <li>Reset RP One's password using the Reset password action, generating a temporary password requiring change on next sign-in</li>
-    <li>Revoked all active sessions for RP One using Revoke sessions, immediately invalidating any current sign-ins</li>
-    <li>Deleted RP Three from the Users list, confirmed the account no longer appeared in All Users, then navigated to Deleted Users and confirmed RP Three appeared in the 30-day soft-delete retention list</li>
-    <li>Noted that Restore users and Delete permanently options are available from the Deleted Users view for accounts still within the retention window</li>
+    <li>Created three users (RP One, RP Two, RP Three) and confirmed all appeared in the Users list</li>
+    <li>Edited RP One's profile properties: set first/last name, job title (Helpdesk Technician), and department (IT Helpdesk)</li>
+    <li>Reset RP One's password, generating a temporary password requiring change on next sign-in</li>
+    <li>Revoked all active sessions for RP One using Revoke sessions, immediately invalidating current sign-ins</li>
+    <li>Deleted RP Three, confirmed removal from All Users, then verified it appeared in the Deleted Users 30-day retention list with Restore and Delete permanently options available</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Lab 2 — Create a Group, Add Members, and Assign Ownership</h2>
+  <ul>
+    <li>Created a Security group named "Internship Program" with a descriptive group description covering both mentors and mentees</li>
+    <li>Added the pre-existing Cloud Student user as a member of the group</li>
+    <li>Created a new user (cloudinternmentor / Cloud Intern Mentor) and assigned them as the group owner — establishing distinct member and ownership roles within the same group</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Lab 3 — Create and Organize Users and Groups for Access Control</h2>
+  <ul>
+    <li>Created three users (User1, User2, User3) with auto-generated passwords and accounts enabled</li>
+    <li>Created a Security group named "Project-Readers" with User1 as its sole member</li>
+    <li>Created a Security group named "Project-Contributors" with User2 and User3 as members</li>
+    <li>Verified both groups in All Groups, removed a member using the ellipsis action menu, and confirmed removal via page refresh</li>
+    <li>Deleted a user from the Users list, completing the identity lifecycle from creation through deprovisioning</li>
   </ul>
   <hr class="section-divider">
 
