@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Setting Up Backup and Recovery to Meet Compliance Requirements | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Setting Up Backup and Recovery to Meet Compliance Requirements</h1>
+  <p>Pluralsight Hands-On Lab — Azure Security &amp; Compliance</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "setting-up-backup-recovery-compliance.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Setting Up Backup and Recovery to Meet Compliance Requirements</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Security</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Pluralsight</td></tr>
+    <tr><th>Category</th><td>Azure Security &amp; Compliance</td></tr>
+    <tr><th>Lab Type</th><td>Guided + Challenge Mode</td></tr>
+    <tr><th>Environment</th><td>Azure Portal, Recovery Services Vault, Azure Backup</td></tr>
+    <tr><th>Completed</th><td>2026</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>Azure Backup with Recovery Services Vaults provides policy-driven VM protection to meet organizational compliance requirements for data recovery and business continuity. In this lab, I acted as an Azure administrator responsible for ensuring all production VMs are covered under a backup policy. I created a Recovery Services Vault, enabled VM backup with the Enhanced Policy, triggered an on-demand backup, simulated accidental VM deletion, restored the VM from the recovery point as a new virtual machine, and confirmed it was running — completing the full backup and recovery lifecycle.</p>
+  <hr class="section-divider">
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Noted the lab VM's region and created a Recovery Services Vault (rsvault-prod-01) in the same region — a requirement for vault-to-VM association</li>
+    <li>Enabled Azure Backup for the lab VM from within the vault, selecting the Enhanced Policy and adding lab-VM to the protected items list</li>
+    <li>Triggered an on-demand backup job from the Backup items blade and monitored job progress until the Snapshot subtask reached Completed status</li>
+    <li>Verified that at least one recovery point appeared on the lab-VM backup item page, confirming a valid point-in-time capture existed</li>
+    <li>Simulated accidental data loss by deleting lab-VM from the Virtual Machines blade and confirming it no longer appeared in the list</li>
+    <li>Navigated back to the Recovery Services Vault, located the backup item, and initiated a VM restore from the recovery point</li>
+    <li>Configured the restore to create a new VM named vm-restored-prod-01 on the existing virtual network (lab-VM-NET, default subnet) using the lab storage account as the staging location</li>
+    <li>Monitored the restore job to Completed status, then confirmed vm-restored-prod-01 appeared in Virtual Machines with a Running status — validating full backup and recovery compliance</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>
