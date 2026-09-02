@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Resource Alerts Using Azure Monitor | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance{width:100%;border-collapse:collapse;margin:16px 0}
+    table.at-a-glance th,table.at-a-glance td{text-align:left;padding:8px 12px;border:1px solid #ccc}
+    table.at-a-glance th{background:#AFACA1;color:#141413;width:35%}
+    .section-divider{border:none;border-top:2px solid #BDBBB2;margin:24px 0}
+    h2{color:#141413;margin-top:0}
+    ul{padding-left:20px}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF;margin:0 0 8px 0;font-size:2em;">Survey Resource Alerts Using Azure Monitor</h1>
+  <p>Pluralsight Hands-On Lab — Monitoring Section</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "survey-resource-alerts-azure-monitor.html") { current = "labs.html"; }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+  <h2 style="margin-bottom:4px;">Survey Resource Alerts Using Azure Monitor</h2>
+  <p style="color:#555;margin-top:0;">Pluralsight Hands-On Lab — Monitoring</p>
+  <hr class="section-divider">
+
+  <h2>At a Glance</h2>
+  <table class="at-a-glance">
+    <tr><th>Platform</th><td>Microsoft Azure</td></tr>
+    <tr><th>Tools</th><td>Azure Portal, Azure Monitor</td></tr>
+    <tr><th>Topics</th><td>Azure Monitor, Application Insights, Virtual Machines, Storage Accounts, Networking</td></tr>
+    <tr><th>Level</th><td>Beginner</td></tr>
+  </table>
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>This lab covers navigating Azure Monitor to survey deployed resources and identify monitoring gaps, warnings, and advisories across virtual machines, storage accounts, containers, and networks. It concludes with enabling Application Insights on an App Service to extend observability coverage.</p>
+  <hr class="section-divider">
+
+  <h2>Section 1 — Navigate Azure Monitor</h2>
+  <ul>
+    <li>Opened Azure Monitor from the portal search bar</li>
+    <li>Reviewed the Insights section</li>
+    <li>Confirmed no Application Insights apps were present</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Section 2 — Review Virtual Machine Monitoring</h2>
+  <ul>
+    <li>Selected Virtual Machines under Insights</li>
+    <li>On the Overview tab, identified one VM under the "Not monitored" tab with no Monitor coverage enabled</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Section 3 — Review Storage Account Metrics</h2>
+  <ul>
+    <li>Selected Storage accounts under Monitor</li>
+    <li>Reviewed the Capacity tab</li>
+    <li>Drilled into the storage account for detailed metrics and insights</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Section 4 — Review Network Resources</h2>
+  <ul>
+    <li>Selected Networks under Monitor</li>
+    <li>Confirmed one network interface, one virtual network, one network security group, one public IP, and no active alerts</li>
+    <li>Reviewed Connectivity (no results) and Traffic (one NSG) tabs</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Section 5 — Survey All Resources</h2>
+  <ul>
+    <li>Navigated to All Resources from the Azure home page</li>
+    <li>Confirmed seven provisioned resources across the subscription</li>
+  </ul>
+  <hr class="section-divider">
+
+  <h2>Section 6 — Enable Application Insights</h2>
+  <ul>
+    <li>Located the App Service (name beginning with webapp)</li>
+    <li>Under Settings, selected Application Insights</li>
+    <li>Clicked Turn on Application Insights</li>
+    <li>Left defaults and clicked Apply</li>
+    <li>Confirmed the deployment validation failed message — expected behavior in the lab sandbox environment</li>
+  </ul>
+  <hr class="section-divider">
+
+  <p><a href="/pluralsightlabs.html">← Back to Pluralsight Labs</a></p>
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+</footer>
+
+</body>
+</html>

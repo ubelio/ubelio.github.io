@@ -20,7 +20,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
 | `appliedskills.html` | Hub page — links to the 23 `AppliedSkills/` credential writeups |
 | `agentacademy.html` | Hub page — links to the `AgentAcademy/` lab writeups (Rank Progression, Special Ops, Cowork Collective tracks); also carries `.coming-soon` entries for ranks/missions not yet completed |
-| `pluralsightlabs.html` | Hub page — Pluralsight hands-on labs in 7 sections (Azure Fundamentals, Networking, Storage, Security, Identity & Governance, Monitoring, AI & Containers); 48 of 50 planned labs done across 40 writeup pages, 2 still coming soon |
+| `pluralsightlabs.html` | Hub page — Pluralsight hands-on labs in 7 sections (Azure Fundamentals, Networking, Storage, Security, Identity & Governance, Monitoring, AI & Containers); 49 of 49 planned labs done across 41 writeup pages, 0 coming-soon entries |
 | `leading-ai-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-automate-flows.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-platform-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
@@ -75,9 +75,9 @@ MS-102 exam prep lab writeups, linked from `ms102labs.html`. Completed in a pers
 | `ms102-lab10.html` | Lab 10 — Conditional Access policies |
 | `ms102-lab11.html` | Lab 11 — Authentication methods (MFA, SSPR, passwordless) |
 
-## `PluralSightLabs/` (40 files)
+## `PluralSightLabs/` (41 files)
 
-Pluralsight hands-on lab writeups, linked from `pluralsightlabs.html`. 40 pages covering 48 of 50 planned labs; 2 hub entries remain `.coming-soon`. Five pages each consolidate 2–3 closely related labs into one writeup with per-lab `<h2>` subsections. See `LABS_INVENTORY.md` for the section-by-section breakdown.
+Pluralsight hands-on lab writeups, linked from `pluralsightlabs.html`. 41 pages covering 49 of 49 planned labs; 0 hub entries remain `.coming-soon`. Five pages each consolidate 2–3 closely related labs into one writeup with per-lab `<h2>` subsections. See `LABS_INVENTORY.md` for the section-by-section breakdown.
 
 | File | What it is |
 |---|---|
@@ -117,6 +117,7 @@ Pluralsight hands-on lab writeups, linked from `pluralsightlabs.html`. 40 pages 
 | `using-azure-policy-resource-locks.html` | Using Azure Policy and Resource Locks |
 | `cost-planning-management-azure.html` | Cost Planning and Management in Azure |
 | `understanding-azure-monitor-alerting.html` | Azure Monitor Alerting: Rules, Action Groups, and Investigation — **consolidated** (3 labs: Activity Log investigation, alert rule via CLI, action groups + alert processing rules) |
+| `survey-resource-alerts-azure-monitor.html` | Survey Resource Alerts Using Azure Monitor — navigate Azure Monitor to survey VM/storage/network monitoring gaps; enable Application Insights on an App Service |
 | `analyzing-faces-azure-ai.html` | Analyzing Faces with Azure AI |
 | `object-detection-azure-custom-vision.html` | Object Detection with Azure Custom Vision |
 | `create-web-app-docker-container-azure.html` | Create Web App from Docker Container in Azure |
@@ -140,4 +141,4 @@ SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an
 
 ---
 
-**Totals**: 173 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 40 in `PluralSightLabs/`.
+**Totals**: 174 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 7 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 41 in `PluralSightLabs/`.

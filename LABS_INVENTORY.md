@@ -137,7 +137,7 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 
 ## `PluralSightLabs/` — linked from `pluralsightlabs.html`
 
-40 pages covering 48 of 50 planned labs. Pages follow the `AppliedSkills/` pattern — At a Glance table / Overview / detail `<ul>` sections separated by `.section-divider`, "← Back to Pluralsight Labs" link — with the active-nav `<script>` remapping the page's own filename to `labs.html`. The hub groups entries into 7 sections. Five pages each **consolidate** 2–3 closely related labs into one writeup with per-lab `<h2>` subsections. Two hub entries remain `.coming-soon` and have no page: *Azure Resource Manager Tagging and Locking Scenarios* (Azure Fundamentals) and *Survey Resource Alerts Using Azure Monitor* (Monitoring).
+41 pages covering 49 of 49 planned labs. Pages follow the `AppliedSkills/` pattern — At a Glance table / Overview / detail `<ul>` sections separated by `.section-divider`, "← Back to Pluralsight Labs" link — with the active-nav `<script>` remapping the page's own filename to `labs.html`. The hub groups entries into 7 sections. Five pages each **consolidate** 2–3 closely related labs into one writeup with per-lab `<h2>` subsections. No hub entries remain `.coming-soon`.
 
 ### Azure Fundamentals
 
@@ -148,7 +148,6 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 | `deploying-first-azure-virtual-machine.html` | Deploying Your First Azure Virtual Machine |
 | `add-existing-data-disk-vm-azure.html` | Add Existing Data Disk to a VM in Azure |
 | `troubleshooting-restoring-misconfigured-vm.html` | Troubleshooting and Restoring a Misconfigured Virtual Machine |
-| *(none — coming soon)* | Azure Resource Manager Tagging and Locking Scenarios |
 
 ### Networking
 
@@ -205,7 +204,7 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 | Filename | `<h1>` title |
 |---|---|
 | `understanding-azure-monitor-alerting.html` | Azure Monitor Alerting: Rules, Action Groups, and Investigation — **consolidated** (3 labs: Activity Log investigation, alert rule via Azure CLI, action groups + alert processing rules) |
-| *(none — coming soon)* | Survey Resource Alerts Using Azure Monitor |
+| `survey-resource-alerts-azure-monitor.html` | Survey Resource Alerts Using Azure Monitor |
 
 ### AI & Containers
 
@@ -218,4 +217,4 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 
 ---
 
-**Totals**: 119 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 40 PluralSightLabs (48 of 50 planned labs done; 2 hub entries coming-soon). Verified every file in all nine folders is linked from its expected hub page — no orphaned files. (`create-configure-vnet-peering-azure.html` is deliberately linked twice from the PluralSightLabs hub; AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)
+**Totals**: 120 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 7 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 41 PluralSightLabs (49 of 49 planned labs done; 0 hub entries coming-soon). Verified every file in all nine folders is linked from its expected hub page — no orphaned files. (`create-configure-vnet-peering-azure.html` is deliberately linked twice from the PluralSightLabs hub; AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

@@ -266,3 +266,11 @@ Template:
 - Next 3 actions: 1) Build the 2 remaining coming-soon labs when content is supplied. 2) When built, flip their hub spans to links and update the doc counts (40 -> 42 pages, 173 -> 175 HTML, 119 -> 121 writeups, "48 of 50" -> "50 of 50"). 3) No other open follow-up.
 - Blockers: None.
 - Validation done: ls PluralSightLabs/*.html = 40; find -name "*.html" = 173; grep coming-soon pluralsightlabs.html = 2 real entries (+1 CSS rule); every PluralSightLabs page linked from the hub, create-configure-vnet-peering-azure.html intentionally linked twice.
+
+### 2026-09-02
+- **Goal**: Add the last remaining Pluralsight lab page (Survey Resource Alerts Using Azure Monitor) and remove the unresolvable Azure Resource Manager Tagging and Locking Scenarios hub entry.
+- **Current status**: Done. Built survey-resource-alerts-azure-monitor.html in PluralSightLabs/; flipped its Monitoring-section hub entry from coming-soon to a real link; deleted the Azure Fundamentals coming-soon entry for Azure RM Tagging entirely. All 49 planned labs now have pages; 0 coming-soon entries remain on pluralsightlabs.html. Docs updated.
+- **Files touched**: PluralSightLabs/survey-resource-alerts-azure-monitor.html (new), pluralsightlabs.html, LABS_INVENTORY.md, SITE_INVENTORY.md, CLAUDE.md, WORKFLOW.md
+- **Next 3 actions**: 1) Build remaining AgentAcademy Cowork Collective pages (badge-check.html, out-of-office.html, compliance-packet.html). 2) Build Identity & Access advanced project pages when ready. 3) Build out SC-300, AZ-104, MD-102 lab sections.
+- **Blockers**: None.
+- **Validation done**: Confirm 41 files in PluralSightLabs/, zero coming-soon spans in pluralsightlabs.html, all doc totals match.
