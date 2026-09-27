@@ -274,3 +274,27 @@ Template:
 - **Next 3 actions**: 1) Build remaining AgentAcademy Cowork Collective pages (badge-check.html, out-of-office.html, compliance-packet.html). 2) Build Identity & Access advanced project pages when ready. 3) Build out SC-300, AZ-104, MD-102 lab sections.
 - **Blockers**: None.
 - **Validation done**: Confirm 41 files in PluralSightLabs/, zero coming-soon spans in pluralsightlabs.html, all doc totals match.
+
+### 2026-09-10
+- **Goal**: Keep index.html's Certifications section current — add a newly-earned credential and correct its Pursuing-list timing.
+- **Current status**: Done. Added SC-500 (Cloud and AI Security Engineer Associate) to Completed. It had briefly been listed under Pursuing with an ETA in the same session before being confirmed complete, so it was removed from Pursuing rather than left duplicated. No lab/writeup files touched — this was an index.html-only content update, not a structural site change, so SITE_INVENTORY.md/LABS_INVENTORY.md/PROJECTS_INVENTORY.md needed no edits.
+- **Files touched**: index.html
+- **Next 3 actions**: 1) Keep the Completed/Pursuing lists in sync as further certifications land. 2) No other open follow-up from this task. 3) None.
+- **Blockers**: None.
+- **Validation done**: Reviewed the diff before each commit — only the intended `<li>` moved/edited, nothing else in the section changed.
+
+### 2026-09-25
+- **Goal**: Reflect newly-earned SC-100 certification and broaden the "Currently Working On" list on index.html with current cert study targets and Agent Academy / GRC agent work.
+- **Current status**: Done. Moved SC-100 (Microsoft Cybersecurity Architect Expert) from Pursuing to Completed. Expanded "Currently Working On" to read: studying for AB-620, AZ-305, and CompTIA Security+; completing Copilot Studio Agent Academy Recruit/Operative/Single Missions Next Gen labs; developing Copilot Studio agents for Company Policy, Automated AI Workflows, and Third-Party Cybersecurity Vendor Assessments (GRC automation); and continuing enterprise Copilot Studio agent development / Azure AI Foundry exploration. No lab/writeup files touched — index.html-only content update, so the file-inventory docs (SITE_INVENTORY.md/LABS_INVENTORY.md/PROJECTS_INVENTORY.md) needed no edits since no HTML pages were added, removed, or renamed.
+- **Files touched**: index.html
+- **Next 3 actions**: 1) Build the 3 remaining AgentAcademy Cowork Collective pages (`badge-check.html`, `out-of-office.html`, `compliance-packet.html`) once content is ready — still the longest-standing open item (see 2026-08-24 entry). 2) Keep Completed/Pursuing cert lists in sync as AB-620/AZ-305/Security+ land. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Reviewed each commit's diff — confirmed only the intended `<li>` moves/edits landed in the Certifications and Currently Working On sections.
+
+### 2026-09-26
+- **Goal**: `git pull` to sync with origin, then bring the markdown docs current against the real repo state.
+- **Current status**: Done. Pull fast-forwarded `main` from `cc6f5e7` to `d9da9ca` (the two cert-update commits above, plus a `.DS_Store` change). Verified via `find`/`ls` that every count in SITE_INVENTORY.md, LABS_INVENTORY.md, and PROJECTS_INVENTORY.md still matches the filesystem exactly (174 total HTML files, 41 in PluralSightLabs/, 36 in projects/, etc.) — no HTML pages were added/removed/renamed since the last doc sync, so those three files needed no content changes. The actual drift was this Session Handoff Log itself, which hadn't been updated for the 2026-09-10 and 2026-09-25 sessions despite the standing rule — backfilled both entries above from `git log`/`git show`. Also refreshed README.md, which had gone stale independently of the HTML-file-count docs: wrong Secure Score figure (said 30%→87%, actual project page says 40%→87%), a placeholder `yourusername` GitHub link, and a LinkedIn URL (`ubeliofernandeztabet`) that doesn't match the one actually used site-wide (`ubelio`).
+- **Files touched**: WORKFLOW.md (this entry + the two backfilled entries above), README.md
+- **Next 3 actions**: 1) Build the 3 remaining AgentAcademy Cowork Collective pages (`badge-check.html`, `out-of-office.html`, `compliance-packet.html`). 2) Keep Completed/Pursuing cert lists in sync as AB-620/AZ-305/Security+ land. 3) No other open follow-up.
+- **Blockers**: None.
+- **Validation done**: Cross-checked all nine lab-folder counts and the root/projects counts against `find` output before confirming no inventory edits were needed. Confirmed the corrected Secure Score figure and LinkedIn URL against `projects/secure-score.html` and `contact.html`/`index.html` respectively before editing README.md.
