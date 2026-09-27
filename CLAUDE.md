@@ -6,7 +6,7 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 
 ### Top-level pages (root)
 - `index.html` — homepage / bio / skills summary
-- `projects.html` — index/hub linking to every project writeup, in `projects/` and three at repo root (see quirk below)
+- `projects.html` — index/hub linking to every project writeup, in `projects/` and three at repo root (see quirk below). Entries are grouped under 7 category `<h2>` sections (separated by `<hr class="section-divider">`) that mirror the category order of `index.html`'s Technical Skills section; see `PROJECTS_INVENTORY.md` for which project sits in which category
 - `labs.html` — top-level hub linking to `agentacademy.html`, `ms102labs.html`, `sc200labs.html`, plus the five lab-category hub pages below, plus 4 "Coming Soon" placeholder entries (`href="#"`, no pages yet) for SC-300, AZ-104, MD-102, AZ-500
 - `ms102labs.html` — hub page linking to the 11 `MS-102Labs/` lab writeups
 - `sc200labs.html` — hub page linking to the 9 `SC-200Labs/` lab writeups

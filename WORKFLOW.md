@@ -31,7 +31,7 @@ Then browse `http://localhost:5500/`.
    - **How It Works**
    - An `.impact-box` for outcomes
    - A link to the script, if the project has one
-5. Add a hub entry to `projects.html`, **at the top of the list**, matching the existing `<li>` entry format (comment + `<strong>` title + one-line description + `View Project →` link).
+5. Add a hub entry to `projects.html` under the matching category `<h2>` (Identity & Access, Security & Compliance, Cloud & Governance, AI & Copilot Agent Development, Endpoint Management, Automation & Scripting, Infrastructure — same order as `index.html`'s Technical Skills), **at the top of that category's `<ul>`**, matching the existing `<li>` entry format (comment + `<strong>` title + one-line description + `View Project →` link). Also add the file to that category's row in `PROJECTS_INVENTORY.md`'s "Hub Categories" table.
 6. Ship the new page and the hub entry in the **same commit**.
 
 ## Adding a Script
@@ -314,3 +314,11 @@ Template:
 - **Next 3 actions**: 1) Merge `projects-categorization` into `main` and push so the change goes live. 2) Optionally fix remaining projects.html title/description typos left untouched by request ("Upgrdaes", "Critial", "Flacon", "ouron prem"). 3) Build the 3 remaining AgentAcademy Cowork Collective pages.
 - **Blockers**: None.
 - **Validation done**: Scripted check against `HEAD:projects.html` confirmed all 39 `<li>` blocks are byte-identical apart from the SSO title, and that `<head>` (except the added divider rule), header/nav/nav-script, and footer are unchanged.
+
+### 2026-09-26 (later — docs sync + merge for projects.html categorization)
+- **Goal**: Bring the markdown docs in line with the new categorized projects.html, then merge `projects-categorization` into `main` and push so it goes live.
+- **Current status**: Done. Updated "Adding a Project Page" step 5 (new entries now go at the top of the matching category's `<ul>`, not the top of one flat list). Added a "Hub Categories" table (category → files, 39 total) to PROJECTS_INVENTORY.md. Refreshed the projects.html descriptions in CLAUDE.md, SITE_INVENTORY.md, and README.md. Fast-forward merged `projects-categorization` into `main` and pushed; this supersedes the "not yet merged" status in the previous entry.
+- **Files touched**: WORKFLOW.md, PROJECTS_INVENTORY.md, CLAUDE.md, SITE_INVENTORY.md, README.md
+- **Next 3 actions**: 1) Optionally fix projects.html typos ("Upgrdaes", "Critial", "Flacon", "ouron prem"). 2) Build the 3 remaining AgentAcademy Cowork Collective pages. 3) Build SC-300/AZ-104/MD-102/AZ-500 lab writeups.
+- **Blockers**: None.
+- **Validation done**: Hub Categories table counts (14/6/2/5/6/4/2 = 39) checked against the `<li>` count under each `<h2>` in projects.html.

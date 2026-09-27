@@ -44,3 +44,19 @@ Every file in `projects/`, with its page `<h1>` title and a one-sentence summary
 ---
 
 **Total**: 36 files in `projects/`. Newer entries (`adobe-scim-sync-trigger`, `business-prospecting-agent`, `entra-stale-devices`, `fileshare-sharepoint-sync`, `mailbox-permission-audit-report`, `mailbox-quota-enforcement`, `mcp-microsoft-expert-agent`, `phishing-email-purge`) use a full-sentence header subtitle; older entries use a short tagline instead — both are shown verbatim as they appear on the page.
+
+## Hub Categories
+
+How `projects.html` groups all 39 project writeups (the 36 above plus the 3 repo-root pages). Sections appear in this order, matching `index.html`'s Technical Skills categories. Filenames are listed alphabetically here; on the page itself, entries within a category keep their original relative order.
+
+| Category (`<h2>`) | Count | Files |
+|---|---|---|
+| Identity & Access | 14 | `adobe-scim-sync-trigger`, `conditional-access`, `critical-acounts`, `entra-accessreviews`, `entra-applicationmanagement`, `entra-stale-devices`, `entrastaging-server`, `mfa-deployment`, `microsoft-pim`, `newusercreation`, `risky-users`, `SSO-Deployments`, `sspr-rollout`, `windows-hello` |
+| Security & Compliance | 6 | `attack-simulation`, `DC-HealthReporting`, `falcon-deployment`, `mailbox-permission-audit-report`, `phishing-email-purge`, `secure-score` |
+| Cloud & Governance | 2 | `azure-cloud`, `bi-infrastructure` |
+| AI & Copilot Agent Development | 5 | `business-prospecting-agent`, `mcp-microsoft-expert-agent`, `leading-ai-implementation`\*, `power-automate-flows`\*, `power-platform-implementation`\* |
+| Endpoint Management | 6 | `automatic-patching`, `deployment-server`, `intunebitlocker-automation`, `OfficeApps-AutoUpdate`, `onprembitlocker-automation`, `windows11-upgrade` |
+| Automation & Scripting | 4 | `Automated-HealthScripts`, `fileshare-sharepoint-sync`, `mailbox-quota-enforcement`, `sharedmailbox` |
+| Infrastructure | 2 | `exchange-migration`, `serverOS-upgrades` |
+
+\* Lives at the repo root, not in `projects/`.

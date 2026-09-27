@@ -7,7 +7,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | File | What it is |
 |---|---|
 | `index.html` | Homepage — bio, skills, certifications |
-| `projects.html` | Hub page — links to every project writeup (in `projects/` and three at repo root) |
+| `projects.html` | Hub page — links to every project writeup (in `projects/` and three at repo root), grouped under 7 category headings matching `index.html`'s Technical Skills order |
 | `labs.html` | Top-level hub — links to `agentacademy.html`, `ms102labs.html`, `sc200labs.html`, the five lab-category hub pages below, plus 4 "Coming Soon" placeholder `<li>` entries (`href="#"`, no pages yet) for SC-300, AZ-104, MD-102, AZ-500 |
 | `ms102labs.html` | Hub page — links to the 11 `MS-102Labs/` lab writeups |
 | `sc200labs.html` | Hub page — links to the 9 `SC-200Labs/` lab writeups |
