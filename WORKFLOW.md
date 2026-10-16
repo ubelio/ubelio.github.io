@@ -338,3 +338,11 @@ Template:
 - **Next 3 actions**: 1) Push `main` once the user approves. 2) Build lab writeups for the 5 Coming Soon certs (SC-300, AZ-104, MD-102, AZ-500, AB-620). 3) Build the 3 remaining AgentAcademy Cowork Collective pages.
 - **Blockers**: None — push pending user approval.
 - **Validation done**: Served locally on port 5500: labs.html HTTP 200, links `/style.css`, exactly 5 `<a href="#">` entries each with a "Coming Soon" badge. `git diff` on labs.html shows only the 4 added lines.
+
+### 2026-10-16 (later — CompTIA Security+ placeholder)
+- **Goal**: Add a CompTIA Security+ "Coming Soon" placeholder to labs.html, matching the existing Coming Soon placeholders.
+- **Current status**: Done, committed on `main`, **not pushed** (awaiting user approval). Pull was already up to date. Found 5 existing placeholders (SC-300, AZ-104, MD-102, AZ-500, AB-620) in insertion order; added one `<li>` (`<a href="#">CompTIA Security+</a>` + the identical inline "Coming Soon" `<span>`) directly after AB-620. Link text matches index.html's Pursuing list — no exam code, no Microsoft wording. Updated the placeholder count/list (5 → 6, adding CompTIA Security+) in CLAUDE.md §1, SITE_INVENTORY.md, and LABS_INVENTORY.md's intro; no other current-state doc mentions the count. No new pages, so HTML file and lab writeup totals are unchanged.
+- **Files touched**: labs.html, CLAUDE.md, SITE_INVENTORY.md, LABS_INVENTORY.md, WORKFLOW.md
+- **Next 3 actions**: 1) Push `main` once the user approves. 2) Build lab writeups for the 6 Coming Soon certs. 3) Build the 3 remaining AgentAcademy Cowork Collective pages.
+- **Blockers**: None — push pending user approval.
+- **Validation done**: Served locally on port 5500: labs.html HTTP 200, links `/style.css`, exactly 6 `<a href="#">` entries each with a "Coming Soon" badge. `git diff` on labs.html shows only the 4 added lines.
