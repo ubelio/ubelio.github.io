@@ -1,6 +1,6 @@
 # LABS_INVENTORY.md
 
-Every lab writeup across the nine lab folders, with its page `<h1>` title and the hub page that links to it. All nine hub pages are themselves reached from the top-level `labs.html`, which also carries 4 "Coming Soon" placeholder entries (SC-300, AZ-104, MD-102, AZ-500) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
+Every lab writeup across the nine lab folders, with its page `<h1>` title and the hub page that links to it. All nine hub pages are themselves reached from the top-level `labs.html`, which also carries 5 "Coming Soon" placeholder entries (SC-300, AZ-104, MD-102, AZ-500, AB-620) with `href="#"` and no folder/pages yet — not listed below since there's nothing to inventory until those pages exist.
 
 ## `SC-401Labs/` — linked from `SC-401labs.html`
 

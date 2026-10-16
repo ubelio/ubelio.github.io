@@ -330,3 +330,11 @@ Template:
 - **Next 3 actions**: 1) Push `main` once the user approves. 2) Build the 3 remaining AgentAcademy Cowork Collective pages. 3) Build SC-300/AZ-104/MD-102/AZ-500 lab writeups.
 - **Blockers**: None — push pending user approval.
 - **Validation done**: Repo-wide grep for the resume filename returns zero hits. Served locally on port 5500: index.html and contact.html both HTTP 200, zero case-insensitive "resume"/".docx" matches, each links `/style.css`.
+
+### 2026-10-16 (later — AB-620 placeholder)
+- **Goal**: Add an AB-620 (AI Agent Builder Associate) "Coming Soon" placeholder to labs.html, matching the existing SC-300/AZ-104/MD-102/AZ-500 placeholders.
+- **Current status**: Done, committed on `main`, **not pushed** (awaiting user approval). Pull was already up to date. Added one `<li>` (`<a href="#">AB-620: AI Agent Builder Associate</a>` + the identical inline "Coming Soon" `<span>`) directly after AZ-500 — the placeholders follow insertion order, not alphabetical/code order. Link text matches how index.html's Certifications list already names AB-620. Updated the placeholder count/list (4 → 5, adding AB-620) in CLAUDE.md §1, SITE_INVENTORY.md, and LABS_INVENTORY.md's intro; no other current-state doc mentions the count (older WORKFLOW.md log entries left untouched). No new pages, so HTML file and lab writeup totals are unchanged.
+- **Files touched**: labs.html, CLAUDE.md, SITE_INVENTORY.md, LABS_INVENTORY.md, WORKFLOW.md
+- **Next 3 actions**: 1) Push `main` once the user approves. 2) Build lab writeups for the 5 Coming Soon certs (SC-300, AZ-104, MD-102, AZ-500, AB-620). 3) Build the 3 remaining AgentAcademy Cowork Collective pages.
+- **Blockers**: None — push pending user approval.
+- **Validation done**: Served locally on port 5500: labs.html HTTP 200, links `/style.css`, exactly 5 `<a href="#">` entries each with a "Coming Soon" badge. `git diff` on labs.html shows only the 4 added lines.
