@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marketing Agent with Skills — Ghostwriter — Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Marketing Agent with Skills — Ghostwriter</h1>
+  <p>Special Ops Mission — Earned September 24, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "marketing-agent-skills.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Marketing Agent with Skills — Ghostwriter</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Special Ops Mission</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/6f7fdea735380379237176d706b185f5510159a3e6a29e57e94dea34d5031d00.png?h=500" alt="Copilot Studio Agent Academy - Ghostwriter badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Special Ops</td></tr>
+    <tr><th>Badge</th><td>Copilot Studio Agent Academy - Ghostwriter</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>September 24, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio (GitHub Copilot harness)</td></tr>
+    <tr><th>Skills</th><td>Skills · Copilot Studio</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    Mission building a single marketing content agent powered by focused Skills instead of one bloated instruction block, running on the GitHub Copilot harness. The orchestrator loads the right procedure on demand, separating always-on instructions from on-demand skills.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Created a marketing content agent with lean, always-on instructions</li>
+    <li>Built the draft-blog-post skill from scratch with routing metadata</li>
+    <li>Imported and reviewed the seo-audit, repurpose-to-social, and brand-voice-check skills from prepared files</li>
+    <li>Tested multi-skill orchestration with one composite request that loaded all four skills</li>
+    <li>Tested skill boundaries to confirm skills stay inactive for unrelated requests</li>
+    <li>Drafted a fifth skill (video-script) with AI and added it to the agent</li>
+    <li>Enabled Memory to save and reuse user content preferences across conversations</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/4a4d69d4-3e6e-4c70-9a91-1d4f120c7923" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>

@@ -98,11 +98,14 @@ Copilot Studio Agent Academy labs, badge-earning program by Microsoft/Global AI 
 | `yaml-specialist.html` | YAML Specialist | Special Ops |
 | `mcs-mcp.html` | Microsoft Copilot Studio ❤️ MCP | Special Ops |
 | `docusign-mcp.html` | MCS + Docusign MCP — Agreement Orchestrator | Special Ops |
+| `marketing-agent-skills.html` | Marketing Agent with Skills — Ghostwriter | Special Ops |
+| `azure-ai-search-rag.html` | RAG with Azure AI Search — Vector Vanguard | Special Ops |
+| `mcp-oauth.html` | Secure MCP with OAuth 2.0 — MCP OAuth Operative | Special Ops |
 | `badge-check.html` | Badge Check | Cowork Collective |
 | `out-of-office.html` | Out of Office Vacation Handoff | Cowork Collective |
 | `compliance-packet.html` | The Compliance Packet | Cowork Collective |
 
-Not yet built, and marked `.coming-soon` on the hub: Commander rank and 3 further Special Ops missions (Marketing Agent with Skills, Secure MCP with OAuth 2.0, RAG with Azure AI Search).
+Not yet built, and marked `.coming-soon` on the hub: Commander rank.
 
 ## `MS-102Labs/` — linked from `ms102labs.html`
 
@@ -222,4 +225,4 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 
 ---
 
-**Totals**: 125 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 12 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 41 PluralSightLabs (49 of 49 planned labs done; 0 hub entries coming-soon). Verified every file in all nine folders is linked from its expected hub page — no orphaned files. (`create-configure-vnet-peering-azure.html` is deliberately linked twice from the PluralSightLabs hub; AgentAcademy has several `.coming-soon` placeholders — see note above.)
+**Totals**: 128 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 15 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 41 PluralSightLabs (49 of 49 planned labs done; 0 hub entries coming-soon). Verified every file in all nine folders is linked from its expected hub page — no orphaned files. (`create-configure-vnet-peering-azure.html` is deliberately linked twice from the PluralSightLabs hub; AgentAcademy has one `.coming-soon` placeholder, Commander — see note above.)

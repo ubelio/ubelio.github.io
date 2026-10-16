@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RAG with Azure AI Search — Vector Vanguard — Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">RAG with Azure AI Search — Vector Vanguard</h1>
+  <p>Special Ops Mission — Earned October 12, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "azure-ai-search-rag.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">RAG with Azure AI Search — Vector Vanguard</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Special Ops Mission</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/aa486c014856575cca4fd2f789f1f2b3ce138f3bb6ad74ea1822432f1e6cf216.png?h=500" alt="Copilot Studio Agent Academy - Vector Vanguard badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Special Ops</td></tr>
+    <tr><th>Badge</th><td>Copilot Studio Agent Academy - Vector Vanguard</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>October 12, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio · Microsoft Azure</td></tr>
+    <tr><th>Skills</th><td>Azure AI Search RAG · Copilot Studio</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    Mission grounding a Copilot Studio agent in its own documents using Retrieval-Augmented Generation with Azure AI Search vector search. Candidate resumes are vectorized and wired into an HR Knowledge Agent as a connector tool, so it answers by meaning with document-backed citations.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Created an Azure AI Search service, an Azure Storage account, and a text embedding model deployment</li>
+    <li>Uploaded sample resume PDFs to Blob Storage and built a vector index with integrated vectorization</li>
+    <li>Built an HR Knowledge Agent on the GitHub Copilot harness with instructions to retrieve and cite sources</li>
+    <li>Connected Azure AI Search as a connector tool (Semantic Hybrid Search), since it isn't a Knowledge source on this harness</li>
+    <li>Tested semantic and multi-criteria queries with document-backed citations</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/6ffee990-8753-4138-8e8d-12f3a2758466" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
