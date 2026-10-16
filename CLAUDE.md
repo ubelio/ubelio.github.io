@@ -13,11 +13,11 @@ Context for working in this repository — Ubelio Fernandez-Tabet's IT portfolio
 - `scripts.html` — index/hub linking to files in `scripts/`
 - `homelabconfig.html` — hub for the homelab writeups (links into `FirewallSetup/`, `DLP-Labs/`, etc.)
 - `homelabfirewall.html` — homelab firewall overview/hub
-- `contact.html` — contact info + resume download link
+- `contact.html` — contact info
 - `DLPInformationProtection.html`, `SC-401labs.html`, `Misc.html`, `appliedskills.html`, `agentacademy.html` — additional index/hub pages (`SC-401labs.html`'s h1 reads "SC-401: Microsoft Information Protection Administrator")
 - `pluralsightlabs.html` — hub page for the Pluralsight hands-on labs, grouped into 7 sections (Azure Fundamentals, Networking, Storage, Security, Identity & Governance, Monitoring, AI & Containers). 49 of 49 planned labs done, covered by 41 writeup pages (5 pages each consolidate 2–3 closely related labs); 0 `.coming-soon` entries remaining
 - `leading-ai-implementation.html`, `power-automate-flows.html`, `power-platform-implementation.html` — project writeups that live at repo root instead of in `projects/`, unlike every other project page (a drift from a later `git pull`, not a convention to replicate — see `SITE_INVENTORY.md`)
-- `README.md`, `CNAME`, `favicon.png`, `headshot.jpg`, `labdiagram.png`, `UbelioFernandezTabetResume.docx` — site metadata/assets at root
+- `README.md`, `CNAME`, `favicon.png`, `headshot.jpg`, `labdiagram.png` — site metadata/assets at root
 
 ### Content subfolders
 - `projects/` — one HTML writeup per professional project (Entra ID, Intune, SSO, PIM, patching, etc.), each paired with `*.png` diagrams in the same folder.
@@ -116,7 +116,7 @@ Be aware of these when editing — don't "fix" them silently as drive-by cleanup
 
 1. **Two different wrapper conventions**: `<main>` vs `<div class="container">`, used inconsistently even at the root level — e.g. `labs.html` uses `.container` while its siblings `index.html`/`projects.html`/`scripts.html` use `<main>`. Visually identical (both are the same `main, .container` rule in `style.css`), just be aware which one a given file uses before adding markup.
 2. **Two "accent blue" hexes**: `#0073e6` (nav active state, general links) and `#0078D4` (Microsoft-blue `.impact-box` left border on project pages) are both in use and are not the same color. Match whichever the surrounding page already uses.
-3. **`contact.html` still has no `<footer>` element** — email/LinkedIn/GitHub links and the resume button are loose in the body instead. It does now have a proper `<header>` and its own inline style overrides (see §2) — those overrides are intentional, not a quirk to fix.
+3. **`contact.html` still has no `<footer>` element** — email/LinkedIn/GitHub links are loose in the body instead. It does now have a proper `<header>` and its own inline style overrides (see §2) — those overrides are intentional, not a quirk to fix.
 4. **`SC-401Labs/` has multiple revisions of the same lab living side by side** (`sc401-lab1.html`, `sc401-lab1v2.html`, `sc401-lab1v3.html`, `sc401-lab1v4.html`, etc.) rather than one file being updated in place. Confirm which version is actually linked from `labs.html`/`SC-401labs.html` before assuming a given file is "the" current one.
 5. Inline `style="..."` attributes are used liberally on top of the `<style>` block for one-off tweaks (e.g. centering a section, sizing an image) — there's no strict separation between "page stylesheet" and "inline styling"; both are used interchangeably per-element.
 

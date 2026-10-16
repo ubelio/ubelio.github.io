@@ -113,7 +113,7 @@ Add a requirements block listing the Graph/Exchange permissions the script needs
 
 - Project pages never name the current employer.
 - Describe roles generically (e.g. "relationship managers", "client-facing staff") rather than by industry, where naming the industry would identify the organization.
-- The resume names employers. The site does not.
+- Employers are named only on resumes tailored to specific job applications, never on the site.
 
 ## Session Handoff Log
 
@@ -322,3 +322,11 @@ Template:
 - **Next 3 actions**: 1) Optionally fix projects.html typos ("Upgrdaes", "Critial", "Flacon", "ouron prem"). 2) Build the 3 remaining AgentAcademy Cowork Collective pages. 3) Build SC-300/AZ-104/MD-102/AZ-500 lab writeups.
 - **Blockers**: None.
 - **Validation done**: Hub Categories table counts (14/6/2/5/6/4/2 = 39) checked against the `<li>` count under each `<h2>` in projects.html.
+
+### 2026-10-16
+- **Goal**: Remove all resume offerings from the site — resumes are now tailored per job description rather than published.
+- **Current status**: Done, committed on `main`, **not pushed** (awaiting user approval). Pulled first (fast-forward `52a3df2` → `555e0bd`). Deleted the "Download My Resume" `<section>` from index.html and the resume button plus its now-unused `.resume-button`/`:hover` CSS from contact.html (header/nav inline overrides untouched, no footer added). `git rm`'d the root resume `.docx`. Docs synced: CLAUDE.md (root assets list, contact.html description, Quirk #3), SITE_INVENTORY.md (contact.html description), WORKFLOW.md (Employer Anonymity line reworded). Unrelated "resume"/".docx" grep hits in `AgentAcademy/operative.html` (lab content about ingesting resumes) and `SC-200Labs/sc200-lab4.html` (attack-sim `.docx` filename) left as-is.
+- **Files touched**: index.html, contact.html, root resume .docx (deleted), CLAUDE.md, SITE_INVENTORY.md, WORKFLOW.md
+- **Next 3 actions**: 1) Push `main` once the user approves. 2) Build the 3 remaining AgentAcademy Cowork Collective pages. 3) Build SC-300/AZ-104/MD-102/AZ-500 lab writeups.
+- **Blockers**: None — push pending user approval.
+- **Validation done**: Repo-wide grep for the resume filename returns zero hits. Served locally on port 5500: index.html and contact.html both HTTP 200, zero case-insensitive "resume"/".docx" matches, each links `/style.css`.

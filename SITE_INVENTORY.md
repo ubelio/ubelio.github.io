@@ -14,7 +14,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | `scripts.html` | Hub page — PowerShell scripts with excerpts, download links, and links back to project writeups |
 | `homelabconfig.html` | Writeup — home lab equipment and configuration |
 | `homelabfirewall.html` | Hub page — links to the `FirewallSetup/` lab writeups |
-| `contact.html` | Contact info + resume download |
+| `contact.html` | Contact info |
 | `DLPInformationProtection.html` | Hub page — links to the `DLP-Labs/` lab writeups |
 | `SC-401labs.html` | Hub page — links to the `SC-401Labs/` lab writeups (h1 now reads "SC-401: Microsoft Information Protection Administrator") |
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
