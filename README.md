@@ -14,11 +14,11 @@ Welcome to my professional portfolio, live at [ubeliofernandez.com](https://www.
 - **BitLocker Automation** – Seamless deployment across 1,000+ devices
 - **SSPR Rollout** – Saved over $8,000 by replacing third-party tools
 
-See [projects.html](projects.html) for the full list of writeups (39 in total, across `projects/` and three at repo root), grouped into 7 categories that mirror the homepage's Technical Skills sections.
+See [projects.html](projects.html) for the full list of writeups (39 in total, across `projects/` and three at repo root), grouped into 7 categories that mirror the homepage's Technical Skills sections. Seven more Identity & Access writeups are listed there as "Coming Soon".
 
 ## 🧪 Labs & Credentials
 
-Beyond project writeups, the site hosts hands-on lab documentation and earned credentials — SC-401, MS-102, and SC-200 exam-prep labs, Microsoft Applied Skills, Copilot Studio Agent Academy badges, Pluralsight hands-on labs, and a homelab firewall/network build. Start from [labs.html](labs.html).
+Beyond project writeups, the site hosts hands-on lab documentation and earned credentials — SC-401, MS-102, and SC-200 exam-prep labs, Microsoft Applied Skills, Copilot Studio Agent Academy badges, Pluralsight hands-on labs, and a homelab firewall/network build. Lab writeups for SC-300, AZ-104, MD-102, AZ-500, AB-620, and CompTIA Security+ are marked "Coming Soon". Start from [labs.html](labs.html).
 
 ## 📂 Repositories
 

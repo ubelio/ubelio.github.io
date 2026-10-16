@@ -60,3 +60,5 @@ How `projects.html` groups all 39 project writeups (the 36 above plus the 3 repo
 | Infrastructure | 2 | `exchange-migration`, `serverOS-upgrades` |
 
 \* Lives at the repo root, not in `projects/`.
+
+The top of the Identity & Access `<ul>` also holds 7 "Coming Soon" placeholders for upcoming writeups (no pages yet, not counted above): Protected Actions with Authentication Contexts, Access Reviews for PIM, Passwordless Authentication, Hybrid Identity Rollout, Restricted Management Administrative Units (RMAUs), Group Licensing, and Break Glass Policy Review and Monitoring via Sentinel. Each is `<a href="#"><strong>Title</strong></a>` plus the inline-styled "Coming Soon" `<span>`; when its page is built, remove the placeholder and add the real entry and its row here.

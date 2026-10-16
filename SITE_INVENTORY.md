@@ -19,7 +19,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 | `SC-401labs.html` | Hub page — links to the `SC-401Labs/` lab writeups (h1 now reads "SC-401: Microsoft Information Protection Administrator") |
 | `Misc.html` | Hub page — links to the `Misc/` lab writeup(s) |
 | `appliedskills.html` | Hub page — links to the 23 `AppliedSkills/` credential writeups |
-| `agentacademy.html` | Hub page — links to the `AgentAcademy/` lab writeups (Rank Progression, Special Ops, Cowork Collective tracks); also carries `.coming-soon` entries for ranks/missions not yet completed |
+| `agentacademy.html` | Hub page — links to the `AgentAcademy/` lab writeups (Rank Progression, Special Ops, Cowork Collective tracks); also carries a `.coming-soon` entry for the one rank not yet released (Commander) |
 | `pluralsightlabs.html` | Hub page — Pluralsight hands-on labs in 7 sections (Azure Fundamentals, Networking, Storage, Security, Identity & Governance, Monitoring, AI & Containers); 49 of 49 planned labs done across 41 writeup pages, 0 coming-soon entries |
 | `leading-ai-implementation.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
 | `power-automate-flows.html` | Project writeup — sits at repo root, not in `projects/` (see note below) |
