@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recruit — GitHub Copilot Harness — Copilot Studio Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Recruit — GitHub Copilot Harness</h1>
+  <p>Rank Progression — Earned September 28, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "recruit-github-copilot-harness.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Recruit — GitHub Copilot Harness</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Rank Progression</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/3844ac0e63382c107a094b55972f10ef2b38ef7e1db2a271b7b3d981e7d1af21.png?h=500" alt="Copilot Studio Agent Academy - Recruit NextGen badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Rank Progression</td></tr>
+    <tr><th>Badge</th><td>Copilot Studio Agent Academy - Recruit NextGen</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>September 28, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio · GitHub Copilot harness · SharePoint · Microsoft Teams · Microsoft 365 Copilot</td></tr>
+    <tr><th>Skills</th><td>Generative AI · Copilot Studio · Artificial Intelligence</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    Beginner hands-on course introducing the GitHub Copilot harness in Microsoft Copilot Studio, an instruction-driven approach to agent building where natural-language instructions, skills, tools, and workflows replace manually authored conversation paths. Uses an IT support scenario and covers agent concepts, the three Copilot Studio harnesses, solutions, publishing, and licensing.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Set up a Microsoft 365 developer tenant, Copilot Studio environment, and SharePoint site</li>
+    <li>Packaged the agent into a solution for environment management</li>
+    <li>Built a reasoning-first agent on the GitHub Copilot harness grounded in knowledge sources</li>
+    <li>Extended the agent with a tool for data integration</li>
+    <li>Added skills to fine-tune agent behavior</li>
+    <li>Added a workflow for deterministic logic and automation</li>
+    <li>Published the agent to Microsoft Teams and Microsoft 365 Copilot</li>
+    <li>Reviewed Copilot Studio licensing and Copilot Credits billing</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/1451e955-5459-4d7e-a9cd-43d332d3121f" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
