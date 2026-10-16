@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Badge Check — Copilot Studio Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Badge Check</h1>
+  <p>Cowork Collective — Earned June 25, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "badge-check.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Badge Check</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Cowork Collective</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/013f9110c624caae3ab02ae58476890a7a78a89d33badac4b7d53a8197836710.png?h=500" alt="Cowork Collective - Badge Bandit badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Cowork Collective</td></tr>
+    <tr><th>Badge</th><td>Cowork Collective - Badge Bandit</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>June 25, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft 365 Copilot · Copilot Cowork · Microsoft OneDrive · Microsoft Outlook</td></tr>
+    <tr><th>Skills</th><td>Copilot Cowork · Skills · Outlook</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    Mission using Copilot Cowork to analyze building badge scan data, identify employees who repeatedly forget to badge out, and email a report. Starts with a plain summary report, then upgrades it to a styled HTML report by adding a custom skill stored in OneDrive.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Analyzed a badge scan CSV with Copilot Cowork to find employees with missing checkout records</li>
+    <li>Emailed a summary report of missed checkouts by employee, badge ID, and office</li>
+    <li>Created a custom frontend-design skill (SKILL.md) in OneDrive for Copilot Cowork to discover</li>
+    <li>Generated a styled, responsive HTML report ranking the top 10 offenders with miss rates, highlighting anyone above 50%</li>
+    <li>Compared the plain and skill-formatted reports to see how a single skill file changes the output</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/41866a96-8dcf-4807-8f7c-7936dcb55959" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>
