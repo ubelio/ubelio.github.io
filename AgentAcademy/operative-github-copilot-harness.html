@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Operative — GitHub Copilot Harness — Copilot Studio Agent Academy | Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table.at-a-glance {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    table.at-a-glance th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #E0DFD6;
+      width: 160px;
+      font-weight: bold;
+      border: 1px solid #BDBBB2;
+      vertical-align: top;
+    }
+    table.at-a-glance td {
+      padding: 8px 12px;
+      border: 1px solid #BDBBB2;
+    }
+    .section-divider {
+      border: none;
+      border-top: 2px solid #BDBBB2;
+      margin: 24px 0;
+    }
+    h2 { color: #141413; margin-top: 0; }
+    ul li { margin-bottom: 8px; }
+    .badge-wrap {
+      text-align: center;
+      margin: 20px 0 28px 0;
+    }
+    .badge-wrap img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .view-link {
+      color: #0073e6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .view-link:hover { text-decoration: underline; }
+    .back-link {
+      color: #0073e6;
+      font-size: 0.95em;
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color:#C9C8BF; margin:0 0 8px 0; font-size:2em;">Operative — GitHub Copilot Harness</h1>
+  <p>Rank Progression — Earned October 12, 2026</p>
+</header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  let current = window.location.pathname.split("/").pop();
+  if (current === "operative-github-copilot-harness.html") {
+    current = "labs.html";
+  }
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="container">
+
+  <h2 style="margin-bottom:4px;">Operative — GitHub Copilot Harness</h2>
+  <p style="color:#555; margin-top:0;">Copilot Studio Agent Academy — Rank Progression</p>
+
+  <div class="badge-wrap">
+    <img src="https://globalai.community/img/badge/shared/389d3215a12dd77dbdb44d2baf0b6ed0a084fce672955d6887a2028844e00c66.png?h=500" alt="Copilot Studio Agent Academy - Operative NextGen badge">
+  </div>
+
+  <table class="at-a-glance">
+    <tr><th>Category</th><td>Rank Progression</td></tr>
+    <tr><th>Badge</th><td>Copilot Studio Agent Academy - Operative NextGen</td></tr>
+    <tr><th>Issued By</th><td>Global AI Community</td></tr>
+    <tr><th>Earned</th><td>October 12, 2026</td></tr>
+    <tr><th>Products</th><td>Microsoft Copilot Studio (GitHub Copilot harness) · Microsoft Dataverse · Dataverse MCP server · Work IQ · Microsoft Teams · Microsoft 365 Copilot</td></tr>
+    <tr><th>Skills</th><td>Generative AI · Copilot Studio · Artificial Intelligence</td></tr>
+  </table>
+
+  <hr class="section-divider">
+
+  <h2>Overview</h2>
+  <p>
+    Hands-on course building a multi-agent hiring system in the new Microsoft Copilot Studio experience, running on the GitHub Copilot harness. The finished system combines skills, the Microsoft Dataverse MCP server, connected agents, and workflows, with resume intake, weighted role matching, safety controls, human oversight, and evaluations. Reuses the classic Operative hiring scenario to show what the new building blocks replace.
+  </p>
+
+  <hr class="section-divider">
+
+  <h2>What I Built</h2>
+  <ul>
+    <li>Imported the hiring data model and created the central Hiring Agent orchestrator</li>
+    <li>Authored agent instructions and a reusable skill, and added the Dataverse MCP server</li>
+    <li>Added a published connected Interview Agent grounded through the Dataverse MCP server</li>
+    <li>Selected the model, shaped responses, and tested moderation, guardrails, and AI disclosure</li>
+    <li>Built resume intake and weighted role matching that creates Job Applications</li>
+    <li>Built a Python skill that generates an interview-prep Word document</li>
+    <li>Built an email-triggered workflow that screens the inbox and files resumes and their PDFs</li>
+    <li>Added an inline agent and the published Hiring Agent to the workflow, with Teams notifications</li>
+    <li>Added human review, alternate flows, observability, and a regression pass</li>
+    <li>Enabled Work IQ so the Interview Agent can read calendars and book a supervised meeting</li>
+    <li>Ran evaluation sets, published to Microsoft 365 Copilot and Teams, and configured Monitor</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <h2>View Badge</h2>
+  <p>
+    <a href="https://globalai.community/badges/701c073d-b89e-4532-8d2a-5162c8ada863" class="view-link" target="_blank" rel="noopener noreferrer">View verified badge on Global AI Community →</a>
+  </p>
+  <a href="/agentacademy.html" class="back-link">← Back to Agent Academy</a>
+
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank">https://www.linkedin.com/in/ubelio/</a></p>
+</footer>
+
+</body>
+</html>

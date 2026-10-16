@@ -92,6 +92,7 @@ Copilot Studio Agent Academy labs, badge-earning program by Microsoft/Global AI 
 | `recruit.html` | Recruit — Copilot Studio Agent Academy | Rank Progression |
 | `operative.html` | Operative — Copilot Studio Agent Academy | Rank Progression |
 | `recruit-github-copilot-harness.html` | Recruit — GitHub Copilot Harness | Rank Progression |
+| `operative-github-copilot-harness.html` | Operative — GitHub Copilot Harness | Rank Progression |
 | `ms-learn-mcp.html` | Microsoft Learn MCP Server | Special Ops |
 | `pac-cli-mcp.html` | Power Platform CLI MCP | Special Ops |
 | `yaml-specialist.html` | YAML Specialist | Special Ops |
@@ -218,4 +219,4 @@ SC-200 exam prep labs. Sources: SC-200T00A MicrosoftLearning GitHub and Microsof
 
 ---
 
-**Totals**: 121 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 8 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 41 PluralSightLabs (49 of 49 planned labs done; 0 hub entries coming-soon). Verified every file in all nine folders is linked from its expected hub page — no orphaned files. (`create-configure-vnet-peering-azure.html` is deliberately linked twice from the PluralSightLabs hub; AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)
+**Totals**: 122 lab writeups — 14 SC-401Labs, 3 DLP-Labs, 11 FirewallSetup, 1 Misc, 23 AppliedSkills, 9 AgentAcademy, 11 MS-102Labs, 9 SC-200Labs, 41 PluralSightLabs (49 of 49 planned labs done; 0 hub entries coming-soon). Verified every file in all nine folders is linked from its expected hub page — no orphaned files. (`create-configure-vnet-peering-azure.html` is deliberately linked twice from the PluralSightLabs hub; AgentAcademy has 3 additional linked-but-missing pages and several `.coming-soon` placeholders — see note above.)

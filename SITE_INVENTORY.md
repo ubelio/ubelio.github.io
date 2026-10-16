@@ -53,7 +53,7 @@ Lab writeups — Microsoft Purview DLP / compliance labs, linked from `DLPInform
 
 Microsoft Applied Skills credential writeups, linked from `appliedskills.html`. Each follows a distinct sub-pattern from the other lab folders — At a Glance table, Overview, Skills Assessed, View Credential link (see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Applied Skills Page" section). See `LABS_INVENTORY.md` for the full per-file breakdown.
 
-## `AgentAcademy/` (8 files)
+## `AgentAcademy/` (9 files)
 
 Copilot Studio Agent Academy lab writeups, linked from `agentacademy.html`. Badge-image pattern distinct from `AppliedSkills/` — At a Glance table, Overview, What I Built, View Badge link (see `CLAUDE.md` §2 and `WORKFLOW.md`'s "Adding an Agent Academy Page" section). See `LABS_INVENTORY.md` for the full per-file breakdown. 3 more pages (Cowork Collective track) are linked from the hub but not yet built.
 
@@ -141,4 +141,4 @@ SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an
 
 ---
 
-**Totals**: 175 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 8 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 41 in `PluralSightLabs/`.
+**Totals**: 176 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 9 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 41 in `PluralSightLabs/`.
