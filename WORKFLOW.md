@@ -426,3 +426,11 @@ Template:
 - **Next 3 actions**: 1) Add screenshots/diagrams and an `og:image` to the Sentinel hub and parity pages. 2) Replace the two Sentinel stub pages with full writeups. 3) Delete the merged `sentinel-pages` branch if no longer needed.
 - **Blockers**: None.
 - **Validation done**: `git merge --ff-only` succeeded; `main` matches `origin/main` at `e574634` after the push.
+
+### 2026-10-17 (later — Sentinel ongoing-project disclaimer)
+- **Goal**: Mark the Sentinel project as ongoing on all 4 pages and on the projects.html entry.
+- **Current status**: Done. Committed on `sentinel-pages` (first fast-forwarded to `main`), then fast-forwarded `main` and pushed, since the user asked for it to go live. The hub and parity pages gained a new `.note` (`#E6E5DE` bg / `#0078D4` 4px left border, defined inline) with the exact disclaimer text, placed first inside `.container`. In both stubs, the old "in progress" `.note` wording was replaced with the same text; the "Coming Soon" subtitle and Planned Content lists are unchanged. The projects.html Sentinel entry got an italic grey "Ongoing: still being updated due to project scope." line before "View Project →".
+- **Files touched**: projects/sentinel-siem-migration.html, projects/sentinel-migration-parity.html, projects/sentinel-detection-engineering.html, projects/sentinel-ingestion-soar.html, projects.html, WORKFLOW.md
+- **Next 3 actions**: 1) Add screenshots/diagrams and an `og:image` to the Sentinel hub and parity pages. 2) Replace the two stubs with full writeups. 3) Remove the disclaimer once the project content is settled.
+- **Blockers**: None.
+- **Validation done**: The exact disclaimer appears once in each of the 4 pages (4 total). Each page still has exactly one `<style>` block. Forbidden-term grep (financ/bank/FS-ISAC/`$`/"per month"/"/yr") found zero hits. Served on port 5500: all 4 pages and projects.html returned HTTP 200. `find` shows 40 `projects/*.html` and 186 HTML files in total, so no other docs needed count changes.
