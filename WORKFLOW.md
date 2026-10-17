@@ -418,3 +418,11 @@ Template:
 - **Next 3 actions**: 1) Review the branch, then merge and push once approved. 2) Add screenshots/diagrams to the parity page and hub (pending), and an `og:image` once one exists. 3) Write the full detection-engineering and ingestion/SOAR pages to replace the stubs, and finalize the connector list.
 - **Blockers**: Screenshots pending; final connector list not confirmed.
 - **Validation done**: Served on port 5500: all 4 pages and projects.html returned HTTP 200. Each new page links `/style.css` and has exactly one `<style>` block and the active-nav script. Case-insensitive grep of the new pages for financ/bank/FS-ISAC/`$`/"per month"/"/yr" returned zero hits. All internal `sentinel-*` links resolve. `find` gives 40 `projects/*.html` and 186 HTML files in total, matching the docs.
+
+### 2026-10-17 (later — Sentinel pages live)
+- **Goal**: Publish the Sentinel project pages to the live site.
+- **Current status**: Done. Pushed `sentinel-pages` to origin, then fast-forwarded `main` to it (`ac326f9..e574634`) and pushed. This replaces the "not merged or pushed" status in the previous entry. The `sentinel-pages` branch still exists locally and on origin.
+- **Files touched**: WORKFLOW.md
+- **Next 3 actions**: 1) Add screenshots/diagrams and an `og:image` to the Sentinel hub and parity pages. 2) Replace the two Sentinel stub pages with full writeups. 3) Delete the merged `sentinel-pages` branch if no longer needed.
+- **Blockers**: None.
+- **Validation done**: `git merge --ff-only` succeeded; `main` matches `origin/main` at `e574634` after the push.
