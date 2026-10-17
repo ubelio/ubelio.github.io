@@ -14,7 +14,7 @@ Welcome to my professional portfolio, live at [ubeliofernandez.com](https://www.
 - **BitLocker Automation** – Seamless deployment across 1,000+ devices
 - **SSPR Rollout** – Saved over $8,000 by replacing third-party tools
 
-See [projects.html](projects.html) for the full list of writeups (40 in total, across `projects/` and three at repo root), grouped into 7 categories that mirror the homepage's Technical Skills sections. Ten more upcoming writeups are listed there as "Coming Soon", under their categories.
+See [projects.html](projects.html) for the full list of writeups (40 in total, across `projects/` and three at repo root), grouped into 7 categories that mirror the homepage's Technical Skills sections. Eleven more upcoming writeups are listed there as "Coming Soon", under their categories.
 
 ## 🧪 Labs & Credentials
 
