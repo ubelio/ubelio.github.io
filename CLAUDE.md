@@ -119,6 +119,7 @@ Be aware of these when editing — don't "fix" them silently as drive-by cleanup
 3. **`contact.html` still has no `<footer>` element** — email/LinkedIn/GitHub links are loose in the body instead. It does now have a proper `<header>` and its own inline style overrides (see §2) — those overrides are intentional, not a quirk to fix.
 4. **`SC-401Labs/` has multiple revisions of the same lab living side by side** (`sc401-lab1.html`, `sc401-lab1v2.html`, `sc401-lab1v3.html`, `sc401-lab1v4.html`, etc.) rather than one file being updated in place. Confirm which version is actually linked from `labs.html`/`SC-401labs.html` before assuming a given file is "the" current one.
 5. Inline `style="..."` attributes are used liberally on top of the `<style>` block for one-off tweaks (e.g. centering a section, sizing an image) — there's no strict separation between "page stylesheet" and "inline styling"; both are used interchangeably per-element.
+6. **`projects.html` uses a tabbed category layout**: each category's `<h2>` + `<ul>` sits in a `<div class="tab-panel" id="...">` (`identity-access`, `security-compliance`, `cloud-governance`, `ai-copilot`, `endpoint-management`, `automation-scripting`, `infrastructure`). An IIFE script builds the tab bar and per-tab counts, supports `#<panel-id>` deep links, and stops `href="#"` placeholder clicks from jumping. Without JS, every panel shows stacked. New project entries still go at the top of their category's `<ul>`, inside the matching panel.
 
 ## 4. Conventions for New Pages
 

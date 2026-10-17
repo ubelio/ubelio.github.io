@@ -19,7 +19,7 @@
       padding: 0;
     }
     li {
-      margin-bottom: 20px;
+      margin-bottom: 0;
       background-color: #E0DFD6;
       padding: 15px;
       border-radius: 5px;
@@ -32,10 +32,57 @@
     li a:hover {
       text-decoration: underline;
     }
-    .section-divider {
-      border: none;
-      border-top: 1px solid #BDBBB2;
-      margin: 32px 0;
+    /* Category tabs: the script below builds the tab bar; without JS it stays hidden and every panel shows stacked */
+    .tab-bar {
+      display: none;
+    }
+    .js-tabs .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .tab-bar button {
+      font-family: inherit;
+      font-size: 0.95em;
+      background-color: #E0DFD6;
+      color: #141413;
+      border: 1px solid #BDBBB2;
+      border-radius: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .tab-bar button:hover {
+      background-color: #BDBBB2;
+    }
+    .tab-bar button.active {
+      background-color: #141413;
+      color: #C9C8BF;
+      border-color: #141413;
+    }
+    .tab-bar button:focus-visible {
+      outline: 2px solid #0073e6;
+      outline-offset: 2px;
+    }
+    .tab-count {
+      font-size: 0.85em;
+    }
+    .tab-panel + .tab-panel {
+      margin-top: 32px;
+    }
+    .js-tabs .tab-panel + .tab-panel {
+      margin-top: 0;
+    }
+    .tab-panel ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (min-width: 800px) {
+      .tab-panel ul {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -70,6 +117,9 @@
   <!-- Main content area -->
   <main>
     <section>
+      <div class="tab-bar" role="tablist" aria-label="Project categories"></div>
+
+      <div class="tab-panel" id="identity-access" role="tabpanel">
       <h2>Identity &amp; Access</h2>
       <ul>
         <!-- Coming Soon placeholder -->
@@ -194,10 +244,9 @@
           <a href="projects/newusercreation.html">View Project →</a>
         </li>
       </ul>
+      </div>
 
-      <hr class="section-divider">
-
-
+      <div class="tab-panel" id="security-compliance" role="tabpanel">
       <h2>Security &amp; Compliance</h2>
       <ul>
         <!-- Coming Soon placeholder -->
@@ -255,10 +304,9 @@
           <a href="projects/falcon-deployment.html">View Project →</a>
         </li>
       </ul>
+      </div>
 
-      <hr class="section-divider">
-
-
+      <div class="tab-panel" id="cloud-governance" role="tabpanel">
       <h2>Cloud &amp; Governance</h2>
       <ul>
         <!-- Project 23 -->
@@ -275,10 +323,9 @@
           <a href="projects/bi-infrastructure.html">View Project →</a>
         </li>
       </ul>
+      </div>
 
-      <hr class="section-divider">
-
-
+      <div class="tab-panel" id="ai-copilot" role="tabpanel">
       <h2>AI &amp; Copilot Agent Development</h2>
       <ul>
         <!-- Project -10 -->
@@ -309,10 +356,9 @@
           <a href="projects/mcp-microsoft-expert-agent.html">View Project →</a>
         </li>
       </ul>
+      </div>
 
-      <hr class="section-divider">
-
-
+      <div class="tab-panel" id="endpoint-management" role="tabpanel">
       <h2>Endpoint Management</h2>
       <ul>
         <!-- Coming Soon placeholder -->
@@ -361,10 +407,9 @@
           <a href="projects/deployment-server.html">View Project →</a>
         </li>
       </ul>
+      </div>
 
-      <hr class="section-divider">
-
-
+      <div class="tab-panel" id="automation-scripting" role="tabpanel">
       <h2>Automation &amp; Scripting</h2>
       <ul>
         <!-- Project -9 -->
@@ -403,10 +448,9 @@
           <a href="projects/sharedmailbox.html">View Project →</a>
         </li>
       </ul>
+      </div>
 
-      <hr class="section-divider">
-
-
+      <div class="tab-panel" id="infrastructure" role="tabpanel">
       <h2>Infrastructure</h2>
       <ul>
         <!-- Coming Soon placeholder -->
@@ -427,8 +471,90 @@
           <a href="projects/serverOS-upgrades.html">View Project →</a>
         </li>
       </ul>
+      </div>
     </section>
   </main>
+
+<script>
+  // Category tabs for the project list (IIFE so nothing clashes with the nav script's `current`)
+  (function () {
+    var bar = document.querySelector(".tab-bar");
+    var panels = Array.prototype.slice.call(document.querySelectorAll(".tab-panel"));
+    if (!bar || !panels.length) return;
+
+    var tabs = panels.map(function (panel) {
+      var tab = document.createElement("button");
+      var count = document.createElement("span");
+      tab.type = "button";
+      tab.id = "tab-" + panel.id;
+      tab.setAttribute("role", "tab");
+      tab.setAttribute("aria-controls", panel.id);
+      tab.textContent = panel.querySelector("h2").textContent + " ";
+      count.className = "tab-count";
+      count.textContent = "(" + panel.querySelectorAll("li").length + ")";
+      tab.appendChild(count);
+      panel.setAttribute("aria-labelledby", tab.id);
+      bar.appendChild(tab);
+      return tab;
+    });
+
+    function select(index, updateHash, moveFocus) {
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.classList.toggle("active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+        tab.tabIndex = on ? 0 : -1;
+        panels[i].hidden = !on;
+      });
+      if (moveFocus) tabs[index].focus();
+      if (updateHash && window.history.replaceState) {
+        window.history.replaceState(null, "", "#" + panels[index].id);
+      }
+    }
+
+    // Panel index for the current hash, or -1 for an empty or unknown hash
+    function indexFromHash() {
+      var id = window.location.hash.slice(1);
+      if (!id) return -1;
+      for (var i = 0; i < panels.length; i++) {
+        if (panels[i].id === id) return i;
+      }
+      return -1;
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () {
+        select(i, true, false);
+      });
+      tab.addEventListener("keydown", function (e) {
+        var next = null;
+        if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        if (next !== null) {
+          e.preventDefault();
+          select(next, true, true);
+        }
+      });
+    });
+
+    // Coming Soon placeholders link to "#": stop them jumping to the top or clearing the tab hash
+    bar.parentNode.addEventListener("click", function (e) {
+      var link = e.target.closest ? e.target.closest("a") : null;
+      if (link && link.getAttribute("href") === "#") e.preventDefault();
+    });
+
+    window.addEventListener("hashchange", function () {
+      var i = indexFromHash();
+      if (i >= 0) select(i, false, false);
+    });
+
+    document.documentElement.classList.add("js-tabs");
+    var initial = indexFromHash();
+    select(initial >= 0 ? initial : 0, false, false);
+  })();
+</script>
 
   <!-- Footer with contact info -->
   <footer>
