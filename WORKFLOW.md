@@ -450,3 +450,11 @@ Template:
 - **Next 3 actions**: 1) Decide whether all placeholders should carry descriptions (Passkey's is still pending) and whether the Defender for Cloud Apps placeholder should move to Security & Compliance. 2) Build the Defender for Cloud Apps page once detections and policies mature. 3) Sentinel screenshots and stub writeups.
 - **Blockers**: None.
 - **Validation done**: All 9 placeholders share the same `<a href="#">` + badge markup, so no placeholder links to a real path and none can 404. projects.html returned HTTP 200 on port 5500. Grep of the added lines for financ/bank/`$`/E5/RHEL/firewall vendor names found zero hits. `find` shows 40 `projects/*.html` and 186 HTML files in total, both unchanged.
+
+### 2026-10-17 (later — Exchange Online transport rule placeholder)
+- **Goal**: Add an "Exchange Online Transport Rule Remediation" Coming Soon placeholder to projects.html.
+- **Current status**: Done. Committed on `projects-updates` (first fast-forwarded to `main`), then fast-forwarded `main` and pushed, since the user asked for it to go live. Placed at the end of the Identity & Access Coming Soon group, after Defender for Cloud Apps. The comment, `<li><a href="#"><strong>`, and badge are byte-identical to the other placeholders, followed by a `<br>` and the requested description line; there is no "Ongoing" line because none was requested. The description says "email security gateway", not the gateway vendor's name. Placeholder count went 9 → 10 in CLAUDE.md, SITE_INVENTORY.md, README.md, and PROJECTS_INVENTORY.md (list and description note updated).
+- **Files touched**: projects.html, CLAUDE.md, SITE_INVENTORY.md, PROJECTS_INVENTORY.md, README.md, WORKFLOW.md
+- **Next 3 actions**: 1) Decide on placeholder descriptions (Passkey still has none) and whether non-identity placeholders (Defender for Cloud Apps, Exchange transport rules) should move to their topical categories. 2) Build the placeholder pages as projects complete. 3) Sentinel screenshots and stub writeups.
+- **Blockers**: None.
+- **Validation done**: All 10 placeholders share the same `<a href="#">` + badge markup, so none can 404. projects.html returned HTTP 200 on port 5500. Grep of the added lines for financ/bank/`$` found zero hits. `find` shows 40 `projects/*.html` and 186 HTML files in total, both unchanged.
