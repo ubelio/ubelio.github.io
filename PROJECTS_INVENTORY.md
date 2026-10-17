@@ -47,21 +47,21 @@ Every file in `projects/`, with its page `<h1>` title and a one-sentence summary
 
 ---
 
-**Total**: 40 files in `projects/`. Newer entries (`adobe-scim-sync-trigger`, `business-prospecting-agent`, `entra-stale-devices`, `fileshare-sharepoint-sync`, `mailbox-permission-audit-report`, `mailbox-quota-enforcement`, `mcp-microsoft-expert-agent`, `phishing-email-purge`) use a full-sentence header subtitle; older entries use a short tagline instead — both are shown verbatim as they appear on the page. The four `sentinel-*` pages form one multi-page project: `sentinel-siem-migration` is its hub (the only one linked from `projects.html`) and links to the other three as phases; `sentinel-detection-engineering` and `sentinel-ingestion-soar` are stubs whose header subtitle reads "Coming Soon".
+**Total**: 40 files in `projects/`. Newer entries (`adobe-scim-sync-trigger`, `business-prospecting-agent`, `entra-stale-devices`, `fileshare-sharepoint-sync`, `mailbox-permission-audit-report`, `mailbox-quota-enforcement`, `mcp-microsoft-expert-agent`, `phishing-email-purge`) use a full-sentence header subtitle; older entries use a short tagline instead — both are shown verbatim as they appear on the page. The four `sentinel-*` pages form one multi-page project: `sentinel-siem-migration` is its hub (the only one linked from `projects.html`) and links to the other three as phases; `sentinel-detection-engineering` and `sentinel-ingestion-soar` are stubs whose header subtitle reads "Coming Soon". All four Sentinel pages open with a `.note` "Ongoing project" disclaimer, and repo-root `power-automate-flows.html` opens with a "Work in progress" `.note`. Their projects.html entries carry a matching grey italic "Ongoing"/"In progress" line. Remove these once the writeups are finished.
 
 ## Hub Categories
 
-How `projects.html` groups all 40 project writeups linked from the hub (37 of the 40 files above, plus the 3 repo-root pages; the 3 `sentinel-*` phase pages are reached from `sentinel-siem-migration` rather than listed directly). Sections appear in this order, matching `index.html`'s Technical Skills categories. Filenames are listed alphabetically here; on the page itself, entries within a category keep their original relative order.
+How `projects.html` groups all 40 project writeups linked from the hub (37 of the 40 files above, plus the 3 repo-root pages; the 3 `sentinel-*` phase pages are reached from `sentinel-siem-migration` rather than listed directly). Categories appear in this order, as tabs on the page (panel IDs in parentheses), matching `index.html`'s Technical Skills categories. Filenames are listed alphabetically here; on the page itself, entries within a category keep their original relative order.
 
 | Category (`<h2>`) | Count | Files |
 |---|---|---|
-| Identity & Access | 14 | `adobe-scim-sync-trigger`, `conditional-access`, `critical-acounts`, `entra-accessreviews`, `entra-applicationmanagement`, `entra-stale-devices`, `entrastaging-server`, `mfa-deployment`, `microsoft-pim`, `newusercreation`, `risky-users`, `SSO-Deployments`, `sspr-rollout`, `windows-hello` |
-| Security & Compliance | 7 | `attack-simulation`, `DC-HealthReporting`, `falcon-deployment`, `mailbox-permission-audit-report`, `phishing-email-purge`, `secure-score`, `sentinel-siem-migration` |
-| Cloud & Governance | 2 | `azure-cloud`, `bi-infrastructure` |
-| AI & Copilot Agent Development | 4 | `business-prospecting-agent`, `mcp-microsoft-expert-agent`, `leading-ai-implementation`\*, `power-platform-implementation`\* |
-| Endpoint Management | 6 | `automatic-patching`, `deployment-server`, `intunebitlocker-automation`, `OfficeApps-AutoUpdate`, `onprembitlocker-automation`, `windows11-upgrade` |
-| Automation & Scripting | 5 | `Automated-HealthScripts`, `fileshare-sharepoint-sync`, `mailbox-quota-enforcement`, `power-automate-flows`\*, `sharedmailbox` |
-| Infrastructure | 2 | `exchange-migration`, `serverOS-upgrades` |
+| Identity & Access (`identity-access`) | 14 | `adobe-scim-sync-trigger`, `conditional-access`, `critical-acounts`, `entra-accessreviews`, `entra-applicationmanagement`, `entra-stale-devices`, `entrastaging-server`, `mfa-deployment`, `microsoft-pim`, `newusercreation`, `risky-users`, `SSO-Deployments`, `sspr-rollout`, `windows-hello` |
+| Security & Compliance (`security-compliance`) | 7 | `attack-simulation`, `DC-HealthReporting`, `falcon-deployment`, `mailbox-permission-audit-report`, `phishing-email-purge`, `secure-score`, `sentinel-siem-migration` |
+| Cloud & Governance (`cloud-governance`) | 2 | `azure-cloud`, `bi-infrastructure` |
+| AI & Copilot Agent Development (`ai-copilot`) | 4 | `business-prospecting-agent`, `mcp-microsoft-expert-agent`, `leading-ai-implementation`\*, `power-platform-implementation`\* |
+| Endpoint Management (`endpoint-management`) | 6 | `automatic-patching`, `deployment-server`, `intunebitlocker-automation`, `OfficeApps-AutoUpdate`, `onprembitlocker-automation`, `windows11-upgrade` |
+| Automation & Scripting (`automation-scripting`) | 5 | `Automated-HealthScripts`, `fileshare-sharepoint-sync`, `mailbox-quota-enforcement`, `power-automate-flows`\*, `sharedmailbox` |
+| Infrastructure (`infrastructure`) | 2 | `exchange-migration`, `serverOS-upgrades` |
 
 \* Lives at the repo root, not in `projects/`.
 
