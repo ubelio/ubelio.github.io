@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Microsoft Sentinel SIEM Migration - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="Microsoft Sentinel SIEM Migration - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Migrated an on-premises SolarWinds SIEM to Microsoft Sentinel at roughly 63-70% lower annual cost, then built out baseline detections, ingestion, and SOAR automation.">
+  <meta property="og:url" content="https://ubelio.github.io/projects/sentinel-siem-migration.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+    .coming-soon {
+      color: #888;
+      font-style: italic;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Microsoft Sentinel SIEM Migration</h1>
+    <p>From an On-Premises SolarWinds SIEM to a Cloud-Native SOC Platform</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <div class="container">
+
+    <section>
+      <h2>The Problem</h2>
+      <p>In March–April 2026, leadership decided that renewing the on-premises SolarWinds SIEM cost too much. They asked me to research moving the same setup to Microsoft Sentinel. My research showed roughly 63-70% lower annual cost, and the migration was approved.</p>
+      <p>A Sentinel workspace already existed, but it was immature: it ingested only Entra sign-in logs. Before it could replace the legacy SIEM, it needed the same log sources and the same detections as SolarWinds.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <ul>
+        <li>An inventory of every SolarWinds rule and every system sending it data, used as the migration plan</li>
+        <li>Security log ingestion from domain controllers and other critical servers through Azure Arc, the Azure Monitor Agent (AMA), and Data Collection Rules (DCRs)</li>
+        <li>A hardened Linux server that forwards switch and firewall syslog into Sentinel through the same Arc/AMA path</li>
+        <li>About 30 SolarWinds rules rebuilt 1:1 as custom KQL analytic rules, with Logic Apps sending email alerts</li>
+        <li>A later set of 50 baseline detections for a regulated environment, mapped to MITRE ATT&amp;CK</li>
+        <li>About 14 data connectors, plus SOAR automation built from automation rules and Logic Apps</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <p>I delivered the project in three phases, each covered in its own writeup:</p>
+      <ol>
+        <li><a href="sentinel-migration-parity.html">SolarWinds to Sentinel: 1:1 Migration</a>: rebuilt the legacy rule set and log sources in Sentinel, then ran both SIEMs side by side for about a month.</li>
+        <li><a href="sentinel-detection-engineering.html">Sentinel Detection Engineering</a> <span class="coming-soon">Coming Soon</span>: built 50 baseline detections from threat intelligence research, mapped to MITRE ATT&amp;CK and tuned against real alert volume.</li>
+        <li><a href="sentinel-ingestion-soar.html">Sentinel Ingestion &amp; SOAR Automation</a> <span class="coming-soon">Coming Soon</span>: expanded ingestion to about 14 connectors and automated incident handling with automation rules and Logic Apps.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Roughly 63-70% lower annual cost than renewing the legacy SIEM</li>
+          <li>About 30 legacy rules migrated at 1:1 parity for easy auditing</li>
+          <li>50 baseline detections, now implemented as 90+ analytic rules</li>
+          <li>About 14 data connectors feeding Sentinel</li>
+          <li>SOAR automation for incident assignment, ticket creation, email alerts, enrichment, and partial remediation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Current State</h2>
+      <p>The Sentinel deployment is now mature. Every detection that has fired so far has been a credential-compromise event, and layered (defense-in-depth) controls mitigated each one. All custom KQL is saved in the Sentinel query library, and I use it to train junior staff in a recurring knowledge-sharing meeting. The platform will keep evolving as the organization moves to E5.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>

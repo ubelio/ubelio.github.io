@@ -35,6 +35,10 @@ Every file in `projects/`, with its page `<h1>` title and a one-sentence summary
 | `phishing-email-purge.html` | Tenant-Wide Phishing Email Purge | Incident response tooling that finds and removes malicious email across every mailbox in the tenant, with enforced just-in-time privilege, mandatory preview, and full audit logging. |
 | `risky-users.html` | Entra ID Risk-Based Conditional Access | Automated Remediation for Risky Sign-Ins and Compromised Users |
 | `secure-score.html` | Secure Score Optimization | Identity Hardening and Governance from 40% to 87% |
+| `sentinel-detection-engineering.html` | Sentinel Detection Engineering | Coming Soon (stub page; full writeup in progress) |
+| `sentinel-ingestion-soar.html` | Sentinel Ingestion & SOAR Automation | Coming Soon (stub page; full writeup in progress) |
+| `sentinel-migration-parity.html` | SolarWinds to Sentinel: 1:1 Migration | Rule-for-Rule Parity with the Legacy SIEM |
+| `sentinel-siem-migration.html` | Microsoft Sentinel SIEM Migration | From an On-Premises SolarWinds SIEM to a Cloud-Native SOC Platform |
 | `serverOS-upgrades.html` | Windows Server OS Upgrades | Modernizing Legacy Infrastructure Without Downtime |
 | `sharedmailbox.html` | Shared Mailbox Creation Automation | Hybrid Provisioning with Entra App Authentication |
 | `sspr-rollout.html` | SSPR Rollout | Self-Service Password Reset with Hybrid AD and Third-Party Sync |
@@ -43,16 +47,16 @@ Every file in `projects/`, with its page `<h1>` title and a one-sentence summary
 
 ---
 
-**Total**: 36 files in `projects/`. Newer entries (`adobe-scim-sync-trigger`, `business-prospecting-agent`, `entra-stale-devices`, `fileshare-sharepoint-sync`, `mailbox-permission-audit-report`, `mailbox-quota-enforcement`, `mcp-microsoft-expert-agent`, `phishing-email-purge`) use a full-sentence header subtitle; older entries use a short tagline instead — both are shown verbatim as they appear on the page.
+**Total**: 40 files in `projects/`. Newer entries (`adobe-scim-sync-trigger`, `business-prospecting-agent`, `entra-stale-devices`, `fileshare-sharepoint-sync`, `mailbox-permission-audit-report`, `mailbox-quota-enforcement`, `mcp-microsoft-expert-agent`, `phishing-email-purge`) use a full-sentence header subtitle; older entries use a short tagline instead — both are shown verbatim as they appear on the page. The four `sentinel-*` pages form one multi-page project: `sentinel-siem-migration` is its hub (the only one linked from `projects.html`) and links to the other three as phases; `sentinel-detection-engineering` and `sentinel-ingestion-soar` are stubs whose header subtitle reads "Coming Soon".
 
 ## Hub Categories
 
-How `projects.html` groups all 39 project writeups (the 36 above plus the 3 repo-root pages). Sections appear in this order, matching `index.html`'s Technical Skills categories. Filenames are listed alphabetically here; on the page itself, entries within a category keep their original relative order.
+How `projects.html` groups all 40 project writeups linked from the hub (37 of the 40 files above, plus the 3 repo-root pages; the 3 `sentinel-*` phase pages are reached from `sentinel-siem-migration` rather than listed directly). Sections appear in this order, matching `index.html`'s Technical Skills categories. Filenames are listed alphabetically here; on the page itself, entries within a category keep their original relative order.
 
 | Category (`<h2>`) | Count | Files |
 |---|---|---|
 | Identity & Access | 14 | `adobe-scim-sync-trigger`, `conditional-access`, `critical-acounts`, `entra-accessreviews`, `entra-applicationmanagement`, `entra-stale-devices`, `entrastaging-server`, `mfa-deployment`, `microsoft-pim`, `newusercreation`, `risky-users`, `SSO-Deployments`, `sspr-rollout`, `windows-hello` |
-| Security & Compliance | 6 | `attack-simulation`, `DC-HealthReporting`, `falcon-deployment`, `mailbox-permission-audit-report`, `phishing-email-purge`, `secure-score` |
+| Security & Compliance | 7 | `attack-simulation`, `DC-HealthReporting`, `falcon-deployment`, `mailbox-permission-audit-report`, `phishing-email-purge`, `secure-score`, `sentinel-siem-migration` |
 | Cloud & Governance | 2 | `azure-cloud`, `bi-infrastructure` |
 | AI & Copilot Agent Development | 5 | `business-prospecting-agent`, `mcp-microsoft-expert-agent`, `leading-ai-implementation`\*, `power-automate-flows`\*, `power-platform-implementation`\* |
 | Endpoint Management | 6 | `automatic-patching`, `deployment-server`, `intunebitlocker-automation`, `OfficeApps-AutoUpdate`, `onprembitlocker-automation`, `windows11-upgrade` |

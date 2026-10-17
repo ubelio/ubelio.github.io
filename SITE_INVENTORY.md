@@ -27,7 +27,7 @@ Every HTML file in the repo, grouped by folder, with a one-line description of w
 
 **Note**: the three AI/Power Platform project pages above are linked from `projects.html` (as "Project -10", "-9", "-8") but live at the repo root instead of inside `projects/`, unlike every other project writeup. Not something this inventory fixes — just flagging the inconsistency for whoever edits these next.
 
-## `projects/` (36 files)
+## `projects/` (40 files)
 
 One HTML writeup per professional project — see `PROJECTS_INVENTORY.md` for the full per-file breakdown (title + summary).
 
@@ -141,4 +141,4 @@ SC-200 exam prep lab writeups, linked from `sc200labs.html`. Completed across an
 
 ---
 
-**Totals**: 182 HTML files — 18 root, 36 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 15 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 41 in `PluralSightLabs/`.
+**Totals**: 186 HTML files — 18 root, 40 in `projects/`, 11 in `FirewallSetup/`, 14 in `SC-401Labs/`, 3 in `DLP-Labs/`, 1 in `Misc/`, 23 in `AppliedSkills/`, 15 in `AgentAcademy/`, 11 in `MS-102Labs/`, 9 in `SC-200Labs/`, 41 in `PluralSightLabs/`.

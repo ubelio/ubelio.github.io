@@ -37,7 +37,7 @@ Screenshots and diagrams live **next to** the HTML file that uses them (same fol
 
 ## 2. Styling Conventions
 
-**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (182 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
+**The site uses a shared stylesheet at `/style.css` (repo root)**, linked from every HTML page (186 and counting — see `SITE_INVENTORY.md` for the current total) via `<link rel="stylesheet" href="/style.css">` in `<head>` — always the absolute path, so it resolves identically from root pages and from subfolder pages (`projects/`, `FirewallSetup/`, etc.).
 
 `style.css` contains only the universal site chrome, shared byte-for-byte across every page before the refactor:
 - `body` (font-family, margin, background-color, color)

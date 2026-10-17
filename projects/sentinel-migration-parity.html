@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SolarWinds to Sentinel: 1:1 Migration - Ubelio Fernandez-Tabet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Metadata for LinkedIn -->
+  <meta property="og:title" content="SolarWinds to Sentinel: 1:1 Migration - Ubelio Fernandez-Tabet">
+  <meta property="og:description" content="Rebuilt about 30 SolarWinds SIEM rules 1:1 in Microsoft Sentinel, onboarded server and network log sources through Azure Arc and AMA, and validated the result with a one-month parallel run.">
+  <meta property="og:url" content="https://ubelio.github.io/projects/sentinel-migration-parity.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+    .impact-box {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 5px solid #0078D4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SolarWinds to Sentinel: 1:1 Migration</h1>
+    <p>Rule-for-Rule Parity with the Legacy SIEM</p>
+  </header>
+
+<nav id="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/scripts.html">Scripts</a>
+  <a href="/homelabconfig.html">Home-Lab Config</a>
+  <a href="/labs.html">Labs</a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<script>
+  // Highlight the active page in the nav
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll("#main-nav a").forEach(link => {
+    if (link.getAttribute("href").endsWith(current)) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+  <div class="container">
+
+    <p><a href="sentinel-siem-migration.html">← Back to Microsoft Sentinel SIEM Migration</a></p>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Leadership decided not to renew the on-premises SolarWinds SIEM because of its cost. My research showed that Microsoft Sentinel could cover the same setup for roughly 63-70% lower annual cost. The existing Sentinel workspace ingested only Entra sign-in logs, so moving the full SolarWinds setup meant bringing over every log source and every rule without losing coverage.</p>
+    </section>
+
+    <section>
+      <h2>What I Built</h2>
+      <ul>
+        <li>An inventory of all SolarWinds rules and the systems sending data to the legacy SIEM</li>
+        <li>Security log collection from domain controllers and other critical servers (about 6 servers) using Azure Arc, the Azure Monitor Agent (AMA), and Data Collection Rules (DCRs)</li>
+        <li>A hardened Linux server that forwards switch and firewall syslog into Sentinel through the same Arc/AMA path</li>
+        <li>Tuned Entra log configuration for the workspace that already existed</li>
+        <li>About 30 SolarWinds rules rebuilt 1:1 as custom KQL analytic rules, with Logic Apps for email alerts</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <ol>
+        <li><strong>Inventory:</strong> I documented each SolarWinds rule and each system sending it data. That list became the migration plan and the checklist for parity.</li>
+        <li><strong>Ingestion:</strong> Domain controllers and other critical servers were onboarded to Azure Arc. AMA collects their security logs, and DCRs control what goes to Sentinel. Switches and firewalls send syslog to a hardened Linux server, which forwards it to Sentinel through the same Arc/AMA path.</li>
+        <li><strong>Rule rebuild:</strong> I recreated each SolarWinds rule as a custom KQL analytic rule, and Logic Apps send the email alerts. The rules map 1:1 to the originals so auditors can trace each legacy rule to its replacement.</li>
+        <li><strong>Parallel run:</strong> SolarWinds and Sentinel ran side by side for about a month. Afterward, the legacy instance stayed in place temporarily as a fallback to catch any undocumented rules.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="impact-box">
+        <ul>
+          <li>Roughly 63-70% lower annual cost than renewing the legacy SIEM</li>
+          <li>About 30 legacy rules migrated at 1:1 parity, so each one is easy to audit</li>
+          <li>About a month of parallel running to validate the cutover before relying on Sentinel</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Email: <a href="mailto:ubelio@ubeliofernandez.com">ubelio@ubeliofernandez.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/ubelio/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ubelio</a></p>
+  </footer>
+
+</body>
+</html>
