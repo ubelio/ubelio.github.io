@@ -466,3 +466,11 @@ Template:
 - **Next 3 actions**: 1) Decide on a Passkey description and whether Passkey and Passwordless should merge. 2) Optionally fix projects.html typos ("Upgrdaes", "Critial"). 3) Sentinel screenshots and stub writeups.
 - **Blockers**: None.
 - **Validation done**: All 50 `<li>`s in projects.html are present before and after the change, with identical content (only order changed). Per-category counts match the Hub Categories table (14/7/2/4/6/5/2 = 40 real entries) plus 10 placeholders (8/1/1). projects.html returned HTTP 200 on port 5500. `find` counts unchanged (40 / 186).
+
+### 2026-10-17 (later — projects.html typo fixes)
+- **Goal**: Fix the typos in projects.html and publish.
+- **Current status**: Done. Committed on `projects-updates`, then fast-forwarded `main` and pushed (user asked for it to go live). Fixed 8 lines of hub-entry text only, with no structural changes: "Critial" → "Critical", "Upgrdaes" → "Upgrades", "Flacon" → "Falcon", "ouron prem" → "our on-premises", "onpremises" → "on-premises", "Powershell" → "PowerShell" (2), "Lead Windows 10…" → "Led…", "Graph Rest API" → "Graph REST API". None of these typos appear anywhere else in the repo.
+- **Files touched**: projects.html, WORKFLOW.md
+- **Next 3 actions**: 1) Decide on a Passkey description and whether Passkey and Passwordless should merge. 2) Sentinel screenshots and stub writeups. 3) Build the Coming Soon project pages as they complete.
+- **Blockers**: None.
+- **Validation done**: `git diff` shows exactly the 8 intended lines. Grep for the old misspellings returns 0. projects.html returned HTTP 200 on port 5500.
